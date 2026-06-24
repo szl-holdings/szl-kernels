@@ -13,13 +13,13 @@ szl-governance:
 
 # szl-kernels — the unified governed-kernel suite
 
-**The first kernel that governs provenance *across* ops, not just within one.** A `get_kernel`-discoverable suite that ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a two-kernel governance layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict) and [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives EU AI Act Annex IV).
+**The first kernel that governs provenance *across* ops, not just within one.** A `get_kernel`-discoverable suite that ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a governance/interop layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict), [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives EU AI Act Annex IV), and [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) (verifies the provenance DAG + bridges to in-toto/SLSA).
 
 > Every Kernel Hub leader competes on **FLOPs per op**. They do not sign their build artifacts, they do not surface an honest BLOCKED verdict, and they do not stitch provenance *across* ops. `szl-kernels` opens that lane: a real forward pass touching norm + an advisory Λ gate + an energy reading produces **one auditable, tamper-evident log** — not three disconnected ones.
 
 ## The governed-kernel series
 
-Five independently published, `get_kernel`-discoverable kernels that share one `UnifiedReceiptChain`. The first three are the **numeric core**; the last two are the **governance layer**.
+Independently published, `get_kernel`-discoverable kernels that share one `UnifiedReceiptChain`. The first three are the **numeric core**; govsign + blocked + provctl are the **governance / interop layer**.
 
 | Kernel | Lane | Live hologram |
 |---|---|---|
@@ -28,13 +28,14 @@ Five independently published, `get_kernel`-discoverable kernels that share one `
 | [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) | MEASURED-joule energy accounting | [energy-attest-holo](https://huggingface.co/spaces/SZLHOLDINGS/energy-attest-holo) |
 | [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) | signed governance attestation (DSSE / in-toto, ECDSA P-256) | [szl-govsign-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-govsign-live) |
 | [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) | honest-BLOCKED first-class state + EU AI Act Annex IV DRAFT | [szl-blocked-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-blocked-live) |
+| [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) | provenance-DAG verify + in-toto v1 / SLSA v1 interop + per-kernel MEASURED energy | [szl-provctl-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-provctl-live) |
 | **`szl-kernels`** (this repo) | **unified suite — cross-kernel `UnifiedReceiptChain`** | [szl-kernels-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-kernels-live) |
 
-`suite.list_kernels()` returns the numeric core; `suite.list_series()` returns the govsign + blocked governance layer.
+`suite.list_kernels()` returns the numeric core; `suite.list_series()` returns the govsign + blocked + provctl governance/interop layer.
 
 ## The gap this closes
 
-Today even SZL's own governance is fragmented: `szl-governed-norm` keeps its own receipt chain, the energy meter keeps its own ledger, and `szl-lambda-gate` keeps none. So a single forward pass yields three logs no third party can re-walk as one ordered, tamper-evident sequence. `UnifiedReceiptChain` is that missing artifact — op-agnostic SHA3-256 receipts that hash-chain norm, Λ, and energy calls into **one** verifiable stream, in call order. `szl-govsign` then makes that chain head third-party-verifiable; `szl-blocked` makes a refusal a recorded, first-class state and derives the compliance paperwork from it.
+Today even SZL's own governance is fragmented: `szl-governed-norm` keeps its own receipt chain, the energy meter keeps its own ledger, and `szl-lambda-gate` keeps none. So a single forward pass yields three logs no third party can re-walk as one ordered, tamper-evident sequence. `UnifiedReceiptChain` is that missing artifact — op-agnostic SHA3-256 receipts that hash-chain norm, Λ, and energy calls into **one** verifiable stream, in call order. `szl-govsign` then makes that chain head third-party-verifiable; `szl-blocked` makes a refusal a recorded, first-class state and derives the compliance paperwork from it; `szl-provctl` verifies the whole multi-run provenance DAG and bridges it to the in-toto/SLSA formats the rest of the supply-chain world reads.
 
 ## Quickstart
 
@@ -46,7 +47,7 @@ from kernels import get_kernel
 suite = get_kernel("SZLHOLDINGS/szl-kernels", revision="main", trust_remote_code=True)
 
 print(suite.list_kernels())     # the 3 numeric suite members + honest roles
-print(suite.list_series())      # the 2 governance-layer companions (govsign, blocked)
+print(suite.list_series())      # the governance/interop companions (govsign, blocked, provctl)
 print(suite.selfcheck())        # one-shot CPU health: ALL checks pass
 
 # ONE shared chain spanning multiple ops:
@@ -99,7 +100,7 @@ Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/
 
 - 🔮 Suite: [szl-kernels-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-kernels-live) — holographic cross-kernel provenance graph with in-browser SHA3-256 + tamper / honest-BLOCKED demo.
 - 🔮 Members: [governed-norm-holo](https://huggingface.co/spaces/SZLHOLDINGS/governed-norm-holo) · [lambda-gate-holo](https://huggingface.co/spaces/SZLHOLDINGS/lambda-gate-holo) · [energy-attest-holo](https://huggingface.co/spaces/SZLHOLDINGS/energy-attest-holo) · [receipt-chain-live](https://huggingface.co/spaces/SZLHOLDINGS/receipt-chain-live)
-- 🔮 Governance layer: [szl-govsign-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-govsign-live) · [szl-blocked-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-blocked-live)
+- 🔮 Governance layer: [szl-govsign-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-govsign-live) · [szl-blocked-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-blocked-live) · [szl-provctl-live](https://huggingface.co/spaces/SZLHOLDINGS/szl-provctl-live)
 - 🔮 [szl-substrate](https://huggingface.co/spaces/SZLHOLDINGS/szl-substrate) — the hub tying the whole governed-compute substrate together.
 
 ## Compatibility

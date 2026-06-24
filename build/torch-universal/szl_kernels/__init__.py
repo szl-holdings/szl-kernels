@@ -12,12 +12,21 @@ Suite members (each independently published as its own Hub kernel):
   * governed_norm  -> SZLHOLDINGS/szl-governed-norm   (RMSNorm/LayerNorm + receipts)
   * lambda_gate    -> SZLHOLDINGS/szl-lambda-gate     (advisory Λ gate; Conjecture 1)
   * energy_core    -> szl_energy_core / governed-inference-meter (MEASURED joules)
+  * govsign        -> SZLHOLDINGS/szl-govsign         (signed governance attestation; DSSE / in-toto)
+  * blocked        -> SZLHOLDINGS/szl-blocked         (honest-BLOCKED first-class state + EU AI Act Annex IV)
+
+The first three are the NUMERIC core exercised by the shared forward pass.
+govsign + blocked are GOVERNANCE-LAYER series companions: govsign makes a
+verdict third-party-verifiable (sign/verify offline), and blocked makes a
+refusal a first-class, provenanced state (the op never runs — no fake-green)
+and derives an EU AI Act Annex IV DRAFT skeleton from the same chain.
 
 Discover + use the suite:
 
     from kernels import get_kernel
     suite = get_kernel("SZLHOLDINGS/szl-kernels", revision="main", trust_remote_code=True)
     print(suite.list_kernels())            # {'governed_norm':..., 'lambda_gate':..., 'energy_core':...}
+    print(suite.list_series())             # {'govsign':..., 'blocked':...}
     print(suite.selfcheck())               # one-shot suite health (CPU only)
 
     # ONE shared chain spanning multiple ops:
@@ -68,6 +77,7 @@ __all__ = [
     "governed_measure_energy",
     "GovernedBlock",
     "list_kernels",
+    "list_series",
     "get_member",
     "selfcheck",
     "DOCTRINE_FOOTER",
@@ -103,9 +113,27 @@ _REGISTRY: Dict[str, Dict[str, str]] = {
     },
 }
 
+# Governance-layer series companions (not part of the numeric forward pass).
+# Each is independently published and operates on the SAME UnifiedReceiptChain
+# provenance, extending the suite from "govern provenance ACROSS ops" to
+# "sign that provenance" and "refuse-and-record honestly."
+_SERIES: Dict[str, Dict[str, str]] = {
+    "govsign": {
+        "hub_id": "SZLHOLDINGS/szl-govsign",
+        "role": "signed governance attestation (DSSE / in-toto, ECDSA P-256)",
+        "honesty": "signature proves authorship+integrity, NOT Λ uniqueness; proven_trust locked False; a BLOCKED verdict is signed as BLOCKED",
+    },
+    "blocked": {
+        "hub_id": "SZLHOLDINGS/szl-blocked",
+        "role": "honest-BLOCKED first-class state + EU AI Act Annex IV DRAFT derivation",
+        "honesty": "a BLOCKED op never executes (no fake-green); Annex IV output is a DRAFT skeleton, NOT legal advice",
+    },
+}
+
 PROVENANCE = {
     "suite": "szl_kernels",
     "members": _REGISTRY,
+    "series_companions": _SERIES,
     "lean_repo": "szl-holdings/lutar-lean",
     "doi_lutar_lean": "10.5281/zenodo.20434308",
     "lambda_status": "Conjecture 1 (open) — uniqueness unproven; advisory only",
@@ -116,6 +144,16 @@ PROVENANCE = {
 def list_kernels() -> Dict[str, Dict[str, str]]:
     """Return the suite registry: member key -> {hub_id, role, honesty}."""
     return {k: dict(v) for k, v in _REGISTRY.items()}
+
+
+def list_series() -> Dict[str, Dict[str, str]]:
+    """Return the governance-layer series companions (govsign, blocked).
+
+    These extend the numeric suite with signed attestation (govsign) and
+    honest-BLOCKED + EU AI Act Annex IV derivation (blocked). They operate on
+    the same UnifiedReceiptChain but are not part of the numeric forward pass.
+    """
+    return {k: dict(v) for k, v in _SERIES.items()}
 
 
 def get_member(key: str) -> Dict[str, str]:

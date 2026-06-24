@@ -1,0 +1,14 @@
+{
+  "name": "szl_kernels",
+  "version": "0.1.0",
+  "summary": "SZL Holdings unified governed-kernel suite with cross-kernel provenance",
+  "license": "Apache-2.0",
+  "universal": true,
+  "members": {
+    "governed_norm": "SZLHOLDINGS/szl-governed-norm",
+    "lambda_gate": "SZLHOLDINGS/szl-lambda-gate",
+    "energy_core": "SZLHOLDINGS/governed-inference-meter"
+  },
+  "doctrine": "Lambda=Conjecture 1 (advisory); energy MEASURED-only; honest-BLOCKED; no fabricated benchmarks",
+  "shared_chain": "UnifiedReceiptChain (SHA3-256, op-agnostic, cross-kernel)"
+}

@@ -114,3 +114,13 @@ Apache-2.0. Copyright 2026 SZL Holdings.
 ---
 
 <sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href="https://a11oy.net">a11oy.net</a> · <a href="https://github.com/szl-holdings">github.com/szl-holdings</a> · <a href="https://huggingface.co/SZLHOLDINGS">huggingface.co/SZLHOLDINGS</a></sub>
+
+---
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19944926.svg)](https://doi.org/10.5281/zenodo.19944926)
+
+## Citation
+
+Part of the **SZL Holdings Ouroboros Thesis** — concept DOI [`10.5281/zenodo.19944926`](https://doi.org/10.5281/zenodo.19944926) (Stephen P. Lutar, Jr., [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173)). Doctrine v11 LOCKED; Λ = Conjecture 1.
+
+*Signed-off-by: Stephen Lutar <stephenlutar2@gmail.com>*

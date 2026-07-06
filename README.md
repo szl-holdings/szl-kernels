@@ -117,7 +117,7 @@ Apache-2.0. Copyright 2026 SZL Holdings.
 
 ---
 
-<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href="https://a11oy.net">a11oy.net</a> · <a href="https://github.com/szl-holdings">github.com/szl-holdings</a> · <a href="https://huggingface.co/SZLHOLDINGS">huggingface.co/SZLHOLDINGS</a></sub>
+<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href="https://a-11-oy.com">a-11-oy.com</a> · <a href="https://github.com/szl-holdings">github.com/szl-holdings</a> · <a href="https://huggingface.co/SZLHOLDINGS">huggingface.co/SZLHOLDINGS</a></sub>
 
 ---
 

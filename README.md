@@ -1,6 +1,9 @@
 ---
 tags:
 - kernel
+- governance
+- provenance
+- suite
 library_name: kernels
 license: apache-2.0
 szl-governance:
@@ -98,6 +101,7 @@ Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/
 
 ## See it live
 
+- ✅ **Live now:** [a11oy](https://huggingface.co/spaces/SZLHOLDINGS/a11oy) (live governed inference) · [hatun-mcp](https://huggingface.co/spaces/SZLHOLDINGS/hatun-mcp). The `*-live` / `*-holo` Spaces below are ROADMAP (not yet live).
 - 🔮 Suite: `szl-kernels-live` *(ROADMAP — not yet live)* — holographic cross-kernel provenance graph with in-browser SHA3-256 + tamper / honest-BLOCKED demo.
 - 🔮 Members: `governed-norm-holo` *(ROADMAP — not yet live)* · `lambda-gate-holo` *(ROADMAP — not yet live)* · `energy-attest-holo` *(ROADMAP — not yet live)* · `receipt-chain-live` *(ROADMAP — not yet live)*
 - 🔮 Governance layer: `szl-govsign-live` *(ROADMAP — not yet live)* · `szl-blocked-live` *(ROADMAP — not yet live)* · `szl-provctl-live` *(ROADMAP — not yet live)*

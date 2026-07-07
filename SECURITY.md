@@ -4,7 +4,7 @@
 
 **Do NOT open a public issue for security vulnerabilities.**
 
-Please report security vulnerabilities via email to **security@szlholdings.ai** with:
+Please report security vulnerabilities via email to **security@szlholdings.com** with:
 
 1. Description of the vulnerability
 2. Steps to reproduce
@@ -31,8 +31,8 @@ We follow a **90-day responsible disclosure** policy.
 
 ## Contact
 
-- **Security disclosures:** security@szlholdings.ai
-- **General:** hello@szlholdings.ai
-- **Website:** https://szlholdings.ai
+- **Security disclosures:** security@szlholdings.com
+- **General:** hello@szlholdings.com
+- **Website:** https://szlholdings.com
 
 *This policy follows the [OpenSSF Vulnerability Disclosure Guide](https://github.com/ossf/oss-vulnerability-guide).*

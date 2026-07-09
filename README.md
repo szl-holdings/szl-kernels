@@ -102,6 +102,7 @@ Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/
 ## See it live
 
 - ✅ **Live now:** [a11oy](https://huggingface.co/spaces/SZLHOLDINGS/a11oy) (live governed inference) · [hatun-mcp](https://huggingface.co/spaces/SZLHOLDINGS/hatun-mcp). The `*-live` / `*-holo` Spaces below are ROADMAP (not yet live).
+- 📚 **Collection:** [Governed Kernels — verifiable AI building blocks](https://huggingface.co/collections/SZLHOLDINGS/governed-kernels-verifiable-ai-building-blocks-6a41d3936cfce4fba83ce378) — the whole family in one page. **Live console:** [a11oy](https://szlholdings-a11oy.hf.space) · [a-11-oy.com](https://a-11-oy.com).
 - 🔮 Suite: `szl-kernels-live` *(ROADMAP — not yet live)* — holographic cross-kernel provenance graph with in-browser SHA3-256 + tamper / honest-BLOCKED demo.
 - 🔮 Members: `governed-norm-holo` *(ROADMAP — not yet live)* · `lambda-gate-holo` *(ROADMAP — not yet live)* · `energy-attest-holo` *(ROADMAP — not yet live)* · `receipt-chain-live` *(ROADMAP — not yet live)*
 - 🔮 Governance layer: `szl-govsign-live` *(ROADMAP — not yet live)* · `szl-blocked-live` *(ROADMAP — not yet live)* · `szl-provctl-live` *(ROADMAP — not yet live)*

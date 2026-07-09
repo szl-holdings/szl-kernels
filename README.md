@@ -21,26 +21,6 @@ szl-governance:
 
 > Every Kernel Hub leader competes on **FLOPs per op**. They do not sign their build artifacts, they do not surface an honest BLOCKED verdict, and they do not stitch provenance *across* ops. `szl-kernels` opens that lane: a real forward pass touching norm + an advisory Λ gate + an energy reading produces **one auditable, tamper-evident log** — not three disconnected ones.
 
-## The governed-kernel series
-
-Independently published, `get_kernel`-discoverable kernels that share one `UnifiedReceiptChain`. The first three are the **numeric core**; govsign + blocked + provctl are the **governance / interop layer**.
-
-| Kernel | Lane | Live hologram |
-|---|---|---|
-| [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm) | RMSNorm/LayerNorm + SHA3-256 receipts | `governed-norm-holo` *(ROADMAP — not yet live)* |
-| [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate) | advisory Λ gate (Conjecture 1, OPEN) | `lambda-gate-holo` *(ROADMAP — not yet live)* |
-| [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) | MEASURED-joule energy accounting | `energy-attest-holo` *(ROADMAP — not yet live)* |
-| [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) | signed governance attestation (DSSE / in-toto, ECDSA P-256) | `szl-govsign-live` *(ROADMAP — not yet live)* |
-| [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) | honest-BLOCKED first-class state + EU AI Act Annex IV DRAFT | `szl-blocked-live` *(ROADMAP — not yet live)* |
-| [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) | provenance-DAG verify + in-toto v1 / SLSA v1 interop + per-kernel MEASURED energy | `szl-provctl-live` *(ROADMAP — not yet live)* |
-| **`szl-kernels`** (this repo) | **unified suite — cross-kernel `UnifiedReceiptChain`** | `szl-kernels-live` *(ROADMAP — not yet live)* |
-
-`suite.list_kernels()` returns the numeric core; `suite.list_series()` returns the govsign + blocked + provctl governance/interop layer.
-
-## The gap this closes
-
-Today even SZL's own governance is fragmented: `szl-governed-norm` keeps its own receipt chain, the energy meter keeps its own ledger, and `szl-lambda-gate` keeps none. So a single forward pass yields three logs no third party can re-walk as one ordered, tamper-evident sequence. `UnifiedReceiptChain` is that missing artifact — op-agnostic SHA3-256 receipts that hash-chain norm, Λ, and energy calls into **one** verifiable stream, in call order. `szl-govsign` then makes that chain head third-party-verifiable; `szl-blocked` makes a refusal a recorded, first-class state and derives the compliance paperwork from it; `szl-provctl` verifies the whole multi-run provenance DAG and bridges it to the in-toto/SLSA formats the rest of the supply-chain world reads.
-
 ## Quickstart
 
 ```python
@@ -75,6 +55,107 @@ print(res["chain_ok"], res["chain_depth"], res["kernels_touched"])
 # norm + advisory Λ gate + energy + binding receipt = 4 ops, one verifiable chain.
 # The Λ gate is ADVISORY: it is recorded for audit, it does NOT alter the numerics.
 ```
+
+## Cookbook
+
+Three copy-paste recipes spanning the governed-kernel series. Every printed value is
+labeled **expected shape (not executed here)** — the shapes are transcribed from each
+kernel's committed API, not from a run on this card (SZL doctrine: never self-download to
+inflate counters, never fabricate an output). Λ stays **Conjecture 1 (OPEN)**; energy stays
+**MEASURED-only**; a BLOCKED verdict stays BLOCKED.
+
+### 1 — One receipt chain across three ops (suite)
+
+```python
+import torch
+from kernels import get_kernel
+
+suite = get_kernel("SZLHOLDINGS/szl-kernels", revision="main", trust_remote_code=True)
+
+chain = suite.UnifiedReceiptChain()
+x = torch.randn(4, 64)
+suite.governed_rms_norm(chain, x, eps=1e-6)                        # op 1: governed_norm
+suite.governed_lambda_gate(chain, torch.tensor([0.9, 0.8, 0.95]))  # op 2: lambda_gate (ADVISORY)
+suite.governed_measure_energy(chain)                              # op 3: energy_core (MEASURED-only)
+
+ok, depth, first_break = chain.verify()
+print(ok, depth, chain.kernels_touched())
+# expected shape (not executed here):
+#   True 3 ['governed_norm', 'lambda_gate', 'energy_core']
+#   -> one hash-chain, three ops, verifies as ONE ordered sequence.
+#   The Λ gate receipt is ADVISORY (Conjecture 1, OPEN): recorded, never proven trust.
+#   energy_core reports joules=None + UNAVAILABLE_NO_NVML on CPU — never a fabricated joule.
+```
+
+### 2 — honest-BLOCKED, not fake-green (szl-blocked)
+
+```python
+from kernels import get_kernel
+
+blk = get_kernel("SZLHOLDINGS/szl-blocked", revision="main", trust_remote_code=True)
+
+chain  = blk.UnifiedReceiptChain()
+policy = blk.deny_if_action_in({"exfiltrate", "delete_all"})
+work   = lambda v: v * 2
+
+allowed = blk.governed_call(work, policy, chain, request={"action": "summarize"},  args=(21,))
+blocked = blk.governed_call(work, policy, chain, request={"action": "exfiltrate"}, args=(21,))
+
+print(allowed.blocked, allowed.output)
+print(blocked.blocked, blocked.output)
+# expected shape (not executed here):
+#   False 42     -> ALLOWED path ran work(21); an ALLOW receipt is on the chain.
+#   True None    -> BLOCKED path: work was NEVER called, output is None,
+#                   a BLOCK receipt is recorded. Honest-BLOCKED, never faked green.
+```
+
+### 3 — Sign then verify a governance verdict (szl-govsign / DSSE)
+
+```python
+from kernels import get_kernel
+
+gs = get_kernel("SZLHOLDINGS/szl-govsign", revision="main", trust_remote_code=True)
+
+priv = gs.generate_ephemeral_keypair()   # production: Sigstore keyless / cosign key, out-of-band
+pred = gs.build_governance_predicate(
+    lambda_verdict = gs.LambdaVerdict(score=0.92, notes="advisory only — Conjecture 1 (OPEN)"),
+    energy         = gs.EnergyLabel(value=12.5, unit="joules"),   # MEASURED-only
+    decision       = gs.GovernanceDecision(status="ALLOWED", reason="passed gates"),
+    honest_blocked = False,
+)
+subjects = [gs.Subject(name="szl_kernels/UnifiedReceiptChain", digest={"sha256": "<chain-head>"})]
+envelope = gs.attest(subjects, pred, priv)
+
+print(gs.verify(envelope, priv.public_key()))
+# expected shape (not executed here):
+#   True   -> DSSE envelope (ECDSA P-256) verifies: authorship + integrity of the verdict.
+#            Any tamper -> verify() returns False (fails closed).
+#            The signature does NOT upgrade Λ to proven trust: proven_trust is locked False.
+```
+
+> These recipes chain across three separately published, `get_kernel`-discoverable kernels.
+> See [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) to turn any of these
+> chains into a spec-exact in-toto v1 / SLSA v1 statement the wider supply-chain world verifies.
+
+## The governed-kernel series
+
+Independently published, `get_kernel`-discoverable kernels that share one `UnifiedReceiptChain`. The first three are the **numeric core**; govsign + blocked + provctl are the **governance / interop layer**.
+
+| Kernel | Lane | Live hologram |
+|---|---|---|
+| [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm) | RMSNorm/LayerNorm + SHA3-256 receipts | `governed-norm-holo` *(ROADMAP — not yet live)* |
+| [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate) | advisory Λ gate (Conjecture 1, OPEN) | `lambda-gate-holo` *(ROADMAP — not yet live)* |
+| [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) | MEASURED-joule energy accounting | `energy-attest-holo` *(ROADMAP — not yet live)* |
+| [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) | signed governance attestation (DSSE / in-toto, ECDSA P-256) | `szl-govsign-live` *(ROADMAP — not yet live)* |
+| [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) | honest-BLOCKED first-class state + EU AI Act Annex IV DRAFT | `szl-blocked-live` *(ROADMAP — not yet live)* |
+| [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) | provenance-DAG verify + in-toto v1 / SLSA v1 interop + per-kernel MEASURED energy | `szl-provctl-live` *(ROADMAP — not yet live)* |
+| **`szl-kernels`** (this repo) | **unified suite — cross-kernel `UnifiedReceiptChain`** | `szl-kernels-live` *(ROADMAP — not yet live)* |
+
+`suite.list_kernels()` returns the numeric core; `suite.list_series()` returns the govsign + blocked + provctl governance/interop layer.
+
+## The gap this closes
+
+Today even SZL's own governance is fragmented: `szl-governed-norm` keeps its own receipt chain, the energy meter keeps its own ledger, and `szl-lambda-gate` keeps none. So a single forward pass yields three logs no third party can re-walk as one ordered, tamper-evident sequence. `UnifiedReceiptChain` is that missing artifact — op-agnostic SHA3-256 receipts that hash-chain norm, Λ, and energy calls into **one** verifiable stream, in call order. `szl-govsign` then makes that chain head third-party-verifiable; `szl-blocked` makes a refusal a recorded, first-class state and derives the compliance paperwork from it; `szl-provctl` verifies the whole multi-run provenance DAG and bridges it to the in-toto/SLSA formats the rest of the supply-chain world reads.
 
 ## API
 

@@ -23,6 +23,10 @@ szl-governance:
 
 ## Quickstart
 
+```bash
+pip install kernels torch
+```
+
 ```python
 import torch
 from kernels import get_kernel
@@ -143,13 +147,13 @@ Independently published, `get_kernel`-discoverable kernels that share one `Unifi
 
 | Kernel | Lane | Live hologram |
 |---|---|---|
-| [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm) | RMSNorm/LayerNorm + SHA3-256 receipts | `governed-norm-holo` *(ROADMAP — not yet live)* |
-| [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate) | advisory Λ gate (Conjecture 1, OPEN) | `lambda-gate-holo` *(ROADMAP — not yet live)* |
-| [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) | MEASURED-joule energy accounting | `energy-attest-holo` *(ROADMAP — not yet live)* |
-| [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) | signed governance attestation (DSSE / in-toto, ECDSA P-256) | `szl-govsign-live` *(ROADMAP — not yet live)* |
-| [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) | honest-BLOCKED first-class state + EU AI Act Annex IV DRAFT | `szl-blocked-live` *(ROADMAP — not yet live)* |
-| [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) | provenance-DAG verify + in-toto v1 / SLSA v1 interop + per-kernel MEASURED energy | `szl-provctl-live` *(ROADMAP — not yet live)* |
-| **`szl-kernels`** (this repo) | **unified suite — cross-kernel `UnifiedReceiptChain`** | `szl-kernels-live` *(ROADMAP — not yet live)* |
+| [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm) | RMSNorm/LayerNorm + SHA3-256 receipts | [`governed-norm-holo`](https://szlholdings-governed-norm-holo.static.hf.space) ✅ **live** |
+| [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate) | advisory Λ gate (Conjecture 1, OPEN) | [`lambda-gate-holo`](https://szlholdings-lambda-gate-holo.static.hf.space) ✅ **live** |
+| [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) | MEASURED-joule energy accounting | [`energy-attest-holo`](https://szlholdings-energy-attest-holo.static.hf.space) ✅ **live** |
+| [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) | signed governance attestation (DSSE / in-toto, ECDSA P-256) | [`szl-govsign-live`](https://szlholdings-szl-govsign-live.static.hf.space) ✅ **live** |
+| [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) | honest-BLOCKED first-class state + EU AI Act Annex IV DRAFT | [`szl-blocked-live`](https://szlholdings-szl-blocked-live.static.hf.space) ✅ **live** |
+| [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) | provenance-DAG verify + in-toto v1 / SLSA v1 interop + per-kernel MEASURED energy | [`szl-provctl-live`](https://szlholdings-szl-provctl-live.static.hf.space) ✅ **live** |
+| **`szl-kernels`** (this repo) | **unified suite — cross-kernel `UnifiedReceiptChain`** | [`szl-kernels-live`](https://szlholdings-szl-kernels-live.static.hf.space) ✅ **live** |
 
 `suite.list_kernels()` returns the numeric core; `suite.list_series()` returns the govsign + blocked + provctl governance/interop layer.
 
@@ -183,11 +187,11 @@ Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/
 
 ## See it live
 
-- ✅ **Live now:** [a11oy](https://huggingface.co/spaces/SZLHOLDINGS/a11oy) (live governed inference) · [hatun-mcp](https://huggingface.co/spaces/SZLHOLDINGS/hatun-mcp). The `*-live` / `*-holo` Spaces below are ROADMAP (not yet live).
+- ✅ **Live now:** [a11oy](https://huggingface.co/spaces/SZLHOLDINGS/a11oy) (live governed inference) · [hatun-mcp](https://huggingface.co/spaces/SZLHOLDINGS/hatun-mcp). **All eight demo Spaces below are live** (static, in-browser).
 - 📚 **Collection:** [Governed Kernels — verifiable AI building blocks](https://huggingface.co/collections/SZLHOLDINGS/governed-kernels-verifiable-ai-building-blocks-6a41d3936cfce4fba83ce378) — the whole family in one page. **Live console:** [a11oy](https://szlholdings-a11oy.hf.space) · [a-11-oy.com](https://a-11-oy.com) · [llm-router](https://szlholdings-llm-router-live.hf.space) · [receipt verifier](https://szlholdings-governed-receipt-verifier.static.hf.space) · [receipt spec (hub)](https://github.com/szl-holdings/governed-receipt-spec).
-- 🔮 Suite: `szl-kernels-live` *(ROADMAP — not yet live)* — holographic cross-kernel provenance graph with in-browser SHA3-256 + tamper / honest-BLOCKED demo.
-- 🔮 Members: `governed-norm-holo` *(ROADMAP — not yet live)* · `lambda-gate-holo` *(ROADMAP — not yet live)* · `energy-attest-holo` *(ROADMAP — not yet live)* · `receipt-chain-live` *(ROADMAP — not yet live)*
-- 🔮 Governance layer: `szl-govsign-live` *(ROADMAP — not yet live)* · `szl-blocked-live` *(ROADMAP — not yet live)* · `szl-provctl-live` *(ROADMAP — not yet live)*
+- ✅ Suite: [`szl-kernels-live`](https://szlholdings-szl-kernels-live.static.hf.space) ✅ **live** — holographic cross-kernel provenance graph with in-browser SHA3-256 + tamper / honest-BLOCKED demo.
+- ✅ Members: [`governed-norm-holo`](https://szlholdings-governed-norm-holo.static.hf.space) ✅ **live** · [`lambda-gate-holo`](https://szlholdings-lambda-gate-holo.static.hf.space) ✅ **live** · [`energy-attest-holo`](https://szlholdings-energy-attest-holo.static.hf.space) ✅ **live** · [`receipt-chain-live`](https://szlholdings-receipt-chain-live.static.hf.space) ✅ **live**
+- ✅ Governance layer: [`szl-govsign-live`](https://szlholdings-szl-govsign-live.static.hf.space) ✅ **live** · [`szl-blocked-live`](https://szlholdings-szl-blocked-live.static.hf.space) ✅ **live** · [`szl-provctl-live`](https://szlholdings-szl-provctl-live.static.hf.space) ✅ **live**
 - 🔮 `szl-substrate` *(ROADMAP — not yet live)* — the hub tying the whole governed-compute substrate together.
 
 ## Compatibility
@@ -230,3 +234,14 @@ Honesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine
 ```
 
 *Signed-off-by: Stephen Lutar <stephenlutar2@gmail.com>*
+
+## Files in this repo
+
+| Path | What it is |
+|---|---|
+| `build/torch-universal/szl_kernels/__init__.py` | public API — suite entry points + `selfcheck()` |
+| `build/torch-universal/szl_kernels/_chain.py` | cross-kernel `UnifiedReceiptChain` (SHA3-256) |
+| `build/torch-universal/szl_kernels/_ops.py` | the governed op set |
+| `tests/test_suite.py` | suite test |
+| `build.toml` · `metadata.json` | Kernel Hub build/metadata manifests |
+| `LICENSE` · `SECURITY.md` | Apache-2.0 · security policy |

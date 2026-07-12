@@ -1,0 +1,44 @@
+{
+  "schema": "szl.model-source-attestation/v1",
+  "observed_at": "2026-07-12T00:27:14Z",
+  "model": {
+    "id": "SZLHOLDINGS/szl-kernels",
+    "repository_type": "model",
+    "artifact_kind": "kernel-code-and-configuration",
+    "trained_weights_present": false
+  },
+  "source_of_record": {
+    "state": "VERIFIED_HF_SOURCE_OF_RECORD",
+    "platform": "huggingface",
+    "repository": "SZLHOLDINGS/szl-kernels",
+    "artifact_base_revision": "dab03c8bfffd0e771e1e4e03b1c16fb2e71dd147",
+    "artifact_base_state": "MEASURED_PRE_ATTESTATION_BASE",
+    "artifact_base_url": "https://huggingface.co/SZLHOLDINGS/szl-kernels/tree/dab03c8bfffd0e771e1e4e03b1c16fb2e71dd147",
+    "file_count": 10,
+    "tree_sha256": "d40080d89d5f4ad6fc5f4024d4f614d1578ac9a2e8a600e80cf5de9fed055d8f",
+    "tree_hash_algorithm": "sha256 of UTF-8 path + NUL + per-file sha256 + LF, sorted by path; .cache excluded"
+  },
+  "public_github": {
+    "state": "NO_DIRECT_PUBLIC_IMPLEMENTATION_OBSERVED",
+    "same_name_candidate": "https://github.com/szl-holdings/szl-kernels",
+    "same_name_candidate_http_status": 404,
+    "card_references": [
+      "https://github.com/szl-holdings/lutar-lean",
+      "https://github.com/szl-holdings/governed-receipt-spec",
+      "https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md"
+    ],
+    "card_reference_role": "FORMALIZATION_SPECIFICATION_OR_RESEARCH_CONTEXT_NOT_BUILD_SOURCE"
+  },
+  "claims": {
+    "github_repository_parity": "NOT_CLAIMED",
+    "reproducible_build": "NOT_CLAIMED",
+    "trained_model": "NOT_CLAIMED",
+    "serving_process_revision": "NOT_APPLICABLE_REPOSITORY_ARTIFACT"
+  },
+  "limits": [
+    "The 404 observation establishes only that no public same-name repository was reachable at the observation time; it does not make a claim about private repositories.",
+    "The formalization and receipt-spec repositories are supporting evidence, not asserted build sources for this artifact.",
+    "The attestation overlay cannot self-embed its resulting Hub commit, so the immutable artifact_base_revision is the measured pre-overlay base.",
+    "No .bin, .safetensors, .pt, .pth, .onnx, or .gguf weight artifact was present in the measured base tree."
+  ]
+}

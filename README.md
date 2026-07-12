@@ -157,6 +157,16 @@ Independently published, `get_kernel`-discoverable kernels that share one `Unifi
 
 `suite.list_kernels()` returns the numeric core; `suite.list_series()` returns the govsign + blocked + provctl governance/interop layer.
 
+### The honest-model trio (offline replays of the live Alloy surface)
+
+Published as HF **model** repos (NOT trained models, NO weights — pure-Python, stdlib-only offline replays). Each ships a `library_name: kernels` card and MEASURED local test counts:
+
+| Model | Lane | Tests (MEASURED) |
+|---|---|---|
+| [`szl-invariants`](https://huggingface.co/SZLHOLDINGS/szl-invariants) | 8 falsifiable receipt/ledger invariants, offline | 14/14 |
+| [`szl-ouroboros`](https://huggingface.co/SZLHOLDINGS/szl-ouroboros) | bounded-loop trace + MEASURED/DERIVED loop-tax accounting | 13/13 |
+| [`szl-formulas`](https://huggingface.co/SZLHOLDINGS/szl-formulas) | the 21 canonical formulas + governed-loop composer, PROOF-STATUS mirrored verbatim (locked-proven = exactly 8) | 17/17 |
+
 ## The gap this closes
 
 Today even SZL's own governance is fragmented: `szl-governed-norm` keeps its own receipt chain, the energy meter keeps its own ledger, and `szl-lambda-gate` keeps none. So a single forward pass yields three logs no third party can re-walk as one ordered, tamper-evident sequence. `UnifiedReceiptChain` is that missing artifact — op-agnostic SHA3-256 receipts that hash-chain norm, Λ, and energy calls into **one** verifiable stream, in call order. `szl-govsign` then makes that chain head third-party-verifiable; `szl-blocked` makes a refusal a recorded, first-class state and derives the compliance paperwork from it; `szl-provctl` verifies the whole multi-run provenance DAG and bridges it to the in-toto/SLSA formats the rest of the supply-chain world reads.

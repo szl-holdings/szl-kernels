@@ -23,6 +23,12 @@ szl-governance:
 
 # szl-kernels — the unified governed-kernel suite
 
+> **Kernel Hub migration (verified 2026-07-15):** `get_kernel(...)` now resolves
+> the matching first-class [Kernel Hub repository](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels).
+> Its `main` and stable `v1` refs both pin verified revision
+> `06cc46f9733a844ee1c4cab558b06b3bd2d377ea`. This model-type repository is
+> retained as the legacy source/card mirror.
+
 **A kernel suite for governing provenance across operations.** This `get_kernel`-discoverable suite ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a governance/interop layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict), [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives an EU AI Act Annex IV draft), and [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) (verifies the provenance DAG + bridges to in-toto/SLSA).
 
 > **Evidence boundary:** no ecosystem-wide novelty claim is made. Within this

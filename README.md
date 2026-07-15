@@ -15,6 +15,12 @@ szl-governance:
   honest_blocked: "a failed check stays failed — never faked green"
 ---
 
+<p align="center">
+  [![kernel hub](https://img.shields.io/badge/kernel%20hub-torch--universal-5b8dee?style=flat-square)](https://huggingface.co/SZLHOLDINGS/szl-kernels/tree/main/build/torch-universal/szl_kernels)
+  [![provenance](https://img.shields.io/badge/provenance-MODEL_PROVENANCE.json-3af4c8?style=flat-square)](https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/MODEL_PROVENANCE.json)
+  [![license](https://img.shields.io/badge/license-Apache--2.0-7e8aa3?style=flat-square)](https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/LICENSE)
+</p>
+
 # szl-kernels — the unified governed-kernel suite
 
 **The first kernel that governs provenance *across* ops, not just within one.** A `get_kernel`-discoverable suite that ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a governance/interop layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict), [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives EU AI Act Annex IV), and [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) (verifies the provenance DAG + bridges to in-toto/SLSA).
@@ -255,3 +261,13 @@ Honesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine
 | `tests/test_suite.py` | suite test |
 | `build.toml` · `metadata.json` | Kernel Hub build/metadata manifests |
 | `LICENSE` · `SECURITY.md` | Apache-2.0 · security policy |
+
+---
+
+<p align="center">
+  <a href="https://huggingface.co/SZLHOLDINGS">SZL Holdings</a> ·
+  <a href="https://a-11-oy.com">a-11-oy.com</a> ·
+  <a href="https://huggingface.co/SZLHOLDINGS/a11oy-v19-substrate">a11oy-v19-substrate</a>
+</p>
+
+<p align="center"><sub>SLSA: L1 honest · L2 attested · L3 roadmap. Λ = Conjecture 1. Trust ceiling 0.97.</sub></p>

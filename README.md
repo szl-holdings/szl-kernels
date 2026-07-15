@@ -16,9 +16,9 @@ szl-governance:
 ---
 
 <p align="center">
-  [![kernel hub](https://img.shields.io/badge/kernel%20hub-torch--universal-5b8dee?style=flat-square)](https://huggingface.co/SZLHOLDINGS/szl-kernels/tree/main/build/torch-universal/szl_kernels)
-  [![provenance](https://img.shields.io/badge/provenance-MODEL_PROVENANCE.json-3af4c8?style=flat-square)](https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/MODEL_PROVENANCE.json)
-  [![license](https://img.shields.io/badge/license-Apache--2.0-7e8aa3?style=flat-square)](https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/LICENSE)
+  <a href="https://huggingface.co/SZLHOLDINGS/szl-kernels/tree/main/build/torch-universal/szl_kernels"><img src="https://img.shields.io/badge/kernel%20hub-torch--universal-5b8dee?style=flat-square" alt="kernel hub"></a>
+  <a href="https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/MODEL_PROVENANCE.json"><img src="https://img.shields.io/badge/provenance-MODEL_PROVENANCE.json-3af4c8?style=flat-square" alt="provenance"></a>
+  <a href="https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-7e8aa3?style=flat-square" alt="license"></a>
 </p>
 
 # szl-kernels — the unified governed-kernel suite

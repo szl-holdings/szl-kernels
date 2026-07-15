@@ -23,9 +23,13 @@ szl-governance:
 
 # szl-kernels — the unified governed-kernel suite
 
-**The first kernel that governs provenance *across* ops, not just within one.** A `get_kernel`-discoverable suite that ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a governance/interop layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict), [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives EU AI Act Annex IV), and [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) (verifies the provenance DAG + bridges to in-toto/SLSA).
+**A kernel suite for governing provenance across operations.** This `get_kernel`-discoverable suite ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a governance/interop layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict), [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives an EU AI Act Annex IV draft), and [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) (verifies the provenance DAG + bridges to in-toto/SLSA).
 
-> Every Kernel Hub leader competes on **FLOPs per op**. They do not sign their build artifacts, they do not surface an honest BLOCKED verdict, and they do not stitch provenance *across* ops. `szl-kernels` opens that lane: a real forward pass touching norm + an advisory Λ gate + an energy reading produces **one auditable, tamper-evident log** — not three disconnected ones.
+> **Evidence boundary:** no ecosystem-wide novelty claim is made. Within this
+> published suite, a forward pass touching norm + an advisory Λ gate + an energy
+> reading can produce one auditable, tamper-evident log instead of three
+> disconnected logs. Verify that bounded behavior with `selfcheck()` and the
+> exported chain verifier before relying on it.
 
 ## Quickstart
 
@@ -145,7 +149,7 @@ print(gs.verify(envelope, priv.public_key()))
 
 > These recipes chain across three separately published, `get_kernel`-discoverable kernels.
 > See [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) to turn any of these
-> chains into a spec-exact in-toto v1 / SLSA v1 statement the wider supply-chain world verifies.
+> chains into documented in-toto v1 / SLSA v1 shapes for external compatibility testing.
 
 ## The governed-kernel series
 
@@ -175,7 +179,7 @@ Published as HF **model** repos (NOT trained models, NO weights — pure-Python,
 
 ## The gap this closes
 
-Today even SZL's own governance is fragmented: `szl-governed-norm` keeps its own receipt chain, the energy meter keeps its own ledger, and `szl-lambda-gate` keeps none. So a single forward pass yields three logs no third party can re-walk as one ordered, tamper-evident sequence. `UnifiedReceiptChain` is that missing artifact — op-agnostic SHA3-256 receipts that hash-chain norm, Λ, and energy calls into **one** verifiable stream, in call order. `szl-govsign` then makes that chain head third-party-verifiable; `szl-blocked` makes a refusal a recorded, first-class state and derives the compliance paperwork from it; `szl-provctl` verifies the whole multi-run provenance DAG and bridges it to the in-toto/SLSA formats the rest of the supply-chain world reads.
+The standalone SZL kernels keep separate receipt state. A single forward pass through them therefore yields logs that are not one ordered stream. `UnifiedReceiptChain` adds op-agnostic SHA3-256 receipts that hash-chain norm, Λ, and energy calls into **one** verifiable stream, in call order. `szl-govsign` can sign that chain head for verification against a separately trusted public key; `szl-blocked` records refusal as a first-class state and derives a draft documentation skeleton; `szl-provctl` verifies supplied multi-run provenance records and serializes them into documented in-toto/SLSA shapes for compatibility testing.
 
 ## API
 

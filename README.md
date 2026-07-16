@@ -26,6 +26,11 @@ szl-governance:
 <p align="center"><sub>Part of the <a href="https://huggingface.co/SZLHOLDINGS">SZL Holdings</a> governed estate — claims are designed to carry checkable receipts. Verification proves integrity &amp; origin, never accuracy or performance.</sub></p>
 <!-- SZL-ESTATE-CARD:v2:END -->
 
+<!-- SZL-ARTIFACT-NOTICE:v1:START — honesty plate: repo semantics, no fake model tags. -->
+> **⬛ NOT A RUNNABLE MODEL.** This repository is a **governance kernel / artifact set** (specifications, invariants, receipts, or reference material) published under the SZL honesty doctrine. It deliberately declares **no `pipeline_tag` and no `base_model`** because none truthfully applies — you cannot load this repo into an inference pipeline, and tagging it otherwise would fake semantics. Verification of anything here proves **integrity & origin only, never accuracy or performance**. Λ = Conjecture 1 · ADVISORY.
+<!-- SZL-ARTIFACT-NOTICE:v1:END -->
+
+
 <p align="center">
   <a href="https://huggingface.co/SZLHOLDINGS/szl-kernels/tree/main/build/torch-universal/szl_kernels"><img src="https://img.shields.io/badge/kernel%20hub-torch--universal-5b8dee?style=flat-square" alt="kernel hub"></a>
   <a href="https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/MODEL_PROVENANCE.json"><img src="https://img.shields.io/badge/provenance-MODEL_PROVENANCE.json-3af4c8?style=flat-square" alt="provenance"></a>

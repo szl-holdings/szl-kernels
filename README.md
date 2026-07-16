@@ -1,4 +1,5 @@
 ---
+thumbnail: https://huggingface.co/SZLHOLDINGS/szl-kernels/resolve/main/og-card.png
 tags:
 - kernel
 - governance

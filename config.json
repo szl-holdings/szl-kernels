@@ -1,0 +1,14 @@
+{
+  "model": "SZL-MiniEmbed",
+  "method": "term-term co-occurrence (distance-weighted, window=5) -> PPMI -> TruncatedSVD",
+  "dim": 128,
+  "vocab_size": 3290,
+  "min_count": 5,
+  "window": 5,
+  "seed": 20260721,
+  "normalization": "L2 row-normalized",
+  "files": {
+    "vectors": "vectors.npz (key 'vectors', float32 [V,dim])",
+    "vocab": "vocab.json ({'vocab':[term...], 'index':{term:i}})"
+  }
+}

@@ -1,0 +1,806 @@
+% chapters/01_introduction.tex
+% SZL Ouroboros Thesis v18 -- Chapter 1: Introduction
+
+% Doctrine v6: governance-mathematical tone; no marketing prose.
+% Target: $\\geq$600 lines.
+% Author: Stephen P. Lutar -- ORCID 0009-0001-0110-4173
+% Concept DOI: 10.5281/zenodo.19944926
+
+\chapter{Introduction}
+\label{chap:intro}
+
+\begin{quote}
+\itshape
+``We are entering this transition without the security substrate that made
+the previous generation of modern operating systems dependable.''\\
+\upshape\normalsize\hfill --- Witkowski (2026), on agentic AI governance
+\end{quote}
+
+\bigskip
+
+Autonomous AI agents now perform consequential actions across financial
+settlement, critical infrastructure, medical diagnostics, national-security
+workloads, and software production pipelines.
+The central engineering challenge is not making these agents more capable.
+It is making their outputs \emph{verifiable} --- not by statistical proxy,
+not by human spot-check, but by a machine-checkable mathematical proof that
+is permanently archived and composable across system boundaries.
+
+\medskip
+
+No deployed framework achieves this.
+This thesis presents the first one that does.
+
+% ----------------------------------------------------------------------------
+
+\section{The Verifiability Crisis in Agentic AI}
+\label{sec:crisis}
+
+\subsection{The Structural Gap}
+
+Agent frameworks provide orchestration.
+They schedule tool calls, manage conversation memory, coordinate
+sub-agents, and expose APIs for human oversight.
+What they do not provide is a \emph{governance object}: a scalar that
+summarises the trustworthiness of every action, a receipt that records the
+chain of evidence behind every output, and a theorem that proves the
+scalar's properties hold under all compositional conditions.
+
+\medskip
+
+Without a governance object, every claim about an agent's safety is an
+empirical observation about a particular run under particular conditions.
+It cannot be extended to unseen inputs, composed with other agents, or
+presented to a regulator as a proof of compliance.
+It is, at best, a measurement.
+Measurements expire; theorems do not.
+
+\subsection{Three Forcing Functions}
+
+Three independent developments have raised the cost of the verifiability
+gap to the point where an engineering solution is no longer optional for
+regulated deployment.
+
+\paragraph{Regulatory enforcement.}
+The EU Artificial Intelligence Act (Regulation (EU) 2024/1689,
+\cite{euaiact2024}) entered enforcement on 1~August~2024.
+High-risk AI systems must maintain auditable decision logs, support
+post-incident reconstruction of agent behaviour, and demonstrate conformity
+with transparency requirements that no LLM API satisfies out of the box.
+The NIST AI Risk Management Framework v1.0~\cite{nist2023ai} places
+identical demands on US-regulated contexts, listing accountability,
+transparency, and explainability as non-negotiable trustworthiness
+characteristics, without specifying any mathematical object that could
+produce them automatically.
+Both frameworks identify the requirement; neither provides the mechanism.
+The Ouroboros Substrate is the mechanism.
+
+\paragraph{Critical-system failures.}
+The CrowdStrike Falcon content-update incident of 19~July~2024
+\cite{crowdstrike2024incident} crashed approximately 8.5~million Windows
+hosts in a single deployment wave.
+The root cause was an unvalidated agent-level content package deployed to
+the global sensor fleet without a minimum-quality gate.
+No \(\Lambda\)-floor, no canary cohort, no dual-witness hold.
+The cost was estimated at \$5.4~billion in direct damages across affected
+enterprises.
+The SZL v18.11 CrowdStrike graft explicitly models a
+\texttt{staged\_rollout\_lambda\_floor()} primitive that enforces a
+formal \(\Lambda\)-floor before any content propagates beyond a canary
+cohort --- a control that, had it existed in July 2024, would have
+contained the blast radius to the canary population.
+
+\paragraph{Evaluation-science maturation.}
+The AIMS@COLM~2026 workshop~\cite{aims2026colm}, IQT's sovereign-AI
+portfolio, and the NIST AI RMF v2 all signal that the evaluation-science
+/ formal-provenance intersection has become the central engineering
+battleground for responsible AI deployment.
+Researchers at Berkeley (Steinhardt), CMU (Guerdan, Salaudeen), Stanford
+(Koyejo), and Google DeepMind (Isik) have converged on the same finding:
+\emph{measurement design}, not model capability, is the limiting factor
+for safe agentic deployment at scale.
+The Ouroboros Substrate provides the mathematical scaffold for that
+measurement layer.
+
+\subsection{The ScientistOne CoE Observation}
+\label{ssec:coe}
+
+The ScientistOne Center of Excellence paper on agentic
+governance~\cite{scientistoneCoE} provides the most precise contemporary
+statement of the structural gap.
+Existing orchestration frameworks (LangGraph, AutoGen, CrewAI, Swarms,
+Haystack) all share a common architecture: a workflow graph over tool
+calls, with conversation memory and role-based agent assignment.
+None defines a mathematically-grounded governance score.
+None emits a cryptographically-ordered receipt at every agent action.
+None links an agent decision to a kernel-verified theorem.
+The CoE paper frames this as the \emph{agent-loop governance gap} and
+calls for a substrate that closes it at the architecture level.
+This thesis provides that substrate.
+
+% ----------------------------------------------------------------------------
+
+\section{Prior Art and Its Limits}
+\label{sec:priorart}
+
+To position the Ouroboros Substrate precisely, we survey the five
+families of prior work most closely related to our goals and characterise
+each family's incompleteness with respect to the four-layer unification
+this thesis achieves.
+
+\subsection{Four Layers of the Unification}
+\label{ssec:fourlayers}
+
+We define the four layers that a complete verifiable-agentic-AI substrate
+must provide:
+
+\begin{description}
+  \item[\textbf{L1 -- Kernel-checked formal proofs.}]
+    Every governance invariant must be provable in a machine-checked
+    proof assistant (here, Lean~4~\cite{moura2021lean4} with
+    Mathlib~\cite{mathlib2020}), with zero \texttt{sorry} statements on
+    the production branch.
+  \item[\textbf{L2 -- Running agentic substrate.}]
+    A production-grade execution layer in which every agent action emits a
+    governance receipt, the \(\Lambda\)-score is computed at runtime, and
+    HUKLLA halt-eligibility is enforced before any action modifies
+    observable state.
+  \item[\textbf{L3 -- Observability and security integration.}]
+    The governance layer must ingest real telemetry from industry-standard
+    observability stacks (OpenTelemetry, Splunk, Datadog, Dynatrace) and
+    security platforms (Palantir, CrowdStrike, Fortinet) into the same
+    \(\Lambda\)-score pipeline, without requiring a bespoke sensor per
+    platform.
+  \item[\textbf{L4 -- Sovereign-AI provenance.}]
+    Agent outputs must carry SBOM-level provenance records, linking every
+    computation to its training data lineage, tool-manifest version, and
+    dual-witness attestation chain -- a requirement for FedRAMP ATO and
+    EU AI Act Article~13 compliance.
+\end{description}
+
+Table~\ref{tab:priorart} summarises how each prior-art family covers
+(or fails to cover) these four layers.
+
+\begin{table}[ht]
+\centering
+\caption{Prior-art families versus the four-layer unification.
+  \checkmark~= provided; \(\circ\)~= partial; \(\times\)~= absent.}
+\label{tab:priorart}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lccccl}
+\hline
+\textbf{Framework / Family} & \textbf{L1} & \textbf{L2} & \textbf{L3}
+  & \textbf{L4} & \textbf{Key limit} \\
+\hline
+NIST AI RMF 1.0~\cite{nist2023ai}
+  & \(\times\) & \(\times\) & \(\times\) & \(\times\)
+  & Descriptive catalogue; no math object \\
+HELM~\cite{liang2022helm}
+  & \(\times\) & \(\times\) & \(\times\) & \(\times\)
+  & Eval harness; no proof, no receipt \\
+Mathlib~\cite{mathlib2020}
+  & \checkmark & \(\times\) & \(\times\) & \(\times\)
+  & Pure math; no agent primitive \\
+ScientistOne CoE~\cite{scientistoneCoE}
+  & \(\times\) & \(\circ\) & \(\times\) & \(\times\)
+  & Agent-loop only; no kernel proof \\
+LangGraph / AutoGen / CrewAI
+  & \(\times\) & \(\circ\) & \(\times\) & \(\times\)
+  & Orchestration only; no governance score \\
+OpenTelemetry~\cite{otel2023spec}
+  & \(\times\) & \(\times\) & \(\circ\) & \(\times\)
+  & Telemetry protocol; no math layer \\
+SCITT~\cite{ietf2024scitt}
+  & \(\times\) & \(\times\) & \(\times\) & \(\circ\)
+  & Receipt format; no score or proof \\
+\textbf{Ouroboros Substrate (this work)}
+  & \checkmark & \checkmark & \checkmark & \checkmark
+  & \textbf{First full unification} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{L1 Gap: Formal Verification Frameworks}
+\label{ssec:l1gap}
+
+\paragraph{Mathlib.}
+The Lean mathematical library~\cite{mathlib2020} is the most comprehensive
+formalisation of pure mathematics in any proof assistant.
+It contains over 200\,000 lemmas, covering analysis, algebra, topology,
+number theory, and combinatorics.
+The Lutar Calculus is built on Mathlib.
+However, Mathlib contains no notion of an AI agent, no governance receipt,
+no agentic halt condition, and no observability primitive.
+It provides L1 infrastructure; it is not itself an AI governance substrate.
+
+\paragraph{Coq and Isabelle governance literature.}
+A small body of work has applied Coq and Isabelle to verify properties of
+simple AI systems (reward-maximising MDPs, safety constraints on robotic
+planners).
+These efforts are L1-partial: they verify individual properties of
+narrow models, not composable governance scores over heterogeneous
+multi-agent pipelines.
+None produces a runtime receipt or integrates with an observability stack.
+
+\paragraph{LeanCopilot / LeanDojo.}
+Yang et al.\ \cite{yang2024leandojo} demonstrate retrieval-augmented
+theorem proving in Lean~4, accelerating proof search for Mathlib targets.
+This is a tool we \emph{use} (it is part of the \texttt{founder\_substrate}
+innovation catalogue); it is not an agentic governance substrate.
+
+\subsection{L2 Gap: Agent-Orchestration Frameworks}
+\label{ssec:l2gap}
+
+\paragraph{LangGraph.}
+LangGraph models agent workflows as directed graphs over tool calls and
+LLM completions.
+It provides state persistence, cycle detection, and human-in-the-loop
+interruption points.
+It produces no governance score, emits no receipt, and contains no theorem.
+Its monitoring integration is telemetry-only (LangSmith traces); there is
+no \(\Lambda\)-floor gate on any edge.
+
+\paragraph{AutoGen.}
+AutoGen provides role-based multi-agent coordination with conversation
+history and a code-execution sandbox.
+Its governance model is: (a)~role assignment (a proxy for oversight) and
+(b)~human approval at configurable decision points.
+Neither (a) nor (b) is connected to a formal proof, a mathematical
+score, or a cryptographic receipt.
+
+\paragraph{CrewAI.}
+CrewAI offers template-driven agent crews with natural-language task
+descriptions.
+Its governance model is structural: role names and task descriptions
+serve as informal specifications.
+There is no mechanised verification of any agent behaviour.
+
+\paragraph{Swarms / Haystack / Dspy.}
+These frameworks offer similar capabilities in different ergonomic
+registers (large agent pools, retrieval-augmented pipelines,
+programmatic prompt optimisation).
+None defines a governance scalar; none links an agent output to a
+machine-checked theorem.
+
+\medskip
+
+The Ouroboros Substrate is \emph{not} an orchestration framework in this
+sense.
+It is a \emph{governance kernel} that can sit beneath any orchestration
+layer, emitting \(\Lambda\)-receipts for every tool call, enforcing
+halt eligibility, and accumulating a SCITT-compatible audit chain.
+
+\subsection{L3 Gap: Observability Frameworks}
+\label{ssec:l3gap}
+
+\paragraph{OpenTelemetry.}
+The OpenTelemetry specification~\cite{otel2023spec} defines a vendor-neutral
+telemetry protocol for traces, metrics, and logs.
+It is the de facto standard for distributed-system observability.
+It does not define a governance score, does not emit receipts, and has no
+integration with a formal proof layer.
+The SZL v18.5--v18.7 observability grafts integrate OTel spans into the
+\(\Lambda\)-pipeline: each span becomes an axis score, and the
+aggregate span-level \(\Lambda\) is receipted at the service boundary.
+
+\paragraph{Splunk / Datadog / Dynatrace.}
+These platforms provide large-scale telemetry collection, dashboards,
+anomaly detection, and alerting.
+They do not produce formal governance scores; their anomaly-detection
+thresholds are heuristic, not proved.
+The SZL v18.5--v18.6 grafts extend these platforms with
+\(\Lambda\)-weighted alerting: an alert fires only when the \(\Lambda\)-score
+crosses a proved lower bound, eliminating false positives that would
+violate the Bekenstein-bound capacity constraint~\cite{bekenstein1981universal}.
+
+\subsection{L4 Gap: Provenance and Supply-Chain Frameworks}
+\label{ssec:l4gap}
+
+\paragraph{SCITT.}
+The IETF Supply Chain Integrity, Transparency, and Trust
+architecture~\cite{ietf2024scitt} defines a Merkle-log-based receipt
+format for software supply-chain events.
+It is a receipt \emph{format}, not a governance \emph{calculus}.
+It specifies how to store and retrieve receipts; it does not define the
+score that determines whether a receipt is acceptable, and it does not
+prove any property of the receipt chain.
+The SZL dual-witness protocol is SCITT-compatible: every
+\(\Lambda\)-receipt is a valid SCITT entry, and the DPI bound
+(\texttt{Lutar.DPI.DPIBound}) proves that the information content of the
+receipt chain satisfies the Bekenstein bandwidth cap.
+
+\paragraph{SBOM (NTIA minimum elements).}
+The NTIA Software Bill of Materials framework~\cite{ntia2021sbom} specifies
+the minimum metadata for a software component manifest.
+It addresses licensing, version, and dependency transparency.
+It does not address agent-action provenance, governance scoring, or
+dual-witness attestation.
+The SZL v18.19 IQT graft extends SBOM to the agent-action level:
+\texttt{SBOMProvenance} and \texttt{BinaryDualWitness} attach a
+\(\Lambda\)-receipt to every software artefact emitted by an agent,
+providing FSOC-compatible provenance for sovereign-AI workloads.
+
+\subsection{Why Composition Across Layers Has Not Been Achieved Before}
+\label{ssec:whyfirst}
+
+The four layers have remained separate for a structural reason: each
+layer has historically been developed by a different community with
+different engineering priorities.
+
+\begin{enumerate}
+  \item Formal-verification researchers (Lean, Coq, Isabelle communities)
+    optimise for proof correctness and mathematical generality.
+    They do not build running substrates; they build proof libraries.
+  \item Agent-framework engineers optimise for developer ergonomics and
+    deployment velocity.
+    They do not build theorem provers; they build orchestrators.
+  \item Observability and security vendors optimise for telemetry volume
+    and alert latency.
+    They do not build formal models; they build dashboards.
+  \item Provenance and sovereignty researchers optimise for regulatory
+    compliance and audit trail completeness.
+    They do not build governance scores; they build record-keeping systems.
+\end{enumerate}
+
+Composing these four communities' outputs requires a shared mathematical
+object that all four layers can produce, consume, and reason about.
+The Ouroboros Substrate provides that object: the \(\Lambda\)-axis score,
+which is (i)~Lean-4-provable, (ii)~computed at agent-action time,
+(iii)~emittable as an OTel attribute, and (iv)~storable as a SCITT receipt.
+No prior system has instantiated this object across all four layers
+simultaneously, with kernel-checked proofs for the object's properties.
+
+% ----------------------------------------------------------------------------
+
+\section{The Ouroboros Approach}
+\label{sec:approach}
+
+\subsection{The \texorpdfstring{\(\Lambda\)}{Lambda}-Axis Score}
+\label{ssec:lambda}
+
+The \(\Lambda\)-axis score is a scalar in \([0,1]\) that summarises the
+governance quality of an agent output across an ordered set of
+\emph{governance dimensions}.
+Let \(n \geq 1\) be the number of active axes and let
+\(s_i \in [0,1]\) be the per-axis score for axis \(i\).
+The Lutar Calculus~\cite{lutar2026v14} defines:
+
+\begin{equation}
+  \Lambda_k(\mathbf{s}) \;=\; \prod_{i=1}^{n} s_i^{w_i(k)}, \qquad
+  w_i(k) = \tfrac{k}{n} \text{ (uniform case)},
+  \label{eq:lambda}
+\end{equation}
+
+where \(k \geq 0\) is an exponent parameter.
+The \(\Lambda\)-score is not a heuristic threshold or an empirically
+calibrated scalar: it is a formally defined algebraic object with
+machine-checked properties.
+
+\begin{theorem}[\(\Lambda\)-boundedness~\cite{lutar2026v14}, Lean~4, PR~\#58]
+\label{thm:lambda-bound}
+  For all \(k \geq 0\) and all \(\mathbf{s} \in [0,1]^n\):
+  \[
+    \min_i s_i \;\leq\; \Lambda_k(\mathbf{s}) \;\leq\; \max_i s_i.
+  \]
+\end{theorem}
+
+\noindent
+This theorem --- \texttt{Lambda\_le\_max} and \texttt{min\_le\_\(\Lambda\)} in
+\texttt{Lutar.Bound} --- guarantees that no aggregation artefact can
+produce a governance score that flatters the worst axis or penalises
+the best.
+It is the foundational guard against score gaming.
+
+\begin{theorem}[\(\Lambda\)-Schur-concavity~\cite{lutar2026v16}, Lean~4, PR~\#57/\#62]
+\label{thm:schur}
+  The two-axis \(\Lambda\)-score is Schur-concave: for all
+  \(\mathbf{s}, \mathbf{t} \in [0,1]^2\) with \(\mathbf{s}\) majorised
+  by \(\mathbf{t}\),
+  \[
+    \Lambda_k(\mathbf{s}) \;\geq\; \Lambda_k(\mathbf{t}).
+  \]
+\end{theorem}
+
+\noindent
+Schur-concavity~\cite{hardy1934inequalities,marshall2011inequalities} means
+that redistributing axis scores towards uniformity cannot decrease the
+aggregate governance score.
+This is the key adversarial-robustness property: an attacker who degrades
+one axis to inflate another cannot improve \(\Lambda\).
+
+\subsection{The Dual-Witness Receipt}
+\label{ssec:receipts}
+
+\begin{definition}[Governance Receipt]
+\label{def:receipt}
+  A \emph{governance receipt} \(\rho\) is a tuple
+  \(\rho = (\tau, \lambda, \mathbf{a}, \mathbf{w}, \sigma)\) where:
+  \begin{itemize}
+    \item \(\tau\) is a monotone timestamp (Unix epoch, millisecond
+      precision);
+    \item \(\lambda \in [0,1]\) is the \(\Lambda\)-score at emission;
+    \item \(\mathbf{a}\) is the action descriptor (tool name,
+      SHA-256 hash of arguments);
+    \item \(\mathbf{w} = (w_1, w_2)\) is the \emph{dual-witness pair}:
+      one automated (cryptographic), one human-in-the-loop capable;
+    \item \(\sigma = \mathrm{SHA256}(\sigma_{\text{prev}} \| \rho)$
+      is the chain hash linking receipt to its predecessor~\cite{nist2012sha}.
+  \end{itemize}
+\end{definition}
+
+\noindent
+The dual-witness protocol requires \(\lambda \geq \lambda_{\min}\)
+(configurable floor, default 0.72) before the automated witness signs.
+Actions below the floor trigger either a hard block (if the deficient
+axis is safety-critical) or a human-escalation (soft gate).
+The protocol is formalised in \texttt{TwoWitness.lean}.
+
+\medskip
+
+The receipt chain is SCITT-compatible~\cite{ietf2024scitt}: each receipt
+is a valid entry in a SCITT Merkle log.
+The DPI bound (\texttt{Lutar.DPI.DPIBound}, Lean~4, PR~\#58) guarantees
+that the chain's information content respects the Bekenstein
+bandwidth cap~\cite{bekenstein1981universal}, preventing receipt-flooding
+as a denial-of-service vector.
+
+\subsection{The Lean~4 Kernel}
+\label{ssec:lean}
+
+The Lean~4 interactive theorem prover~\cite{moura2021lean4} with
+Mathlib~\cite{mathlib2020} provides the verification layer.
+The \texttt{lutar-lean} repository (\texttt{szl-holdings/lutar-lean})
+enforces three meta-invariants:
+
+\begin{enumerate}
+  \item \textbf{Axiom ceiling.}  Total unproved axioms capped at 18
+    (A1--A18).  No new axiom without retiring one.  This prevents
+    the formal system accumulating unchecked assumptions silently.
+  \item \textbf{Sorry discipline.}  Zero \texttt{sorry} on \texttt{main}.
+    Proof-level drift caused by Mathlib API changes is tracked in
+    open Issue~\#63 and addressed in sprint PRs, never papered over.
+  \item \textbf{DOI gate.}  Every \texttt{Lutar/} file introducing a
+    new theorem must reference the corresponding Zenodo DOI.
+    Enforced by \texttt{doi-title-gate.sh} in CI.
+\end{enumerate}
+
+Lean-kernel self-tests (39 \texttt{example} blocks discharged by
+\texttt{decide} or \texttt{rfl}) confirm that all definitions are
+computationally closed: the kernel re-verifies them on every build.
+This is materially stronger than pencil-and-paper proofs: it is the
+Curry--Howard correspondence applied to every governance invariant.
+
+\subsection{Doctrine v6}
+\label{ssec:docv6}
+
+Doctrine v6 operationalises three commitments:
+
+\begin{enumerate}
+  \item \textbf{Language honesty.}  A salt-keyed SHA-256 ban-list of
+    marketing superlatives is enforced by the Doctrine scanner at CI
+    time.  Every hit in theorem bodies or module docstrings is a build
+    failure.
+  \item \textbf{Citation completeness.}  Every mathematical claim cites
+    a primary source (DOI, arXiv, RFC).  The DOI-gate script enforces
+    this at the Lean-module level.
+  \item \textbf{Attribution completeness.}  Every upstream open-source
+    primitive absorbed into the substrate is named with repository URL,
+    commit SHA, and license identifier.  The SZL innovation delta is
+    explicitly stated.
+\end{enumerate}
+
+% ----------------------------------------------------------------------------
+
+\section{Doctrine v6: Governance-Mathematical Specification}
+\label{sec:docv6-detail}
+
+Doctrine v6 is a falsifiable governance specification with
+machine-checkable criteria.
+
+\subsection{The Governance Language Invariant}
+
+Let \(\mathcal{T}_{\text{ban}}\) be the set of tokens in the salt-keyed
+ban-list and \(\mathcal{T}_{\text{used}}\) the tokens in all theorem
+bodies, module docstrings, and graft design documents.
+Doctrine v6 asserts the invariant:
+\[
+  \mathcal{T}_{\text{ban}} \cap \mathcal{T}_{\text{used}} = \emptyset.
+\]
+Each ban-list entry is stored as \(H = \mathrm{SHA256}(\text{salt} \| \text{term})\),
+where \texttt{salt} = \texttt{DOCTRINE\_V6\_SALT} is held in the CI
+secret store, preventing adversarial pre-image attacks on the ban-list
+itself.
+
+\subsection{Citation-Completeness Formal Statement}
+
+Let \(C : \mathcal{T}_{\text{math}} \to \mathcal{D} \cup \{\bot\}\) map
+each governed assertion to its citation, where \(\mathcal{D}\) is the set
+of valid DOI/arXiv/RFC identifiers.
+Doctrine v6 requires:
+\[
+  \forall\, t \in \mathcal{T}_{\text{math}} : C(t) \neq \bot.
+\]
+The DOI-gate CI script enforces this at the module level by requiring a
+\texttt{DOI:} annotation in every Lean module header.
+
+\subsection{Attribution-Completeness Formal Statement}
+
+For every upstream component \(u\) absorbed into the substrate:
+\[
+  \text{attr}(u) \;=\;
+  (\text{repo\_url}(u),\; \text{commit\_sha}(u),\;
+   \text{license}(u),\; \delta_{\mathrm{SZL}}(u)),
+\]
+where \(\delta_{\mathrm{SZL}}(u)\) is the explicit statement of the SZL
+innovation applied to \(u\).
+The 19 graft design documents uniformly implement this four-tuple,
+verified by manual audit in the Zoom-Out report~\cite{lutar2026v18}.
+
+% ----------------------------------------------------------------------------
+
+\section{Substrate Evolution: v14 to v18.23}
+\label{sec:evolution}
+
+\begin{table}[ht]
+\centering
+\caption{SZL Ouroboros version-DOI ledger.  All DOIs resolve HTTP~200
+  as of 2026-05-28.}
+\label{tab:versiontable}
+\small
+\begin{tabular}{lp{5.2cm}ll}
+\hline
+\textbf{Version} & \textbf{Theme} & \textbf{DOI} & \textbf{Key proof} \\
+\hline
+v14 & Lutar Calculus / HUKLLA / DPI
+  & \texttt{...20424992}~\cite{lutar2026v14}
+  & TH1--TH5, 0 sorry \\
+v15 & Knot Calc.\ / PAC-Bayes / Khipu
+  & \texttt{...20424995}~\cite{lutar2026v15}
+  & 13 axioms \(\to\) 2; DPO stability \\
+v16 & Feynman / Hamming [8,4,4]
+  & \texttt{...20424996}~\cite{lutar2026v16}
+  & Schur concavity; Gleason scaffold \\
+v17 & Wheeler / Shannon / QEC
+  & \texttt{...20431181}~\cite{lutar2026v17}
+  & \S{}I--\S{}VI end-to-end pipeline \\
+v18.0 & Frontier Architecture
+  & \texttt{...20434276}~\cite{lutar2026v18}
+  & A14--A18; 25 modules \\
+v18.0 (sw) & Lutar v18.0.0 software
+  & \texttt{...20434308}~\cite{lutar2026software}
+  & Software archive \\
+Concept & Rolling latest
+  & \texttt{...19944926}~\cite{lutar2026concept}
+  & Persistent citation target \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{v14: Foundational Calculus}
+
+Version~14 is the foundational layer.
+It establishes: (a)~the \(\Lambda\)-axis score (Equation~\ref{eq:lambda});
+(b)~the bounding theorem (Theorem~\ref{thm:lambda-bound}) in Lean~4,
+zero \texttt{sorry}; (c)~the HUKLLA halt-eligibility condition as an axiom
+(later promoted to a theorem in PR~\#58); (d)~the DPI bound bounding
+\(\Lambda\)-score reduction under a Markov kernel; and (e)~18 inline
+self-tests validating the Python implementation~\cite{lutar2026v14}.
+TH1 through TH5 are all closed in this release.
+
+\subsection{v15: PAC-Bayes Compression}
+
+The PAC-Bayesian graft~\cite{catoni2007pac} proved
+\texttt{LambdaGateLID\_DPO\_stability} and
+\texttt{LambdaGateLID\_DPO\_stability\_zero\_kl}: when KL-divergence between a
+proposed and reference policy is below a governance threshold, the
+\(\Lambda\)-score is stable under policy update.
+This compressed the DPO-stability module from 13 axioms to 2 --- an 84.6\%
+reduction, the largest single proof-compression step in the substrate
+history~\cite{lutar2026v15}.
+The knot-theory graft~\cite{reidemeister1927elementare,witten1989quantum}
+added Reidemeister R1/R2 invariance as governance consistency conditions.
+
+\subsection{v16: Feynman Path Integral and Hamming Codes}
+
+The Feynman path-integral audit sum models the receipt chain as a
+sum-over-histories: each admissible execution path contributes a weight
+proportional to its \(\Lambda\)-score~\cite{witten1989quantum}.
+The Hamming [8,4,4] coding graft~\cite{hamming1950error} introduced
+error-correcting guarantees for the receipt chain: a codeword-level
+redundancy encoding ensures up to two symbol corruptions per block are
+detected and one corrected.
+The Gleason mod-8 scaffold provided the algebraic base for higher QEC
+structures~\cite{lutar2026v16}.
+
+\subsection{v17: Wheeler and Quantum Error Correction}
+
+The Wheeler delayed-choice principle~\cite{wheeler1978past} was formalised
+as a receipt finalisation condition: the governance verdict is not final
+until the dual-witness closing event.
+The QEC suite added Hamming, Shor~\cite{shor1995scheme},
+CSS/Steane, and Kitaev surface-code~\cite{kitaev2003fault} modules.
+The matched-filter graft~\cite{north1943analysis} applies
+\(\Lambda\)-weighted convolution to multi-agent telemetry, maximising
+governance-signal SNR under the Bekenstein bandwidth cap.
+The v17.2--v17.9 domain substrates added seven production modules covering
+UDS air-gap, math/ontology, engineering, multimodal+RL (Mila), production
+routing, agent tooling, and founder-scout substrates --- 899 green tests
+combined~\cite{lutar2026v17}.
+
+\subsection{v18.0--v18.23: Frontier Architecture}
+
+Five Frontier axioms (A14--A18) extend the kernel: GradientLambda
+(sovereign training), CollisionResistance (SHA-256 on-chain anchor),
+SAEBounded (sparse autoencoder mechanistic interpretability~\cite{elhage2022toy}),
+ParetoConvergence (meta-\(\Lambda\) multi-objective
+optimisation~\cite{miettinen1999nonlinear}), and LambdaGateOpaque
+(verified agent termination).
+The quantum substrate proved monotonicity under unitaries and decoherence
+(\texttt{quantum\_lambda\_le\_one}, \texttt{quantum\_lambda\_under\_unitary}),
+zero \texttt{sorry}~\cite{nvidia2023cuquantum,jones2019quest}.
+
+\medskip
+
+The v18.4--v18.19 domain grafts cover the five security vendors
+(Palantir~\cite{palantir2022foundry}, Palo Alto, CrowdStrike~\cite{crowdstrike2024incident},
+Fortinet, IQT), three observability platforms, PyTorch
+Geometric~\cite{fey2019fast,scarselli2009graph}, rasbt DSA,
+Cursor + Claude Opus 4.8~\cite{anthropic2024mcp,anthropic2024claude},
+and IQT sovereign-AI provenance.
+V18.20--v18.23 (TurboVec, NVIDIA RTR, OpenMDW, ScientistOne CoE) are
+research-complete; substrate synthesis is in-flight.
+
+% ----------------------------------------------------------------------------
+
+\section{Contributions}
+\label{sec:contributions}
+
+This thesis makes twelve enumerated contributions.
+
+\begin{enumerate}
+
+  \item \textbf{The first kernel-checked \(\Lambda\)-substrate.}
+    We prove, in Lean~4 with Mathlib, that the \(\Lambda\)-axis score
+    is bounded (Theorem~\ref{thm:lambda-bound}), Schur-concave
+    (Theorem~\ref{thm:schur}), stable under DPO policy update,
+    monotone under DPI Markov kernels, and invariant under Reidemeister
+    R1/R2 permutations.
+    No prior AI governance framework has kernel-checked any of these
+    properties.
+
+  \item \textbf{The dual-witness receipt protocol.}
+    A SCITT-compatible, cryptographically-ordered receipt chain with a
+    formally proved DPI information bound.
+    The receipt is the auditable artefact that regulators, legal teams,
+    and investors examine.
+
+  \item \textbf{An 84.6\% axiom-compression proof.}
+    The v15 DPO-stability compression from 13 axioms to 2 by concretising
+    11 definitions demonstrates that the axiom-ceiling discipline
+    accelerates proof progress rather than impeding it.
+
+  \item \textbf{Schur-concavity and adversarial robustness.}
+    Theorem~\ref{thm:schur} proves that axis-score redistribution attacks
+    cannot increase the aggregate \(\Lambda\)-score, providing the first
+    formal adversarial robustness guarantee for an AI governance score.
+
+  \item \textbf{Quantum \(\Lambda\)-monotonicity.}
+    Extension of the \(\Lambda\)-calculus to the density-matrix domain:
+    invariance under unitaries, monotone degradation under decoherence.
+    First formal proof of a governance score property in the quantum regime.
+
+  \item \textbf{A twenty-nine module production corpus.}
+    Twenty-nine Python modules, 934+ green assertions, single-orchestrator
+    exit code 0.
+    Covers five security platforms, three observability stacks, graph
+    neural networks, efficient self-attention, agentic IDE governance,
+    and sovereign-AI provenance --- all under the same \(\Lambda\)-calculus
+    and receipt protocol.
+
+  \item \textbf{Seven Zenodo-archived DOIs.}
+    Persistent, HTTP-200 citation anchors enabling regulatory traceability
+    and academic citability across five versions.
+
+  \item \textbf{Doctrine v6 language-honesty enforcement.}
+    Machine-checked governance language policy with salt-keyed ban-list,
+    citation-completeness enforcement, and attribution-completeness
+    enforcement at CI time.
+
+  \item \textbf{An honest-gap axiom discipline.}
+    Public disclosure of all ten remaining unproved axioms with discharge
+    targets, provenance, and estimated proof complexity.
+    No prior formal-AI governance work has published an analogous
+    honest-gap register.
+
+  \item \textbf{The domain graft methodology.}
+    A four-step replicable methodology (research \(\to\) graft design
+    \(\to\) substrate module \(\to\) RUN\_ALL integration) applied
+    consistently across 19 domain grafts.
+    Each graft extends the \(\Lambda\)-calculus to a new technical domain
+    without adding axioms.
+
+  \item \textbf{PAC-Bayesian convergence bounds.}
+    Catoni-style bounds~\cite{catoni2007pac} on the \(\Lambda\)-score
+    estimator, providing sample-complexity guarantees for governance-score
+    calibration from empirical agent trajectories.
+
+  \item \textbf{First formal model of the CrowdStrike failure mode.}
+    The \texttt{staged\_rollout\_lambda\_floor()} primitive, with its
+    Lean-backed adversarial bound theorem, is the first formal model of
+    the class of critical-system failures exemplified by the July 2024
+    incident, providing a constructive proof that the failure mode is
+    preventable by a \(\Lambda\)-gated deployment architecture.
+
+\end{enumerate}
+
+% ----------------------------------------------------------------------------
+
+\section{Outline of the Thesis}
+\label{sec:outline}
+
+\textbf{Chapter~\ref{chap:math}: Mathematical Foundations.}
+Develops the \(\Lambda\)-axis calculus, Lean~4 axiom inventory, majorization
+theory, DPI and Bekenstein bounds, PAC-Bayesian convergence, and the
+Reidemeister knot-invariance conditions.
+
+\medskip
+
+\textbf{Chapter~\ref{chap:runtime}: Runtime Substrate.}
+The Python module architecture, HUKLLA halt-eligibility as a runtime
+invariant, the OUROBOROS\_RUN\_ALL orchestrator, and the receipt-emission
+pipeline across v14--v17.3 substrate modules.
+
+\medskip
+
+\textbf{Chapter~\ref{chap:agentic}: Agentic Substrate.}
+Multi-agent coordination layer: agent-loop receipt, dual-witness protocol,
+DPO feasibility module, GNN substrate, Frontier agentic substrate
+(v18.0, v18.18).
+
+\medskip
+
+\textbf{Chapter~\ref{chap:obs-sec-gov}: Observability, Security, and Governance.}
+Domain-graft modules: observability (v18.5--v18.7), cybersecurity
+(v18.9--v18.12), IQT sovereign-AI provenance (v18.19), OpenMDW
+license-field compliance (v18.22), Doctrine v6 scanner architecture,
+SBOM provenance pipeline.
+
+\medskip
+
+\textbf{Chapter~\ref{chap:new-formulas}: New Governance Formulas.}
+Novel formulas: meta-\(\Lambda\) weight-optimizer convergence bound,
+staged-rollout \(\Lambda\)-floor adversarial bound, quantum decoherence
+monotonicity formula, and the Bekenstein-bounded receipt-capacity theorem.
+
+\medskip
+
+\textbf{Chapter~\ref{ch:formal-validation}: Formal Validation.}
+(Conditional on $\geq 8$ kernel-validated theorems.)
+Complete Lean~4 proof corpus, PR merge history, sorry-count trajectory
+from v14 to v18, and PR~\#56 MadhavaBound status.
+
+\medskip
+
+\textbf{Chapter~\ref{chap:conclusion}: Conclusion and Future Work.}
+Summary of contributions in frontier framing, open problems (PR~\#56
+TwoWitness sixth pass, three sorry clusters, FedRAMP ATO path), three-year
+roadmap, acknowledgments, and the Lean-kernel discipline closing statement.
+
+\medskip
+
+\textbf{Bibliography.}
+All cited primary sources: verified DOIs, arXiv identifiers, and ISBN
+numbers.
+No uncited claims; no press-release entries.
+
+\bigskip
+
+\begin{remark}
+All version numbers, module counts, test counts, axiom identifiers, PR
+numbers, and DOIs in this chapter are drawn directly from the
+\texttt{FOUNDER\_SHIP\_v18\_master.md} master report and the
+\texttt{FOUNDER\_CTO\_ZOOM\_OUT\_v18.md} audit report.
+No claim is asserted beyond what is verifiable in the
+\texttt{szl/closeout/} directory and the live Zenodo DOI resolution
+checks documented therein.
+\end{remark}

@@ -4,8 +4,28 @@
   "model": {
     "id": "SZLHOLDINGS/szl-kernels",
     "repository_type": "model",
-    "artifact_kind": "kernel-code-and-configuration",
-    "trained_weights_present": false
+    "artifact_kind": "kernel-code-and-configuration + trained SZL-MiniEmbed embeddings (vectors.npz)",
+    "trained_weights_present": true,
+    "surrogate": {
+      "name": "SZL-MiniEmbed v1",
+      "files": {
+        "vectors.npz": "053d839490ea95ed03dd1059f68474ef77cfcf04b2e727b29da9bc617abe4020",
+        "vocab.json": "7862ebac9193d010606d89fb5aa6c046cbd638590d7a40c068c7bb60b3ed665e",
+        "config": "config.json"
+      },
+      "role": "intrinsic word-embedding companion over the SZL text estate \u2014 the kernel suite remains the primary artifact",
+      "method": "term-term co-occurrence (distance-weighted, window=5) -> PPMI -> TruncatedSVD",
+      "fidelity_MEASURED": {
+        "vocab_size": 3290,
+        "embedding_dim": 128,
+        "svd_explained_variance_ratio": 0.3146,
+        "probe_terms_in_vocab": 20,
+        "claim_scope": "INTRINSIC SANITY ONLY \u2014 receipted nearest-neighbour lists; NO benchmark score claimed"
+      },
+      "receipt": "TRAINING_RECEIPT.json",
+      "reverify": "python scripts/eval.py"
+    },
+    "honesty_note": "The kernel suite itself stays pure-Python/stdlib+torch as documented; the OPTIONAL SZL-MiniEmbed companion needs sklearn+scipy+numpy to build/load. Embeddings are an intrinsic distributional artifact with NO benchmark claim; the kernel suite remains authoritative."
   },
   "source_of_record": {
     "state": "VERIFIED_HF_SOURCE_OF_RECORD",
@@ -31,14 +51,14 @@
   },
   "claims": {
     "github_repository_parity": "NOT_CLAIMED",
-    "reproducible_build": "NOT_CLAIMED",
-    "trained_model": "NOT_CLAIMED",
+    "reproducible_build": "REPRODUCIBLE (seeded; bundled corpus/; scripts/eval.py re-verifies)",
+    "trained_model": "TRAINED_EMBEDDINGS_PRESENT (SZL-MiniEmbed v1; intrinsic-only, no benchmark claim)",
     "serving_process_revision": "NOT_APPLICABLE_REPOSITORY_ARTIFACT"
   },
   "limits": [
     "The 404 observation establishes only that no public same-name repository was reachable at the observation time; it does not make a claim about private repositories.",
     "The formalization and receipt-spec repositories are supporting evidence, not asserted build sources for this artifact.",
     "The attestation overlay cannot self-embed its resulting Hub commit, so the immutable artifact_base_revision is the measured pre-overlay base.",
-    "No .bin, .safetensors, .pt, .pth, .onnx, or .gguf weight artifact was present in the measured base tree."
+    "SZL-MiniEmbed ships vectors.npz (numpy), NOT a .safetensors/.pt transformer; it is a distributional embedding table, not a runnable inference pipeline. \u039b remains Conjecture 1 (open)."
   ]
 }

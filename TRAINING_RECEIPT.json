@@ -1,0 +1,709 @@
+{
+  "artifact": "SZLHOLDINGS/szl-kernels \u2014 SZL-MiniEmbed v1",
+  "role": "intrinsic word-embedding suite over the SZL text estate \u2014 the kernel suite remains the primary artifact; embeddings are a companion, NOT a benchmark claim",
+  "generator": {
+    "script": "scripts/forge.py",
+    "seed": 20260721,
+    "method": "term-term co-occurrence (distance-weighted, window=5) -> PPMI -> TruncatedSVD",
+    "no_gensim": true
+  },
+  "data": {
+    "sources": [
+      "SZLHOLDINGS/doctrine-v10-v11",
+      "SZLHOLDINGS/rag-corpus-v1 (corpus.jsonl)",
+      "SZLHOLDINGS/thesis-corpus-v18",
+      "szl-kernels family READMEs + build/*.py"
+    ],
+    "n_documents": 26,
+    "n_source_files": 26,
+    "total_tokens_in_window": 94466,
+    "vocab_size": 3290,
+    "min_count": 5,
+    "source_file_sha256": [
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+        "sha256": "8167627f6d8f98241c34a38b87d1b1b853fe99b9fbe5c7fb07433c18095cce4e",
+        "n_chars": 949
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+        "sha256": "8167627f6d8f98241c34a38b87d1b1b853fe99b9fbe5c7fb07433c18095cce4e",
+        "n_chars": 949
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/DOCTRINE_V10_LOCKED_2026-05-31_2355.md",
+        "sha256": "b9e258b5ac450b6ccc582df9d1a453e4c53d1613f82a14ecbbbf7c2aef8716cd",
+        "n_chars": 12832
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/DOCTRINE_V10_LOCKED_2026-05-31_2355.md",
+        "sha256": "b9e258b5ac450b6ccc582df9d1a453e4c53d1613f82a14ecbbbf7c2aef8716cd",
+        "n_chars": 12832
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+        "sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+        "n_chars": 20197
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+        "sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+        "n_chars": 20197
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/MYTHOS_TO_HATUN_WILLAY_RULE.md",
+        "sha256": "d81c675459d6552faa31dadea357eab3eedaa949cde314c6ad1091df522fdd3e",
+        "n_chars": 1782
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/MYTHOS_TO_HATUN_WILLAY_RULE.md",
+        "sha256": "d81c675459d6552faa31dadea357eab3eedaa949cde314c6ad1091df522fdd3e",
+        "n_chars": 1782
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/README.md",
+        "sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+        "n_chars": 5676
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/doctrine-v10-v11/README.md",
+        "sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+        "n_chars": 5676
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/rag-corpus-v1/corpus.jsonl",
+        "sha256": "92315f1021e7b8680ded9e1f94dd7f51df2c3621315d17f75ef551655d0ce7e0",
+        "n_chars": 697923
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/chapters/00_abstract.tex",
+        "sha256": "6829c418e1c4996ab062d9fa2e2544becae78238f4495f542bc8b869c12e87fe",
+        "n_chars": 4253
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/chapters/01_introduction.tex",
+        "sha256": "d3e7f34d358eae62dca1af968202726ecc74637f0b882c45796e2a2c2846ad73",
+        "n_chars": 34558
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/chapters/02_mathematical_foundations.tex",
+        "sha256": "bd597fe513a514b61552e0af6ce4e4ffa28fed5e7668d434364fb5ed7d85a665",
+        "n_chars": 81230
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/chapters/03_runtime_substrate.tex",
+        "sha256": "33b8ff9e49d482f4a412ef45aa4a92b0787d58926106e235c615a5ff91479982",
+        "n_chars": 61482
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/chapters/04_agentic_substrate.tex",
+        "sha256": "f7042c7455b8a15651af0eca5b8a093c114fc3c019124f117beaea993cacf998",
+        "n_chars": 62734
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/chapters/05_observability_security_governance.tex",
+        "sha256": "507c5dd7ea6fb3f35c3b5a1319fab203fb3405db4b5510e0406973c183db3c23",
+        "n_chars": 65300
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/chapters/06_new_formulas.tex",
+        "sha256": "761263a3de248bea779152afbbfeb420d0113845cbd6cab8b91598701331aa91",
+        "n_chars": 71206
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/chapters/07_formal_validation.tex",
+        "sha256": "c39649b7b5a381d3489030a4e62a111a7aa2328d6c1c765466da5d614d6eb1ab",
+        "n_chars": 34120
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/chapters/08_conclusion.tex",
+        "sha256": "be4b2320441c9921bb6832628591c1aa61dd5093eb3045a77e14f322a6bde4c6",
+        "n_chars": 24867
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/thesis-corpus-v18/main.tex",
+        "sha256": "2c1e1eb849a54ee949966d023a094902ab19c9b2e1d9bc4bdc22c5088fd99cd4",
+        "n_chars": 3029
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/kernels/README.md",
+        "sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+        "n_chars": 20153
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/kernels/README.md",
+        "sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+        "n_chars": 20153
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/kernels/build/torch-universal/szl_kernels/__init__.py",
+        "sha256": "d9780a686713b1b3e7454b70704783ee969df4f9c1df72acc75cf53a3c6ebad6",
+        "n_chars": 11073
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/kernels/build/torch-universal/szl_kernels/_chain.py",
+        "sha256": "822f24ad04bfac3a6662d79ee01807f2c6a6379b096dad20b10b80d83c7bdbb2",
+        "n_chars": 11467
+      },
+      {
+        "path": "../home/runner/workspace/.agents/frontier/model-forge/szl-kernels/corpus/kernels/build/torch-universal/szl_kernels/_ops.py",
+        "sha256": "8b92d41814a11d7a5c8a7de165eb12a9bd24fc932478b60b2c41f503d9fef141",
+        "n_chars": 8824
+      }
+    ]
+  },
+  "model": {
+    "type": "sklearn.TruncatedSVD over PPMI co-occurrence",
+    "dim": 128,
+    "window": 5,
+    "params": {
+      "n_components": 128,
+      "n_iter": 10,
+      "random_state": 20260721
+    },
+    "files": {
+      "vectors.npz": "053d839490ea95ed03dd1059f68474ef77cfcf04b2e727b29da9bc617abe4020",
+      "vocab.json": "7862ebac9193d010606d89fb5aa6c046cbd638590d7a40c068c7bb60b3ed665e"
+    },
+    "config": "config.json"
+  },
+  "metrics_MEASURED": {
+    "vocab_size": 3290,
+    "embedding_dim": 128,
+    "svd_explained_variance_ratio": 0.3146,
+    "probe_terms_in_vocab": 20,
+    "intrinsic_nearest_neighbors": {
+      "ouroboros": [
+        [
+          "substrate",
+          0.5725
+        ],
+        [
+          "replit",
+          0.5712
+        ],
+        [
+          "custodian",
+          0.5635
+        ],
+        [
+          "ouroboros-arch",
+          0.5571
+        ],
+        [
+          "payload",
+          0.5554
+        ],
+        [
+          "subsystems",
+          0.5492
+        ]
+      ],
+      "governance": [
+        [
+          "formal",
+          0.6056
+        ],
+        [
+          "score",
+          0.6041
+        ],
+        [
+          "first",
+          0.5582
+        ],
+        [
+          "layer",
+          0.5574
+        ],
+        [
+          "itself",
+          0.5181
+        ],
+        [
+          "system",
+          0.5146
+        ]
+      ],
+      "governed": [
+        [
+          "rms",
+          0.8541
+        ],
+        [
+          "numerics",
+          0.8335
+        ],
+        [
+          "unifiedreceiptchain",
+          0.8085
+        ],
+        [
+          "rmsnorm",
+          0.8041
+        ],
+        [
+          "randn",
+          0.7951
+        ],
+        [
+          "e-6",
+          0.7718
+        ]
+      ],
+      "receipt": [
+        [
+          "chain",
+          0.7297
+        ],
+        [
+          "receipts",
+          0.6828
+        ],
+        [
+          "hash",
+          0.6057
+        ],
+        [
+          "emits",
+          0.5929
+        ],
+        [
+          "emitted",
+          0.5872
+        ],
+        [
+          "every",
+          0.5855
+        ]
+      ],
+      "provenance": [
+        [
+          "openmdw",
+          0.6132
+        ],
+        [
+          "chain",
+          0.5595
+        ],
+        [
+          "lineage",
+          0.5557
+        ],
+        [
+          "dags",
+          0.5363
+        ],
+        [
+          "composes",
+          0.536
+        ],
+        [
+          "order",
+          0.5324
+        ]
+      ],
+      "invariant": [
+        [
+          "learned",
+          0.6967
+        ],
+        [
+          "operator",
+          0.6783
+        ],
+        [
+          "knowledge",
+          0.6619
+        ],
+        [
+          "th11",
+          0.6581
+        ],
+        [
+          "reidemeister",
+          0.6365
+        ],
+        [
+          "knot",
+          0.6255
+        ]
+      ],
+      "kernel": [
+        [
+          "discoverable",
+          0.6749
+        ],
+        [
+          "kernels",
+          0.6573
+        ],
+        [
+          "get",
+          0.6046
+        ],
+        [
+          "szl-kernels",
+          0.6003
+        ],
+        [
+          "hub",
+          0.5992
+        ],
+        [
+          "governed-kernel",
+          0.5869
+        ]
+      ],
+      "energy": [
+        [
+          "measured-only",
+          0.8283
+        ],
+        [
+          "advisory",
+          0.7775
+        ],
+        [
+          "joules",
+          0.7609
+        ],
+        [
+          "nvml",
+          0.7498
+        ],
+        [
+          "brk",
+          0.6896
+        ],
+        [
+          "unproven",
+          0.683
+        ]
+      ],
+      "lambda": [
+        [
+          "min",
+          0.7554
+        ],
+        [
+          "lam",
+          0.7091
+        ],
+        [
+          "float",
+          0.6258
+        ],
+        [
+          "emit",
+          0.61
+        ],
+        [
+          "action",
+          0.6066
+        ],
+        [
+          "compute",
+          0.5884
+        ]
+      ],
+      "conjecture": [
+        [
+          "uniqueness",
+          0.824
+        ],
+        [
+          "depends",
+          0.7032
+        ],
+        [
+          "unproven",
+          0.6333
+        ],
+        [
+          "open",
+          0.6169
+        ],
+        [
+          "cauchy",
+          0.6081
+        ],
+        [
+          "honest",
+          0.5573
+        ]
+      ],
+      "doctrine": [
+        [
+          "scanner",
+          0.6658
+        ],
+        [
+          "hmac-keyed",
+          0.5916
+        ],
+        [
+          "ban-list",
+          0.5805
+        ],
+        [
+          "marketing",
+          0.5722
+        ],
+        [
+          "v11",
+          0.5639
+        ],
+        [
+          "superlatives",
+          0.5464
+        ]
+      ],
+      "honest": [
+        [
+          "slsa",
+          0.7437
+        ],
+        [
+          "say",
+          0.7082
+        ],
+        [
+          "half-wired",
+          0.6365
+        ],
+        [
+          "now",
+          0.6079
+        ],
+        [
+          "w3c",
+          0.5872
+        ],
+        [
+          "c7c0ba17",
+          0.5856
+        ]
+      ],
+      "tamper": [
+        [
+          "touched",
+          0.7824
+        ],
+        [
+          "kernels",
+          0.6936
+        ],
+        [
+          "break",
+          0.6639
+        ],
+        [
+          "verifies",
+          0.6581
+        ],
+        [
+          "verify",
+          0.6524
+        ],
+        [
+          "detected",
+          0.6084
+        ]
+      ],
+      "verify": [
+        [
+          "offline",
+          0.6984
+        ],
+        [
+          "break",
+          0.6525
+        ],
+        [
+          "tamper",
+          0.6524
+        ],
+        [
+          "depth",
+          0.6497
+        ],
+        [
+          "touched",
+          0.6409
+        ],
+        [
+          "brk",
+          0.6396
+        ]
+      ],
+      "chain": [
+        [
+          "receipt",
+          0.7297
+        ],
+        [
+          "unifiedreceiptchain",
+          0.6187
+        ],
+        [
+          "emit",
+          0.5883
+        ],
+        [
+          "order",
+          0.5836
+        ],
+        [
+          "genesis",
+          0.5784
+        ],
+        [
+          "receiptchain",
+          0.5608
+        ]
+      ],
+      "loop": [
+        [
+          "feedback",
+          0.584
+        ],
+        [
+          "runnable",
+          0.5627
+        ],
+        [
+          "asynchronous",
+          0.5176
+        ],
+        [
+          "alphaproof",
+          0.5158
+        ],
+        [
+          "hatun-raid",
+          0.4965
+        ],
+        [
+          "agent",
+          0.4868
+        ]
+      ],
+      "signature": [
+        [
+          "signing",
+          0.8532
+        ],
+        [
+          "authorship",
+          0.804
+        ],
+        [
+          "sigstore",
+          0.7807
+        ],
+        [
+          "tamper-evidence",
+          0.773
+        ],
+        [
+          "fingerprint",
+          0.7721
+        ],
+        [
+          "out-of-band",
+          0.7315
+        ]
+      ],
+      "attestation": [
+        [
+          "szl-govsign",
+          0.7097
+        ],
+        [
+          "in-toto",
+          0.7025
+        ],
+        [
+          "ecdsa",
+          0.6487
+        ],
+        [
+          "att",
+          0.6435
+        ],
+        [
+          "signed",
+          0.6341
+        ],
+        [
+          "p-256",
+          0.6264
+        ]
+      ],
+      "measured": [
+        [
+          "per-kernel",
+          0.6897
+        ],
+        [
+          "governed-inference-meter",
+          0.6398
+        ],
+        [
+          "serialize",
+          0.6363
+        ],
+        [
+          "unknown",
+          0.6311
+        ],
+        [
+          "joules",
+          0.6022
+        ],
+        [
+          "interop",
+          0.5792
+        ]
+      ],
+      "trust": [
+        [
+          "non-compensatory",
+          0.5779
+        ],
+        [
+          "remote",
+          0.5636
+        ],
+        [
+          "advisory",
+          0.5421
+        ],
+        [
+          "bibtex",
+          0.5371
+        ],
+        [
+          "never",
+          0.5295
+        ],
+        [
+          "mourakn2021",
+          0.5274
+        ]
+      ]
+    },
+    "claim_scope": "INTRINSIC SANITY ONLY \u2014 nearest-neighbour lists are the measured evidence; NO downstream/analogy benchmark score is claimed"
+  },
+  "environment": {
+    "python": "3.12.12",
+    "sklearn": "1.9.0",
+    "scipy": "1.18.0",
+    "numpy": "2.5.1",
+    "host": "replit 2-vCPU container",
+    "wall_seconds": 5.7
+  },
+  "honesty": "Every number above is MEASURED by this run. Embeddings are an intrinsic distributional artifact over the SZL corpus; no benchmark skill is claimed. The kernel suite stays the primary artifact. \u039b untouched = Conjecture 1 (open).",
+  "trained_at_utc": "2026-07-21T02:57:04Z"
+}

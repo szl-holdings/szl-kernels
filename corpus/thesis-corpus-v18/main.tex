@@ -1,0 +1,82 @@
+\documentclass[11pt,a4paper,oneside]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amsthm,amssymb,mathtools,bm}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{cleveref}
+\usepackage{booktabs}
+\usepackage{array}
+
+%% Theorem environments
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{axiom}[theorem]{Axiom}
+
+%% Listings: define TypeScript, Lean 4, and JavaScript
+\lstdefinelanguage{typescript}[]{Java}{
+  morekeywords={type,interface,enum,readonly,namespace,declare,async,await,
+                from,import,export,const,let,of,keyof,typeof,as,extends,
+                implements,abstract,private,public,protected,override,string,
+                number,boolean,void,never,unknown,any,null,undefined},
+  sensitive=true,
+}
+\lstdefinelanguage{lean}{
+  keywords={def,theorem,lemma,axiom,by,have,show,exact,apply,intro,intros,
+            simp,ring,norm_num,decide,rfl,trivial,assumption,linarith,
+            constructor,cases,match,fun,forall,exists,import,open,namespace,
+            end,section,variable,structure,class,instance,where,noncomputable,
+            let,in,do,return,pure,sorry},
+  sensitive=true,
+  morecomment=[l]{--},
+  morecomment=[s]{/-}{-/},
+  morestring=[b]",
+}
+\lstdefinelanguage{javascript}[]{Java}{
+  morekeywords={var,let,const,function,return,if,else,for,while,do,switch,
+                case,break,continue,try,catch,finally,throw,new,delete,
+                typeof,instanceof,in,of,class,extends,super,import,export,
+                default,async,await,yield,from,as,static,get,set,null,
+                undefined,true,false},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  morestring=[b]`,
+}
+\lstset{basicstyle=\ttfamily\small, breaklines=true,
+        keywordstyle=\bfseries, frame=single,
+        showstringspaces=false}
+
+\addbibresource{bibliography.bib}
+
+\title{The Ouroboros Substrate: a Governance-Mathematical Foundation for
+Verifiable Agentic AI}
+\author{Stephen Lutar \\ SZL Holdings \\ ORCID: 0009-0001-0110-4173}
+\date{2026-05-28 \\ Concept DOI:
+\href{https://doi.org/10.5281/zenodo.19944926}{10.5281/zenodo.19944926}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\input{chapters/00_abstract.tex}
+\input{chapters/01_introduction.tex}
+\input{chapters/02_mathematical_foundations.tex}
+\input{chapters/03_runtime_substrate.tex}
+\input{chapters/04_agentic_substrate.tex}
+\input{chapters/05_observability_security_governance.tex}
+\input{chapters/06_new_formulas.tex}
+\IfFileExists{chapters/07_formal_validation.tex}{\input{chapters/07_formal_validation.tex}}{}
+\input{chapters/08_conclusion.tex}
+\printbibliography
+\end{document}

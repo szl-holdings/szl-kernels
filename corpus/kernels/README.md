@@ -5,10 +5,6 @@ tags:
 - governance
 - provenance
 - suite
-- sklearn
-- embeddings
-- word-embeddings
-- feature-extraction
 - doi:10.5281/zenodo.19944926
 library_name: kernels
 license: apache-2.0
@@ -32,7 +28,7 @@ szl-governance:
 <!-- SZL-ESTATE-CARD:v2:END -->
 
 <!-- SZL-ARTIFACT-NOTICE:v1:START — honesty plate: repo semantics, no fake model tags. -->
-> **🟩 Kernel suite + REAL trained SZL-MiniEmbed.** The governed-kernel suite (pure-Python) is UNCHANGED and remains the primary artifact. Since **SZL-MiniEmbed v1** this repo ALSO ships real trained word embeddings — `vectors.npz` + `vocab.json` + `config.json` — built with **no gensim**: a distance-weighted term–term co-occurrence matrix over the SZL text estate (doctrine v10/v11 + rag-corpus-v1 + thesis-corpus-v18 + kernel-family READMEs), PPMI-weighted, reduced with sklearn `TruncatedSVD` to **128-dim** over a **3290**-term vocabulary. Evidence is **INTRINSIC SANITY ONLY** — receipted nearest-neighbour lists on 20 doctrine terms; **NO downstream/benchmark score is claimed**. The kernel suite stays authoritative. Λ = Conjecture 1 · ADVISORY.
+> **⬛ NOT A RUNNABLE MODEL.** This repository is a **governance kernel / artifact set** (specifications, invariants, receipts, or reference material) published under the SZL honesty doctrine. It deliberately declares **no `pipeline_tag` and no `base_model`** because none truthfully applies — you cannot load this repo into an inference pipeline, and tagging it otherwise would fake semantics. Verification of anything here proves **integrity & origin only, never accuracy or performance**. Λ = Conjecture 1 · ADVISORY.
 <!-- SZL-ARTIFACT-NOTICE:v1:END -->
 
 
@@ -248,61 +244,6 @@ Python 3.9+, `torch>=2.5`, standard library + torch only. Runs on CPU and CUDA.
 ## License
 
 Apache-2.0. Copyright 2026 SZL Holdings.
-
-
-## Trained SZL-MiniEmbed v1 (MEASURED — see `TRAINING_RECEIPT.json`)
-
-Real word embeddings over the SZL text estate, produced **without gensim**: a distance-weighted
-term–term co-occurrence matrix (window 5) → PPMI → sklearn `TruncatedSVD` → L2-normalized
-vectors. Corpus = **26 documents / 26 source files** (every file's sha256 is recorded in
-the receipt): `doctrine-v10-v11`, `rag-corpus-v1` (`corpus.jsonl`), `thesis-corpus-v18`, and the
-kernel-family READMEs + `build/*.py`. Seed 20260721; the exact corpus text is bundled under
-`corpus/` so the build is reproducible offline.
-
-| property | value |
-|---|---|
-| vocabulary size | **3290** |
-| embedding dim | **128** |
-| co-occurrence window | 5 |
-| SVD explained-variance ratio (MEASURED) | **0.3146** |
-| doctrine probe terms in vocab | **20** / 20 |
-
-### Intrinsic nearest-neighbour sanity (MEASURED, receipted)
-
-Cosine nearest neighbours for doctrine terms — the **only** evidence claimed. This is intrinsic
-sanity, **not a benchmark**: no analogy/retrieval score is asserted.
-
-| term | top neighbours |
-|---|---|
-| `ouroboros` | substrate, replit, custodian, ouroboros-arch, payload, subsystems |
-| `governance` | formal, score, first, layer, itself, system |
-| `receipt` | chain, receipts, hash, emits, emitted, every |
-| `provenance` | openmdw, chain, lineage, dags, composes, order |
-| `lambda` | min, lam, float, emit, action, compute |
-| `kernel` | discoverable, kernels, get, szl-kernels, hub, governed-kernel |
-| `invariant` | learned, operator, knowledge, th11, reidemeister, knot |
-| `tamper` | touched, kernels, break, verifies, verify, detected |
-| `verify` | offline, break, tamper, depth, touched, brk |
-| `conjecture` | uniqueness, depends, unproven, open, cauchy, honest |
-
-```python
-import numpy as np, json
-V = np.load("vectors.npz")["vectors"]              # float32 [vocab, dim], L2-normalized
-vocab = json.load(open("vocab.json"))["index"]     # {term: row}
-def nn(term, k=6):
-    v = V[vocab[term]]; s = V @ v
-    return [(list(vocab)[i], float(s[i])) for i in np.argsort(-s)[1:k+1]]
-print(nn("receipt"))
-```
-
-**Honest scope / blind spot:** these are distributional co-occurrence embeddings over a small
-in-domain corpus (3290 terms). They capture SZL-doctrine term neighbourhoods; they are **not**
-a general-purpose embedding model and carry **no** benchmark claim. Rare/out-of-vocab terms are
-simply absent. The kernel suite remains the primary, authoritative artifact.
-
-Re-verify everything: `python scripts/eval.py` (sha256-checks `vectors.npz` + `vocab.json`
-against the receipt, regenerates the embeddings from the bundled corpus, and compares the
-nearest-neighbour sets — mean Jaccard overlap ≥ 0.90 — and SVD variance within ±0.02).
 
 ---
 

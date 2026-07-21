@@ -1,0 +1,91 @@
+% chapters/00_abstract.tex
+% SZL Ouroboros Thesis v18 -- Abstract
+
+% Doctrine v6: governance-mathematical tone; no marketing prose.
+% Author: Stephen P. Lutar -- ORCID 0009-0001-0110-4173
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+No prior framework simultaneously provides (i)~a machine-checked formal
+proof of every governance invariant, (ii)~a running agentic substrate
+whose every output emits a cryptographically-ordered dual-witness receipt,
+(iii)~a unified observability and security layer that ingests
+industry-standard telemetry into the same \(\Lambda\)-score pipeline,
+and (iv)~a sovereign-AI provenance chain suitable for FedRAMP-regulated
+workloads.
+This thesis closes that gap.
+
+\medskip
+
+We present the \textbf{Ouroboros Substrate} (SZL Holdings, v14--v18),
+the \emph{first} kernel-checked \(\Lambda\)-substrate for verifiable
+agentic AI\@.
+The central mathematical object is the \(\Lambda\)-axis score, a
+product-of-receipts governance scalar bounded by the Lean~4-verified
+Lutar Calculus (\texttt{Lambda\_le\_max}, DOI~\texttt{10.5281/zenodo.20424992}
+\cite{lutar2026v14}).
+Every agent action across all twenty-nine Python modules emits a receipt;
+the receipt chain is SCITT-compatible, composable across module
+boundaries, and linked by a SHA-256 hash spine~\cite{nist2012sha}.
+
+\medskip
+
+\textbf{What distinguishes this work from all prior art.}
+The NIST AI Risk Management Framework~\cite{nist2023ai} is a procedural
+catalogue: it names trustworthiness desiderata but provides no
+mathematical object that can be kernel-checked.
+HELM~\cite{liang2022helm} is an evaluation harness: it measures model
+outputs against human-annotated benchmarks but produces no formal proof
+and no runtime receipt.
+Mathlib~\cite{mathlib2020} is a library of pure mathematics: it provides
+the proof infrastructure we rely on but contains no agent-governance
+primitive and no observability substrate.
+The ScientistOne CoE framework~\cite{scientistoneCoE} addresses
+agent-loop governance but neither formalises a mathematical score nor
+kernel-checks its invariants.
+Commercial orchestration frameworks---LangGraph, AutoGen, CrewAI---provide
+tool-calling infrastructure and workflow memory; none defines a
+machine-checkable governance score, none emits a dual-witness receipt,
+and none links agent actions to a theorem.
+The Ouroboros Substrate is the \emph{first system to unify all four
+layers}: Lean~4 kernel proofs, a running agentic substrate, an
+observability/security graft, and a sovereign-AI provenance chain.
+
+\medskip
+
+The v18 release integrates twenty-nine Python modules (934+ green inline
+tests, exit code 0 on live execution), eighteen Lean~4 axioms at a hard
+ceiling, zero \texttt{sorry} statements on the \texttt{main} branch for
+the v14--v17 core, and seven Zenodo-archived DOIs
+(\texttt{10.5281/zenodo.19944926} through \texttt{10.5281/zenodo.20434308})
+all resolving at HTTP~200.
+Domain grafts span observability (Splunk/Datadog, Dynatrace/New Relic,
+Better Stack/Honeycomb), cybersecurity (Palantir, Palo Alto Networks,
+CrowdStrike, Fortinet), graph neural networks (PyTorch Geometric~v2.7
+\cite{fey2019fast}), efficient self-attention (rasbt DSA), agentic IDE
+governance (Cursor + Claude Opus~4.8~\cite{anthropic2024mcp}), and
+sovereign-AI provenance (IQT Labs).
+Each graft inherits the \(\Lambda\)-calculus without introducing new
+axioms beyond the eighteen-axiom ceiling.
+
+\medskip
+
+Governance is enforced by \textbf{Doctrine v6}: a machine-checked
+ban on marketing superlatives, a mandatory citation discipline, and an
+attribution-completeness requirement applied at CI time.
+The formal kernel enforces an honest-gap discipline: all ten remaining
+unproved axioms are publicly disclosed with their discharge targets,
+provenance, and estimated proof complexity.
+
+\medskip
+
+The three-year roadmap targets FedRAMP ATO, a Series-A close, an
+AIMS@COLM~2026 workshop submission~\cite{aims2026colm}, and Gartner
+Magic Quadrant candidacy for the AIOps/AI-governance vertical.
+
+\bigskip
+\noindent\textbf{Keywords:} agentic AI governance, \(\Lambda\)-axis
+calculus, kernel-checked substrate, Lean~4, dual-witness receipts,
+Schur concavity, PAC-Bayes bounds, Doctrine v6, DOI provenance,
+observability, sovereign AI, FedRAMP.

@@ -1,0 +1,15 @@
+{
+  "canonical_flagship": "https://github.com/szl-holdings/a11oy",
+  "canonical_github_org": "https://github.com/szl-holdings",
+  "canonical_rule": "GitHub source, protected CI, release receipts, checksums, and provenance are authoritative. Hugging Face is the managed Hub surface.",
+  "clone_of": null,
+  "generation": "0d83e76c67a5e12ebff958c2157a89da5ebaaed2",
+  "managed_at": "2026-07-22T05:19:29.171423+00:00",
+  "non_destructive": true,
+  "observed_sha_before_upgrade": "7842caa5c040116447227d5e64859b1efcc7ed0d",
+  "organization": "SZLHOLDINGS",
+  "repo_id": "SZLHOLDINGS/szl-kernels",
+  "repo_type": "model",
+  "runtime": null,
+  "schema": "szl.hf-estate-managed/v1"
+}

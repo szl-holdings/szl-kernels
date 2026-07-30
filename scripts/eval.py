@@ -45,7 +45,7 @@ with tempfile.TemporaryDirectory() as td:
     ev_delta = abs(re_receipt["metrics_MEASURED"]["svd_explained_variance_ratio"]
                    - receipt["metrics_MEASURED"]["svd_explained_variance_ratio"])
     print(f"neighbour-set mean Jaccard overlap vs receipt: {mean_overlap:.4f} "
-          f"({'OK ≥0.90' if mean_overlap >= 0.90 else 'FAIL'})")
+          f"({'OK >=0.90' if mean_overlap >= 0.90 else 'FAIL'})")
     print(f"SVD explained-variance delta vs receipt: {ev_delta:.4f} "
-          f"({'OK ≤0.02' if ev_delta <= 0.02 else 'FAIL'})")
+          f"({'OK <=0.02' if ev_delta <= 0.02 else 'FAIL'})")
     sys.exit(0 if (mean_overlap >= 0.90 and ev_delta <= 0.02) else 1)

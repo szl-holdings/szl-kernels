@@ -44,6 +44,16 @@ szl-governance:
 
 # szl-kernels — the unified governed-kernel suite
 
+**Canonical source:** [`szl-holdings/szl-kernels`](https://github.com/szl-holdings/szl-kernels).
+Every protected `main` publication verifies the kernel tests, replays the
+MiniEmbed artifact within its declared tolerance, publishes the declared file
+set to Hugging Face, and reads every byte back at the resulting immutable Hub
+revision. The exact Git source revision is written to `publication.json`.
+
+This is a governed kernel suite with a receipted word-embedding companion. It is
+not a general-purpose language model, and its intrinsic nearest-neighbor replay
+is not a downstream quality benchmark.
+
 > **Kernel Hub migration (verified 2026-07-15):** `get_kernel(...)` now resolves
 > the matching first-class [Kernel Hub repository](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels).
 > Its `main` and stable `v1` refs both pin verified revision

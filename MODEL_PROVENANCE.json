@@ -1,10 +1,10 @@
 {
-  "schema": "szl.model-source-attestation/v1",
-  "observed_at": "2026-07-12T00:27:14Z",
+  "schema": "szl.model-source-attestation/v2",
+  "observed_at": "2026-07-30T19:33:24Z",
   "model": {
     "id": "SZLHOLDINGS/szl-kernels",
     "repository_type": "model",
-    "artifact_kind": "kernel-code-and-configuration + trained SZL-MiniEmbed embeddings (vectors.npz)",
+    "artifact_kind": "governed kernel code and configuration with trained SZL-MiniEmbed embeddings",
     "trained_weights_present": true,
     "surrogate": {
       "name": "SZL-MiniEmbed v1",
@@ -13,52 +13,56 @@
         "vocab.json": "7862ebac9193d010606d89fb5aa6c046cbd638590d7a40c068c7bb60b3ed665e",
         "config": "config.json"
       },
-      "role": "intrinsic word-embedding companion over the SZL text estate \u2014 the kernel suite remains the primary artifact",
-      "method": "term-term co-occurrence (distance-weighted, window=5) -> PPMI -> TruncatedSVD",
-      "fidelity_MEASURED": {
+      "role": "intrinsic word-embedding companion over the SZL text estate; the kernel suite remains the primary artifact",
+      "method": "distance-weighted term-term co-occurrence, PPMI, and TruncatedSVD",
+      "fidelity_measured": {
         "vocab_size": 3290,
         "embedding_dim": 128,
         "svd_explained_variance_ratio": 0.3146,
         "probe_terms_in_vocab": 20,
-        "claim_scope": "INTRINSIC SANITY ONLY \u2014 receipted nearest-neighbour lists; NO benchmark score claimed"
+        "claim_scope": "INTRINSIC_SANITY_ONLY"
       },
       "receipt": "TRAINING_RECEIPT.json",
       "reverify": "python scripts/eval.py"
-    },
-    "honesty_note": "The kernel suite itself stays pure-Python/stdlib+torch as documented; the OPTIONAL SZL-MiniEmbed companion needs sklearn+scipy+numpy to build/load. Embeddings are an intrinsic distributional artifact with NO benchmark claim; the kernel suite remains authoritative."
+    }
   },
   "source_of_record": {
-    "state": "VERIFIED_HF_SOURCE_OF_RECORD",
-    "platform": "huggingface",
-    "repository": "SZLHOLDINGS/szl-kernels",
-    "artifact_base_revision": "dab03c8bfffd0e771e1e4e03b1c16fb2e71dd147",
-    "artifact_base_state": "MEASURED_PRE_ATTESTATION_BASE",
-    "artifact_base_url": "https://huggingface.co/SZLHOLDINGS/szl-kernels/tree/dab03c8bfffd0e771e1e4e03b1c16fb2e71dd147",
-    "file_count": 10,
-    "tree_sha256": "d40080d89d5f4ad6fc5f4024d4f614d1578ac9a2e8a600e80cf5de9fed055d8f",
-    "tree_hash_algorithm": "sha256 of UTF-8 path + NUL + per-file sha256 + LF, sorted by path; .cache excluded"
+    "state": "GITHUB_CANONICAL_SOURCE",
+    "platform": "github",
+    "repository": "szl-holdings/szl-kernels",
+    "url": "https://github.com/szl-holdings/szl-kernels",
+    "exact_revision_evidence": "publication.json in the Hugging Face artifact",
+    "publication_contract": "publishing/source-binding.json",
+    "publication_workflow": ".github/workflows/verify-and-publish.yml"
   },
-  "public_github": {
-    "state": "NO_DIRECT_PUBLIC_IMPLEMENTATION_OBSERVED",
-    "same_name_candidate": "https://github.com/szl-holdings/szl-kernels",
-    "same_name_candidate_http_status": 404,
-    "card_references": [
-      "https://github.com/szl-holdings/lutar-lean",
-      "https://github.com/szl-holdings/governed-receipt-spec",
-      "https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md"
-    ],
-    "card_reference_role": "FORMALIZATION_SPECIFICATION_OR_RESEARCH_CONTEXT_NOT_BUILD_SOURCE"
+  "artifact_history": {
+    "imported_from": "https://huggingface.co/SZLHOLDINGS/szl-kernels",
+    "imported_hub_revision": "46730d363d1b2cf69c1ef770c60bb84a3356b574",
+    "history_preserved": true
   },
   "claims": {
-    "github_repository_parity": "NOT_CLAIMED",
-    "reproducible_build": "REPRODUCIBLE (seeded; bundled corpus/; scripts/eval.py re-verifies)",
-    "trained_model": "TRAINED_EMBEDDINGS_PRESENT (SZL-MiniEmbed v1; intrinsic-only, no benchmark claim)",
+    "github_source": "CANONICAL",
+    "huggingface_source_binding": "EXACT_GIT_REVISION_AFTER_MAIN_PUBLICATION_AND_READBACK",
+    "artifact_equivalence": "BYTE_IDENTICAL_DECLARED_FILE_SET_AFTER_PUBLICATION",
+    "reproducible_build": "BOUNDED_REPLAY_ONLY",
+    "trained_model": "TRAINED_EMBEDDINGS_PRESENT",
+    "independent_quality_certification": "NOT_CLAIMED",
     "serving_process_revision": "NOT_APPLICABLE_REPOSITORY_ARTIFACT"
   },
+  "replay_contract": {
+    "dependencies": "requirements-replay.txt",
+    "checks": [
+      "shipped vectors and vocabulary SHA-256 match TRAINING_RECEIPT.json",
+      "mean top-k neighbor-set Jaccard overlap is at least 0.90",
+      "SVD explained-variance delta is at most 0.02"
+    ],
+    "byte_identical_retraining": "NOT_CLAIMED"
+  },
   "limits": [
-    "The 404 observation establishes only that no public same-name repository was reachable at the observation time; it does not make a claim about private repositories.",
-    "The formalization and receipt-spec repositories are supporting evidence, not asserted build sources for this artifact.",
-    "The attestation overlay cannot self-embed its resulting Hub commit, so the immutable artifact_base_revision is the measured pre-overlay base.",
-    "SZL-MiniEmbed ships vectors.npz (numpy), NOT a .safetensors/.pt transformer; it is a distributional embedding table, not a runnable inference pipeline. \u039b remains Conjecture 1 (open)."
+    "SZL-MiniEmbed is a NumPy word-embedding table, not a transformer language model.",
+    "The original receipt records a build environment that is not the public replay matrix; CI therefore validates bounded semantic replay rather than bit-identical weights.",
+    "The intrinsic nearest-neighbor checks are not a downstream benchmark.",
+    "The kernel suite is advisory. Lambda remains Conjecture 1 (open).",
+    "A signature or hash proves integrity and origin, not accuracy or performance."
   ]
 }

@@ -1,0 +1,6 @@
+# Public compatibility matrix used by CI to replay the receipted MiniEmbed build.
+# The original receipt records a different build environment; the evaluator
+# therefore requires bounded metric agreement rather than byte-for-byte weights.
+numpy==2.3.5
+scipy==1.17.1
+scikit-learn==1.9.0

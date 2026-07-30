@@ -1,0 +1,63 @@
+{
+  "schema": "szl.kernel-source-binding/v1",
+  "repo_id": "SZLHOLDINGS/szl-kernels",
+  "source_repository": "szl-holdings/szl-kernels",
+  "artifact_files": [
+    ".gitattributes",
+    "LICENSE",
+    "MODEL_PROVENANCE.json",
+    "README.md",
+    "SECURITY.md",
+    "SZL_ESTATE_MANAGED.json",
+    "TRAINING_RECEIPT.json",
+    "build.toml",
+    "build/torch-universal/szl_kernels/__init__.py",
+    "build/torch-universal/szl_kernels/_chain.py",
+    "build/torch-universal/szl_kernels/_ops.py",
+    "build/torch-universal/szl_kernels/metadata.json",
+    "config.json",
+    "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+    "corpus/doctrine-v10-v11/DOCTRINE_V10_LOCKED_2026-05-31_2355.md",
+    "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+    "corpus/doctrine-v10-v11/MYTHOS_TO_HATUN_WILLAY_RULE.md",
+    "corpus/doctrine-v10-v11/README.md",
+    "corpus/kernels/README.md",
+    "corpus/kernels/build/torch-universal/szl_kernels/__init__.py",
+    "corpus/kernels/build/torch-universal/szl_kernels/_chain.py",
+    "corpus/kernels/build/torch-universal/szl_kernels/_ops.py",
+    "corpus/rag-corpus-v1/corpus.jsonl",
+    "corpus/thesis-corpus-v18/chapters/00_abstract.tex",
+    "corpus/thesis-corpus-v18/chapters/01_introduction.tex",
+    "corpus/thesis-corpus-v18/chapters/02_mathematical_foundations.tex",
+    "corpus/thesis-corpus-v18/chapters/03_runtime_substrate.tex",
+    "corpus/thesis-corpus-v18/chapters/04_agentic_substrate.tex",
+    "corpus/thesis-corpus-v18/chapters/05_observability_security_governance.tex",
+    "corpus/thesis-corpus-v18/chapters/06_new_formulas.tex",
+    "corpus/thesis-corpus-v18/chapters/07_formal_validation.tex",
+    "corpus/thesis-corpus-v18/chapters/08_conclusion.tex",
+    "corpus/thesis-corpus-v18/main.tex",
+    "og-card.png",
+    "scripts/eval.py",
+    "scripts/forge.py",
+    "tests/test_replay_portability.py",
+    "tests/test_suite.py",
+    "vectors.npz",
+    "vocab.json"
+  ],
+  "expected_artifact_sha256": {
+    "vectors.npz": "053d839490ea95ed03dd1059f68474ef77cfcf04b2e727b29da9bc617abe4020",
+    "vocab.json": "7862ebac9193d010606d89fb5aa6c046cbd638590d7a40c068c7bb60b3ed665e"
+  },
+  "claims": {
+    "artifact_equivalence": "BYTE_IDENTICAL_DECLARED_FILE_SET_AFTER_PUBLISH_AND_READBACK",
+    "reproducible_build": "BOUNDED_REPLAY_ONLY",
+    "quality": "INTRINSIC_SANITY_ONLY",
+    "lambda": "CONJECTURE_1_OPEN"
+  },
+  "limitations": [
+    "SZL-MiniEmbed is a distributional word-embedding table, not a transformer language model.",
+    "The replay gate checks artifact hashes, nearest-neighbor overlap, and explained-variance tolerance; it does not claim bit-identical retraining.",
+    "The bundled evaluation contains no downstream task benchmark or independent quality certification.",
+    "The governed kernel decisions are advisory and Lambda remains Conjecture 1 (open)."
+  ]
+}

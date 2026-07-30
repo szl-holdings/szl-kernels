@@ -45,10 +45,14 @@ szl-governance:
 # szl-kernels — the unified governed-kernel suite
 
 **Canonical source:** [`szl-holdings/szl-kernels`](https://github.com/szl-holdings/szl-kernels).
-Every protected `main` publication verifies the kernel tests, replays the
-MiniEmbed artifact within its declared tolerance, publishes the declared file
-set to Hugging Face, and reads every byte back at the resulting immutable Hub
-revision. The exact Git source revision is written to `publication.json`.
+The protected `main` workflow verifies the kernel suite, replays the MiniEmbed
+artifact within its declared tolerance, and checks the source-binding contract
+against the public Hugging Face artifact. Exact publication is performed by the
+authorized release gateway in
+[`szl-holdings/szl-forge`](https://github.com/szl-holdings/szl-forge/blob/main/.github/workflows/publish-szl-kernels.yml).
+That gateway checks out an exact protected Git revision, publishes the declared
+file set, and reads every byte back at the resulting immutable Hub revision.
+The exact Git source revision is written to `publication.json`.
 
 This is a governed kernel suite with a receipted word-embedding companion. It is
 not a general-purpose language model, and its intrinsic nearest-neighbor replay

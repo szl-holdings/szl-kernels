@@ -29,6 +29,10 @@ class FakeApi:
 
 
 class PublishSourceBindingTests(unittest.TestCase):
+    @staticmethod
+    def _verified_checkout(revision: str) -> dict[str, str]:
+        return {"head_revision": revision, "tracked_worktree": "CLEAN"}
+
     def _fixture(self, root: Path) -> tuple[Path, dict[str, Path]]:
         artifacts = {
             "README.md": root / "README.md",
@@ -80,6 +84,7 @@ class PublishSourceBindingTests(unittest.TestCase):
                     token=None,
                     api=FakeApi(list(artifacts)),
                     download_fn=download,
+                    checkout_verifier=self._verified_checkout,
                 )
             self.assertEqual(result["status"], "VERIFIED_DRY_RUN")
             self.assertEqual(result["declared_file_count"], 2)
@@ -118,6 +123,7 @@ class PublishSourceBindingTests(unittest.TestCase):
                         token=None,
                         api=FakeApi(list(artifacts)),
                         download_fn=download,
+                        checkout_verifier=self._verified_checkout,
                     )
 
     def test_new_noncritical_file_can_wait_for_publication(self) -> None:
@@ -173,7 +179,17 @@ class PublishSourceBindingTests(unittest.TestCase):
                     publish=False,
                     token=None,
                     api=FakeApi(["README.md", "vectors.npz"]),
+                    checkout_verifier=self._verified_checkout,
                 )
+
+    def test_checkout_revision_mismatch_fails_closed(self) -> None:
+        with mock.patch.object(
+            binding.subprocess,
+            "check_output",
+            side_effect=["d" * 40 + "\n", ""],
+        ):
+            with self.assertRaisesRegex(binding.BindingError, "does not match"):
+                binding.verify_checkout("e" * 40)
 
 
 if __name__ == "__main__":

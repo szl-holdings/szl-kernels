@@ -9,6 +9,7 @@ import io
 import json
 import os
 import re
+import subprocess
 from pathlib import Path
 from typing import Any, Callable, Iterable
 
@@ -99,6 +100,30 @@ def tree_sha256(evidence: list[dict[str, Any]]) -> str:
     return digest.hexdigest()
 
 
+def verify_checkout(source_revision: str) -> dict[str, Any]:
+    try:
+        observed = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=ROOT,
+            text=True,
+        ).strip().lower()
+        status = subprocess.check_output(
+            ["git", "status", "--porcelain", "--untracked-files=no"],
+            cwd=ROOT,
+            text=True,
+        ).strip()
+    except (OSError, subprocess.CalledProcessError) as error:
+        raise BindingError(f"unable to verify the Git checkout: {error}") from error
+    if observed != source_revision:
+        raise BindingError(
+            f"source revision does not match checkout HEAD "
+            f"(supplied {source_revision}, observed {observed})"
+        )
+    if status:
+        raise BindingError("tracked worktree is dirty; refuse source binding")
+    return {"head_revision": observed, "tracked_worktree": "CLEAN"}
+
+
 def hub_evidence(
     api: HfApi,
     contract: dict[str, Any],
@@ -149,6 +174,7 @@ def publication_payload(
     source_revision: str,
     local_files: list[dict[str, Any]],
     hub_before: dict[str, Any],
+    checkout: dict[str, Any],
 ) -> dict[str, Any]:
     return {
         "schema": "szl.hf-kernel-source-binding/v1",
@@ -162,6 +188,7 @@ def publication_payload(
         "source": {
             "url": f"https://github.com/{contract['source_repository']}",
             "revision": source_revision,
+            "checkout": checkout,
             "artifact_tree_sha256": tree_sha256(local_files),
             "declared_file_count": len(local_files),
             "files": local_files,
@@ -207,10 +234,12 @@ def run(
     token: str | None,
     api: HfApi | None = None,
     download_fn: Callable[..., str] = hf_hub_download,
+    checkout_verifier: Callable[[str], dict[str, Any]] = verify_checkout,
 ) -> dict[str, Any]:
     source_revision = source_revision.strip().lower()
     if FULL_SHA_RE.fullmatch(source_revision) is None:
         raise BindingError("source revision must be an exact 40-character Git SHA")
+    checkout = checkout_verifier(source_revision)
     contract = load_contract(contract_path)
     api = api or HfApi(token=token)
     local_files = local_evidence(contract)
@@ -220,6 +249,7 @@ def run(
         source_revision=source_revision,
         local_files=local_files,
         hub_before=hub_before,
+        checkout=checkout,
     )
     publication_bytes = canonical_json(publication).encode("utf-8")
     result: dict[str, Any] = {
@@ -228,6 +258,7 @@ def run(
         "repo_id": contract["repo_id"],
         "source_repository": contract["source_repository"],
         "source_revision": source_revision,
+        "checkout": checkout,
         "artifact_tree_sha256": tree_sha256(local_files),
         "declared_file_count": len(local_files),
         "hub_revision_before": hub_before["revision"],

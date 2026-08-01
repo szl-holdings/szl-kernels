@@ -22,7 +22,6 @@ HONESTY: Λ stays advisory (Conjecture 1, open). Energy stays MEASURED-only
 """
 from __future__ import annotations
 
-import math
 import time
 from typing import Any, Dict, Optional, Tuple
 
@@ -114,14 +113,11 @@ def governed_lambda_gate(
     Returns a dict {score, passed, threshold, advisory=True}. ``passed`` is an
     advisory, non-compensatory signal only (Λ uniqueness = Conjecture 1, open).
     """
-    threshold_value = float(threshold)
-    if not math.isfinite(threshold_value) or not 0.0 <= threshold_value <= 1.0:
-        raise ValueError("threshold must be finite and within [0, 1]")
     score = _lambda_aggregate(axes, weights)
     s = float(score.reshape(-1)[0]) if score.dim() else float(score)
-    passed = s >= threshold_value
-    chain.emit_lambda(s, threshold_value, passed, int(axes.shape[-1]))
-    return {"score": s, "passed": passed, "threshold": threshold_value, "advisory": True}
+    passed = s >= float(threshold)
+    chain.emit_lambda(s, float(threshold), passed, int(axes.shape[-1]))
+    return {"score": s, "passed": passed, "threshold": float(threshold), "advisory": True}
 
 
 def governed_measure_energy(

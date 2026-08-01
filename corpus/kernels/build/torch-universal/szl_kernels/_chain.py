@@ -44,7 +44,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import struct
 import threading
 import time
 from typing import Any, Dict, List, Optional
@@ -78,11 +77,10 @@ def tensor_digest(t: "Any", decimals: int = _DECIMALS) -> str:
     """
     if _HAS_TORCH and hasattr(t, "detach"):
         flat = t.detach().to(torch.float32).reshape(-1)
-        scaled = torch.round(flat * (10 ** decimals)).to(torch.int64).cpu()
-        payload = bytearray(scaled.numel() * 8)
-        for index, value in enumerate(scaled.tolist()):
-            struct.pack_into("<q", payload, index * 8, int(value))
-        return hashlib.sha3_256(payload).hexdigest()
+        scaled = (
+            torch.round(flat * (10 ** decimals)).to(torch.int64).cpu().numpy().tobytes()
+        )
+        return hashlib.sha3_256(scaled).hexdigest()
     return hashlib.sha3_256(repr(t).encode("utf-8")).hexdigest()
 
 

@@ -33,6 +33,15 @@ def test_tensor_digest_matches_legacy_little_endian_int64_bytes():
     assert sk.tensor_digest(tensor) == hashlib.sha3_256(legacy_bytes).hexdigest()
 
 
+def test_tensor_digest_preserves_bytes_across_chunk_boundaries():
+    tensor = torch.arange(5000, dtype=torch.float32) / 8
+    scaled = torch.round(tensor * 1000000).to(torch.int64).tolist()
+    legacy_bytes = b"".join(
+        value.to_bytes(8, byteorder="little", signed=True) for value in scaled
+    )
+    assert sk.tensor_digest(tensor) == hashlib.sha3_256(legacy_bytes).hexdigest()
+
+
 def test_lambda_is_advisory():
     chain = sk.UnifiedReceiptChain()
     g = sk.governed_lambda_gate(chain, torch.tensor([0.9, 0.9, 0.9]))

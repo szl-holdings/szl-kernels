@@ -229,7 +229,7 @@ The standalone SZL kernels keep separate receipt state. A single forward pass th
 | `UnifiedReceiptChain` | Op-agnostic SHA3-256 hash chain. `emit`, `verify() -> (ok, depth, first_break)`, `kernels_touched()`, `to_json()`, `verify_json()` (offline). |
 | `governed_rms_norm(chain, x, weight=None, eps=1e-6)` | RMSNorm + a receipt into the shared chain. Numerics match `szl-governed-norm`. |
 | `governed_layer_norm(chain, x, ...)` | LayerNorm + receipt. |
-| `governed_lambda_gate(chain, axes, weights=None, threshold=0.5)` | **Advisory** Λ gate; records an advisory receipt (`advisory=True`, never proven trust). |
+| `governed_lambda_gate(chain, axes, weights=None, threshold=0.5)` | **Advisory** Λ gate; rejects non-finite or out-of-range thresholds before emitting a receipt, then records an advisory result (`advisory=True`, never proven trust). |
 | `governed_measure_energy(chain, measurement=None)` | Records an energy reading **verbatim** — `joules=None` + `UNAVAILABLE_NO_NVML` when no GPU. Never fabricated. |
 | `GovernedBlock` | Pre-norm sub-block composing all three + a binding receipt into one auditable pass. |
 | `list_kernels()`, `list_series()`, `get_member()`, `selfcheck()` | Numeric registry + governance-layer series + one-shot CPU health check. |
@@ -240,7 +240,7 @@ The standalone SZL kernels keep separate receipt state. A single forward pass th
 - **Energy is MEASURED-only.** Real NVML cumulative-energy delta when a GPU is present; otherwise `joules=None`, labeled `UNAVAILABLE_NO_NVML`. **No joule is ever fabricated.**
 - **The digest is an integrity fingerprint, not a signature.** SHA3-256 over a canonical receipt body proves tamper-evidence + ordering — not authorship. Signing is a separate, out-of-band layer — see [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) for DSSE / in-toto attestation.
 - **Honest BLOCKED beats fake green.** A failed verification stays failed — see [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) for refusal as a first-class, provenanced state.
-- **Universal (pure-Python) suite — a correctness + provenance reference, not a CUDA speed record. No fabricated benchmarks.** Suite tests: 7/7 passing.
+- **Universal (pure-Python) suite — a correctness + provenance reference, not a CUDA speed record. No fabricated benchmarks.** Suite tests: 9/9 passing.
 
 ## Provenance
 

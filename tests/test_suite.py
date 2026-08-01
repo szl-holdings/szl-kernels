@@ -33,6 +33,28 @@ def test_lambda_is_advisory():
     assert "Conjecture 1" in rec["attrs"]["lambda_status"]
 
 
+def test_lambda_threshold_must_be_finite_and_bounded():
+    for threshold in (-0.1, 1.1, float("nan"), float("inf"), float("-inf")):
+        chain = sk.UnifiedReceiptChain()
+        try:
+            sk.governed_lambda_gate(
+                chain,
+                torch.tensor([0.0, 1.0, 1.0]),
+                threshold=threshold,
+            )
+        except ValueError as exc:
+            assert str(exc) == "threshold must be finite and within [0, 1]"
+        else:
+            raise AssertionError(f"invalid threshold accepted: {threshold!r}")
+        assert chain.tail(1) == []
+    assert sk.governed_lambda_gate(
+        sk.UnifiedReceiptChain(), torch.tensor([0.0, 1.0, 1.0]), threshold=0.0
+    )["passed"]
+    assert sk.governed_lambda_gate(
+        sk.UnifiedReceiptChain(), torch.tensor([1.0, 1.0, 1.0]), threshold=1.0
+    )["passed"]
+
+
 def test_energy_measured_only_never_fabricated():
     chain = sk.UnifiedReceiptChain()
     e = sk.governed_measure_energy(chain)  # no NVML in CI

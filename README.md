@@ -64,22 +64,29 @@ is not a downstream quality benchmark.
 |---|---|---|---|
 | Governed kernels | Executable software | Source, manifests, tests, receipt-chain verifier, and `selfcheck()` | A successful self-check covers the exercised implementation path; it is not a safety, performance, or deployment claim. |
 | SZL-MiniEmbed v1 | Trained embedding weights | `vectors.npz`, vocabulary/config files, bundled corpus, `TRAINING_RECEIPT.json`, and deterministic replay tooling | Small in-domain co-occurrence embedding with intrinsic sanity evidence only; no downstream benchmark or general-purpose capability claim. |
-| Hub model-style repository | Distribution and presentation surface | Source-bound publication metadata and immutable-revision readback in the authorized release flow | A model API listing does not make every file trained weights, and Hub reachability is not runtime readiness. |
+| First-class Kernel Hub repository | Kernel distribution and loader surface | Generated `source-binding.json`, immutable-revision byte readback, and independently observed `main` and `v1` refs | Mutable ref names must be resolved again at evaluation time; repository reachability is not runtime readiness. |
+| Legacy model/card mirror | Distribution and presentation surface | Generated `publication.json` plus immutable-revision byte readback in the authorized release flow | A model API listing does not make every file trained weights, and mirror reachability is not runtime readiness. |
 
 **Investor value.** The repository combines an auditable governed-compute
 reference with a small, receipted learned artifact, while keeping software,
 weights, and evidence visibly separate.
 
-**Developer/evaluator path.** Review `publication.json` and
-`MODEL_PROVENANCE.json`, run `suite.selfcheck()` for the software path, and run
+**Developer/evaluator path.** Review the legacy mirror's generated
+[`publication.json`](https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/publication.json),
+the first-class Kernel repository's generated
+[`source-binding.json`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/blob/v1/build/torch-cpu/source-binding.json),
+and `MODEL_PROVENANCE.json`. Run `suite.selfcheck()` for the software path and
 `python scripts/eval.py` for the MiniEmbed replay. Treat returned results as
 observations from that run; do not infer a green status from this card.
 
-> **Kernel Hub migration (verified 2026-07-15):** `get_kernel(...)` now resolves
+> **Kernel Hub migration (verified 2026-08-01):** `get_kernel(...)` now resolves
 > the matching first-class [Kernel Hub repository](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels).
-> Its `main` and stable `v1` refs both pin verified revision
-> `06cc46f9733a844ee1c4cab558b06b3bd2d377ea`. This model-type repository is
-> retained as the legacy source/card mirror.
+> Its live refs resolve independently: [`main`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/tree/5c71b9d76dc7bd0bc29dfc82b4db803652f7f20f)
+> pins `5c71b9d76dc7bd0bc29dfc82b4db803652f7f20f`, while stable
+> [`v1`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/tree/1a3c1bdcd1656483333b3edf1e3b1991c90200be)
+> pins `1a3c1bdcd1656483333b3edf1e3b1991c90200be`. These are public ref
+> readbacks, not runtime-readiness or artifact-equivalence claims. This
+> model-type repository is retained as the legacy source/card mirror.
 
 **A kernel suite for governing provenance across operations.** This `get_kernel`-discoverable suite ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a governance/interop layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict), [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives an EU AI Act Annex IV draft), and [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) (verifies the provenance DAG + bridges to in-toto/SLSA).
 
@@ -273,7 +280,9 @@ Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/
 
 These links are navigation, not status badges. Availability, deployment state,
 and current revision must be checked at evaluation time; a reachable page does
-not establish correctness, performance, or runtime readiness.## Compatibility
+not establish correctness, performance, or runtime readiness.
+
+## Compatibility
 
 Python 3.9+, `torch>=2.5`, standard library + torch only. Runs on CPU and CUDA.
 

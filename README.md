@@ -58,11 +58,35 @@ This is a governed kernel suite with a receipted word-embedding companion. It is
 not a general-purpose language model, and its intrinsic nearest-neighbor replay
 is not a downstream quality benchmark.
 
-> **Kernel Hub migration (verified 2026-07-15):** `get_kernel(...)` now resolves
+## Artifact truth card
+
+| Lane | Classification | Evidence available here | Limitation |
+|---|---|---|---|
+| Governed kernels | Executable software | Source, manifests, tests, receipt-chain verifier, and `selfcheck()` | A successful self-check covers the exercised implementation path; it is not a safety, performance, or deployment claim. |
+| SZL-MiniEmbed v1 | Trained embedding weights | `vectors.npz`, vocabulary/config files, bundled corpus, `TRAINING_RECEIPT.json`, and deterministic replay tooling | Small in-domain co-occurrence embedding with intrinsic sanity evidence only; no downstream benchmark or general-purpose capability claim. |
+| First-class Kernel Hub repository | Kernel distribution and loader surface | Generated `source-binding.json`, immutable-revision byte readback, and independently observed `main` and `v1` refs | Mutable ref names must be resolved again at evaluation time; repository reachability is not runtime readiness. |
+| Legacy model/card mirror | Distribution and presentation surface | Generated `publication.json` plus immutable-revision byte readback in the authorized release flow | A model API listing does not make every file trained weights, and mirror reachability is not runtime readiness. |
+
+**Investor value.** The repository combines an auditable governed-compute
+reference with a small, receipted learned artifact, while keeping software,
+weights, and evidence visibly separate.
+
+**Developer/evaluator path.** Review the legacy mirror's generated
+[`publication.json`](https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/publication.json),
+the first-class Kernel repository's generated
+[`source-binding.json`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/blob/v1/build/torch-cpu/source-binding.json),
+and `MODEL_PROVENANCE.json`. Run `suite.selfcheck()` for the software path and
+`python scripts/eval.py` for the MiniEmbed replay. Treat returned results as
+observations from that run; do not infer a green status from this card.
+
+> **Kernel Hub migration (verified 2026-08-01):** `get_kernel(...)` now resolves
 > the matching first-class [Kernel Hub repository](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels).
-> Its `main` and stable `v1` refs both pin verified revision
-> `06cc46f9733a844ee1c4cab558b06b3bd2d377ea`. This model-type repository is
-> retained as the legacy source/card mirror.
+> Its live refs resolve independently: [`main`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/tree/5c71b9d76dc7bd0bc29dfc82b4db803652f7f20f)
+> pins `5c71b9d76dc7bd0bc29dfc82b4db803652f7f20f`, while stable
+> [`v1`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/tree/1a3c1bdcd1656483333b3edf1e3b1991c90200be)
+> pins `1a3c1bdcd1656483333b3edf1e3b1991c90200be`. These are public ref
+> readbacks, not runtime-readiness or artifact-equivalence claims. This
+> model-type repository is retained as the legacy source/card mirror.
 
 **A kernel suite for governing provenance across operations.** This `get_kernel`-discoverable suite ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a governance/interop layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict), [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives an EU AI Act Annex IV draft), and [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) (verifies the provenance DAG + bridges to in-toto/SLSA).
 
@@ -87,7 +111,7 @@ suite = get_kernel("SZLHOLDINGS/szl-kernels", revision="main", trust_remote_code
 
 print(suite.list_kernels())     # the 3 numeric suite members + honest roles
 print(suite.list_series())      # the governance/interop companions (govsign, blocked, provctl)
-print(suite.selfcheck())        # one-shot CPU health: ALL checks pass
+print(suite.selfcheck())        # inspect returned checks; this card assumes no pass
 
 # ONE shared chain spanning multiple ops:
 chain = suite.UnifiedReceiptChain()
@@ -240,20 +264,23 @@ The standalone SZL kernels keep separate receipt state. A single forward pass th
 - **Energy is MEASURED-only.** Real NVML cumulative-energy delta when a GPU is present; otherwise `joules=None`, labeled `UNAVAILABLE_NO_NVML`. **No joule is ever fabricated.**
 - **The digest is an integrity fingerprint, not a signature.** SHA3-256 over a canonical receipt body proves tamper-evidence + ordering — not authorship. Signing is a separate, out-of-band layer — see [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) for DSSE / in-toto attestation.
 - **Honest BLOCKED beats fake green.** A failed verification stays failed — see [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) for refusal as a first-class, provenanced state.
-- **Universal (pure-Python) suite — a correctness + provenance reference, not a CUDA speed record. No fabricated benchmarks.** Suite tests: 9/9 passing.
+- **Universal (pure-Python) suite: a correctness and provenance reference, not a CUDA speed record. No performance result or current test status is asserted by this card.**
 
 ## Provenance
 
 Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/szl-holdings/lutar-lean) (749 declarations / 14 axioms / 163 tracked sorries), DOI [10.5281/zenodo.20434308](https://doi.org/10.5281/zenodo.20434308). Λ uniqueness = Conjecture 1 (open).
 
-## See it live
+## Presentation and verification surfaces
 
-- ✅ **Live now:** [a11oy](https://huggingface.co/spaces/SZLHOLDINGS/a11oy) (live governed inference) · [hatun-mcp](https://huggingface.co/spaces/SZLHOLDINGS/hatun-mcp). **All eight demo Spaces below are live** (static, in-browser).
-- 📚 **Collection:** [Governed Kernels & Verifiers](https://huggingface.co/collections/SZLHOLDINGS/governed-kernels-and-verifiers-6a542ad83a4b75151bf5eae3) — the whole family in one page. **Live console:** [a11oy](https://szlholdings-a11oy.hf.space) · [a-11-oy.com](https://a-11-oy.com) · [llm-router](https://szlholdings-llm-router-live.hf.space) · [receipt verifier](https://szlholdings-governed-receipt-verifier.static.hf.space) · [receipt spec (hub)](https://github.com/szl-holdings/governed-receipt-spec).
-- ✅ Suite: [`szl-kernels-live`](https://szlholdings-szl-kernels-live.static.hf.space) ✅ **live** — holographic cross-kernel provenance graph with in-browser SHA3-256 + tamper / honest-BLOCKED demo.
-- ✅ Members: [`governed-norm-holo`](https://szlholdings-governed-norm-holo.static.hf.space) ✅ **live** · [`lambda-gate-holo`](https://szlholdings-lambda-gate-holo.static.hf.space) ✅ **live** · [`energy-attest-holo`](https://szlholdings-energy-attest-holo.static.hf.space) ✅ **live** · [`receipt-chain-live`](https://szlholdings-receipt-chain-live.static.hf.space) ✅ **live**
-- ✅ Governance layer: [`szl-govsign-live`](https://szlholdings-szl-govsign-live.static.hf.space) ✅ **live** · [`szl-blocked-live`](https://szlholdings-szl-blocked-live.static.hf.space) ✅ **live** · [`szl-provctl-live`](https://szlholdings-szl-provctl-live.static.hf.space) ✅ **live**
-- 🔮 `szl-substrate` *(ROADMAP — not yet live)* — the hub tying the whole governed-compute substrate together.
+- [Canonical Hugging Face card](https://huggingface.co/SZLHOLDINGS/szl-kernels)
+- [Kernel Hub repository](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels)
+- [Governed Kernels & Verifiers collection](https://huggingface.co/collections/SZLHOLDINGS/governed-kernels-and-verifiers-6a542ad83a4b75151bf5eae3)
+- [SZL organization inventory](https://huggingface.co/SZLHOLDINGS)
+- [Canonical GitHub source](https://github.com/szl-holdings/szl-kernels)
+
+These links are navigation, not status badges. Availability, deployment state,
+and current revision must be checked at evaluation time; a reachable page does
+not establish correctness, performance, or runtime readiness.
 
 ## Compatibility
 

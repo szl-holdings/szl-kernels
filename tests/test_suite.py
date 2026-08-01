@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 """Suite tests for szl_kernels — cross-kernel provenance, advisory Λ, MEASURED energy."""
-import sys, os, json
+import sys, os, json, hashlib
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "build", "torch-universal"))
 import torch
 import szl_kernels as sk
@@ -22,6 +22,15 @@ def test_one_chain_spans_three_kernels():
     ok, depth, brk = chain.verify()
     assert ok and depth == 3 and brk == -1
     assert chain.kernels_touched() == ["governed_norm", "lambda_gate", "energy_core"]
+
+
+def test_tensor_digest_matches_legacy_little_endian_int64_bytes():
+    tensor = torch.tensor([-2.0, -0.25, 0.0, 0.5, 3.0], dtype=torch.float32)
+    scaled = (-2000000, -250000, 0, 500000, 3000000)
+    legacy_bytes = b"".join(
+        value.to_bytes(8, byteorder="little", signed=True) for value in scaled
+    )
+    assert sk.tensor_digest(tensor) == hashlib.sha3_256(legacy_bytes).hexdigest()
 
 
 def test_lambda_is_advisory():

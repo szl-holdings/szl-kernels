@@ -256,6 +256,7 @@ The standalone SZL kernels keep separate receipt state. A single forward pass th
 | `governed_lambda_gate(chain, axes, weights=None, threshold=0.5)` | **Advisory** Λ gate; rejects non-finite or out-of-range thresholds before emitting a receipt, then records an advisory result (`advisory=True`, never proven trust). |
 | `governed_measure_energy(chain, measurement=None)` | Records an energy reading **verbatim** — `joules=None` + `UNAVAILABLE_NO_NVML` when no GPU. Never fabricated. |
 | `GovernedBlock` | Pre-norm sub-block composing all three + a binding receipt into one auditable pass. |
+| `MiniEmbed` | Load repo-root `vocab.json` + `vectors.npz` and look up / encode in-vocab terms. Table and lookup receipts use `UnifiedReceiptChain`. Distributional word-embedding table — not a transformer LM. |
 | `list_kernels()`, `list_series()`, `get_member()`, `selfcheck()` | Numeric registry + governance-layer series + one-shot CPU health check. |
 
 ## Honesty (SZL doctrine)
@@ -345,6 +346,22 @@ Re-verify everything: `python scripts/eval.py` (sha256-checks `vectors.npz` + `v
 against the receipt, regenerates the embeddings from the bundled corpus, and compares the
 nearest-neighbour sets — mean Jaccard overlap ≥ 0.90 — and SVD variance within ±0.02).
 
+### SOURCE
+
+`szl_kernels.MiniEmbed` is a **distributional word-embedding table** (PPMI + TruncatedSVD,
+dim 128, vocab 3290) loaded from the in-repo `vectors.npz` / `vocab.json` artifact. It is
+**not** a transformer language model, **not** Chaski, and **not** Khipu. Lookup and encode
+cover terms already in the vocabulary. Integrity receipts use the existing
+`UnifiedReceiptChain` (SHA3-256). File-hash replay remains `python scripts/eval.py`.
+
+```python
+from szl_kernels import MiniEmbed
+emb = MiniEmbed()                 # loads repo-root vocab.json + vectors.npz
+print(emb.lookup("receipt").shape)  # (128,)
+print(emb.neighbors("receipt", k=6))
+print(emb.selfcheck()["label"])     # MATCHES / LOADED, or UNAVAILABLE_LFS
+```
+
 ---
 
 <sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href="https://a-11-oy.com">a-11-oy.com</a> · <a href="https://github.com/szl-holdings">github.com/szl-holdings</a> · <a href="https://huggingface.co/SZLHOLDINGS">huggingface.co/SZLHOLDINGS</a></sub>
@@ -385,7 +402,10 @@ Honesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine
 | `build/torch-universal/szl_kernels/__init__.py` | public API — suite entry points + `selfcheck()` |
 | `build/torch-universal/szl_kernels/_chain.py` | cross-kernel `UnifiedReceiptChain` (SHA3-256) |
 | `build/torch-universal/szl_kernels/_ops.py` | the governed op set |
+| `build/torch-universal/szl_kernels/miniembed.py` | MiniEmbed table loader, in-vocab lookup/encode, hash selfcheck |
+| `torch-ext/szl_kernels/` | kernel-builder source mirror of the same package |
 | `tests/test_suite.py` | suite test |
+| `tests/test_miniembed.py` | CPU MiniEmbed tests |
 | `build.toml` · `metadata.json` | Kernel Hub build/metadata manifests |
 | `LICENSE` · `SECURITY.md` | Apache-2.0 · security policy |
 

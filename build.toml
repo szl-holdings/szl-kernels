@@ -3,3 +3,6 @@ name = "szl_kernels"
 
 [torch]
 universal = true
+
+[torch-noarch]
+src = "torch-ext/szl_kernels"

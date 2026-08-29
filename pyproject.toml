@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "szl-kernels"
+version = "0.1.1"
+description = "Unified governed-kernel suite with cross-kernel UnifiedReceiptChain. CPU-importable; GPU stays honest UNAVAILABLE without CUDA."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
+authors = [
+  { name = "Stephen P. Lutar Jr. / SZL Holdings" },
+]
+dependencies = [
+  "torch>=2.5",
+  "numpy>=1.21",
+]
+keywords = ["kernel", "governance", "provenance", "receipts", "szl-holdings"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "https://a-11-oy.com"
+Repository = "https://github.com/szl-holdings/szl-kernels"
+"Hugging Face" = "https://huggingface.co/SZLHOLDINGS/szl-kernels"
+
+[tool.setuptools]
+package-dir = { "" = "torch-ext" }
+
+[tool.setuptools.packages.find]
+where = ["torch-ext"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -71,6 +71,14 @@ from ._ops import (
     governed_rms_norm,
 )
 from .miniembed import MiniEmbed, PUBLISHED_SHA256
+from .estate import (
+    ESTATE,
+    cuda_status,
+    get_estate_member,
+    list_estate,
+    probe_estate,
+    probe_member,
+)
 
 __all__ = [
     "UnifiedReceiptChain",
@@ -87,6 +95,12 @@ __all__ = [
     "list_series",
     "get_member",
     "selfcheck",
+    "ESTATE",
+    "list_estate",
+    "probe_estate",
+    "probe_member",
+    "get_estate_member",
+    "cuda_status",
     "DOCTRINE_FOOTER",
     "PROVENANCE",
     "__version__",

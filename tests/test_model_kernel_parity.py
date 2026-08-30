@@ -6,15 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_SOURCE = ROOT / "build" / "torch-universal" / "szl_kernels" / "_chain.py"
-KERNEL_SOURCE = (
-    ROOT
-    / "corpus"
-    / "kernels"
-    / "build"
-    / "torch-universal"
-    / "szl_kernels"
-    / "_chain.py"
-)
+KERNEL_SOURCE = ROOT / "torch-ext" / "szl_kernels" / "_chain.py"
 
 
 def _source(path: Path) -> str:

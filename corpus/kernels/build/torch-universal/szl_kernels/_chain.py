@@ -44,7 +44,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import struct
 import threading
 import time
 from typing import Any, Dict, List, Optional
@@ -63,7 +62,6 @@ GENESIS = "0" * 64
 # szl_governed_norm._receipt._tensor_digest so a unified-chain norm receipt's
 # out_digest is bit-identical to the standalone kernel's.
 _DECIMALS = 6
-_DIGEST_CHUNK_ELEMENTS = 4096
 
 
 def tensor_digest(t: "Any", decimals: int = _DECIMALS) -> str:
@@ -79,12 +77,10 @@ def tensor_digest(t: "Any", decimals: int = _DECIMALS) -> str:
     """
     if _HAS_TORCH and hasattr(t, "detach"):
         flat = t.detach().to(torch.float32).reshape(-1)
-        scaled = torch.round(flat * (10 ** decimals)).to(torch.int64).cpu()
-        digest = hashlib.sha3_256()
-        for chunk in scaled.split(_DIGEST_CHUNK_ELEMENTS):
-            values = chunk.tolist()
-            digest.update(struct.pack(f"<{len(values)}q", *values))
-        return digest.hexdigest()
+        scaled = (
+            torch.round(flat * (10 ** decimals)).to(torch.int64).cpu().numpy().tobytes()
+        )
+        return hashlib.sha3_256(scaled).hexdigest()
     return hashlib.sha3_256(repr(t).encode("utf-8")).hexdigest()
 
 

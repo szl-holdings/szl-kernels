@@ -46,6 +46,7 @@ jobs:
           python -m pytest -q
           tests/test_suite.py
           tests/test_replay_portability.py
+          tests/test_model_kernel_parity.py
           tests/test_miniembed.py
           tests/test_estate.py
           tests/test_no_unsafe_serialization.py

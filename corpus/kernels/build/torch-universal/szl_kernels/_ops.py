@@ -22,8 +22,7 @@ HONESTY: Λ stays advisory (Conjecture 1, open). Energy stays MEASURED-only
 """
 from __future__ import annotations
 
-import time
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Dict, Optional
 
 import torch
 

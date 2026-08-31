@@ -126,6 +126,18 @@ class PublishSourceBindingTests(unittest.TestCase):
                         checkout_verifier=self._verified_checkout,
                     )
 
+    def test_cli_requires_an_explicit_non_ambiguous_mode(self) -> None:
+        with self.assertRaises(SystemExit):
+            binding.parse_args([])
+        dry_run = binding.parse_args(["--dry-run"])
+        self.assertTrue(dry_run.dry_run)
+        self.assertFalse(dry_run.publish)
+        publish = binding.parse_args(["--publish"])
+        self.assertFalse(publish.dry_run)
+        self.assertTrue(publish.publish)
+        with self.assertRaises(SystemExit):
+            binding.parse_args(["--dry-run", "--publish"])
+
     def test_new_noncritical_file_can_wait_for_publication(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

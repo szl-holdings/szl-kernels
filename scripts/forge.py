@@ -16,7 +16,7 @@ No downstream benchmark is claimed. Seeded, receipted, reproducible.
 
 Self-contained: resolves corpora from the repo's own dir when shipped in-repo
 (corpus/ subdir), else from /tmp/corpus + /tmp/kernel-probe (forge-dev run)."""
-import json, os, re, sys, time, hashlib, platform, glob
+import json, os, re, time, hashlib, platform, glob
 from collections import Counter, defaultdict
 import numpy as np
 from scipy.sparse import csr_matrix

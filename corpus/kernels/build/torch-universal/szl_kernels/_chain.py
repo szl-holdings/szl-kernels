@@ -46,7 +46,7 @@ import hashlib
 import json
 import threading
 import time
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 try:  # torch is optional at import time so the chain stays inspectable headless
     import torch  # noqa: F401

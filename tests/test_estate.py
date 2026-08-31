@@ -7,7 +7,7 @@ import types
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "build", "torch-universal"))
 
 import szl_kernels as sk
-from szl_kernels.estate import ESTATE, probe_estate, probe_member
+from szl_kernels.estate import ESTATE, probe_member
 
 
 REQUIRED = [

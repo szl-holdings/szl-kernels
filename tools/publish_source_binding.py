@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify and publish an exact GitHub-to-Hugging-Face source binding."""
+"""Verify an exact source binding; publish only with an explicit CLI mode."""
 
 from __future__ import annotations
 
@@ -319,7 +319,17 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
         default=os.getenv("GITHUB_SHA", ""),
         help="Exact canonical Git revision. Defaults to GITHUB_SHA.",
     )
-    parser.add_argument("--publish", action="store_true")
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Verify local and public bytes without any provider mutation.",
+    )
+    mode.add_argument(
+        "--publish",
+        action="store_true",
+        help="Publish and verify exact immutable readback; requires HF_TOKEN.",
+    )
     return parser.parse_args(argv)
 
 

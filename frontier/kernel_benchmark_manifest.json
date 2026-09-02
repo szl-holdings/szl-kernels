@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "EXPERIMENTAL",
+  "claim_policy": "No performance claim without measured hardware-bound evidence and correctness parity.",
+  "targets": [
+    {
+      "id": "YARQA-ATTN",
+      "hf_kernel": "SZLHOLDINGS/YARQA-ATTN",
+      "reference_backend": "torch",
+      "candidate_backends": ["torch-cpu", "torch-cuda", "triton", "rocm", "webgpu"],
+      "priority": 1
+    },
+    {
+      "id": "szl-receipt-attn",
+      "hf_kernel": "SZLHOLDINGS/szl-receipt-attn",
+      "reference_backend": "torch",
+      "candidate_backends": ["torch-cpu", "torch-cuda", "triton"],
+      "priority": 2
+    },
+    {
+      "id": "szl-block-kv",
+      "hf_kernel": "SZLHOLDINGS/szl-block-kv",
+      "reference_backend": "torch",
+      "candidate_backends": ["torch-cpu", "torch-cuda", "triton"],
+      "priority": 3
+    },
+    {
+      "id": "szl-maskmod",
+      "hf_kernel": "SZLHOLDINGS/szl-maskmod",
+      "reference_backend": "torch",
+      "candidate_backends": ["torch-cpu", "torch-cuda", "triton"],
+      "priority": 4
+    }
+  ],
+  "required_measurements": [
+    "source_revision",
+    "kernel_revision",
+    "hardware_fingerprint",
+    "software_fingerprint",
+    "input_shape",
+    "dtype",
+    "warmup_iterations",
+    "sample_iterations",
+    "p50_us",
+    "p95_us",
+    "throughput",
+    "peak_memory_bytes",
+    "max_abs_error",
+    "correctness_parity_pass",
+    "receipt_sha256"
+  ]
+}

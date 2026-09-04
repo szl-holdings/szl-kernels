@@ -1,0 +1,19 @@
+{
+  "schema": "szl.kernel-witness/v1",
+  "status": "CONTRACT",
+  "promotion": "HOLD",
+  "required_fields": [
+    "operator",
+    "source_revision",
+    "kernel_revision",
+    "dtype",
+    "shape",
+    "max_abs_error",
+    "correctness_parity_pass",
+    "compile_mode",
+    "hardware_fingerprint",
+    "receipt_sha256"
+  ],
+  "compile_modes": ["eager", "torch.compile", "fullgraph"],
+  "rule": "A witness without max_abs_error and correctness_parity_pass cannot support an acceleration claim."
+}

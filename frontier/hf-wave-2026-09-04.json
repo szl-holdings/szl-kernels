@@ -1,0 +1,29 @@
+{
+  "schema": "szl.frontier.binding.v1",
+  "evaluated_at": "2026-09-04T13:36:00Z",
+  "owner": "szl-kernels",
+  "default_effect": "HOLD",
+  "candidates": [
+    {
+      "id": "hf-webgpu-kernels-2026-09-01",
+      "source": "https://huggingface.co/blog/webgpu-kernels",
+      "artifact": "https://huggingface.co/webgpu-kernels",
+      "role": "candidate backend for browser/local kernel execution",
+      "status": "EVALUATE",
+      "required_evidence": [
+        "pinned kernel revision",
+        "artifact license",
+        "hardware fingerprint",
+        "browser/runtime fingerprint",
+        "correctness parity",
+        "p50_us",
+        "p95_us",
+        "peak_memory_bytes",
+        "fallback-path verification",
+        "receipt_sha256"
+      ],
+      "promotion_rule": "100% correctness parity plus repeated workload gain on at least two supported device classes; no regression greater than 5%; fallback verified"
+    }
+  ],
+  "production_promotion": false
+}

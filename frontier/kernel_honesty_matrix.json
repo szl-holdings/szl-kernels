@@ -1,0 +1,88 @@
+{
+  "schema": "szl.kernel-honesty-matrix/v1",
+  "issued": "2026-09-04",
+  "order": "CTO-HF-FRONTIER-2026-09-04",
+  "doctrine": "Published test failures stay failed. Pickle is a publication block. Blocked tokens are not a product.",
+  "hub_write": "DENIED_IN_THIS_CHANGE",
+  "acceleration_story": false,
+  "packages": [
+    {
+      "hub_id": "SZLHOLDINGS/szl-lambda-gate",
+      "source_repository": "szl-holdings/szl-lambda-gate",
+      "clusters": ["C3"],
+      "declared_matrix": ["cpu-selfcheck"],
+      "published_ci": "FAILED",
+      "maturity": "BLOCKED",
+      "acceleration_claim": false,
+      "unsafe_files": [],
+      "note": "Seed recorded torch.compile / test failure. No acceleration story until CI is green on the declared matrix."
+    },
+    {
+      "hub_id": "SZLHOLDINGS/szl-governed-norm",
+      "source_repository": "szl-holdings/szl-governed-norm",
+      "replacement_repository": "szl-holdings/szl-lambda-gate",
+      "clusters": ["C3", "C4"],
+      "declared_matrix": ["cpu-selfcheck"],
+      "published_ci": "FAILED",
+      "maturity": "BLOCKED",
+      "acceleration_claim": false,
+      "unsafe_files": ["model.joblib"],
+      "note": "Compatibility kernel still ships joblib. Operational reference, not performance-promoted, and not publication-clean."
+    },
+    {
+      "hub_id": "SZLHOLDINGS/szl-blocked",
+      "source_repository": "szl-holdings/szl-blocked",
+      "clusters": ["C4", "C6"],
+      "declared_matrix": ["software-replay"],
+      "published_ci": "BLOCKED",
+      "maturity": "SOFTWARE_LIMITED",
+      "acceleration_claim": false,
+      "unsafe_files": ["pickle-or-joblib-companion"],
+      "note": "Admission kernel cannot carry a blocked public state while sold as the pre-action core."
+    },
+    {
+      "hub_id": "SZLHOLDINGS/szl-provctl",
+      "source_repository": "szl-holdings/szl-provctl",
+      "clusters": ["C4", "C6"],
+      "declared_matrix": ["software-replay"],
+      "published_ci": "BLOCKED",
+      "maturity": "SOFTWARE_LIMITED",
+      "acceleration_claim": false,
+      "unsafe_files": ["pickle-or-joblib-companion"],
+      "note": "Provenance controller is software-limited until unsafe files are gone and tests are green."
+    },
+    {
+      "hub_id": "SZLHOLDINGS/szl-formulas",
+      "source_repository": "szl-holdings/szl-formulas",
+      "clusters": ["C4"],
+      "declared_matrix": ["software-replay"],
+      "published_ci": "UNKNOWN",
+      "maturity": "SOFTWARE",
+      "acceleration_claim": false,
+      "unsafe_files": ["pickle-risk"],
+      "note": "21 formulas. Locked-proven is not 21. Unsafe persistence is a publication block."
+    },
+    {
+      "hub_id": "SZLHOLDINGS/szl-ouroboros",
+      "source_repository": "szl-holdings/szl-ouroboros",
+      "clusters": ["C4"],
+      "declared_matrix": ["software-replay"],
+      "published_ci": "UNKNOWN",
+      "maturity": "SOFTWARE",
+      "acceleration_claim": false,
+      "unsafe_files": ["pickle-risk"],
+      "note": "Loop-tax companion. Convert off pickle before any product claim."
+    },
+    {
+      "hub_id": "SZLHOLDINGS/szl-nemo",
+      "source_repository": "szl-holdings/szl-nemo",
+      "clusters": ["C4"],
+      "declared_matrix": ["software-replay"],
+      "published_ci": "UNKNOWN",
+      "maturity": "SOFTWARE",
+      "acceleration_claim": false,
+      "unsafe_files": ["pickle-risk"],
+      "note": "Named in C4. No product claim while unsafe serialization remains."
+    }
+  ]
+}

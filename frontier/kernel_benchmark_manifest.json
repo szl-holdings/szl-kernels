@@ -2,6 +2,16 @@
   "schema_version": 1,
   "status": "EXPERIMENTAL",
   "claim_policy": "No performance claim without measured hardware-bound evidence and correctness parity.",
+  "excluded_from_promotion": [
+    "SZLHOLDINGS/szl-lambda-gate",
+    "SZLHOLDINGS/szl-governed-norm",
+    "SZLHOLDINGS/szl-blocked",
+    "SZLHOLDINGS/szl-provctl",
+    "SZLHOLDINGS/szl-formulas",
+    "SZLHOLDINGS/szl-ouroboros",
+    "SZLHOLDINGS/szl-nemo"
+  ],
+  "exclusion_reason": "C3 published CI failures and/or C4 unsafe serialization and/or C6 blocked public state. Honesty matrix: frontier/kernel_honesty_matrix.json.",
   "targets": [
     {
       "id": "YARQA-ATTN",

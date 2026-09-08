@@ -19,9 +19,9 @@ dependencies = [
 keywords = ["kernel", "governance", "provenance", "receipts", "szl-holdings"]
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "setuptools>=61", "wheel"]
 frontier = ["scikit-learn>=1.5,<2"]
-dev = ["pytest", "scikit-learn>=1.5,<2"]
+dev = ["pytest", "scikit-learn>=1.5,<2", "setuptools>=61", "wheel"]
 
 [project.urls]
 Homepage = "https://a-11-oy.com"
@@ -33,6 +33,9 @@ package-dir = { "" = "torch-ext" }
 
 [tool.setuptools.packages.find]
 where = ["torch-ext"]
+
+[tool.setuptools.package-data]
+szl_kernels = ["metadata.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

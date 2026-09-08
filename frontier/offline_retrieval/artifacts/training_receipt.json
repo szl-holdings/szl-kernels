@@ -1,0 +1,91 @@
+{
+  "chain": [
+    {
+      "attrs": {
+        "corpus_manifest_sha256": "db97f3a916c067190bc3b9d455a67c170df98b873acf7a849197f8031b4091a7",
+        "document_count": 113,
+        "duplicate_source_count": 0,
+        "source_count": 11
+      },
+      "digest": "026271e8fe34f23ec28df431c099715c4bbccfba28599abbe88e208ec17ed352",
+      "kernel": "offline_source_navigator",
+      "op": "admit_sources",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "seq": 0
+    },
+    {
+      "attrs": {
+        "dimension": 7937,
+        "document_vectors_sha256": "f461a7d5afb5e2a9818b2e2dabd8a1f4683b77a6772a0a127e891fc93ad73c0e",
+        "kind": "classical_tfidf_retrieval",
+        "model_id": "tfidf-v1",
+        "trained": true
+      },
+      "digest": "df7dbbe1fefcee1ede11a39650c6d41a766963604815d60350e78fa887aafc9b",
+      "kernel": "offline_source_navigator",
+      "op": "fit_model",
+      "prev": "026271e8fe34f23ec28df431c099715c4bbccfba28599abbe88e208ec17ed352",
+      "seq": 1
+    },
+    {
+      "attrs": {
+        "answerable_recall": 1.0,
+        "balanced_accuracy": 1.0,
+        "independent_adjudication": false,
+        "model_id": "tfidf-v1",
+        "query_set_sha256": "bdf2fed74ff2e0e2a22b0c6265024a151250821b8e8e4123dda99a9ea59fa9b4",
+        "threshold": 0.11848391592502594,
+        "unanswerable_specificity": 1.0
+      },
+      "digest": "380f727a510ec3f6984208061c574b0703c0f72527802829aed2fc97c5b4e463",
+      "kernel": "offline_source_navigator",
+      "op": "calibrate_abstention",
+      "prev": "df7dbbe1fefcee1ede11a39650c6d41a766963604815d60350e78fa887aafc9b",
+      "seq": 2
+    },
+    {
+      "attrs": {
+        "dimension": 112,
+        "document_vectors_sha256": "36272479874ac9d1fad99e6bc3a7740a0622d908799d7d7c466cbe139f162b06",
+        "kind": "classical_lsa_retrieval",
+        "model_id": "lsa-v1",
+        "trained": true
+      },
+      "digest": "c03a3a53b6db49f24cf1e249f8cf583417cba86b4bdd21a2985c204ef4ab0ac2",
+      "kernel": "offline_source_navigator",
+      "op": "fit_model",
+      "prev": "380f727a510ec3f6984208061c574b0703c0f72527802829aed2fc97c5b4e463",
+      "seq": 3
+    },
+    {
+      "attrs": {
+        "answerable_recall": 0.5,
+        "balanced_accuracy": 0.625,
+        "independent_adjudication": false,
+        "model_id": "lsa-v1",
+        "query_set_sha256": "bdf2fed74ff2e0e2a22b0c6265024a151250821b8e8e4123dda99a9ea59fa9b4",
+        "threshold": 0.6496182680130005,
+        "unanswerable_specificity": 0.75
+      },
+      "digest": "e16e0b1fcd36b27cf3b6f04b67bf0ed367d2056980400567afcbfb6c4017ad34",
+      "kernel": "offline_source_navigator",
+      "op": "calibrate_abstention",
+      "prev": "c03a3a53b6db49f24cf1e249f8cf583417cba86b4bdd21a2985c204ef4ab0ac2",
+      "seq": 4
+    }
+  ],
+  "chain_depth": 5,
+  "chain_head": "e16e0b1fcd36b27cf3b6f04b67bf0ed367d2056980400567afcbfb6c4017ad34",
+  "claim_boundary": {
+    "clinical_validity": false,
+    "evaluation_independently_adjudicated": false,
+    "general_retrieval_quality": false,
+    "network_used": false,
+    "production_runtime_witness": false,
+    "publication_eligible": false
+  },
+  "model_manifest_sha256": "3c6f99e2028d52526e038d524d45cea79082eb9fc131b80724fb3d90a227ce66",
+  "schema_version": "szl.offline-retrieval-training-receipt/v1",
+  "signature_status": "UNSIGNED_HONEST",
+  "status": "MEASURED_LOCAL"
+}

@@ -1,0 +1,184 @@
+{
+  "artifact_sha256": {
+    "documents.json": "17635e4016d1986b78008847ae3ca0391c64a97f8f9b05eabae9ddf27392fd95",
+    "lsa-components.npz": "a54ce9e740b319458b147a6f18ea730054ddee731750d022da0ac70a1e938512",
+    "lsa-documents.npz": "36272479874ac9d1fad99e6bc3a7740a0622d908799d7d7c466cbe139f162b06",
+    "tfidf-documents.npz": "f461a7d5afb5e2a9818b2e2dabd8a1f4683b77a6772a0a127e891fc93ad73c0e",
+    "vectorizer.json": "be6dd6b2b4718b699a3e8fb64437af0c1f241ab75c1a9f07a91bb4f3336c89ce"
+  },
+  "calibration_queries_sha256": "bdf2fed74ff2e0e2a22b0c6265024a151250821b8e8e4123dda99a9ea59fa9b4",
+  "claim_boundary": {
+    "clinical_validity": false,
+    "evaluation_independently_adjudicated": false,
+    "general_retrieval_quality": false,
+    "network_used": false,
+    "production_runtime_witness": false,
+    "publication_eligible": false
+  },
+  "corpus_manifest_sha256": "db97f3a916c067190bc3b9d455a67c170df98b873acf7a849197f8031b4091a7",
+  "document_count": 113,
+  "duplicate_sources_excluded": [],
+  "models": {
+    "lsa-v1": {
+      "calibration": {
+        "answerable_recall": 0.5,
+        "balanced_accuracy": 0.625,
+        "calibration_scores": [
+          {
+            "answerable": true,
+            "top_score": 0.5082838535308838
+          },
+          {
+            "answerable": true,
+            "top_score": 0.6496182680130005
+          },
+          {
+            "answerable": true,
+            "top_score": 0.6688850522041321
+          },
+          {
+            "answerable": true,
+            "top_score": 0.43094104528427124
+          },
+          {
+            "answerable": false,
+            "top_score": 0.4454338848590851
+          },
+          {
+            "answerable": false,
+            "top_score": 0.6715294718742371
+          },
+          {
+            "answerable": false,
+            "top_score": 0.41564810276031494
+          },
+          {
+            "answerable": false,
+            "top_score": 0.5425482988357544
+          }
+        ],
+        "threshold": 0.6496182680130005,
+        "unanswerable_specificity": 0.75
+      },
+      "components": "lsa-components.npz",
+      "dimension": 112,
+      "document_vectors": "lsa-documents.npz",
+      "explained_variance_ratio_sum": 1.0000003576278687,
+      "kind": "classical_lsa_retrieval",
+      "trained": true
+    },
+    "tfidf-v1": {
+      "calibration": {
+        "answerable_recall": 1.0,
+        "balanced_accuracy": 1.0,
+        "calibration_scores": [
+          {
+            "answerable": true,
+            "top_score": 0.11848391592502594
+          },
+          {
+            "answerable": true,
+            "top_score": 0.15159496665000916
+          },
+          {
+            "answerable": true,
+            "top_score": 0.12717507779598236
+          },
+          {
+            "answerable": true,
+            "top_score": 0.12133283168077469
+          },
+          {
+            "answerable": false,
+            "top_score": 0.08278025686740875
+          },
+          {
+            "answerable": false,
+            "top_score": 0.06179860606789589
+          },
+          {
+            "answerable": false,
+            "top_score": 0.05693778768181801
+          },
+          {
+            "answerable": false,
+            "top_score": 0.09527590870857239
+          }
+        ],
+        "threshold": 0.11848391592502594,
+        "unanswerable_specificity": 1.0
+      },
+      "dimension": 7937,
+      "document_vectors": "tfidf-documents.npz",
+      "kind": "classical_tfidf_retrieval",
+      "trained": true
+    }
+  },
+  "schema_version": "szl.offline-source-navigator/v1",
+  "seed": 20260905,
+  "software": {
+    "numpy": "2.4.6",
+    "python": "3.11.9",
+    "sklearn": "1.9.0"
+  },
+  "source_count": 11,
+  "sources": [
+    {
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+      "source_sha256": "8167627f6d8f98241c34a38b87d1b1b853fe99b9fbe5c7fb07433c18095cce4e"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "frontier/offline_retrieval/README.md",
+      "source_sha256": "df756a9ae7846d6311a3563f3e92f4e5c6cbf592b8c0ccc73ac537d520a993bf"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "frontier/offline_retrieval/thread_lineage.md",
+      "source_sha256": "a2ac3b4b62e8c14c4acf6fcf58b641737404cdcaa2d629eeace108d06f93393c"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_chain.py",
+      "source_sha256": "f4f22f0c7e9b2c40e27f8cc1bc49b2c9fd7bb033fd65e21750c6c1a63764d987"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_ops.py",
+      "source_sha256": "b7a1bd3dfad95c748c1bfe5082ffaad8b1933189278202902d5564ecfc24d075"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/miniembed.py",
+      "source_sha256": "1a4bba8a629442d74b2240621092e18046e672fc7094a4799666af9efb16bd50"
+    },
+    {
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/retrieval.py",
+      "source_sha256": "ba4a0a3e8d3e24300837e23bc8cf84d2194f445eb950e865d87015c4062428e5"
+    }
+  ],
+  "thread_lineage_sha256": "a2ac3b4b62e8c14c4acf6fcf58b641737404cdcaa2d629eeace108d06f93393c",
+  "vectorizer": "vectorizer.json"
+}

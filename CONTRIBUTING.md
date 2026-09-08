@@ -25,8 +25,10 @@ contribution to this repository:
 
 - [Conventional Commits](https://www.conventionalcommits.org):
   `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`, `ci:` …
-- Sign off every commit (`git commit -s`): the `Signed-off-by:` trailer
-  certifies you have the right to submit the change (DCO style).
+- Cryptographically sign commits (`git commit -S`) and verify their signatures.
+- DCO sign-off (`Signed-off-by:` / `git commit -s`) is not required for this
+  solo-maintainer build. This does not waive source licensing or provenance
+  requirements; admit only material you are authorized to use.
 
 ## Pull requests
 

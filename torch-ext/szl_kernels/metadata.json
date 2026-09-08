@@ -1,6 +1,6 @@
 {
   "name": "szl-kernels",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "summary": "SZL Holdings unified governed-kernel suite with cross-kernel provenance and receipted MiniEmbed table",
   "license": "Apache-2.0",
   "universal": true,

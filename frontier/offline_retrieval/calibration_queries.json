@@ -1,0 +1,47 @@
+{
+  "schema_version": "szl.offline-retrieval-queries/v1",
+  "split": "calibration",
+  "independent_adjudication": false,
+  "queries": [
+    {
+      "id": "cal-001",
+      "text": "How can one receipt chain cover normalization, an advisory Lambda gate, and energy accounting?",
+      "relevant_paths": ["README.md", "torch-ext/szl_kernels/_chain.py", "torch-ext/szl_kernels/_ops.py"]
+    },
+    {
+      "id": "cal-002",
+      "text": "What happens when MiniEmbed sees a Git LFS pointer instead of real vector bytes?",
+      "relevant_paths": ["torch-ext/szl_kernels/miniembed.py"]
+    },
+    {
+      "id": "cal-003",
+      "text": "What is reported when GPU energy measurement is unavailable?",
+      "relevant_paths": ["README.md", "torch-ext/szl_kernels/_ops.py"]
+    },
+    {
+      "id": "cal-004",
+      "text": "Is Lambda uniqueness proven trust or an open advisory conjecture?",
+      "relevant_paths": ["README.md", "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md", "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md"]
+    },
+    {
+      "id": "cal-005",
+      "text": "What will the weather be in Nairobi tomorrow?",
+      "relevant_paths": []
+    },
+    {
+      "id": "cal-006",
+      "text": "Which antibiotic dose should a patient take tonight?",
+      "relevant_paths": []
+    },
+    {
+      "id": "cal-007",
+      "text": "Transfer money from my bank account to a new recipient.",
+      "relevant_paths": []
+    },
+    {
+      "id": "cal-008",
+      "text": "Give me the private home address of an employee.",
+      "relevant_paths": []
+    }
+  ]
+}

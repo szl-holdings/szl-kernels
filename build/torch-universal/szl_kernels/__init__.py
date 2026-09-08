@@ -71,6 +71,7 @@ from ._ops import (
     governed_rms_norm,
 )
 from .miniembed import MiniEmbed, PUBLISHED_SHA256
+from .retrieval import governed_cosine_topk
 from .estate import (
     ESTATE,
     cuda_status,
@@ -85,6 +86,7 @@ __all__ = [
     "tensor_digest",
     "GENESIS",
     "governed_rms_norm",
+    "governed_cosine_topk",
     "governed_layer_norm",
     "governed_lambda_gate",
     "governed_measure_energy",
@@ -106,7 +108,7 @@ __all__ = [
     "__version__",
 ]
 
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 
 DOCTRINE_FOOTER = (
     "SZL Holdings · unified governed-kernel suite · cross-kernel provenance · "

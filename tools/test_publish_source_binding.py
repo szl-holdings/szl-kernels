@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import hashlib
 import json
 import tempfile
@@ -29,6 +30,40 @@ class FakeApi:
 
 
 class PublishSourceBindingTests(unittest.TestCase):
+    def test_declared_runtime_files_cover_relative_imports(self) -> None:
+        payload = binding.load_contract(binding.DEFAULT_CONTRACT)
+        declared = set(payload["artifact_files"])
+        mirrors = ("build/torch-universal/szl_kernels", "torch-ext/szl_kernels")
+        for package in mirrors:
+            with self.subTest(package=package):
+                for module in ("estate.py", "retrieval.py"):
+                    self.assertIn(f"{package}/{module}", declared)
+                runtime_files = [path for path in declared
+                                 if path.startswith(package + "/") and path.endswith(".py")]
+                for relative in runtime_files:
+                    tree = ast.parse((binding.ROOT / relative).read_text(encoding="utf-8"))
+                    for node in ast.walk(tree):
+                        if not isinstance(node, ast.ImportFrom) or node.level == 0:
+                            continue
+                        parent = Path(relative).parent
+                        for _ in range(node.level - 1):
+                            parent = parent.parent
+                        if node.module:
+                            modules = [node.module]
+                        else:
+                            # `from . import ExportedClass` imports the package;
+                            # only aliases naming real modules add file dependencies.
+                            self.assertIn((parent / "__init__.py").as_posix(), declared)
+                            modules = [alias.name for alias in node.names
+                                       if (binding.ROOT / parent / f"{alias.name}.py").is_file()
+                                       or (binding.ROOT / parent / alias.name / "__init__.py").is_file()]
+                        for name in modules:
+                            module = parent.joinpath(*name.split("."))
+                            alternatives = {module.with_suffix(".py").as_posix(),
+                                            (module / "__init__.py").as_posix()}
+                            self.assertTrue(declared & alternatives,
+                                f"{relative} imports undeclared relative module {name}")
+
     @staticmethod
     def _verified_checkout(revision: str) -> dict[str, str]:
         return {"head_revision": revision, "tracked_worktree": "CLEAN"}
@@ -177,6 +212,34 @@ class PublishSourceBindingTests(unittest.TestCase):
                         payload,
                         token=None,
                     )
+
+    def test_additive_runtime_module_dry_run_never_claims_published_equivalence(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            contract, artifacts = self._fixture(root)
+            runtime = root / "retrieval.py"
+            runtime.write_text("def reference(): return None\n", encoding="utf-8")
+            payload = json.loads(contract.read_text(encoding="utf-8"))
+            payload["artifact_files"].append("retrieval.py")
+            contract.write_text(json.dumps(payload), encoding="utf-8")
+
+            def download(repo_id: str, filename: str, **_: object) -> str:
+                del repo_id
+                return str(artifacts[filename])
+
+            api = FakeApi(list(artifacts))
+            with mock.patch.object(binding, "ROOT", root):
+                observed = binding.hub_evidence(api, payload, token=None, download_fn=download)
+                result = binding.run(
+                    contract_path=contract, report_path=root / "report.json",
+                    source_revision="f" * 40, publish=False, token=None, api=api,
+                    download_fn=download, checkout_verifier=self._verified_checkout,
+                )
+            self.assertEqual(observed["declared_files_pending_publication"], ["retrieval.py"])
+            self.assertEqual(result["declared_file_count"], 3)
+            self.assertEqual(result["mode"], "DRY_RUN")
+            self.assertEqual(result["status"], "VERIFIED_DRY_RUN")
+            self.assertNotIn("hub_revision_after", result)
 
     def test_source_revision_must_be_exact(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

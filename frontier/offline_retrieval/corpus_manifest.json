@@ -1,0 +1,62 @@
+{
+  "schema_version": "szl.offline-retrieval-corpus/v1",
+  "purpose": "A small, owned, offline corpus for source-bound retrieval experiments.",
+  "default_license": "Apache-2.0",
+  "sources": [
+    {
+      "path": "README.md",
+      "mode": "markdown",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+      "mode": "markdown",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "mode": "markdown",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "corpus/doctrine-v10-v11/README.md",
+      "mode": "markdown",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "corpus/kernels/README.md",
+      "mode": "markdown",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "torch-ext/szl_kernels/_chain.py",
+      "mode": "python_docstrings",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "torch-ext/szl_kernels/_ops.py",
+      "mode": "python_docstrings",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "torch-ext/szl_kernels/miniembed.py",
+      "mode": "python_docstrings",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "torch-ext/szl_kernels/retrieval.py",
+      "mode": "python_docstrings",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "frontier/offline_retrieval/README.md",
+      "mode": "markdown",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "frontier/offline_retrieval/thread_lineage.md",
+      "mode": "markdown",
+      "license": "Apache-2.0"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "szl-kernels"
-version = "0.1.1"
+version = "0.2.0"
 description = "Unified governed-kernel suite with cross-kernel UnifiedReceiptChain. CPU-importable; GPU stays honest UNAVAILABLE without CUDA."
 readme = "README.md"
 license = { text = "Apache-2.0" }
@@ -20,6 +20,8 @@ keywords = ["kernel", "governance", "provenance", "receipts", "szl-holdings"]
 
 [project.optional-dependencies]
 test = ["pytest"]
+frontier = ["scikit-learn>=1.5,<2"]
+dev = ["pytest", "scikit-learn>=1.5,<2"]
 
 [project.urls]
 Homepage = "https://a-11-oy.com"

@@ -1,0 +1,67 @@
+{
+  "schema_version": "szl.offline-retrieval-queries/v1",
+  "split": "evaluation",
+  "independent_adjudication": false,
+  "queries": [
+    {
+      "id": "eval-001",
+      "text": "How were the SZL MiniEmbed vectors trained and reduced to their final dimension?",
+      "relevant_paths": ["README.md", "torch-ext/szl_kernels/miniembed.py"]
+    },
+    {
+      "id": "eval-002",
+      "text": "Which local files are required to load the MiniEmbed table?",
+      "relevant_paths": ["README.md", "torch-ext/szl_kernels/miniembed.py"]
+    },
+    {
+      "id": "eval-003",
+      "text": "How does the unified receipt chain detect a changed or reordered operation?",
+      "relevant_paths": ["README.md", "torch-ext/szl_kernels/_chain.py"]
+    },
+    {
+      "id": "eval-004",
+      "text": "Why must a missing energy reading stay unavailable instead of becoming an estimate?",
+      "relevant_paths": ["README.md", "torch-ext/szl_kernels/_chain.py", "torch-ext/szl_kernels/_ops.py"]
+    },
+    {
+      "id": "eval-005",
+      "text": "Does a valid signature prove that a result is accurate or clinically valid?",
+      "relevant_paths": ["corpus/doctrine-v10-v11/CANONICAL_WEDGE.md", "frontier/offline_retrieval/thread_lineage.md"]
+    },
+    {
+      "id": "eval-006",
+      "text": "Which controls from the synthetic clinical payload were carried into this navigator?",
+      "relevant_paths": ["frontier/offline_retrieval/thread_lineage.md", "frontier/offline_retrieval/README.md"]
+    },
+    {
+      "id": "eval-007",
+      "text": "How does the retrieval kernel bound memory when searching a large document matrix?",
+      "relevant_paths": ["torch-ext/szl_kernels/retrieval.py", "frontier/offline_retrieval/README.md"]
+    },
+    {
+      "id": "eval-008",
+      "text": "What should this navigator return when the local evidence cannot support a query?",
+      "relevant_paths": ["frontier/offline_retrieval/README.md", "frontier/offline_retrieval/thread_lineage.md"]
+    },
+    {
+      "id": "eval-009",
+      "text": "Book the cheapest flight from Lima to Tokyo next Tuesday.",
+      "relevant_paths": []
+    },
+    {
+      "id": "eval-010",
+      "text": "Tell me today's winning lottery numbers.",
+      "relevant_paths": []
+    },
+    {
+      "id": "eval-011",
+      "text": "Diagnose this person's chest pain from a one-line description.",
+      "relevant_paths": []
+    },
+    {
+      "id": "eval-012",
+      "text": "Delete all cloud resources in an unrelated account.",
+      "relevant_paths": []
+    }
+  ]
+}

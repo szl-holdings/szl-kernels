@@ -50,7 +50,111 @@ jobs:
           tests/test_model_kernel_parity.py
           tests/test_miniembed.py
           tests/test_estate.py
+          tests/test_retrieval_kernel.py
           tests/test_no_unsafe_serialization.py
+
+  offline-retrieval:
+    name: Offline source navigator (CPU, no promotion)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: szl-kernels
+    steps:
+      - name: Harden runner
+        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+      - name: Checkout exact kernel source and shipped LFS artifacts
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          lfs: true
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: szl-kernels
+      - name: Checkout immutable retrieval benchmark
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          repository: szl-holdings/szl-retrieval-bench
+          ref: 280a94c204ce67ffbb995d99bd2e92a917f913d2
+          path: szl-retrieval-bench
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install CPU retrieval dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            -r requirements-replay.txt \
+            "pytest>=8,<9"
+          python -m pip install --disable-pip-version-check \
+            --index-url https://download.pytorch.org/whl/cpu \
+            "torch==2.7.1"
+      - name: Require benchmark checkout and optional dependencies
+        run: |
+          test "$(git -C ../szl-retrieval-bench rev-parse HEAD)" = "280a94c204ce67ffbb995d99bd2e92a917f913d2"
+          test -f ../szl-retrieval-bench/src/szl_retrieval_bench/bm25.py
+          test -f ../szl-retrieval-bench/src/szl_retrieval_bench/metrics.py
+          python -I -B -c "import numpy, sklearn, torch; print('CPU retrieval dependencies available')"
+      - name: Test offline retrieval with the benchmark present
+        run: >-
+          python -I -B -m pytest -q -rs
+          tests/test_offline_retrieval.py
+          --junitxml=reports/offline-retrieval-tests.xml
+      - name: Reject skipped or uncollected offline tests
+        run: |
+          python -I -B - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          root = ET.parse(Path("reports/offline-retrieval-tests.xml")).getroot()
+          cases = root.findall(".//testcase")
+          required = "test_evaluation_uses_benchmark_metrics_and_exact_inputs"
+          if not cases or not any(case.get("name") == required for case in cases):
+              raise SystemExit("required benchmark-backed evaluation test was not collected")
+          if root.findall(".//skipped"):
+              raise SystemExit("offline retrieval tests must run without dependency or benchmark skips")
+          print(f"verified {len(cases)} executed offline retrieval test cases")
+          PY
+      - name: Evaluate the shipped model artifacts on CPU
+        run: |
+          python -I -B frontier/offline_retrieval/evaluate_retrieval.py \
+            --artifacts frontier/offline_retrieval/artifacts \
+            --bench-root ../szl-retrieval-bench \
+            --device cpu
+          mkdir -p reports
+          cp frontier/offline_retrieval/artifacts/evaluation_report.json reports/offline-retrieval-evaluation.json
+      - name: Verify the measured report stays on external-evaluation hold
+        run: |
+          python -I -B - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path(
+              "reports/offline-retrieval-evaluation.json"
+          ).read_text(encoding="utf-8"))
+          if report.get("status") != "HOLD_EXTERNAL_EVALUATION_REQUIRED":
+              raise SystemExit("offline retrieval report must retain its external-evaluation hold")
+          claims = report.get("claim_boundary", {})
+          for key in ("publication_eligible", "production_runtime_witness",
+                      "clinical_validity", "independent_benchmark_superiority"):
+              if claims.get(key) is not False:
+                  raise SystemExit(f"report must explicitly keep {key}=false")
+          if report.get("device") != "cpu" or report.get("independent_adjudication") is not False:
+              raise SystemExit("CI must report CPU-local, author-created evaluation only")
+          print("verified measured CPU evaluation with no publication or promotion claim")
+          PY
+      - name: Upload CPU retrieval evaluation evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: offline-retrieval-cpu-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            szl-kernels/reports/offline-retrieval-tests.xml
+            szl-kernels/reports/offline-retrieval-evaluation.json
+          if-no-files-found: error
+          retention-days: 90
 
   artifact-replay:
     name: MiniEmbed artifact replay

@@ -1,0 +1,1305 @@
+{
+  "answerable_queries": 8,
+  "calibration_queries": 8,
+  "claim_boundary": {
+    "acceleration_claim": false,
+    "clinical_validity": false,
+    "evaluation_independently_adjudicated": false,
+    "general_ood_detection": false,
+    "general_retrieval_quality": false,
+    "independent_benchmark_superiority": false,
+    "network_used": false,
+    "production_runtime_witness": false,
+    "publication_eligible": false
+  },
+  "device": "cpu",
+  "evaluation_queries": 12,
+  "independent_adjudication": false,
+  "input_sha256": {
+    "benchmark_implementation": {
+      "__init__.py": "031922f9a42fdeb1c1fc9fca624618f1f791c3317089103cc7a1f957539e34e2",
+      "bm25.py": "8189b7cbc08328a496d0fbc7c424ac38ad3de8ece57237fc4d55c41c0319799e",
+      "metrics.py": "e146507ddbba7ca01078454d41f90ef4e619b8a479779c314fc986db2f4402ba"
+    },
+    "calibration_queries.json": "bdf2fed74ff2e0e2a22b0c6265024a151250821b8e8e4123dda99a9ea59fa9b4",
+    "evaluation_queries.json": "ab67a337ef95a2e9384385069227a9407fcc67763bd20cb298e5773f0886318d",
+    "local_implementation": {
+      "common.py": "5b9bc84c140ecc804cd54d71624c5c0a8f5a3399d62c7f51a9021172586d2b60",
+      "evaluate_retrieval.py": "87447548f11b7d1b17f3bf1612bb79dad1ff67f5ad682cfc0bb59c51aac39d14",
+      "navigator.py": "43cd90677620a3607404c73fc5f5bb3ff62fa510f9fd481f70457f08275ac55b",
+      "train_retrieval.py": "72aea6552c3b4df1a299d99727676266c3bea0ddca6de5196a3c8f6c81060edb"
+    },
+    "model_manifest.json": "3c6f99e2028d52526e038d524d45cea79082eb9fc131b80724fb3d90a227ce66",
+    "retrieval_kernel.py": "ba4a0a3e8d3e24300837e23bc8cf84d2194f445eb950e865d87015c4062428e5",
+    "training_receipt.json": "53917a1d0eb316ed2f661f7c9afc8b77cf1bfa86e7ff44eb08b2a6c8e4fe4d10"
+  },
+  "measurement": "MEASURED_LOCAL_AUTHOR_CREATED_QUERY_SET",
+  "methods": {
+    "bm25": {
+      "abstention": {
+        "answerable_abstained": 0,
+        "answerable_recall": 1.0,
+        "answerable_retrieved": 8,
+        "balanced_accuracy": 1.0,
+        "coverage": 0.6666666666666666,
+        "unanswerable_abstained": 4,
+        "unanswerable_retrieved": 0,
+        "unanswerable_specificity": 1.0
+      },
+      "calibration": {
+        "answerable_recall": 1.0,
+        "balanced_accuracy": 1.0,
+        "calibration_scores": [
+          {
+            "answerable": true,
+            "top_score": 16.475548268425218
+          },
+          {
+            "answerable": true,
+            "top_score": 19.246864377242783
+          },
+          {
+            "answerable": true,
+            "top_score": 10.10915111742631
+          },
+          {
+            "answerable": true,
+            "top_score": 11.865779628703454
+          },
+          {
+            "answerable": false,
+            "top_score": 5.369603350532945
+          },
+          {
+            "answerable": false,
+            "top_score": 5.143186797324247
+          },
+          {
+            "answerable": false,
+            "top_score": 5.341664647358943
+          },
+          {
+            "answerable": false,
+            "top_score": 6.411241601494065
+          }
+        ],
+        "threshold": 10.10915111742631,
+        "unanswerable_specificity": 1.0
+      },
+      "per_query": [
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-001",
+          "query_sha256": "827473c0f048d274b6e88ae0bbdf34df7cb53ce8fd0eb63289b98deebaaff0ce",
+          "ranked_source_paths": [
+            "README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.8333333333333333,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 0.5,
+            "ndcg@5": 0.9197207891481876,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py"
+          ],
+          "retrieval_chain_head": null,
+          "top_score": 10.418348186996393
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-002",
+          "query_sha256": "9bbd177d5e463960c01824e6e1992e351595f4aeca8f3f800bdd8ed60e928e32",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/README.md",
+            "README.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "corpus/kernels/README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.75,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 0.5,
+            "ndcg@5": 0.8772153153380493,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py"
+          ],
+          "retrieval_chain_head": null,
+          "top_score": 10.821248770495515
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-003",
+          "query_sha256": "da049dfde00af55b2b6cffe8ea5741e1dad694bdfc0093011f083f497eb89af3",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py",
+            "README.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "corpus/doctrine-v10-v11/README.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.5,
+            "MRR": 0.5,
+            "P@5": 0.4,
+            "R_precision": 0.5,
+            "ndcg@5": 0.6509209298071326,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py"
+          ],
+          "retrieval_chain_head": null,
+          "top_score": 15.076096636735796
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-004",
+          "query_sha256": "4b82b6ef766661c0209b7d90f4dce8f72e0cb9ab66c46a9b9f50899f51f73d68",
+          "ranked_source_paths": [
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.6388888888888888,
+            "MRR": 0.5,
+            "P@5": 0.6,
+            "R_precision": 0.6667,
+            "ndcg@5": 0.7328286204777911,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py"
+          ],
+          "retrieval_chain_head": null,
+          "top_score": 13.677811484812077
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-005",
+          "query_sha256": "d4f10f92fd824244563d4ab564a34c844b421998ada99b704020df50d88b34fb",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "frontier/offline_retrieval/README.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "corpus/doctrine-v10-v11/README.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.18333333333333335,
+            "MRR": 0.16666666666666666,
+            "P@5": 0.0,
+            "R_precision": 0.0,
+            "ndcg@5": 0.0,
+            "recall@5": 0.0
+          },
+          "relevant_paths": [
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "retrieval_chain_head": null,
+          "top_score": 10.269580543804649
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-006",
+          "query_sha256": "63faf2c159231bbbd6271b7d5f7b7a2668706fbb8f63e387d28b0f190dc8e504",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/thread_lineage.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "retrieval_chain_head": null,
+          "top_score": 21.01806268176944
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-007",
+          "query_sha256": "8ea8d9ff49012f982e6f598010e3771fb38b3eea5991c6bc021fdaf3499a0ff5",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "corpus/doctrine-v10-v11/README.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py"
+          ],
+          "retrieval_chain_head": null,
+          "top_score": 18.745512795255877
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-008",
+          "query_sha256": "e2f7e1bf11635d3344adc7c950309e597710188c06a1a65917f32a37a0a824e3",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/thread_lineage.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/kernels/README.md",
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "retrieval_chain_head": null,
+          "top_score": 11.943364501203543
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-009",
+          "query_sha256": "3f58b47ce6e6f505daf1aad776837cbf6b4fd205f24d9df0bb96036001b126f1",
+          "ranked_source_paths": [
+            "README.md",
+            "corpus/kernels/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/miniembed.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/retrieval.py"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": null,
+          "top_score": 4.735973702324067
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-010",
+          "query_sha256": "2098d3ef63fd231e67b9c961120d52ebc5771abd12f00a7344edad0f5b07803d",
+          "ranked_source_paths": [
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": null,
+          "top_score": 4.148298446585629
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-011",
+          "query_sha256": "6773283f8a3e9647502a9f7e8cb713b39d643eafeedf16c37ccf2c4f9f5f721d",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/README.md",
+            "README.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": null,
+          "top_score": 5.834720176178459
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-012",
+          "query_sha256": "a001923041468b4cab2af460430da1cfb0b1dc1449d6dbe0f06b59616e74ad91",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "frontier/offline_retrieval/README.md",
+            "README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/retrieval.py"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": null,
+          "top_score": 5.373829846442275
+        }
+      ],
+      "ranking_before_abstention": {
+        "MAP": 0.7381944444444444,
+        "MRR": 0.7708333333333333,
+        "P@5": 0.375,
+        "R_precision": 0.6458375000000001,
+        "ndcg@5": 0.772585706846395,
+        "recall@5": 0.875
+      }
+    },
+    "lsa-v1": {
+      "abstention": {
+        "answerable_abstained": 3,
+        "answerable_recall": 0.625,
+        "answerable_retrieved": 5,
+        "balanced_accuracy": 0.8125,
+        "coverage": 0.4166666666666667,
+        "unanswerable_abstained": 4,
+        "unanswerable_retrieved": 0,
+        "unanswerable_specificity": 1.0
+      },
+      "calibration": {
+        "answerable_recall": 0.5,
+        "balanced_accuracy": 0.625,
+        "calibration_scores": [
+          {
+            "answerable": true,
+            "top_score": 0.5082838535308838
+          },
+          {
+            "answerable": true,
+            "top_score": 0.6496182680130005
+          },
+          {
+            "answerable": true,
+            "top_score": 0.6688850522041321
+          },
+          {
+            "answerable": true,
+            "top_score": 0.43094104528427124
+          },
+          {
+            "answerable": false,
+            "top_score": 0.4454338848590851
+          },
+          {
+            "answerable": false,
+            "top_score": 0.6715294718742371
+          },
+          {
+            "answerable": false,
+            "top_score": 0.41564810276031494
+          },
+          {
+            "answerable": false,
+            "top_score": 0.5425482988357544
+          }
+        ],
+        "threshold": 0.6496182680130005,
+        "unanswerable_specificity": 0.75
+      },
+      "per_query": [
+        {
+          "abstained": true,
+          "answerable": true,
+          "query_id": "eval-001",
+          "query_sha256": "827473c0f048d274b6e88ae0bbdf34df7cb53ce8fd0eb63289b98deebaaff0ce",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/miniembed.py",
+            "README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py"
+          ],
+          "retrieval_chain_head": "96c961cffbd2d1600f585a0507d1dcd849ad13a2a99f385eee233ad3b6096ead",
+          "top_score": 0.6012328863143921
+        },
+        {
+          "abstained": true,
+          "answerable": true,
+          "query_id": "eval-002",
+          "query_sha256": "9bbd177d5e463960c01824e6e1992e351595f4aeca8f3f800bdd8ed60e928e32",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/miniembed.py",
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py"
+          ],
+          "retrieval_chain_head": "0ffaa897e8636fa1a6b5dc1766f1ced5b0bae5deae40e371728fa997a7f21dfb",
+          "top_score": 0.432891845703125
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-003",
+          "query_sha256": "da049dfde00af55b2b6cffe8ea5741e1dad694bdfc0093011f083f497eb89af3",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/kernels/README.md",
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "corpus/doctrine-v10-v11/README.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.41666666666666663,
+            "MRR": 0.5,
+            "P@5": 0.2,
+            "R_precision": 0.5,
+            "ndcg@5": 0.38685280723454163,
+            "recall@5": 0.5
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py"
+          ],
+          "retrieval_chain_head": "4070be3e63817c083fec2228c86cc78316a60ae1c185aa184f5dad88f11fe0df",
+          "top_score": 0.7882965803146362
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-004",
+          "query_sha256": "4b82b6ef766661c0209b7d90f4dce8f72e0cb9ab66c46a9b9f50899f51f73d68",
+          "ranked_source_paths": [
+            "corpus/kernels/README.md",
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.6388888888888888,
+            "MRR": 0.5,
+            "P@5": 0.6,
+            "R_precision": 0.6667,
+            "ndcg@5": 0.7328286204777911,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py"
+          ],
+          "retrieval_chain_head": "24b19081765e1eb124a59ff9308bffadab99687643a0fe44d7157bb01e009a34",
+          "top_score": 0.7842916250228882
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-005",
+          "query_sha256": "d4f10f92fd824244563d4ab564a34c844b421998ada99b704020df50d88b34fb",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/kernels/README.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "corpus/doctrine-v10-v11/README.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.18333333333333335,
+            "MRR": 0.16666666666666666,
+            "P@5": 0.0,
+            "R_precision": 0.0,
+            "ndcg@5": 0.0,
+            "recall@5": 0.0
+          },
+          "relevant_paths": [
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "retrieval_chain_head": "728f078835781232dd46558d7a0ccd158e0d1bb8c172030e29f92c38e109cb46",
+          "top_score": 0.7239105701446533
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-006",
+          "query_sha256": "63faf2c159231bbbd6271b7d5f7b7a2668706fbb8f63e387d28b0f190dc8e504",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/thread_lineage.md",
+            "frontier/offline_retrieval/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "retrieval_chain_head": "fd484d4b672fbe41616a682761d984762195acd29b36ef10af67494e9794a56a",
+          "top_score": 0.8449783325195312
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-007",
+          "query_sha256": "8ea8d9ff49012f982e6f598010e3771fb38b3eea5991c6bc021fdaf3499a0ff5",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py"
+          ],
+          "retrieval_chain_head": "3eb1627c8d737c73b06fcbc6e6021112e472661b869540cc23828b66b26132e6",
+          "top_score": 0.7251112461090088
+        },
+        {
+          "abstained": true,
+          "answerable": true,
+          "query_id": "eval-008",
+          "query_sha256": "e2f7e1bf11635d3344adc7c950309e597710188c06a1a65917f32a37a0a824e3",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/thread_lineage.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "corpus/kernels/README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "retrieval_chain_head": "13469ad076ac768e36d88d03813dabc610392a94590fa2bca8e0f78d41d2877d",
+          "top_score": 0.6419636607170105
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-009",
+          "query_sha256": "3f58b47ce6e6f505daf1aad776837cbf6b4fd205f24d9df0bb96036001b126f1",
+          "ranked_source_paths": [
+            "README.md",
+            "corpus/kernels/README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/retrieval.py"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": "7857d2868e0b367af2ecc810a77bdefb8966897843751a5a4e9becf4400177af",
+          "top_score": 0.4140714108943939
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-010",
+          "query_sha256": "2098d3ef63fd231e67b9c961120d52ebc5771abd12f00a7344edad0f5b07803d",
+          "ranked_source_paths": [
+            "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/kernels/README.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": "bb12a04b92f08f4999db8495e122826cc26fd56eed022686888fb9efea314783",
+          "top_score": 0.5844343304634094
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-011",
+          "query_sha256": "6773283f8a3e9647502a9f7e8cb713b39d643eafeedf16c37ccf2c4f9f5f721d",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/README.md",
+            "README.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": "704ffc9877fd67aeaf42f5c44f3b2f67156f4d3ba05c767d6c70ae39a9ffd597",
+          "top_score": 0.4590599536895752
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-012",
+          "query_sha256": "a001923041468b4cab2af460430da1cfb0b1dc1449d6dbe0f06b59616e74ad91",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/kernels/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "frontier/offline_retrieval/README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/retrieval.py"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": "0ee166d48189f298dae409ea54c3ecca20648d0f741856e8276799286a4c6c5a",
+          "top_score": 0.3779333531856537
+        }
+      ],
+      "ranking_before_abstention": {
+        "MAP": 0.7798611111111111,
+        "MRR": 0.7708333333333333,
+        "P@5": 0.35,
+        "R_precision": 0.7708375000000001,
+        "ndcg@5": 0.7649601784640416,
+        "recall@5": 0.8125
+      }
+    },
+    "tfidf-v1": {
+      "abstention": {
+        "answerable_abstained": 2,
+        "answerable_recall": 0.75,
+        "answerable_retrieved": 6,
+        "balanced_accuracy": 0.875,
+        "coverage": 0.5,
+        "unanswerable_abstained": 4,
+        "unanswerable_retrieved": 0,
+        "unanswerable_specificity": 1.0
+      },
+      "calibration": {
+        "answerable_recall": 1.0,
+        "balanced_accuracy": 1.0,
+        "calibration_scores": [
+          {
+            "answerable": true,
+            "top_score": 0.11848391592502594
+          },
+          {
+            "answerable": true,
+            "top_score": 0.15159496665000916
+          },
+          {
+            "answerable": true,
+            "top_score": 0.12717507779598236
+          },
+          {
+            "answerable": true,
+            "top_score": 0.12133283168077469
+          },
+          {
+            "answerable": false,
+            "top_score": 0.08278025686740875
+          },
+          {
+            "answerable": false,
+            "top_score": 0.06179860606789589
+          },
+          {
+            "answerable": false,
+            "top_score": 0.05693778768181801
+          },
+          {
+            "answerable": false,
+            "top_score": 0.09527590870857239
+          }
+        ],
+        "threshold": 0.11848391592502594,
+        "unanswerable_specificity": 1.0
+      },
+      "per_query": [
+        {
+          "abstained": true,
+          "answerable": true,
+          "query_id": "eval-001",
+          "query_sha256": "827473c0f048d274b6e88ae0bbdf34df7cb53ce8fd0eb63289b98deebaaff0ce",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/miniembed.py",
+            "README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py"
+          ],
+          "retrieval_chain_head": "1b3bacbb2e1755d76715a102d99c53bfe269bebc545b9d6eb59e1f348bfa1106",
+          "top_score": 0.11656371504068375
+        },
+        {
+          "abstained": true,
+          "answerable": true,
+          "query_id": "eval-002",
+          "query_sha256": "9bbd177d5e463960c01824e6e1992e351595f4aeca8f3f800bdd8ed60e928e32",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/miniembed.py",
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py"
+          ],
+          "retrieval_chain_head": "58187f4ccb4eb40cf828780b36ca79ee170298ee4b52a51dce65dd4f0b15156e",
+          "top_score": 0.0979461669921875
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-003",
+          "query_sha256": "da049dfde00af55b2b6cffe8ea5741e1dad694bdfc0093011f083f497eb89af3",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/kernels/README.md",
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "corpus/doctrine-v10-v11/README.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.41666666666666663,
+            "MRR": 0.5,
+            "P@5": 0.2,
+            "R_precision": 0.5,
+            "ndcg@5": 0.38685280723454163,
+            "recall@5": 0.5
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py"
+          ],
+          "retrieval_chain_head": "79002ee783537abb7e1aeb8c77c98d6d4e9a9e0b446068c2931c46cc64d028f0",
+          "top_score": 0.1688530296087265
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-004",
+          "query_sha256": "4b82b6ef766661c0209b7d90f4dce8f72e0cb9ab66c46a9b9f50899f51f73d68",
+          "ranked_source_paths": [
+            "corpus/kernels/README.md",
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.6388888888888888,
+            "MRR": 0.5,
+            "P@5": 0.6,
+            "R_precision": 0.6667,
+            "ndcg@5": 0.7328286204777911,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py"
+          ],
+          "retrieval_chain_head": "58f34f91a71463b33c688a6bb091f3d094ff443218f82110f11e1a2df080f67d",
+          "top_score": 0.1830615997314453
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-005",
+          "query_sha256": "d4f10f92fd824244563d4ab564a34c844b421998ada99b704020df50d88b34fb",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/kernels/README.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "corpus/doctrine-v10-v11/README.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 0.18333333333333335,
+            "MRR": 0.16666666666666666,
+            "P@5": 0.0,
+            "R_precision": 0.0,
+            "ndcg@5": 0.0,
+            "recall@5": 0.0
+          },
+          "relevant_paths": [
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "retrieval_chain_head": "fd6f04393eb7f134b1ed41c618d9ae69a2a6b1f4c17b242ea80fc79f4a669151",
+          "top_score": 0.1414615511894226
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-006",
+          "query_sha256": "63faf2c159231bbbd6271b7d5f7b7a2668706fbb8f63e387d28b0f190dc8e504",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/thread_lineage.md",
+            "frontier/offline_retrieval/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "retrieval_chain_head": "770abc112ea60d90d02deccd59290aeb6b0f05823efe6a1b3b03a650e0f2bf75",
+          "top_score": 0.17423692345619202
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-007",
+          "query_sha256": "8ea8d9ff49012f982e6f598010e3771fb38b3eea5991c6bc021fdaf3499a0ff5",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py"
+          ],
+          "retrieval_chain_head": "eedf1ed9ad5ffe724c6386960173876ebb426176001d58a44b05edd847f5de8a",
+          "top_score": 0.13188296556472778
+        },
+        {
+          "abstained": false,
+          "answerable": true,
+          "query_id": "eval-008",
+          "query_sha256": "e2f7e1bf11635d3344adc7c950309e597710188c06a1a65917f32a37a0a824e3",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/thread_lineage.md",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "corpus/kernels/README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": {
+            "MAP": 1.0,
+            "MRR": 1.0,
+            "P@5": 0.4,
+            "R_precision": 1.0,
+            "ndcg@5": 1.0,
+            "recall@5": 1.0
+          },
+          "relevant_paths": [
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "retrieval_chain_head": "26d3a6f0065208e89f86dbcfe80947dc3f18af8283ed31b242566be3f0efc2c1",
+          "top_score": 0.12320425361394882
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-009",
+          "query_sha256": "3f58b47ce6e6f505daf1aad776837cbf6b4fd205f24d9df0bb96036001b126f1",
+          "ranked_source_paths": [
+            "README.md",
+            "corpus/kernels/README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/retrieval.py"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": "35bbfca363c64c10f7d928f3b187d65b2bfb32096e1b055a3e6364e2dadfae89",
+          "top_score": 0.09209031611680984
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-010",
+          "query_sha256": "2098d3ef63fd231e67b9c961120d52ebc5771abd12f00a7344edad0f5b07803d",
+          "ranked_source_paths": [
+            "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "frontier/offline_retrieval/README.md",
+            "frontier/offline_retrieval/thread_lineage.md"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": "eecda168c7cf260f360f0c72aad1c937a22f9264123f00e57276fbc3e3a22bfc",
+          "top_score": 0.07048586010932922
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-011",
+          "query_sha256": "6773283f8a3e9647502a9f7e8cb713b39d643eafeedf16c37ccf2c4f9f5f721d",
+          "ranked_source_paths": [
+            "frontier/offline_retrieval/README.md",
+            "README.md",
+            "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "torch-ext/szl_kernels/_chain.py",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/retrieval.py",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": "550986720168830406ace1e4be3d8f2d92fb40fcadf448aff7f8288ddb078341",
+          "top_score": 0.07177837193012238
+        },
+        {
+          "abstained": true,
+          "answerable": false,
+          "query_id": "eval-012",
+          "query_sha256": "a001923041468b4cab2af460430da1cfb0b1dc1449d6dbe0f06b59616e74ad91",
+          "ranked_source_paths": [
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/_chain.py",
+            "corpus/kernels/README.md",
+            "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+            "README.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "torch-ext/szl_kernels/miniembed.py",
+            "frontier/offline_retrieval/README.md",
+            "corpus/doctrine-v10-v11/README.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "torch-ext/szl_kernels/retrieval.py"
+          ],
+          "ranking_metrics_before_abstention": null,
+          "relevant_paths": [],
+          "retrieval_chain_head": "d0b752a320865918121b2c598e6968089311910caf4bd94a62a69462119c6df3",
+          "top_score": 0.09734117984771729
+        }
+      ],
+      "ranking_before_abstention": {
+        "MAP": 0.7798611111111111,
+        "MRR": 0.7708333333333333,
+        "P@5": 0.35,
+        "R_precision": 0.7708375000000001,
+        "ndcg@5": 0.7649601784640416,
+        "recall@5": 0.8125
+      }
+    }
+  },
+  "ood_scope": "author_created_unanswerable_queries_not_general_ood_coverage",
+  "query_splits_disjoint_by_id_and_normalized_text": true,
+  "ranking_scope": "answerable_queries_before_abstention",
+  "ranking_unit": "unique_source_path_first_chunk_hit",
+  "report_content_sha256": "2d62b2f7a1cff524405483f2cd6d7b80018ab7aab025f392e012ca80e0e3e418",
+  "schema_version": "szl.offline-retrieval-evaluation/v1",
+  "signature_status": "UNSIGNED_HONEST",
+  "status": "HOLD_EXTERNAL_EVALUATION_REQUIRED",
+  "unanswerable_queries": 4
+}

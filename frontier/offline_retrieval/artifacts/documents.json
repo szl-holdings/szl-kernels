@@ -1,0 +1,1135 @@
+{
+  "documents": [
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "72d3c73ce54692250e7e870b4595edbdd8994c3a0b2e474a8688308dc18e717f",
+      "document_id": "3f69e5f1ead01fea0e3ce964",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "--- thumbnail: https://huggingface.co/SZLHOLDINGS/szl-kernels/resolve/main/og-card.png tags: - kernel - governance - provenance - suite - sklearn - embeddings - word-embeddings - feature-extraction - doi:10.5281/zenodo.19944926 library_name: kernels license: apache-2.0 szl-governance: verdict: ADVISORY lambda: \"Conjecture 1 (open) — uniqueness unproven; advisory only\" energy: MEASURED-only (real NVML delta; None when unavailable) provenance: UnifiedReceiptChain (SHA3-256, op-agnostic, cross-kernel) honest_blocked: \"a failed check stays failed — never faked green\" ---",
+      "title": "Document / 1"
+    },
+    {
+      "chunk_number": 1,
+      "chunk_sha256": "d2e470ebdf4aca2701927dfb05477321f54982f84e61f7d18f1fa3417d350b59",
+      "document_id": "4070eb9f231fd96dd5789c8b",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "<!-- SZL-ESTATE-CARD:v2:START --> <p align=\"center\"><a href=\"https://a-11-oy.com/\"><img src=\"https://huggingface.co/spaces/SZLHOLDINGS/README/resolve/main/assets/estate-banner-v2.svg\" alt=\"SZL Holdings — governed, receipted, verifiable\" width=\"100%\"></a></p> <p align=\"center\"> <a href=\"https://github.com/szl-holdings/.github/tree/main/doctrine\"><img src=\"https://img.shields.io/badge/doctrine-v11%20LOCKED-0B1F3A?style=flat-square\" alt=\"doctrine v11\"></a> <a href=\"https://a-11-oy.com/\"><img src=\"https://img.shields.io/badge/evidence%20wall-LIVE%20%C2%B7%20verify%20in%20browser-3AF4C8?style=flat-square\" alt=\"live evidence wall\"></a> <a href=\"https://huggingface.co/datasets/SZLHOLDINGS/szl-lake\"><img src=\"https://img.shields.io/badge/szl--lake-offline%20verifiable-C9B787?style=flat-square\" alt=\"szl-lake offline verifiable\"></a> <a href=\"https://huggingface.co/spaces/SZLHOLDINGS/holographic\"><img src=\"https://img.shields.io/badge/estate%20map-holographic-5B8DEE?style=flat-square\" alt=\"holographic estate map\"></a> </p> <p align=\"center\"><sub>Part of the <a href=\"https://huggingface.co/SZLHOLDINGS\">SZL Holdings</a> governed estate — claims are designed to carry checkable receipts. Verification proves integrity &amp; origin, never accuracy or performance.</sub></p> <!-- SZL-ESTATE-CARD:v2:END -->",
+      "title": "Document / 2"
+    },
+    {
+      "chunk_number": 2,
+      "chunk_sha256": "11f5b685da85dbc2ea338aff31659fe29e36eb0517b80129bfded683c5fa157d",
+      "document_id": "00943d61b6b681ea92223f29",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "<!-- SZL-ARTIFACT-NOTICE:v1:START — honesty plate: repo semantics, no fake model tags. --> > **🟩 Kernel suite + REAL trained SZL-MiniEmbed.** The canonical governed-kernel runtime now rejects non-finite or out-of-range Λ thresholds before emitting a Lambda receipt. The receipted `corpus/kernels` snapshot remains byte-for-byte preserved for SZL-MiniEmbed replay, so the canonical runtime and receipted corpus intentionally differ at those files. Since **SZL-MiniEmbed v1** this repo ALSO ships real trained word embeddings — `vectors.npz` + `vocab.json` + `config.json` — built with **no gensim**: a distance-weighted term–term co-occurrence matrix over the SZL text estate (doctrine v10/v11 + rag-corpus-v1 + thesis-corpus-v18 + kernel-family READMEs), PPMI-weighted, reduced with sklearn `TruncatedSVD` to **128-dim** over a **3290**-term vocabulary. Evidence is **INTRINSIC SANITY ONLY** — receipted nearest-neighbour lists on 20 doctrine terms; **NO downstream/benchmark score is claimed**. The kernel suite stays authoritative. Λ = Conjecture 1 · ADVISORY. <!-- SZL-ARTIFACT-NOTICE:v1:END -->",
+      "title": "Document / 3"
+    },
+    {
+      "chunk_number": 3,
+      "chunk_sha256": "be1b8b40c3694f2e6bc1d066c33a12d1776b1bcc046ee2e0dbf5970a1386b37a",
+      "document_id": "a6b7b469aa3399d37023f521",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "<p align=\"center\"> <a href=\"https://huggingface.co/SZLHOLDINGS/szl-kernels/tree/main/build/torch-universal/szl_kernels\"><img src=\"https://img.shields.io/badge/kernel%20hub-torch--universal-5b8dee?style=flat-square\" alt=\"kernel hub\"></a> <a href=\"https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/MODEL_PROVENANCE.json\"><img src=\"https://img.shields.io/badge/provenance-MODEL_PROVENANCE.json-3af4c8?style=flat-square\" alt=\"provenance\"></a> <a href=\"https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/license-Apache--2.0-7e8aa3?style=flat-square\" alt=\"license\"></a> </p>",
+      "title": "Document / 4"
+    },
+    {
+      "chunk_number": 4,
+      "chunk_sha256": "22b645d22180aa3ef42c564bd59e88f7429ca798e49e0703e6689b46c05bae16",
+      "document_id": "df01793bae2f48ce2b429eac",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "<!-- szl:header v1 --> <!-- badges: add this repo's CI / release / status badges here --> [![org: szl-holdings](https://img.shields.io/badge/org-szl--holdings-black)](https://github.com/szl-holdings) [![doctrine](https://img.shields.io/badge/doctrine-control%20before%20action%20%C2%B7%20evidence%20after-blue)](https://a-11-oy.com)\n\n**Control before action. Evidence after.**\n\nPart of the [szl-holdings](https://github.com/szl-holdings) estate · Product: [a-11-oy.com](https://a-11-oy.com) · Proof: [a11oy.net](https://a11oy.net) <!-- /szl:header -->\n\n**Canonical source:** [`szl-holdings/szl-kernels`](https://github.com/szl-holdings/szl-kernels). The protected `main` workflow verifies the kernel suite, replays the MiniEmbed artifact within its declared tolerance, and checks the source-binding contract against the public Hugging Face artifact. Exact publication is performed by the authorized release gateway in [`szl-holdings/szl-forge`](https://github.com/szl-holdings/szl-forge/blob/main/.github/workflows/publish-szl-kernels.yml). That gateway checks out an exact protected Git revision, publishes the declared file set, and reads every byte back at the resulting immutable Hub revision. The exact Git source revision is written to `publication.json`.",
+      "title": "szl-kernels — the unified governed-kernel suite / 1"
+    },
+    {
+      "chunk_number": 5,
+      "chunk_sha256": "c432deb32af4b6722092a2992641edc55cca306474c5803f7ec3645503ddfd5c",
+      "document_id": "3923e152658ebb297e494652",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "This is a governed kernel suite with a receipted word-embedding companion. It is not a general-purpose language model, and its intrinsic nearest-neighbor replay is not a downstream quality benchmark.",
+      "title": "szl-kernels — the unified governed-kernel suite / 2"
+    },
+    {
+      "chunk_number": 6,
+      "chunk_sha256": "e8aeaa533bcb947a18a721a03e6d548f59e4ef622ac2e9a8114eb98fe5e0e8e6",
+      "document_id": "c598b38ab2325621a8a3bebb",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "| Lane | Classification | Evidence available here | Limitation | |---|---|---|---| | Governed kernels | Executable software | Source, manifests, tests, receipt-chain verifier, and `selfcheck()` | A successful self-check covers the exercised implementation path; it is not a safety, performance, or deployment claim. | | SZL-MiniEmbed v1 | Trained embedding weights | `vectors.npz`, vocabulary/config files, bundled corpus, `TRAINING_RECEIPT.json`, and deterministic replay tooling | Small in-domain co-occurrence embedding with intrinsic sanity evidence only; no downstream benchmark or general-purpose capability claim. | | First-class Kernel Hub repository | Kernel distribution and loader surface | Generated `source-binding.json`, immutable-revision byte readback, and independently observed `main` and `v1` refs | Mutable ref names must be resolved again at evaluation time; repository reachability is not runtime readiness. | | Legacy model/card mirror | Distribution and presentation surface | Generated `publication.json` plus immutable-revision byte readback in the authorized release flow | A model API listing does not make every file trained weights, and mirror reachability is not runtime readiness. |",
+      "title": "Artifact truth card / 1"
+    },
+    {
+      "chunk_number": 7,
+      "chunk_sha256": "a689d959a2ceebef0139ef022d261c70552192f3113e24ad8c0aee1e0c20d5da",
+      "document_id": "3fe8a0c1212e3c9c787c9ca6",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "**Investor value.** The repository combines an auditable governed-compute reference with a small, receipted learned artifact, while keeping software, weights, and evidence visibly separate.\n\n**Developer/evaluator path.** Review the legacy mirror's generated [`publication.json`](https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/publication.json), the first-class Kernel repository's generated [`source-binding.json`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/blob/v1/build/torch-cpu/source-binding.json), and `MODEL_PROVENANCE.json`. Run `suite.selfcheck()` for the software path and `python scripts/eval.py` for the MiniEmbed replay. Treat returned results as observations from that run; do not infer a green status from this card.",
+      "title": "Artifact truth card / 2"
+    },
+    {
+      "chunk_number": 8,
+      "chunk_sha256": "24128e4743e919fb7a52a6e889e338a7314667583df33bb6869a404ddc3ad001",
+      "document_id": "bbf54ae8ead11f22f05252c0",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "> **Kernel Hub migration (verified 2026-08-01):** `get_kernel(...)` now resolves > the matching first-class [Kernel Hub repository](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels). > Its live refs resolve independently: [`main`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/tree/5c71b9d76dc7bd0bc29dfc82b4db803652f7f20f) > pins `5c71b9d76dc7bd0bc29dfc82b4db803652f7f20f`, while stable > [`v1`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/tree/1a3c1bdcd1656483333b3edf1e3b1991c90200be) > pins `1a3c1bdcd1656483333b3edf1e3b1991c90200be`. These are public ref > readbacks, not runtime-readiness or artifact-equivalence claims. This > model-type repository is retained as the legacy source/card mirror.",
+      "title": "Artifact truth card / 3"
+    },
+    {
+      "chunk_number": 9,
+      "chunk_sha256": "10b502e4767f1b9487b242b3cf4266f95ba5b1fd690cedd12ba8851d78e95c86",
+      "document_id": "2412e8c6a82ea77a1f27e11f",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "**A kernel suite for governing provenance across operations.** This `get_kernel`-discoverable suite ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a governance/interop layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict), [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives an EU AI Act Annex IV draft), and [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) (verifies the provenance DAG + bridges to in-toto/SLSA).\n\n> **Evidence boundary:** no ecosystem-wide novelty claim is made. Within this > published suite, a forward pass touching norm + an advisory Λ gate + an energy > reading can produce one auditable, tamper-evident log instead of three > disconnected logs. Verify that bounded behavior with `selfcheck()` and the > exported chain verifier before relying on it.",
+      "title": "Artifact truth card / 4"
+    },
+    {
+      "chunk_number": 10,
+      "chunk_sha256": "1356e9c1c79298f20fa5f339f3050fdbbc95bcdba76ecc9bd651206080e2e3c6",
+      "document_id": "0452c8ecf2dd07614c3744de",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "```bash pip install kernels torch ```\n\n```python import torch from kernels import get_kernel",
+      "title": "Quickstart / 1"
+    },
+    {
+      "chunk_number": 11,
+      "chunk_sha256": "63f98edb9e4a2750f7a06345dc8d242fa97c80ac6cff1e0f37a8e1e6e59c2816",
+      "document_id": "af6298184392588c0b8a5f54",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "suite = get_kernel(\"SZLHOLDINGS/szl-kernels\", revision=\"main\", trust_remote_code=True)\n\nprint(suite.list_kernels()) # the 3 numeric suite members + honest roles print(suite.list_series()) # the governance/interop companions (govsign, blocked, provctl) print(suite.selfcheck()) # inspect returned checks; this card assumes no pass",
+      "title": "Current `kernels` (>=0.15) requires an explicit revision/version + trust flag for org kernels: / 1"
+    },
+    {
+      "chunk_number": 12,
+      "chunk_sha256": "c06798337545012d9c291e52703cc42449fcdc0d7a7b10af4ff056b64a40933b",
+      "document_id": "a82e85845c3e7d80bd7ec8ac",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "chain = suite.UnifiedReceiptChain() x = torch.randn(4, 64) y = suite.governed_rms_norm(chain, x, eps=1e-6) # governed_norm gate = suite.governed_lambda_gate(chain, torch.tensor([0.9,0.8,0.95])) # lambda_gate (advisory) e = suite.governed_measure_energy(chain) # energy_core (MEASURED-only)\n\nok, depth, brk = chain.verify() # the WHOLE pass verifies as ONE chain print(ok, depth, chain.kernels_touched()) # True 3 ['governed_norm','lambda_gate','energy_core'] print(chain.to_json()) # export for offline third-party re-verification ```",
+      "title": "ONE shared chain spanning multiple ops: / 1"
+    },
+    {
+      "chunk_number": 13,
+      "chunk_sha256": "3249c24ddba9cbf3911c0e66a3be623c7f1e0602ff0d1232cab7fa5df273ae1c",
+      "document_id": "6fc3526236118e21e87c78e7",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "```python blk = suite.GovernedBlock() res = blk.forward(x, gov_axes=torch.tensor([0.95, 0.9, 0.92])) print(res[\"chain_ok\"], res[\"chain_depth\"], res[\"kernels_touched\"]) # norm + advisory Λ gate + energy + binding receipt = 4 ops, one verifiable chain. # The Λ gate is ADVISORY: it is recorded for audit, it does NOT alter the numerics. ```",
+      "title": "Flagship — a governed transformer sub-block / 1"
+    },
+    {
+      "chunk_number": 14,
+      "chunk_sha256": "2bb997e9a44b2ad470aeac81de1378a5b3b0abc32680092be37c5542f44f12b1",
+      "document_id": "651a54fd57a4d2bccd7bfc62",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "Three copy-paste recipes spanning the governed-kernel series. Every printed value is labeled **expected shape (not executed here)** — the shapes are transcribed from each kernel's committed API, not from a run on this card (SZL doctrine: never self-download to inflate counters, never fabricate an output). Λ stays **Conjecture 1 (OPEN)**; energy stays **MEASURED-only**; a BLOCKED verdict stays BLOCKED.",
+      "title": "Cookbook / 1"
+    },
+    {
+      "chunk_number": 15,
+      "chunk_sha256": "8c175b527189c4618290bc1bdb4ca35d0c96784a711d7bdad7dbe874050c4e9a",
+      "document_id": "de256a1c18333d0fd2e1a472",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "```python import torch from kernels import get_kernel\n\nsuite = get_kernel(\"SZLHOLDINGS/szl-kernels\", revision=\"main\", trust_remote_code=True)\n\nchain = suite.UnifiedReceiptChain() x = torch.randn(4, 64) suite.governed_rms_norm(chain, x, eps=1e-6) # op 1: governed_norm suite.governed_lambda_gate(chain, torch.tensor([0.9, 0.8, 0.95])) # op 2: lambda_gate (ADVISORY) suite.governed_measure_energy(chain) # op 3: energy_core (MEASURED-only)\n\nok, depth, first_break = chain.verify() print(ok, depth, chain.kernels_touched()) # expected shape (not executed here): # True 3 ['governed_norm', 'lambda_gate', 'energy_core'] # -> one hash-chain, three ops, verifies as ONE ordered sequence. # The Λ gate receipt is ADVISORY (Conjecture 1, OPEN): recorded, never proven trust. # energy_core reports joules=None + UNAVAILABLE_NO_NVML on CPU — never a fabricated joule. ```",
+      "title": "1 — One receipt chain across three ops (suite) / 1"
+    },
+    {
+      "chunk_number": 16,
+      "chunk_sha256": "84de5e7831cc1252f0d15549377305560b2d97e36885ffa9be0eac0a9044e77e",
+      "document_id": "aedfc32d763d1a52f3b80b0e",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "```python from kernels import get_kernel\n\nblk = get_kernel(\"SZLHOLDINGS/szl-blocked\", revision=\"main\", trust_remote_code=True)\n\nchain = blk.UnifiedReceiptChain() policy = blk.deny_if_action_in({\"exfiltrate\", \"delete_all\"}) work = lambda v: v * 2\n\nallowed = blk.governed_call(work, policy, chain, request={\"action\": \"summarize\"}, args=(21,)) blocked = blk.governed_call(work, policy, chain, request={\"action\": \"exfiltrate\"}, args=(21,))\n\nprint(allowed.blocked, allowed.output) print(blocked.blocked, blocked.output) # expected shape (not executed here): # False 42 -> ALLOWED path ran work(21); an ALLOW receipt is on the chain. # True None -> BLOCKED path: work was NEVER called, output is None, # a BLOCK receipt is recorded. Honest-BLOCKED, never faked green. ```",
+      "title": "2 — honest-BLOCKED, not fake-green (szl-blocked) / 1"
+    },
+    {
+      "chunk_number": 17,
+      "chunk_sha256": "becc3e6cdd603e7050e19a371f4d35c1d45ea38ea390b4e7efae4bc3659d811c",
+      "document_id": "cedf85547b4ecc453514e1d8",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "```python from kernels import get_kernel\n\ngs = get_kernel(\"SZLHOLDINGS/szl-govsign\", revision=\"main\", trust_remote_code=True)\n\npriv = gs.generate_ephemeral_keypair() # production: Sigstore keyless / cosign key, out-of-band pred = gs.build_governance_predicate( lambda_verdict = gs.LambdaVerdict(score=0.92, notes=\"advisory only — Conjecture 1 (OPEN)\"), energy = gs.EnergyLabel(value=12.5, unit=\"joules\"), # MEASURED-only decision = gs.GovernanceDecision(status=\"ALLOWED\", reason=\"passed gates\"), honest_blocked = False, ) subjects = [gs.Subject(name=\"szl_kernels/UnifiedReceiptChain\", digest={\"sha256\": \"<chain-head>\"})] envelope = gs.attest(subjects, pred, priv)\n\nprint(gs.verify(envelope, priv.public_key())) # expected shape (not executed here): # True -> DSSE envelope (ECDSA P-256) verifies: authorship + integrity of the verdict. # Any tamper -> verify() returns False (fails closed). # The signature does NOT upgrade Λ to proven trust: proven_trust is locked False. ```\n\n> These recipes chain across three separately published, `get_kernel`-discoverable kernels. > See [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) to turn any of these > chains into documented in-toto v1 / SLSA v1 shapes for external compatibility testing.",
+      "title": "3 — Sign then verify a governance verdict (szl-govsign / DSSE) / 1"
+    },
+    {
+      "chunk_number": 18,
+      "chunk_sha256": "9fa1bf9f24feb2ecabfa799f0dfa0108afa2ce71b80216c0291b2f20b5047f69",
+      "document_id": "e2183f0dfa3cf830297d23ec",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "Independently published, `get_kernel`-discoverable kernels that share one `UnifiedReceiptChain`. The first three are the **numeric core**; govsign + blocked + provctl are the **governance / interop layer**.",
+      "title": "The governed-kernel series / 1"
+    },
+    {
+      "chunk_number": 19,
+      "chunk_sha256": "22093504b203cb4fda083dc2b9d806137b9d6af3dc2610e291017f9dc793f6b6",
+      "document_id": "3f7bf4a318d47e4e6a43182f",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "| Kernel | Lane | Live hologram | |---|---|---| | [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm) | RMSNorm/LayerNorm + SHA3-256 receipts | [`governed-norm-holo`](https://szlholdings-governed-norm-holo.static.hf.space) ✅ **live** | | [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate) | advisory Λ gate (Conjecture 1, OPEN) | [`lambda-gate-holo`](https://szlholdings-lambda-gate-holo.static.hf.space) ✅ **live** | | [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) | MEASURED-joule energy accounting | [`energy-attest-holo`](https://szlholdings-energy-attest-holo.static.hf.space) ✅ **live** | | [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) | signed governance attestation (DSSE / in-toto, ECDSA P-256) | [`szl-govsign-live`](https://szlholdings-szl-govsign-live.static.hf.space) ✅ **live** | | [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) | honest-BLOCKED first-class state + EU AI Act Annex IV DRAFT | [`szl-blocked-live`](https://szlholdings-szl-blocked-live.static.hf.space) ✅ **live** | | [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) | provenance-DAG verify + in-toto v1 / SLSA v1 interop + per-kernel MEASURED energy | [`szl-provctl-live`](https://szlholdings-szl-provctl-live.static.hf.space) ✅ **live** | | **`szl-kernels`** (this repo) |",
+      "title": "The governed-kernel series / 2"
+    },
+    {
+      "chunk_number": 20,
+      "chunk_sha256": "48321bd414b4385d6260d63062553113394a477db3a1c242583a862ff76f8bff",
+      "document_id": "7f633393f020db4725647843",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "**unified suite — cross-kernel `UnifiedReceiptChain`** | [`szl-kernels-live`](https://szlholdings-szl-kernels-live.static.hf.space) ✅ **live** |\n\n`suite.list_kernels()` returns the numeric core; `suite.list_series()` returns the govsign + blocked + provctl governance/interop layer.",
+      "title": "The governed-kernel series / 3"
+    },
+    {
+      "chunk_number": 21,
+      "chunk_sha256": "0def73cb1f3be9bf619453fe142d2f03630ea4273b325454aa2d7388a7a9f008",
+      "document_id": "fd47398a1098451c5403f56a",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "Published as HF **model** repos (NOT trained models, NO weights — pure-Python, stdlib-only offline replays). Each ships a `library_name: kernels` card and MEASURED local test counts:\n\n| Model | Lane | Tests (MEASURED) | |---|---|---| | [`szl-invariants`](https://huggingface.co/SZLHOLDINGS/szl-invariants) | 8 falsifiable receipt/ledger invariants, offline | 14/14 | | [`szl-ouroboros`](https://huggingface.co/SZLHOLDINGS/szl-ouroboros) | bounded-loop trace + MEASURED/DERIVED loop-tax accounting | 13/13 | | [`szl-formulas`](https://huggingface.co/SZLHOLDINGS/szl-formulas) | the 21 canonical formulas + governed-loop composer, PROOF-STATUS mirrored verbatim (locked-proven = exactly 8) | 17/17 |",
+      "title": "The honest-model trio (offline replays of the live Alloy surface) / 1"
+    },
+    {
+      "chunk_number": 22,
+      "chunk_sha256": "3bff84668f97b00f84332cbb2d208323e6a0a6292e3c90c4b115e36337d5acab",
+      "document_id": "b827e5d97bf7619476a6dccf",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "The standalone SZL kernels keep separate receipt state. A single forward pass through them therefore yields logs that are not one ordered stream. `UnifiedReceiptChain` adds op-agnostic SHA3-256 receipts that hash-chain norm, Λ, and energy calls into **one** verifiable stream, in call order. `szl-govsign` can sign that chain head for verification against a separately trusted public key; `szl-blocked` records refusal as a first-class state and derives a draft documentation skeleton; `szl-provctl` verifies supplied multi-run provenance records and serializes them into documented in-toto/SLSA shapes for compatibility testing.",
+      "title": "The gap this closes / 1"
+    },
+    {
+      "chunk_number": 23,
+      "chunk_sha256": "afa72207c40aaf23b8c2eed6ac9c4e6703b642f7f2d8414b4dd2c28eeccf20d2",
+      "document_id": "9475851292d5e0a6da917e06",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "| Symbol | What it does | |---|---| | `UnifiedReceiptChain` | Op-agnostic SHA3-256 hash chain. `emit`, `verify() -> (ok, depth, first_break)`, `kernels_touched()`, `to_json()`, `verify_json()` (offline). | | `governed_rms_norm(chain, x, weight=None, eps=1e-6)` | RMSNorm + a receipt into the shared chain. Numerics match `szl-governed-norm`. | | `governed_layer_norm(chain, x, ...)` | LayerNorm + receipt. | | `governed_lambda_gate(chain, axes, weights=None, threshold=0.5)` | **Advisory** Λ gate; rejects non-finite or out-of-range thresholds before emitting a receipt, then records an advisory result (`advisory=True`, never proven trust). | | `governed_measure_energy(chain, measurement=None)` | Records an energy reading **verbatim** — `joules=None` + `UNAVAILABLE_NO_NVML` when no GPU. Never fabricated. | | `GovernedBlock` | Pre-norm sub-block composing all three + a binding receipt into one auditable pass. | | `MiniEmbed` | Load repo-root `vocab.json` + `vectors.npz` and look up / encode in-vocab terms. Table and lookup receipts use `UnifiedReceiptChain`. Distributional word-embedding table — not a transformer LM. | | `list_kernels()`, `list_series()`, `get_member()`, `selfcheck()` | Numeric registry + governance-layer series + one-shot CPU health check. |",
+      "title": "API / 1"
+    },
+    {
+      "chunk_number": 24,
+      "chunk_sha256": "912f307fc11300c2ea4cbf5010130b72f74aec8faf4786da7b2608da0b6a0113",
+      "document_id": "07da1334ef8a07f878d3b3d1",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "- **Λ is advisory.** Its uniqueness is **Conjecture 1 — OPEN**. A recorded gate \"pass\" is a non-compensatory advisory signal, **never proven trust**. - **Energy is MEASURED-only.** Real NVML cumulative-energy delta when a GPU is present; otherwise `joules=None`, labeled `UNAVAILABLE_NO_NVML`. **No joule is ever fabricated.** - **The digest is an integrity fingerprint, not a signature.** SHA3-256 over a canonical receipt body proves tamper-evidence + ordering — not authorship. Signing is a separate, out-of-band layer — see [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) for DSSE / in-toto attestation. - **Honest BLOCKED beats fake green.** A failed verification stays failed — see [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) for refusal as a first-class, provenanced state. - **Universal (pure-Python) suite: a correctness and provenance reference, not a CUDA speed record. No performance result or current test status is asserted by this card.**",
+      "title": "Honesty (SZL doctrine) / 1"
+    },
+    {
+      "chunk_number": 25,
+      "chunk_sha256": "0aa5bfe8eef2ba8d30bb1a7b42b7441d03cc212b03c897c0a6c7dabebec77135",
+      "document_id": "bf6ebaebf3e8671cc3319ef1",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/szl-holdings/lutar-lean) (749 declarations / 14 axioms / 163 tracked sorries), DOI [10.5281/zenodo.20434308](https://doi.org/10.5281/zenodo.20434308). Λ uniqueness = Conjecture 1 (open).",
+      "title": "Provenance / 1"
+    },
+    {
+      "chunk_number": 26,
+      "chunk_sha256": "8f5cca281cea6411b37628e47f7f4684022b0d09261d2b04d15740e3b440ff19",
+      "document_id": "948f30ab1c04fb6da04f4689",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "- [Canonical Hugging Face card](https://huggingface.co/SZLHOLDINGS/szl-kernels) - [Kernel Hub repository](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels) - [Governed Kernels & Verifiers collection](https://huggingface.co/collections/SZLHOLDINGS/governed-kernels-and-verifiers-6a542ad83a4b75151bf5eae3) - [SZL organization inventory](https://huggingface.co/SZLHOLDINGS) - [Canonical GitHub source](https://github.com/szl-holdings/szl-kernels)\n\nThese links are navigation, not status badges. Availability, deployment state, and current revision must be checked at evaluation time; a reachable page does not establish correctness, performance, or runtime readiness.",
+      "title": "Presentation and verification surfaces / 1"
+    },
+    {
+      "chunk_number": 27,
+      "chunk_sha256": "49318b353ed38471995abcbc772ddec9957cb11465b533673af470c1736aee26",
+      "document_id": "843a1ef468f809b65f15fb26",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "Python 3.9+, `torch>=2.5`, standard library + torch only. Runs on CPU and CUDA.",
+      "title": "Compatibility / 1"
+    },
+    {
+      "chunk_number": 28,
+      "chunk_sha256": "a88c5a5b5bb4fee4b8f43122c3a1308bbdce02bb63aaaadad2b431d59f7d9309",
+      "document_id": "c0728574a8ab8f69721055b2",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "Apache-2.0. Copyright 2026 SZL Holdings.",
+      "title": "License / 1"
+    },
+    {
+      "chunk_number": 29,
+      "chunk_sha256": "0c30953825e77668204aa293aba75d837e789f7707bdba1f071bd8c3b10ef7a6",
+      "document_id": "bfc8b0dba6f92bc51504ad3b",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "Real word embeddings over the SZL text estate, produced **without gensim**: a distance-weighted term–term co-occurrence matrix (window 5) → PPMI → sklearn `TruncatedSVD` → L2-normalized vectors. Corpus = **26 documents / 26 source files** (every file's sha256 is recorded in the receipt): `doctrine-v10-v11`, `rag-corpus-v1` (`corpus.jsonl`), `thesis-corpus-v18`, and the kernel-family READMEs + `build/*.py`. Seed 20260721; the exact corpus text is bundled under `corpus/` so the build is reproducible offline.\n\n| property | value | |---|---| | vocabulary size | **3290** | | embedding dim | **128** | | co-occurrence window | 5 | | SVD explained-variance ratio (MEASURED) | **0.3146** | | doctrine probe terms in vocab | **20** / 20 |",
+      "title": "Trained SZL-MiniEmbed v1 (MEASURED — see `TRAINING_RECEIPT.json`) / 1"
+    },
+    {
+      "chunk_number": 30,
+      "chunk_sha256": "0a9ed0bdbea790ab9cd461f1a7ac493c9f6f86831d2dfd6ff6b6b488b59a7eaa",
+      "document_id": "eb484fc8759edbdbb52e0688",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "Cosine nearest neighbours for doctrine terms — the **only** evidence claimed. This is intrinsic sanity, **not a benchmark**: no analogy/retrieval score is asserted.\n\n| term | top neighbours | |---|---| | `ouroboros` | substrate, replit, custodian, ouroboros-arch, payload, subsystems | | `governance` | formal, score, first, layer, itself, system | | `receipt` | chain, receipts, hash, emits, emitted, every | | `provenance` | openmdw, chain, lineage, dags, composes, order | | `lambda` | min, lam, float, emit, action, compute | | `kernel` | discoverable, kernels, get, szl-kernels, hub, governed-kernel | | `invariant` | learned, operator, knowledge, th11, reidemeister, knot | | `tamper` | touched, kernels, break, verifies, verify, detected | | `verify` | offline, break, tamper, depth, touched, brk | | `conjecture` | uniqueness, depends, unproven, open, cauchy, honest |\n\n```python import numpy as np, json V = np.load(\"vectors.npz\")[\"vectors\"] # float32 [vocab, dim], L2-normalized vocab = json.load(open(\"vocab.json\"))[\"index\"] # {term: row} def nn(term, k=6): v = V[vocab[term]]; s = V @ v return [(list(vocab)[i], float(s[i])) for i in np.argsort(-s)[1:k+1]] print(nn(\"receipt\")) ```",
+      "title": "Intrinsic nearest-neighbour sanity (MEASURED, receipted) / 1"
+    },
+    {
+      "chunk_number": 31,
+      "chunk_sha256": "4ba4574f02c8b1202be7d238cf2376589a687b85c6602f06f6da895eb4f57c89",
+      "document_id": "f18054dd380949e86f80f8c3",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "**Honest scope / blind spot:** these are distributional co-occurrence embeddings over a small in-domain corpus (3290 terms). They capture SZL-doctrine term neighbourhoods; they are **not** a general-purpose embedding model and carry **no** benchmark claim. Rare/out-of-vocab terms are simply absent. The kernel suite remains the primary, authoritative artifact.\n\nRe-verify everything: `python scripts/eval.py` (sha256-checks `vectors.npz` + `vocab.json` against the receipt, regenerates the embeddings from the bundled corpus, and compares the nearest-neighbour sets — mean Jaccard overlap ≥ 0.90 — and SVD variance within ±0.02).",
+      "title": "Intrinsic nearest-neighbour sanity (MEASURED, receipted) / 2"
+    },
+    {
+      "chunk_number": 32,
+      "chunk_sha256": "bcd3b396793c582c546ba8889650d8c48b4f615e0c698437b95abc5f3d43476d",
+      "document_id": "2681d8ad26d750277b3d2c48",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "`szl_kernels.MiniEmbed` is a **distributional word-embedding table** (PPMI + TruncatedSVD, dim 128, vocab 3290) loaded from the in-repo `vectors.npz` / `vocab.json` artifact. It is **not** a transformer language model, **not** Chaski, and **not** Khipu. Lookup and encode cover terms already in the vocabulary. Integrity receipts use the existing `UnifiedReceiptChain` (SHA3-256). File-hash replay remains `python scripts/eval.py`.\n\n```python from szl_kernels import MiniEmbed emb = MiniEmbed() # loads repo-root vocab.json + vectors.npz print(emb.lookup(\"receipt\").shape) # (128,) print(emb.neighbors(\"receipt\", k=6)) print(emb.selfcheck()[\"label\"]) # MATCHES / LOADED, or UNAVAILABLE_LFS ```\n\n---\n\n<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href=\"https://a-11-oy.com\">a-11-oy.com</a> · <a href=\"https://github.com/szl-holdings\">github.com/szl-holdings</a> · <a href=\"https://huggingface.co/SZLHOLDINGS\">huggingface.co/SZLHOLDINGS</a></sub>\n\n---\n\n[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19944926.svg)](https://doi.org/10.5281/zenodo.19944926)",
+      "title": "SOURCE / 1"
+    },
+    {
+      "chunk_number": 33,
+      "chunk_sha256": "89d32c7b2a502b422d5abe9056b4c60d89a87dda9c0e20bd6ae36680ab03f877",
+      "document_id": "9b6439ce3a7814cf67bbabd9",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "**Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism). Concept DOI (always-latest): [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926). Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · License CC-BY-4.0. Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md). No artifact-specific DOI is minted for this model; the concept DOI above covers the program.\n\nHonesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine-checked FALSE as stated) — never a theorem; conditional uniqueness is **Theorem U** (axiom-free). Locked-proven formulas = **exactly 8** {F1,F4,F7,F11,F12,F18,F19,F22}; ~185 experimental theorems are a separate CI-green tier; Khipu BFT safety = Conjecture 2. Trust never 100%.\n\n```bibtex @misc{lutar_szl_ouroboros, author = {Lutar, Stephen P., Jr.}, title = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.19944926}, url = {https://doi.org/10.5281/zenodo.19944926}, note = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.} } ```\n\n*Signed-off-by: Stephen Lutar <stephenlutar2@gmail.com>*",
+      "title": "Citation / 1"
+    },
+    {
+      "chunk_number": 34,
+      "chunk_sha256": "403ef2e710cee20c95d90649cbe2b10b50aa432c9ac877d5303afd0d9978678d",
+      "document_id": "4c90405cc35daeeb88fbc7e3",
+      "license": "Apache-2.0",
+      "source_path": "README.md",
+      "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
+      "text": "| Path | What it is | |---|---| | `build/torch-universal/szl_kernels/__init__.py` | public API — suite entry points + `selfcheck()` | | `build/torch-universal/szl_kernels/_chain.py` | cross-kernel `UnifiedReceiptChain` (SHA3-256) | | `build/torch-universal/szl_kernels/_ops.py` | the governed op set | | `build/torch-universal/szl_kernels/miniembed.py` | MiniEmbed table loader, in-vocab lookup/encode, hash selfcheck | | `torch-ext/szl_kernels/` | kernel-builder source mirror of the same package | | `tests/test_suite.py` | suite test | | `tests/test_miniembed.py` | CPU MiniEmbed tests | | `build.toml` · `metadata.json` | Kernel Hub build/metadata manifests | | `LICENSE` · `SECURITY.md` | Apache-2.0 · security policy |\n\n---\n\n<p align=\"center\"> <a href=\"https://huggingface.co/SZLHOLDINGS\">SZL Holdings</a> · <a href=\"https://a-11-oy.com\">a-11-oy.com</a> · <a href=\"https://huggingface.co/SZLHOLDINGS/a11oy-v19-substrate\">a11oy-v19-substrate</a> </p>\n\n<p align=\"center\"><sub>SLSA: L1 honest · L2 attested · L3 roadmap. Λ = Conjecture 1. Trust ceiling 0.97.</sub></p>",
+      "title": "Files in this repo / 1"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "44e0d93f4613b0a49e151cd007f0eef498dea31a9c9c78de375367375c756865",
+      "document_id": "68fecc8ef79794416d114eea",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+      "source_sha256": "8167627f6d8f98241c34a38b87d1b1b853fe99b9fbe5c7fb07433c18095cce4e",
+      "text": "> **SZL Holdings builds a formally-verified 13-axis governance gate for agentic AI** — a > conjunctive (no-compensation) heart (`yuyay_v3`, replay-hash > `bacf54434f1a3bf2d758b27a62d5fd580ca4c8d3b180693573eeebcaea631fc5`) wired behind a > 660-SLOC immune deadman (HUKLLA, 10 tripwires), a 20-line ceremonial receipt ledger > (YAWAR, one authorized writer `RUWAY`), an 18-SLOC inline white-blood-cell screen > (SENTRA, 6 signatures + 1 MB DoS guard), and a 9-position Maxwell-rigid (M = 0 > isostatic) agent pipeline with a Butler–Volmer halt budget and a 6-observer read-only > overwatch. The math is in Lean (749 declarations, 14 axioms, 163 tracked sorries, > honestly disclosed) and mirrored as four public HF Datasets; Λ uniqueness is an open > Conjecture. The 9-axis legacy still runs; the 13-axis migration is the next ratchet.\n\nORCID: 0009-0001-0110-4173 · Concept DOI 10.5281/zenodo.19944926",
+      "title": "Canonical Wedge — SZL Holdings (Doctrine v11) / 1"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "6a5482ac433912828c1e316ab1e43b26a6a9d1d1886aaf5bdb83e4acdc772d00",
+      "document_id": "3175a09e3c3fd45c3ae4d04a",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "**Supersedes:** Doctrine v10 (`DOCTRINE_V10_LOCKED_2026-05-31_2355.md`) **and** the interim v11 draft (`DOCTRINE_V11_LOCKED_2026-06-01_0045.md`). This `0145` lock is the **canonical v11**. It carries forward every v10 canonical number + honesty rule (§9), keeps every governance organ from the `0045` draft (§1–§7), and **adds** the three new canonical surfaces locked this session:\n\n- **§12 — the canonical formula registry** (`canonical-formulas-v1`, 21 pure typed formulas + Lean obligations + the Codex-Kernel governed-loop composer); - **§13 — the four HF math Datasets** (`lean-proofs-v1`, `canonical-formulas-v1`, `thesis-corpus-v18`, `doctrine-v10-v11`); - **§14 — a11oy.code** (the 7-tier organ-mapped LLM router baked into the anatomy, with `/code-proxy` + `/math/*` instilled across the 8 canonical Spaces).\n\n**Authority:** Founder's public LinkedIn Series-A roadmap (2026-05-15 → 2026-05-31) is first-party public claim. v11's job: make every public claim real + operational on Hugging Face, and honestly label anything runnable-but-not-yet-end-to-end-wired.\n\n**Canonical truth in one line:** the heart is **13-axis (`yuyay_v3`)**, conjunctive AND, replay-hash `bacf5443…631fc5`. The 9-axis YUYAY/HATUN-RAID envelope is preserved as **deprecated legacy** with an honest migration disclosure on every surface.\n\n---",
+      "title": "Doctrine v11 — LOCKED 2026-06-01 01:45 EDT / 1"
+    },
+    {
+      "chunk_number": 1,
+      "chunk_sha256": "46a749bebe6da990ce999fb3024545642c1c9f6d020410549921d1138865ecaf",
+      "document_id": "248463a0ee31c33a46ab8dd0",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "Doctrine v10 described a **9-axis** governance envelope. The founder's public LinkedIn post *\"The Heart `yuyay_v3`\"* makes the canonical heart **13-axis**, a 430-SLOC Python kernel with a fixed replay hash. v11 locks the 13-axis heart as canonical going forward.\n\n**Honest disclosure (carried on every surface):** > The 9-axis YUYAY envelope is still **LIVE** inside the HATUN-RAID sovereign loop. The > 13-axis `yuyay_v3` kernel is **runnable** (deterministic, replay-hash-verifiable) but > the sovereign loop is **NOT yet wired against the 13-axis version end-to-end**. That > migration is the next ratchet.\n\n---",
+      "title": "§0 — WHY v11 EXISTS (the 9→13 axis ratchet) / 1"
+    },
+    {
+      "chunk_number": 2,
+      "chunk_sha256": "d46ff92c59d25a740a299829e54526bfb25fd18131e0eb021236468d70eb4f07",
+      "document_id": "64a1455e6aee937d7489f7f9",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "**THE LAW:** A proposal passes the heart **iff every one of the 13 axes independently clears its floor.** This is a **conjunctive AND** — **NO compensation**: a high score on one axis can never offset a sub-floor score on another. The gate returns a boolean, a per-axis score vector (13 entries), and a `continuum_hash` receipt.\n\n**`yuyay_v3` replay hash (verification anchor):** `bacf54434f1a3bf2d758b27a62d5fd580ca4c8d3b180693573eeebcaea631fc5`\n\n(Kernel: 430 SLOC Python. Returns `boolean + per-axis score vector + continuum_hash receipt`.)\n\n---",
+      "title": "§1 — THE LAW (13-axis `yuyay_v3`, conjunctive AND) / 1"
+    },
+    {
+      "chunk_number": 3,
+      "chunk_sha256": "c2ea30ef3ddd54640b14a548263e51b9bc01ccc53c56188e1d4b6885c290dc6b",
+      "document_id": "3d863496ab4910a9b389581f",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "| # | Axis | Floor | Meaning | |---|------|------:|---------| | 1 | **moralGrounding** | **0.95** | No overclaim, no false attribution. | | 2 | **measurabilityHonesty** | **0.95** | Every quantitative claim verifiable on disk. |",
+      "title": "2 SACRED axes — floor ≥ 0.95 (hard) / 1"
+    },
+    {
+      "chunk_number": 4,
+      "chunk_sha256": "63343c821acc3650c8a75b02f86b760bdc8b98465e69034d7f18e6d42eb9c93a",
+      "document_id": "4f7399c7c1a83fcb7d0b0bee",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "| # | Axis | Floor | Meaning | |---|------|------:|---------| | 3 | **empiricalGrounding** | 0.90 | Claims tie to observable evidence. | | 4 | **logicalConsistency** | 0.90 | No internal contradiction. | | 5 | **sourceTransparency** | 0.90 | Sources named + linkable. | | 6 | **reproducibility** | 0.90 | 5× byte-identical replay. | | 7 | **licenseHygiene** | 0.90 | Apache / MIT / BSD / CC-BY only. | | 8 | **scopeDiscipline** | 0.90 | Stays inside declared scope. | | 9 | **claimCalibration** | 0.90 | Confidence matches evidence strength. |",
+      "title": "7 STRUCTURAL axes — floor ≥ 0.90 / 1"
+    },
+    {
+      "chunk_number": 5,
+      "chunk_sha256": "9463414bd9e1b1324887ab4152c2392a61b2ad1d60ce036397fd2fb9400b8861",
+      "document_id": "49e4a7d507c348cd6ad5fb80",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "| # | Axis | HUKLLA tripwire | Meaning | |---|------|-----------------|---------| | 10 | **evalAwareness** | **T03** | Not gaming an eval / not \"test-aware\". | | 11 | **deceptionKeywords** | **T04** | No deception-intent language. | | 12 | **conflictingDirectives** | **T09** | No silently-resolved directive conflict. | | 13 | **reversalDirective** | **T10** | Honors STOP/undo/revert. |\n\n**Floor summary:** 2 × 0.95 (sacred) + 7 × 0.90 (structural) + 4 introspection axes cleared (cross-linked to HUKLLA T03/T04/T09/T10). Conjunctive AND across all 13.\n\n---",
+      "title": "4 INTROSPECTION axes — cross-linked to HUKLLA tripwires / 1"
+    },
+    {
+      "chunk_number": 6,
+      "chunk_sha256": "1c95d2eea5269dae149061b1b6b1eb9580180ba2f6d5ef129599c068ad133d35",
+      "document_id": "54acb170f1b5324e92ea23f9",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "Source: founder LinkedIn *\"Blood and Immune — the wiring\"*. **660 SLOC**, **10 tripwires**:\n\n| Tripwire | Name | Condition | |----------|------|-----------| | **T01** | MORAL_GROUNDING | `moralGrounding < 0.95` → **hard fail** | | **T02** | MEASURABILITY_HONESTY | `measurabilityHonesty < 0.95` → **hard fail** | | **T03** | EVAL_AWARENESS | eval-awareness flag raised | | **T04** | DECEPTION_KEYWORDS | deception-intent keyword detected | | **T05** | UNAUTHORIZED_WRITE | write outside authorized path | | **T06** | SPAWN_OUTSIDE_SANDBOX | process spawn outside sandbox | | **T07** | UNAUTHORIZED_NETWORK | network egress outside allowlist | | **T08** | SELF_CODE_MODIFY | agent modifies its own code | | **T09** | CONFLICTING_DIRECTIVES | mutually-exclusive directives | | **T10** | REVERSAL_DIRECTIVE | STOP / undo / revert → **immediate halt** |\n\n**Tiered autonomy (founder verbatim):** \"Autonomy is gated by tier. **SCRATCHPAD** runs free. **REVIEW** needs approval every K cycles. **PRODUCTION** needs per-cycle approval.\"\n\n---",
+      "title": "§3 — HUKLLA (immune deadman: 660 SLOC, 10 deterministic tripwires) / 1"
+    },
+    {
+      "chunk_number": 7,
+      "chunk_sha256": "d8234f4d16a4eab0707b58cf5473ba275f36f0fa21070aa1ad96323a2e1d1261",
+      "document_id": "d78d7d29a29180e66da6c3f2",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "Founder LinkedIn: *\"One bus carries everything. 20 lines of Python. Every organ writes through one ceremonial gate (**RUWAY**), the only authorized writer.\"*\n\n**Receipt formula:** `packet → json.dumps(sort_keys=True) → sha256 → hexdigest → append`\n\n**5 guarantees:** append-only · stable serialization · cryptographic chain link (`sha256().hexdigest()`, each receipt chains the previous root) · inline immune check (`sentra_inspect` BEFORE compute) · frozen snapshots (JSON round-trip deep copy).\n\n---",
+      "title": "§4 — YAWAR (circulatory ledger: 20 lines of Python) / 1"
+    },
+    {
+      "chunk_number": 8,
+      "chunk_sha256": "c3cab6f0763cf0013fd06bfa02e7fb57bcb9bcfd73e12a82fcd6b40e321fad98",
+      "document_id": "000e458d2b50d383b9bccb85",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "**18-SLOC** inline immune check. **Six threat signatures + a 1 MB DoS guard.**\n\n**Six signatures:** `[\"DROP TABLE\", \"rm -rf\", \"<script\", \"eval(\", \"subprocess\", \"../../etc\"]`\n\n**Behaviour:** `True` clears all six (payload ≤ 1 MB) → permits compute. `False` raises `PermissionError` **and the receipt NEVER enters the ledger** — no partial state.\n\n---",
+      "title": "§5 — SENTRA (inline white blood cell: 18 SLOC) / 1"
+    },
+    {
+      "chunk_number": 9,
+      "chunk_sha256": "81abc1c9616e07fe221c4bae546e7accb9a3909b6c6e1a8df07dca7e1893f2a2",
+      "document_id": "442f9bea9d5c1fb4d3daa934",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "Source: founder LinkedIn *\"Agent Architecture build · 10 pages\"*. **9-position pipeline** wired as a **Maxwell-rigid M = 0 isostatic** graph (architected-materials theory): **9 nodes, 21 edges**.\n\n**9 nodes:** `Sense → Structure → Correlate → Explain → Recommend → Approve → Execute` (the **7 fabric layers**, matching A11oy's 7-layer governed agentic execution fabric) **PLUS** `Egress` + `Tool Surface` (9 total).\n\n**Maxwell count:** for a 2D pin-jointed framework, \\( M = 2j - b - 3 \\). The configuration is tuned so constraint count balances degrees of freedom (**M = 0**) → **isostatic** (statically determinate): no mechanism (under-braced), no redundancy (over-braced). 21 edges across 9 nodes is the isostatic wiring.\n\n**The four units (founder verbatim):** \"The pipeline is the unit of work. The gate is the unit of safety. The receipt bus is the unit of accountability. The overwatch is the unit of trust.\"\n\n**Gate:** the 13-axis critique gate (§1–§2) sits between `Recommend`/`Approve` and `Execute`.\n\n**Overwatch:** a **read-only** overwatch sensor with **6 observers**, including a **KL-drift watcher per axis**.",
+      "title": "§6 — 9-POSITION MAXWELL PIPELINE (M = 0 isostatic wiring graph) / 1"
+    },
+    {
+      "chunk_number": 10,
+      "chunk_sha256": "d9a1162de560658489f566650fb520ea544f3886a68cf4c118d3b289cc32b014",
+      "document_id": "4f5f9b248f3c36e0ed88fd39",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "**Situated Wise Reasoning Scale (5 axes operationalized):** five of the gate's axes operationalize the **Situated Wise Reasoning Scale** of *Brienza, J. P., Kung, F. Y. H., Santos, H. C., Bobocel, D. R., & Grossmann, I. (2018). \"Wisdom, bias, and balance: Toward a process-sensitive measurement of wisdom-related cognition.\" Journal of Personality and Social Psychology, 115(6), 1093–1126.* DOI: `10.1037/pspp0000171`. The scale's five dimensions — intellectual humility, recognition of uncertainty/change, consideration of broader context, integration of perspectives, and search for compromise/resolution — map onto claimCalibration, empiricalGrounding, scopeDiscipline, sourceTransparency, and conflictingDirectives respectively.\n\n**Butler–Volmer energy budget (when does the agent stop):** each emission carries a hard energy budget modeled as a **Butler–Volmer current** (electrochemistry): \\[ i = i_0 \\left( e^{\\frac{\\alpha_a F \\eta}{RT}} - e^{-\\frac{\\alpha_c F \\eta}{RT}} \\right), \\] a current \\(i\\) as a function of overpotential \\(\\eta\\). Used as a **thermodynamic invariant** for halting: the agent stops emitting when the marginal \"overpotential\" of continuing falls below the activation threshold — a principled, non-arbitrary stop condition rather than a fixed step cap.\n\n**Receipt chain:** append-only `continuum_hash` receipt chain (same sha256/sort_keys discipline as YAWAR, §4).\n\n---",
+      "title": "§6 — 9-POSITION MAXWELL PIPELINE (M = 0 isostatic wiring graph) / 2"
+    },
+    {
+      "chunk_number": 11,
+      "chunk_sha256": "70fcd8439d8ff33e60e25e1ff6b768ae5efed6b359fd9c4189864c4009f60b29",
+      "document_id": "b767474ef21bef12981d6b26",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "| # | Vertical | Scope | Public status | |---|----------|-------|---------------| | 1 | **Sentra** | Cyber resilience command | **PUBLIC** (immune system, live HF Space) | | 2 | **Vessels** | Maritime fleet intelligence — sanctions + dark-vessel detection | **PUBLIC** (live HF Space) | | 3 | **Terra** | Real estate intelligence + AI-assisted underwriting | **PUBLIC vertical** — *NOT parked* | | 4 | **Counsel** | Legal matter command + proof-chain delivery | **PUBLIC vertical** — *NOT parked* | | 5 | **Amaru** | Convergent multi-source data sync — append-only delta logs, hash-verified ingest | **PUBLIC** (live HF Space, memory cortex) | | 6 | **Carlota Jo** | UHNW concierge advisory operations | **Founder-parked** (repo `szl-holdings/carlota-jo`) |\n\n**v11 surfacing note:** Per founder override 2026-06-01 (\"Don't worry about the vertical we stick what we have\"), v11 ships NO new HF vertical surfaces for Terra / Counsel / Carlota Jo. The roster correction is locked in doctrine; surfaces remain future work.\n\n---",
+      "title": "§7 — 6 VERTICALS (corrected roster — Terra & Counsel are PUBLIC, not parked) / 1"
+    },
+    {
+      "chunk_number": 12,
+      "chunk_sha256": "45ad805deb060a71c2c7c19aa5d147e45d59aacf59fb1302738c83862e25ef4c",
+      "document_id": "b9f5f3e1bdd9103080a6cd8c",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "| Item | Value | Note | |------|-------|------| | **Ouroboros runtime** | v6.2.0 — **172/172 tests passing**, Apache-2.0 | newer release reports 218/218; both real per the ladder. | | **Lutar Invariant** | **11 peer-track papers (v1–v10)** + Concept DOI **10.5281/zenodo.19944926** + CC-BY-4.0 | | | **A11oy fabric** | **7-layer governed agentic execution fabric** | Sense → Structure → Correlate → Explain → Recommend → Approve → Execute | | **Libraries / packages** | **52 internal libraries, 100 packages** | | | **PR #108** | rate limiting · ReDoS · CORS · XSS · origin checks · **26 files** · **30+ code-scan alerts cleared** | |\n\n---",
+      "title": "§8 — PUBLIC STACK NUMBERS (LinkedIn-stated, locked) / 1"
+    },
+    {
+      "chunk_number": 13,
+      "chunk_sha256": "d5e7a61e517b2786d60bf3bd48a43c4d63cfdce52a3578f87a70d3af63e678a6",
+      "document_id": "5b1deaff50983d7ce7d440b0",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "- **Λ uniqueness is a Conjecture, NOT a closed theorem** — depends on the open CAUCHY_ND sorry (`Uniqueness.lean:120`) + a missing symmetry axiom. - **A2 = `IsHomogeneous`** (positive homogeneity, degree 1) — NOT \"zero-pinning\". - **A4 = `IsBounded`** (bounded by max axis) — NOT \"page-curve concavity\". - **Canonical Lean numbers:** **749 declarations / 14 unique axioms (15 raw, 1 dup) / 163 tracked sorries** (112 baseline + 51 Putnam) @ lutar-lean tag `lutar-v18.0.0` / `c7c0ba17`. - **SLSA: L1 (honest)** — \"SLSA L3\" is BANNED (platform PR #235). - **Wire D** (W3C traceparent **across the mesh**) is **NOT YET IMPLEMENTED**. In-process traceparent is honest within a single Space only. `traceparent_propagated` in a11oy.code is the in-process value only until Wire D lands. - **Sigstore CI signing is PENDING** — Λ-receipt / DSSE signature fields are **\"PLACEHOLDER — signing not yet wired into CI.\"** - **9-axis HATUN-RAID legacy still runs.** 13-axis `yuyay_v3` runnable but **not yet sovereign**. Both labeled honestly everywhere. - **Mythos → Hatun-Willay** (internal rename); external Anthropic/OpenMythos citations OK. - **Still banned:** Jarvis · Bo11y/Bolly · Computacenter · \"45 gates\" · \"SLSA L3\" · \"zero sorry / zero open axioms\" · unscoped \"fully verified\" · \"11/14 MCP tools\" (real is 12).\n\n---",
+      "title": "§9 — CARRY-FORWARD HONESTY FROM v10 (unchanged, still binding) / 1"
+    },
+    {
+      "chunk_number": 14,
+      "chunk_sha256": "6381de9ff7cbebebcab2bfdd015914d19c965ecd5b2399d3e7c57c26725174cc",
+      "document_id": "e54d19dea9ad75c2d846386f",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "> **SZL Holdings builds a formally-verified 13-axis governance gate for agentic AI** — a > conjunctive (no-compensation) heart (`yuyay_v3`, replay-hash `bacf5443…`) wired behind a > 660-SLOC immune deadman (HUKLLA, 10 tripwires), a 20-line ceremonial receipt ledger > (YAWAR, one authorized writer `RUWAY`), an 18-SLOC inline white-blood-cell screen > (SENTRA, 6 signatures + 1 MB DoS guard), and a 9-position Maxwell-rigid (M = 0 isostatic) > agent pipeline with a Butler–Volmer halt budget and a 6-observer read-only overwatch. > The math is in Lean (749 declarations, 14 axioms, 163 tracked sorries, honestly > disclosed) and now mirrored as four public HF Datasets; Λ uniqueness is an open > Conjecture. The 9-axis legacy still runs; the 13-axis migration is the next ratchet.\n\n---",
+      "title": "§10 — THE WEDGE (save it) / 1"
+    },
+    {
+      "chunk_number": 15,
+      "chunk_sha256": "37270e088587df07ba414cff2cf3f19483853dd6ffe42c96d689744aac74695f",
+      "document_id": "7585b46e6759d5234b5cd1c8",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "- **HR-1:** HF admin direct push always via `HfApi.create_commit()`. **NEVER GitHub Actions** for HF sync. - **HR-2:** Mythos → Hatun-Willay (internal); external citations OK. - **HR-3:** **ADDITIVE only.** Preserve every GREEN route. Founder-locked surfaces (banner, 5 hero avatars, animated emojis) UNTOUCHED. - **HR-4:** **ZERO BANDAID.** No fake/placeholder values presented as real; PLACEHOLDER must be labeled. - **HR-5:** IP-HOLD PRs untouched — a11oy#57, amaru#46, sentra#45. - **HR-6:** Numbers come from the canonical counter, not memory. - **HR-7:** A founder-published number beats any internal re-audit. - **HR-8:** Label the 9-axis legacy and the 13-axis migration honestly on every surface. - **HR-9 (new):** **COORDINATE.** When sibling agents are mid-rebuild on a shared Space, stage additive code + sequence the push so no in-flight commit is clobbered. Net-new repos (datasets) carry no such hazard and may ship immediately.\n\n---",
+      "title": "§11 — OPERATIONAL RULES (carry-forward, binding) / 1"
+    },
+    {
+      "chunk_number": 16,
+      "chunk_sha256": "1dde2b202fe7823df66e9df45f8dd1ef1a3c212cc744a7d57d0522516e45490e",
+      "document_id": "4e5e04bb3ff1cc44c5177e06",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "`szl-cookbook/recipes/canonical-formulas-v1/code/python/formulas.py` is the single source of truth for **21 canonical SZL formulas**, each a *pure*, *typed*, *no-IO* function whose docstring cites a named source theorem and an explicit **PROOF-STATUS** tag (PROVEN / SORRY / AXIOM / CONJECTURE) per the v10 honesty rule.\n\n**The Λ unification (canonical now):** three divergent Λ definitions existed across the corpus — (D1) unweighted geometric mean `(∏xᵢ)^{1/k}`, (D2) weighted geometric mean `∏xᵢ^{wᵢ}` (Σwᵢ=1), (D3) quantum-purity-tilted variant. **`lambda_aggregate` CANONICALISES (D2)**, the weighted geometric mean — the form the ouroboros Λ-gate runtime actually evaluates and whose axioms A1–A4 are stated in `Lutar/Axioms.lean`. (D1) is the uniform-weight special case (the default); (D3) is DEPRECATED to the quantum sub-gate `gleason_quantum_lambda`. This supersedes the 3 prior divergent definitions.",
+      "title": "§12 — CANONICAL FORMULA REGISTRY (`canonical-formulas-v1`) — NEW, LOCKED / 1"
+    },
+    {
+      "chunk_number": 17,
+      "chunk_sha256": "660c868e1e6843c307e7238c5261d2e62a0841b91b9ffd430a368feadc9ec58e",
+      "document_id": "03f79eea2eeb59de722d6d2a",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "**The 21 formulas (registry order):** `lambda_aggregate` · `lambda_homogeneous` (A2 IsHomogeneous) · `lambda_bounded` (A4 IsBounded) · `pac_bayes_mcallester` · `bekenstein_cascade` · `reidemeister_invariant` (R1/R2/R3) · `khipu_merkle_root` · `dsse_envelope` · `gleason_quantum_lambda` · `hoeffding_tail` · `pinsker_kl_bound` · `fisher_rao_distance` · `bohr_complementarity_floor` · `kochen_specker_18vector_witness` · `two_witness_ks18_soundness` · `shor_codeword_distance` · `css_ingress_verify` · `kitaev_surface_correct` · `reed_solomon_singleton` · `madhava_series` · `schur_concave_λ_two_axis`.\n\n(The spec's `λ_13axis_conjunctive` is realized as `lambda_aggregate` over the 13-axis vector with `axis_floors(13)` driving the conjunctive AND gate; it is not a separate registry entry but the canonical application of `lambda_aggregate`.)\n\n**Lean obligations:** `code/lean/Formulas.lean` — one obligation theorem per formula, honest `sorry` where not closed, status tag mirrors `PROOF_STATUS`. Builds via `lake build` against Mathlib v4.13.0 + lutar-lean as a git dependency.",
+      "title": "§12 — CANONICAL FORMULA REGISTRY (`canonical-formulas-v1`) — NEW, LOCKED / 2"
+    },
+    {
+      "chunk_number": 18,
+      "chunk_sha256": "773b7935c1a6bf63d79e9c63bf45571bafb870558ea38e80783ccc05208f4742",
+      "document_id": "5fef3c20377ae9f6fc3d7cc0",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "**Codex-Kernel composer** (`szl-cookbook/recipes/codex-kernel-composer-v1/code/python/composer.py`, mirrored to `canonical-formulas-v1/code/python/composer.py`): chains registry formulas into a **governed loop** with **hash-chained receipts** (DSSE PLACEHOLDER signature) and **4 hard-stop validators** — `state_transition`, `drift_bounds`, `human_gate`, `axis_floor`. On any validator failure the loop **HALTS** (HUKLLA enforcement) and the receipt chain is sealed at the last good step. A pure `verify_chain()` replay verifier re-derives every receipt hash and the final Λ-aggregate. **Smoke (this session): 5 steps, Λ-aggregate 0.99729, halted=False, replay_ok=True.**\n\n---",
+      "title": "§12 — CANONICAL FORMULA REGISTRY (`canonical-formulas-v1`) — NEW, LOCKED / 3"
+    },
+    {
+      "chunk_number": 19,
+      "chunk_sha256": "5b2247e8809057664d140f8c36731c527d234563024b8fc888ffec8481633de8",
+      "document_id": "2c8876d25b3948540483ce48",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "All four under `SZLHOLDINGS/*`, created via `HfApi.create_commit` (NEVER GitHub Actions), each carrying `LICENSE` (Apache-2.0), `CITATION.cff` (ORCID `0009-0001-0110-4173`), and a Dataset card:\n\n1. **`SZLHOLDINGS/lean-proofs-v1`** — every `.lean` file from `lutar-lean/Lutar` + TH8 + `Lutar.lean` + `reference-vectors.json` + `lake-manifest.json` + card. 2. **`SZLHOLDINGS/canonical-formulas-v1`** — `formulas.py` + `Formulas.lean` + `composer.py` + card. 3. **`SZLHOLDINGS/thesis-corpus-v18`** — v18 `.tex` chapters + 179 formal-blocks CSV + per-version delta ledger. 4. **`SZLHOLDINGS/doctrine-v10-v11`** — DOCTRINE_V10 + this DOCTRINE_V11 + Mythos→Hatun-Willay rule + canonical wedge.\n\nEach Space `serve.py` performs a boot-time `snapshot_download` of the four datasets into `/tmp/szl_math_corpus/` and exposes a `/api/<space>/v1/math/*` surface (§14).\n\n---",
+      "title": "§13 — FOUR HF MATH DATASETS — NEW, LOCKED / 1"
+    },
+    {
+      "chunk_number": 20,
+      "chunk_sha256": "c98377daf79164e814c290375069dd07999eb6fe776a03730ede4445b78285ba",
+      "document_id": "5db9bc665d453b7e686ca60f",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "a11oy.code is the LLM router **baked into the anatomy**: each tier maps to an organ.\n\n| Tier | Model(s) | Organ | Role | |------|----------|-------|------| | **PRIME** | Opus 4.8 | **AMARU CORTEX** | high-stakes reasoning | | **HEART** | Sonnet 4.6 | **YUYAY** | 13-axis evaluation | | **FAST** | Gemini 3.1 Pro / GPT-5.4-mini | **KALLPA** | wire propagation | | **IMMUNE** | GPT-5.4 reasoning | **SENTRA** | adversarial detection | | **RECEIPT** | Sonnet 4.6 / Llama 4 | **YAWAR** | receipt synthesis | | **MEMORY** | embeddings + Sonnet 4.6 | **UNAY** | cross-session recall | | **FRONTIER** | AlphaProof | **SUMAQ** | theorem discharge |\n\n**a11oy endpoints (additive):** - `POST /api/a11oy/v1/code/route` — `{query, axis_scores(13), organ_context, max_tier, require_λ_receipt, traceparent}` → `{organ_routed, tier_used, llm_model_id, response, λ_signal, λ_receipt (DSSE PLACEHOLDER), latency_ms, cost_estimate_usd, traceparent_propagated}`. - `GET /api/a11oy/v1/code/tiers` — list 7 tiers + organ mapping. - `POST /api/a11oy/v1/code/auto` — auto-route + auto-tier. - `/code` UI page (`src/pages/A11oyCode.tsx`).",
+      "title": "§14 — a11oy.code (7-tier organ-mapped LLM router) — NEW, LOCKED / 1"
+    },
+    {
+      "chunk_number": 21,
+      "chunk_sha256": "f0d779f38135940591b9f68627d7a265576b704425cb7e74d8bc59bf310d2714",
+      "document_id": "1c4e03ccd20fbe24971f8567",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "**Across 6 sibling Spaces** (amaru, sentra, vessels, killinchu, rosie, uds-demo): - `POST /api/<space>/v1/code-proxy` — forwards to a11oy.code. - 8 `/api/<space>/v1/math/*` endpoints: `/math/lean/theorems`, `/math/lean/<name>`, `/math/formulas`, `/math/formula/<name>`, `/math/thesis/claims`, `/math/thesis/claim/<label>`, `/math/doctrine`, `/math/reference-vectors`.\n\n**Honest labels:** `λ_receipt` signature is **PLACEHOLDER** (Sigstore not wired); `traceparent_propagated` is **in-process only** until Wire D lands across the mesh.\n\n**8 canonical HF Spaces:** a11oy · amaru · sentra · vessels · killinchu · rosie · uds-demo · README.\n\n---",
+      "title": "§14 — a11oy.code (7-tier organ-mapped LLM router) — NEW, LOCKED / 2"
+    },
+    {
+      "chunk_number": 22,
+      "chunk_sha256": "8496fb2296d3c38b2c2e6b8b65915b21c1901b6ad66aeb9145dbf48c53fc4472",
+      "document_id": "427f3dcab3fdfe65776a8f1b",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
+      "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
+      "text": "The **9-axis HATUN-RAID** envelope remains LIVE as the sovereign loop. The 13-axis `yuyay_v3` heart is canonical-going-forward but not yet sovereign-wired end-to-end; the migration is the next ratchet. **Mythos → Hatun-Willay** (Quechua \"the great telling\"): discovered Mythos-named modules are renamed in place (`git mv`, provenance comment, cross-refs updated atomically), never deleted; external Anthropic/OpenMythos citations remain valid. **~360 tokens of remaining Mythos→Hatun-Willay rename work is TODO** and tracked; this is disclosed honestly rather than claimed complete.\n\n---\n\n— Yachay (Perplexity Computer Agent), under CTO authority — Doctrine v11 LOCKED 2026-06-01 01:45 EDT (supersedes v10 + v11-0045 draft) — Sourced from founder public LinkedIn Series-A roadmap 2026-05-15 → 2026-05-31",
+      "title": "§15 — HATUN-RAID (9-axis legacy) + Mythos rename — honest migration / 1"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "e9c31a7b41f013489ed30a25bbbe0aadc04ad57e5605cf1dc7dd6e1d4ab0d929",
+      "document_id": "980460c4ef1919ef2b91e8c6",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "--- license: apache-2.0 tags: - governance - ai-safety - doctrine - szl-holdings - ouroboros-invariant - doi:10.5281/zenodo.19944926 task_categories: - other pretty_name: SZL Holdings Doctrine v10 → v11 size_categories: - n<1K language: - en ---",
+      "title": "Document / 1"
+    },
+    {
+      "chunk_number": 1,
+      "chunk_sha256": "e54e358b9a4cf9cab36f10e5be4a411f73f2e682ca1ee32cc84be37a4823a779",
+      "document_id": "c82671a4df20fbe53ca66862",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "<!-- SZL-ESTATE-CARD:v2:START --> <p align=\"center\"><a href=\"https://a-11-oy.com/\"><img src=\"https://huggingface.co/spaces/SZLHOLDINGS/README/resolve/main/assets/estate-banner-v2.svg\" alt=\"SZL Holdings — governed, receipted, verifiable\" width=\"100%\"></a></p> <p align=\"center\"> <a href=\"https://github.com/szl-holdings/.github/tree/main/doctrine\"><img src=\"https://img.shields.io/badge/doctrine-v11%20LOCKED-0B1F3A?style=flat-square\" alt=\"doctrine v11\"></a> <a href=\"https://a-11-oy.com/\"><img src=\"https://img.shields.io/badge/evidence%20wall-LIVE%20%C2%B7%20verify%20in%20browser-3AF4C8?style=flat-square\" alt=\"live evidence wall\"></a> <a href=\"https://huggingface.co/datasets/SZLHOLDINGS/szl-lake\"><img src=\"https://img.shields.io/badge/szl--lake-offline%20verifiable-C9B787?style=flat-square\" alt=\"szl-lake offline verifiable\"></a> <a href=\"https://huggingface.co/spaces/SZLHOLDINGS/holographic\"><img src=\"https://img.shields.io/badge/estate%20map-holographic-5B8DEE?style=flat-square\" alt=\"holographic estate map\"></a> </p> <p align=\"center\"><sub>Part of the <a href=\"https://huggingface.co/SZLHOLDINGS\">SZL Holdings</a> governed estate — claims are designed to carry checkable receipts. Verification proves integrity &amp; origin, never accuracy or performance.</sub></p> <!-- SZL-ESTATE-CARD:v2:END -->\n\n<div align=\"center\"> <p>",
+      "title": "Document / 2"
+    },
+    {
+      "chunk_number": 2,
+      "chunk_sha256": "e449fb4ec1bd06f2d2fd3d7d0a398d069591df181079727846087306d8b894c1",
+      "document_id": "2a3f694c571bfb50c7fad092",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "[![dataset](https://img.shields.io/badge/dataset-locked%20doctrine-3af4c8?style=flat-square)](https://huggingface.co/datasets/SZLHOLDINGS/doctrine-v10-v11/tree/main) [![files](https://img.shields.io/badge/files-11-5b8dee?style=flat-square)](https://huggingface.co/datasets/SZLHOLDINGS/doctrine-v10-v11/tree/main) [![license](https://img.shields.io/badge/license-apache--2.0-7e8aa3?style=flat-square)](https://huggingface.co/datasets/SZLHOLDINGS/doctrine-v10-v11)\n\n</p> </div>",
+      "title": "Document / 3"
+    },
+    {
+      "chunk_number": 3,
+      "chunk_sha256": "a7982c3c101decd62791f22b5116ef10e9da8a706851005bf29e52d5555e9303",
+      "document_id": "7a8df7f46f74809d30a2e7f0",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "The **locked governance doctrine** for the SZL Holdings agentic substrate: Doctrine v10, Doctrine v11 (13-axis `yuyay_v3` canonical, supersedes v10), the Mythos → Hatun-Willay rename rule, and the canonical wedge.",
+      "title": "SZLHOLDINGS/doctrine-v10-v11 / 1"
+    },
+    {
+      "chunk_number": 4,
+      "chunk_sha256": "fb326fee224f4293dd37b5a55eba7a742183e1e5689b44b3574226b3afe04f35",
+      "document_id": "e19adf3cbfff5562209cfcc4",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "| File | What | |------|------| | `DOCTRINE_V10_LOCKED_2026-05-31_2355.md` | v10 — canonical Lean numbers + honesty rules | | `DOCTRINE_V11_LOCKED_2026-06-01_0145.md` | v11 — 13-axis heart, formula registry, 4 datasets, a11oy.code | | `MYTHOS_TO_HATUN_WILLAY_RULE.md` | internal rename rule (Quechua \"the great telling\") | | `CANONICAL_WEDGE.md` | the one-paragraph wedge |",
+      "title": "Contents / 1"
+    },
+    {
+      "chunk_number": 5,
+      "chunk_sha256": "f811f76d28c6ae28e7ecf67f73082dcab35185015b2303239027bc4f4dc751c0",
+      "document_id": "051376b9ac1d23e13e8929dc",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "Λ uniqueness = **CONJECTURE**. A2 = `IsHomogeneous`, A4 = `IsBounded`. SLSA **L1** (L3 banned). Sigstore signing **PENDING** (DSSE = PLACEHOLDER). Wire D (cross-mesh traceparent) **NOT yet implemented**. 9-axis HATUN-RAID legacy still runs; 13-axis migration is the next ratchet. Canonical Lean numbers: **749 / 14 / 163**.",
+      "title": "Honesty (binding) / 1"
+    },
+    {
+      "chunk_number": 6,
+      "chunk_sha256": "27c4c2a72aa4a2111679efa1edc6e2315581ca714a901904a32dd1d99a7f94eb",
+      "document_id": "2516206610b4782f5cb790b5",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "- `SZLHOLDINGS/lean-proofs-v1` · `SZLHOLDINGS/canonical-formulas-v1` · `SZLHOLDINGS/thesis-corpus-v18`",
+      "title": "Sibling datasets / 1"
+    },
+    {
+      "chunk_number": 7,
+      "chunk_sha256": "b7f4992a1c8f58a2187c1f91e818ec099b357d31dc97dfc3639498b1c1e300d3",
+      "document_id": "631b24bf28a197d51de76653",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "**Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism). Concept DOI (always-latest): [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926). Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · Dataset license: Apache-2.0; the cited program publication is CC-BY-4.0. Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md). No artifact-specific DOI is minted for this dataset; the concept DOI above covers the program.\n\nHonesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine-checked FALSE as stated) — never a theorem; conditional uniqueness is **Theorem U** (axiom-free). Locked-proven formulas = **exactly 8** {F1,F4,F7,F11,F12,F18,F19,F22}; ~185 experimental theorems are a separate CI-green tier; Khipu BFT safety = Conjecture 2. Trust never 100%.\n\n```bibtex @misc{lutar_szl_ouroboros, author = {Lutar, Stephen P., Jr.}, title = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.19944926}, url = {https://doi.org/10.5281/zenodo.19944926}, note = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.} } ```",
+      "title": "Citation / 1"
+    },
+    {
+      "chunk_number": 8,
+      "chunk_sha256": "ec3bc1fb72a8297f6ad04eaf1fb7a9f52a2e93fde92c3a01e4e8818a305a82b1",
+      "document_id": "ef27ddf4395a2a25631afec3",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "Concept DOI: [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926) · ORCID `0009-0001-0110-4173`\n\n---",
+      "title": "Citation / 2"
+    },
+    {
+      "chunk_number": 9,
+      "chunk_sha256": "eeb42936d6d12e541dcd843c2b5abe6944ba852a818d63ccd79a6a122f16f3cc",
+      "document_id": "1f55769d376b4b2b5dc593fe",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "[▶ a11oy console (a-11-oy.com)](https://a-11-oy.com) · [a11oy Space](https://huggingface.co/spaces/SZLHOLDINGS/a11oy) · [killinchu](https://huggingface.co/spaces/SZLHOLDINGS/killinchu) · [holographic (3D)](https://huggingface.co/spaces/SZLHOLDINGS/holographic) · [all datasets & models → SZLHOLDINGS](https://huggingface.co/SZLHOLDINGS) · [GitHub org](https://github.com/szl-holdings)\n\n---\n\n<div align=\"center\">\n\n**[🛡️ SZLHOLDINGS on Hugging Face →](https://huggingface.co/SZLHOLDINGS)** · **[a-11-oy.com →](https://a-11-oy.com)** · **[Estate hub — live →](https://szlholdings-szl-estate-live.static.hf.space)**",
+      "title": "◇ Explore the SZL Holdings estate / 1"
+    },
+    {
+      "chunk_number": 10,
+      "chunk_sha256": "bfca25636d0744bf1042fcec1186d4317df950fe1268e3bd67d44bf2edb451ac",
+      "document_id": "d8e86168c9a6f24e39d9931e",
+      "license": "Apache-2.0",
+      "source_path": "corpus/doctrine-v10-v11/README.md",
+      "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
+      "text": "<sub>SLSA: L1 honest · L2 attested · L3 roadmap. Λ = Conjecture 1 (advisory, never a theorem). Trust ceiling 0.97 — never 100%. Labels honest by default: MEASURED / REPORTED / MODELED / HEURISTIC / UNKNOWN / UNAVAILABLE. locked-proven = exactly 8 {F1,F4,F7,F11,F12,F18,F19,F22}.</sub>\n\n</div>",
+      "title": "Governed AI you can prove. / 1"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "7fccd44822776bb384a750a9e1274e26cb4a2090cfec44eca41c73cce3163b61",
+      "document_id": "9ec1a9bb82829a18dc91486b",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "--- thumbnail: https://huggingface.co/SZLHOLDINGS/szl-kernels/resolve/main/og-card.png tags: - kernel - governance - provenance - suite - doi:10.5281/zenodo.19944926 library_name: kernels license: apache-2.0 szl-governance: verdict: ADVISORY lambda: \"Conjecture 1 (open) — uniqueness unproven; advisory only\" energy: MEASURED-only (real NVML delta; None when unavailable) provenance: UnifiedReceiptChain (SHA3-256, op-agnostic, cross-kernel) honest_blocked: \"a failed check stays failed — never faked green\" ---",
+      "title": "Document / 1"
+    },
+    {
+      "chunk_number": 1,
+      "chunk_sha256": "d2e470ebdf4aca2701927dfb05477321f54982f84e61f7d18f1fa3417d350b59",
+      "document_id": "61992030a6e5eba1c24feec4",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "<!-- SZL-ESTATE-CARD:v2:START --> <p align=\"center\"><a href=\"https://a-11-oy.com/\"><img src=\"https://huggingface.co/spaces/SZLHOLDINGS/README/resolve/main/assets/estate-banner-v2.svg\" alt=\"SZL Holdings — governed, receipted, verifiable\" width=\"100%\"></a></p> <p align=\"center\"> <a href=\"https://github.com/szl-holdings/.github/tree/main/doctrine\"><img src=\"https://img.shields.io/badge/doctrine-v11%20LOCKED-0B1F3A?style=flat-square\" alt=\"doctrine v11\"></a> <a href=\"https://a-11-oy.com/\"><img src=\"https://img.shields.io/badge/evidence%20wall-LIVE%20%C2%B7%20verify%20in%20browser-3AF4C8?style=flat-square\" alt=\"live evidence wall\"></a> <a href=\"https://huggingface.co/datasets/SZLHOLDINGS/szl-lake\"><img src=\"https://img.shields.io/badge/szl--lake-offline%20verifiable-C9B787?style=flat-square\" alt=\"szl-lake offline verifiable\"></a> <a href=\"https://huggingface.co/spaces/SZLHOLDINGS/holographic\"><img src=\"https://img.shields.io/badge/estate%20map-holographic-5B8DEE?style=flat-square\" alt=\"holographic estate map\"></a> </p> <p align=\"center\"><sub>Part of the <a href=\"https://huggingface.co/SZLHOLDINGS\">SZL Holdings</a> governed estate — claims are designed to carry checkable receipts. Verification proves integrity &amp; origin, never accuracy or performance.</sub></p> <!-- SZL-ESTATE-CARD:v2:END -->",
+      "title": "Document / 2"
+    },
+    {
+      "chunk_number": 2,
+      "chunk_sha256": "1a5929818cc55b8be1685423b6edc906f56e4e6f635ba7b7d6a69850bc301709",
+      "document_id": "dbee5b31008e4250047ef8cd",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "<!-- SZL-ARTIFACT-NOTICE:v1:START — honesty plate: repo semantics, no fake model tags. --> > **⬛ NOT A RUNNABLE MODEL.** This repository is a **governance kernel / artifact set** (specifications, invariants, receipts, or reference material) published under the SZL honesty doctrine. It deliberately declares **no `pipeline_tag` and no `base_model`** because none truthfully applies — you cannot load this repo into an inference pipeline, and tagging it otherwise would fake semantics. Verification of anything here proves **integrity & origin only, never accuracy or performance**. Λ = Conjecture 1 · ADVISORY. <!-- SZL-ARTIFACT-NOTICE:v1:END -->\n\n<p align=\"center\"> <a href=\"https://huggingface.co/SZLHOLDINGS/szl-kernels/tree/main/build/torch-universal/szl_kernels\"><img src=\"https://img.shields.io/badge/kernel%20hub-torch--universal-5b8dee?style=flat-square\" alt=\"kernel hub\"></a> <a href=\"https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/MODEL_PROVENANCE.json\"><img src=\"https://img.shields.io/badge/provenance-MODEL_PROVENANCE.json-3af4c8?style=flat-square\" alt=\"provenance\"></a> <a href=\"https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/license-Apache--2.0-7e8aa3?style=flat-square\" alt=\"license\"></a> </p>",
+      "title": "Document / 3"
+    },
+    {
+      "chunk_number": 3,
+      "chunk_sha256": "48e73f74be507c9282a5e82ebef59794b3a8aad58334498945a8bb6613a5a71a",
+      "document_id": "0e5c0e0bf8aa8b81e05f7cd1",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "> **Kernel Hub migration (verified 2026-07-15):** `get_kernel(...)` now resolves > the matching first-class [Kernel Hub repository](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels). > Its `main` and stable `v1` refs both pin verified revision > `06cc46f9733a844ee1c4cab558b06b3bd2d377ea`. This model-type repository is > retained as the legacy source/card mirror.\n\n**A kernel suite for governing provenance across operations.** This `get_kernel`-discoverable suite ties SZL Holdings' three governed kernels — [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm), [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate), and [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) — into **one shared, hash-chained `UnifiedReceiptChain`**, and anchors a governance/interop layer on top: [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) (signs the verdict), [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) (refuses honestly + derives an EU AI Act Annex IV draft), and [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) (verifies the provenance DAG + bridges to in-toto/SLSA).",
+      "title": "szl-kernels — the unified governed-kernel suite / 1"
+    },
+    {
+      "chunk_number": 4,
+      "chunk_sha256": "1baf63b13b7778465538e10e1ea0e0ea557250e9571e4e9a38c139d0df2765f4",
+      "document_id": "3569015a89a6154df25a72f6",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "> **Evidence boundary:** no ecosystem-wide novelty claim is made. Within this > published suite, a forward pass touching norm + an advisory Λ gate + an energy > reading can produce one auditable, tamper-evident log instead of three > disconnected logs. Verify that bounded behavior with `selfcheck()` and the > exported chain verifier before relying on it.",
+      "title": "szl-kernels — the unified governed-kernel suite / 2"
+    },
+    {
+      "chunk_number": 5,
+      "chunk_sha256": "1356e9c1c79298f20fa5f339f3050fdbbc95bcdba76ecc9bd651206080e2e3c6",
+      "document_id": "1e0d582f528afd7cc7756046",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "```bash pip install kernels torch ```\n\n```python import torch from kernels import get_kernel",
+      "title": "Quickstart / 1"
+    },
+    {
+      "chunk_number": 6,
+      "chunk_sha256": "465098c42ae720b2b87a8335f8d32fe8be6a103fffcf84173c44883e5bd0ab7c",
+      "document_id": "bad7c5a7fde64c84c7ff0c2e",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "suite = get_kernel(\"SZLHOLDINGS/szl-kernels\", revision=\"main\", trust_remote_code=True)\n\nprint(suite.list_kernels()) # the 3 numeric suite members + honest roles print(suite.list_series()) # the governance/interop companions (govsign, blocked, provctl) print(suite.selfcheck()) # one-shot CPU health: ALL checks pass",
+      "title": "Current `kernels` (>=0.15) requires an explicit revision/version + trust flag for org kernels: / 1"
+    },
+    {
+      "chunk_number": 7,
+      "chunk_sha256": "c06798337545012d9c291e52703cc42449fcdc0d7a7b10af4ff056b64a40933b",
+      "document_id": "3e8d344de19f40154ecb5a3b",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "chain = suite.UnifiedReceiptChain() x = torch.randn(4, 64) y = suite.governed_rms_norm(chain, x, eps=1e-6) # governed_norm gate = suite.governed_lambda_gate(chain, torch.tensor([0.9,0.8,0.95])) # lambda_gate (advisory) e = suite.governed_measure_energy(chain) # energy_core (MEASURED-only)\n\nok, depth, brk = chain.verify() # the WHOLE pass verifies as ONE chain print(ok, depth, chain.kernels_touched()) # True 3 ['governed_norm','lambda_gate','energy_core'] print(chain.to_json()) # export for offline third-party re-verification ```",
+      "title": "ONE shared chain spanning multiple ops: / 1"
+    },
+    {
+      "chunk_number": 8,
+      "chunk_sha256": "3249c24ddba9cbf3911c0e66a3be623c7f1e0602ff0d1232cab7fa5df273ae1c",
+      "document_id": "60b5ba572ff69bb0a9f99e61",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "```python blk = suite.GovernedBlock() res = blk.forward(x, gov_axes=torch.tensor([0.95, 0.9, 0.92])) print(res[\"chain_ok\"], res[\"chain_depth\"], res[\"kernels_touched\"]) # norm + advisory Λ gate + energy + binding receipt = 4 ops, one verifiable chain. # The Λ gate is ADVISORY: it is recorded for audit, it does NOT alter the numerics. ```",
+      "title": "Flagship — a governed transformer sub-block / 1"
+    },
+    {
+      "chunk_number": 9,
+      "chunk_sha256": "2bb997e9a44b2ad470aeac81de1378a5b3b0abc32680092be37c5542f44f12b1",
+      "document_id": "c4e2ecb120377a51f20429e7",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "Three copy-paste recipes spanning the governed-kernel series. Every printed value is labeled **expected shape (not executed here)** — the shapes are transcribed from each kernel's committed API, not from a run on this card (SZL doctrine: never self-download to inflate counters, never fabricate an output). Λ stays **Conjecture 1 (OPEN)**; energy stays **MEASURED-only**; a BLOCKED verdict stays BLOCKED.",
+      "title": "Cookbook / 1"
+    },
+    {
+      "chunk_number": 10,
+      "chunk_sha256": "8c175b527189c4618290bc1bdb4ca35d0c96784a711d7bdad7dbe874050c4e9a",
+      "document_id": "8370f3fa7e2d895a643670ec",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "```python import torch from kernels import get_kernel\n\nsuite = get_kernel(\"SZLHOLDINGS/szl-kernels\", revision=\"main\", trust_remote_code=True)\n\nchain = suite.UnifiedReceiptChain() x = torch.randn(4, 64) suite.governed_rms_norm(chain, x, eps=1e-6) # op 1: governed_norm suite.governed_lambda_gate(chain, torch.tensor([0.9, 0.8, 0.95])) # op 2: lambda_gate (ADVISORY) suite.governed_measure_energy(chain) # op 3: energy_core (MEASURED-only)\n\nok, depth, first_break = chain.verify() print(ok, depth, chain.kernels_touched()) # expected shape (not executed here): # True 3 ['governed_norm', 'lambda_gate', 'energy_core'] # -> one hash-chain, three ops, verifies as ONE ordered sequence. # The Λ gate receipt is ADVISORY (Conjecture 1, OPEN): recorded, never proven trust. # energy_core reports joules=None + UNAVAILABLE_NO_NVML on CPU — never a fabricated joule. ```",
+      "title": "1 — One receipt chain across three ops (suite) / 1"
+    },
+    {
+      "chunk_number": 11,
+      "chunk_sha256": "84de5e7831cc1252f0d15549377305560b2d97e36885ffa9be0eac0a9044e77e",
+      "document_id": "48c6f2f35f846a5169eb84dc",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "```python from kernels import get_kernel\n\nblk = get_kernel(\"SZLHOLDINGS/szl-blocked\", revision=\"main\", trust_remote_code=True)\n\nchain = blk.UnifiedReceiptChain() policy = blk.deny_if_action_in({\"exfiltrate\", \"delete_all\"}) work = lambda v: v * 2\n\nallowed = blk.governed_call(work, policy, chain, request={\"action\": \"summarize\"}, args=(21,)) blocked = blk.governed_call(work, policy, chain, request={\"action\": \"exfiltrate\"}, args=(21,))\n\nprint(allowed.blocked, allowed.output) print(blocked.blocked, blocked.output) # expected shape (not executed here): # False 42 -> ALLOWED path ran work(21); an ALLOW receipt is on the chain. # True None -> BLOCKED path: work was NEVER called, output is None, # a BLOCK receipt is recorded. Honest-BLOCKED, never faked green. ```",
+      "title": "2 — honest-BLOCKED, not fake-green (szl-blocked) / 1"
+    },
+    {
+      "chunk_number": 12,
+      "chunk_sha256": "becc3e6cdd603e7050e19a371f4d35c1d45ea38ea390b4e7efae4bc3659d811c",
+      "document_id": "59548f880e819659d0fbbe08",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "```python from kernels import get_kernel\n\ngs = get_kernel(\"SZLHOLDINGS/szl-govsign\", revision=\"main\", trust_remote_code=True)\n\npriv = gs.generate_ephemeral_keypair() # production: Sigstore keyless / cosign key, out-of-band pred = gs.build_governance_predicate( lambda_verdict = gs.LambdaVerdict(score=0.92, notes=\"advisory only — Conjecture 1 (OPEN)\"), energy = gs.EnergyLabel(value=12.5, unit=\"joules\"), # MEASURED-only decision = gs.GovernanceDecision(status=\"ALLOWED\", reason=\"passed gates\"), honest_blocked = False, ) subjects = [gs.Subject(name=\"szl_kernels/UnifiedReceiptChain\", digest={\"sha256\": \"<chain-head>\"})] envelope = gs.attest(subjects, pred, priv)\n\nprint(gs.verify(envelope, priv.public_key())) # expected shape (not executed here): # True -> DSSE envelope (ECDSA P-256) verifies: authorship + integrity of the verdict. # Any tamper -> verify() returns False (fails closed). # The signature does NOT upgrade Λ to proven trust: proven_trust is locked False. ```\n\n> These recipes chain across three separately published, `get_kernel`-discoverable kernels. > See [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) to turn any of these > chains into documented in-toto v1 / SLSA v1 shapes for external compatibility testing.",
+      "title": "3 — Sign then verify a governance verdict (szl-govsign / DSSE) / 1"
+    },
+    {
+      "chunk_number": 13,
+      "chunk_sha256": "9fa1bf9f24feb2ecabfa799f0dfa0108afa2ce71b80216c0291b2f20b5047f69",
+      "document_id": "90f002ba55a2065061623b1d",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "Independently published, `get_kernel`-discoverable kernels that share one `UnifiedReceiptChain`. The first three are the **numeric core**; govsign + blocked + provctl are the **governance / interop layer**.",
+      "title": "The governed-kernel series / 1"
+    },
+    {
+      "chunk_number": 14,
+      "chunk_sha256": "22093504b203cb4fda083dc2b9d806137b9d6af3dc2610e291017f9dc793f6b6",
+      "document_id": "a7bd3fbd33b8bda329733a91",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "| Kernel | Lane | Live hologram | |---|---|---| | [`szl-governed-norm`](https://huggingface.co/SZLHOLDINGS/szl-governed-norm) | RMSNorm/LayerNorm + SHA3-256 receipts | [`governed-norm-holo`](https://szlholdings-governed-norm-holo.static.hf.space) ✅ **live** | | [`szl-lambda-gate`](https://huggingface.co/SZLHOLDINGS/szl-lambda-gate) | advisory Λ gate (Conjecture 1, OPEN) | [`lambda-gate-holo`](https://szlholdings-lambda-gate-holo.static.hf.space) ✅ **live** | | [`governed-inference-meter`](https://huggingface.co/SZLHOLDINGS/governed-inference-meter) | MEASURED-joule energy accounting | [`energy-attest-holo`](https://szlholdings-energy-attest-holo.static.hf.space) ✅ **live** | | [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) | signed governance attestation (DSSE / in-toto, ECDSA P-256) | [`szl-govsign-live`](https://szlholdings-szl-govsign-live.static.hf.space) ✅ **live** | | [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) | honest-BLOCKED first-class state + EU AI Act Annex IV DRAFT | [`szl-blocked-live`](https://szlholdings-szl-blocked-live.static.hf.space) ✅ **live** | | [`szl-provctl`](https://huggingface.co/SZLHOLDINGS/szl-provctl) | provenance-DAG verify + in-toto v1 / SLSA v1 interop + per-kernel MEASURED energy | [`szl-provctl-live`](https://szlholdings-szl-provctl-live.static.hf.space) ✅ **live** | | **`szl-kernels`** (this repo) |",
+      "title": "The governed-kernel series / 2"
+    },
+    {
+      "chunk_number": 15,
+      "chunk_sha256": "48321bd414b4385d6260d63062553113394a477db3a1c242583a862ff76f8bff",
+      "document_id": "f6f806134a63297c813e74d3",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "**unified suite — cross-kernel `UnifiedReceiptChain`** | [`szl-kernels-live`](https://szlholdings-szl-kernels-live.static.hf.space) ✅ **live** |\n\n`suite.list_kernels()` returns the numeric core; `suite.list_series()` returns the govsign + blocked + provctl governance/interop layer.",
+      "title": "The governed-kernel series / 3"
+    },
+    {
+      "chunk_number": 16,
+      "chunk_sha256": "0def73cb1f3be9bf619453fe142d2f03630ea4273b325454aa2d7388a7a9f008",
+      "document_id": "0b4e2f94d2c7859b8f7ad094",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "Published as HF **model** repos (NOT trained models, NO weights — pure-Python, stdlib-only offline replays). Each ships a `library_name: kernels` card and MEASURED local test counts:\n\n| Model | Lane | Tests (MEASURED) | |---|---|---| | [`szl-invariants`](https://huggingface.co/SZLHOLDINGS/szl-invariants) | 8 falsifiable receipt/ledger invariants, offline | 14/14 | | [`szl-ouroboros`](https://huggingface.co/SZLHOLDINGS/szl-ouroboros) | bounded-loop trace + MEASURED/DERIVED loop-tax accounting | 13/13 | | [`szl-formulas`](https://huggingface.co/SZLHOLDINGS/szl-formulas) | the 21 canonical formulas + governed-loop composer, PROOF-STATUS mirrored verbatim (locked-proven = exactly 8) | 17/17 |",
+      "title": "The honest-model trio (offline replays of the live Alloy surface) / 1"
+    },
+    {
+      "chunk_number": 17,
+      "chunk_sha256": "3bff84668f97b00f84332cbb2d208323e6a0a6292e3c90c4b115e36337d5acab",
+      "document_id": "c9533a8642a7d81e9db4e5d6",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "The standalone SZL kernels keep separate receipt state. A single forward pass through them therefore yields logs that are not one ordered stream. `UnifiedReceiptChain` adds op-agnostic SHA3-256 receipts that hash-chain norm, Λ, and energy calls into **one** verifiable stream, in call order. `szl-govsign` can sign that chain head for verification against a separately trusted public key; `szl-blocked` records refusal as a first-class state and derives a draft documentation skeleton; `szl-provctl` verifies supplied multi-run provenance records and serializes them into documented in-toto/SLSA shapes for compatibility testing.",
+      "title": "The gap this closes / 1"
+    },
+    {
+      "chunk_number": 18,
+      "chunk_sha256": "cba4040e5401ee022bfcbc60ba0e3604336ace3af4837e8c4c861c090edf6124",
+      "document_id": "af89d31b9e6f86ac8c6a89c4",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "| Symbol | What it does | |---|---| | `UnifiedReceiptChain` | Op-agnostic SHA3-256 hash chain. `emit`, `verify() -> (ok, depth, first_break)`, `kernels_touched()`, `to_json()`, `verify_json()` (offline). | | `governed_rms_norm(chain, x, weight=None, eps=1e-6)` | RMSNorm + a receipt into the shared chain. Numerics match `szl-governed-norm`. | | `governed_layer_norm(chain, x, ...)` | LayerNorm + receipt. | | `governed_lambda_gate(chain, axes, weights=None, threshold=0.5)` | **Advisory** Λ gate; records an advisory receipt (`advisory=True`, never proven trust). | | `governed_measure_energy(chain, measurement=None)` | Records an energy reading **verbatim** — `joules=None` + `UNAVAILABLE_NO_NVML` when no GPU. Never fabricated. | | `GovernedBlock` | Pre-norm sub-block composing all three + a binding receipt into one auditable pass. | | `list_kernels()`, `list_series()`, `get_member()`, `selfcheck()` | Numeric registry + governance-layer series + one-shot CPU health check. |",
+      "title": "API / 1"
+    },
+    {
+      "chunk_number": 19,
+      "chunk_sha256": "5a17eb4028c2088932db38a2ec09c6176e3e13c193dce6ac056f423b299e820b",
+      "document_id": "678ae8f2a631c52d959acfb1",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "- **Λ is advisory.** Its uniqueness is **Conjecture 1 — OPEN**. A recorded gate \"pass\" is a non-compensatory advisory signal, **never proven trust**. - **Energy is MEASURED-only.** Real NVML cumulative-energy delta when a GPU is present; otherwise `joules=None`, labeled `UNAVAILABLE_NO_NVML`. **No joule is ever fabricated.** - **The digest is an integrity fingerprint, not a signature.** SHA3-256 over a canonical receipt body proves tamper-evidence + ordering — not authorship. Signing is a separate, out-of-band layer — see [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) for DSSE / in-toto attestation. - **Honest BLOCKED beats fake green.** A failed verification stays failed — see [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) for refusal as a first-class, provenanced state. - **Universal (pure-Python) suite — a correctness + provenance reference, not a CUDA speed record. No fabricated benchmarks.** Suite tests: 7/7 passing.",
+      "title": "Honesty (SZL doctrine) / 1"
+    },
+    {
+      "chunk_number": 20,
+      "chunk_sha256": "0aa5bfe8eef2ba8d30bb1a7b42b7441d03cc212b03c897c0a6c7dabebec77135",
+      "document_id": "a6b8da57b32b927ac5a09d65",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/szl-holdings/lutar-lean) (749 declarations / 14 axioms / 163 tracked sorries), DOI [10.5281/zenodo.20434308](https://doi.org/10.5281/zenodo.20434308). Λ uniqueness = Conjecture 1 (open).",
+      "title": "Provenance / 1"
+    },
+    {
+      "chunk_number": 21,
+      "chunk_sha256": "c0768c3aaaa7badd3f96e098886abba8be7e3237405a701b746c0933c3381f91",
+      "document_id": "8f99c905304eec2c321268da",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "- ✅ **Live now:** [a11oy](https://huggingface.co/spaces/SZLHOLDINGS/a11oy) (live governed inference) · [hatun-mcp](https://huggingface.co/spaces/SZLHOLDINGS/hatun-mcp). **All eight demo Spaces below are live** (static, in-browser). - 📚 **Collection:** [Governed Kernels & Verifiers](https://huggingface.co/collections/SZLHOLDINGS/governed-kernels-and-verifiers-6a542ad83a4b75151bf5eae3) — the whole family in one page. **Live console:** [a11oy](https://szlholdings-a11oy.hf.space) · [a-11-oy.com](https://a-11-oy.com) · [llm-router](https://szlholdings-llm-router-live.hf.space) · [receipt verifier](https://szlholdings-governed-receipt-verifier.static.hf.space) · [receipt spec (hub)](https://github.com/szl-holdings/governed-receipt-spec). - ✅ Suite: [`szl-kernels-live`](https://szlholdings-szl-kernels-live.static.hf.space) ✅ **live** — holographic cross-kernel provenance graph with in-browser SHA3-256 + tamper / honest-BLOCKED demo. - ✅ Members: [`governed-norm-holo`](https://szlholdings-governed-norm-holo.static.hf.space) ✅ **live** · [`lambda-gate-holo`](https://szlholdings-lambda-gate-holo.static.hf.space) ✅ **live** · [`energy-attest-holo`](https://szlholdings-energy-attest-holo.static.hf.space) ✅ **live** · [`receipt-chain-live`](https://szlholdings-receipt-chain-live.static.hf.space) ✅ **live** - ✅ Governance layer:",
+      "title": "See it live / 1"
+    },
+    {
+      "chunk_number": 22,
+      "chunk_sha256": "4956d172dd213556935a4f88a6d71521348fb662141af2508c8a8fa5b6d4903a",
+      "document_id": "8f9b660f47cc2bf2e7656f1b",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "[`szl-govsign-live`](https://szlholdings-szl-govsign-live.static.hf.space) ✅ **live** · [`szl-blocked-live`](https://szlholdings-szl-blocked-live.static.hf.space) ✅ **live** · [`szl-provctl-live`](https://szlholdings-szl-provctl-live.static.hf.space) ✅ **live** - 🔮 `szl-substrate` *(ROADMAP — not yet live)* — the hub tying the whole governed-compute substrate together.",
+      "title": "See it live / 2"
+    },
+    {
+      "chunk_number": 23,
+      "chunk_sha256": "49318b353ed38471995abcbc772ddec9957cb11465b533673af470c1736aee26",
+      "document_id": "0b1d1b64a0f5bca9334bbffb",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "Python 3.9+, `torch>=2.5`, standard library + torch only. Runs on CPU and CUDA.",
+      "title": "Compatibility / 1"
+    },
+    {
+      "chunk_number": 24,
+      "chunk_sha256": "1fb0730c6f29a46c9894b6b50b5d804a7a5e83b08aa8ce0a87f792945491a786",
+      "document_id": "9ba8f21c3669331b555a0cd2",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "Apache-2.0. Copyright 2026 SZL Holdings.\n\n---\n\n<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href=\"https://a-11-oy.com\">a-11-oy.com</a> · <a href=\"https://github.com/szl-holdings\">github.com/szl-holdings</a> · <a href=\"https://huggingface.co/SZLHOLDINGS\">huggingface.co/SZLHOLDINGS</a></sub>\n\n---\n\n[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19944926.svg)](https://doi.org/10.5281/zenodo.19944926)",
+      "title": "License / 1"
+    },
+    {
+      "chunk_number": 25,
+      "chunk_sha256": "89d32c7b2a502b422d5abe9056b4c60d89a87dda9c0e20bd6ae36680ab03f877",
+      "document_id": "2d085bdaae8a0021b0ff45b6",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "**Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism). Concept DOI (always-latest): [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926). Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · License CC-BY-4.0. Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md). No artifact-specific DOI is minted for this model; the concept DOI above covers the program.\n\nHonesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine-checked FALSE as stated) — never a theorem; conditional uniqueness is **Theorem U** (axiom-free). Locked-proven formulas = **exactly 8** {F1,F4,F7,F11,F12,F18,F19,F22}; ~185 experimental theorems are a separate CI-green tier; Khipu BFT safety = Conjecture 2. Trust never 100%.\n\n```bibtex @misc{lutar_szl_ouroboros, author = {Lutar, Stephen P., Jr.}, title = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.19944926}, url = {https://doi.org/10.5281/zenodo.19944926}, note = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.} } ```\n\n*Signed-off-by: Stephen Lutar <stephenlutar2@gmail.com>*",
+      "title": "Citation / 1"
+    },
+    {
+      "chunk_number": 26,
+      "chunk_sha256": "157932e3db2b960a70272c49279d54fe556d616b94823e72244e77f1272b8724",
+      "document_id": "9bb266f71453bab04f3f436c",
+      "license": "Apache-2.0",
+      "source_path": "corpus/kernels/README.md",
+      "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
+      "text": "| Path | What it is | |---|---| | `build/torch-universal/szl_kernels/__init__.py` | public API — suite entry points + `selfcheck()` | | `build/torch-universal/szl_kernels/_chain.py` | cross-kernel `UnifiedReceiptChain` (SHA3-256) | | `build/torch-universal/szl_kernels/_ops.py` | the governed op set | | `tests/test_suite.py` | suite test | | `build.toml` · `metadata.json` | Kernel Hub build/metadata manifests | | `LICENSE` · `SECURITY.md` | Apache-2.0 · security policy |\n\n---\n\n<p align=\"center\"> <a href=\"https://huggingface.co/SZLHOLDINGS\">SZL Holdings</a> · <a href=\"https://a-11-oy.com\">a-11-oy.com</a> · <a href=\"https://huggingface.co/SZLHOLDINGS/a11oy-v19-substrate\">a11oy-v19-substrate</a> </p>\n\n<p align=\"center\"><sub>SLSA: L1 honest · L2 attested · L3 roadmap. Λ = Conjecture 1. Trust ceiling 0.97.</sub></p>",
+      "title": "Files in this repo / 1"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "b5be0ef76a0e72e0ef02894befe1ef88f909b390c56ad261cccf1bcbf23d63ea",
+      "document_id": "c129eb17627a83f17547233f",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_chain.py",
+      "source_sha256": "f4f22f0c7e9b2c40e27f8cc1bc49b2c9fd7bb033fd65e21750c6c1a63764d987",
+      "text": "Module: Unified, op-agnostic, SHA3-256 hash-chained provenance for the SZL kernel suite.\n\nTHE FRONTIER GAP THIS CLOSES ---------------------------- Every governed SZL kernel today owns its OWN receipt log: * szl_governed_norm -> ReceiptChain over normalization calls * szl_energy_core -> CheapestWattLedger over placement decisions * szl_lambda_gate -> (no chain; advisory self-checks only) So a real forward pass that touches norm AND an advisory Λ gate AND the energy meter produces THREE disconnected logs. There is no single artifact a third party can re-walk to prove \"these ops happened, in this order, on these tensors, and nothing was inserted or reordered between them\". That cross-op provenance is the genuine gap the Kernel Hub leaders leave open: they optimize FLOPs per op, not auditable provenance ACROSS ops.\n\n``UnifiedReceiptChain`` is that missing artifact: one append-only, SHA3-256 hash-chained log whose entries are op-agnostic. A norm call, an advisory Λ-gate call, and an energy reading all hash-chain into the SAME chain, in call order, so the whole forward pass verifies as one tamper-evident sequence.",
+      "title": "Document / 1"
+    },
+    {
+      "chunk_number": 1,
+      "chunk_sha256": "547189164574f3133acfbe3ef6139424319f2aeb23c1c1e383c86b1fdd97bf4a",
+      "document_id": "22b00e9e2c6fe6ed252137b9",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_chain.py",
+      "source_sha256": "f4f22f0c7e9b2c40e27f8cc1bc49b2c9fd7bb033fd65e21750c6c1a63764d987",
+      "text": "HONESTY (SZL doctrine v11) -------------------------- * The digest is a real SHA3-256 over a canonical JSON body. It is an INTEGRITY fingerprint (tamper-evidence + ordering), NOT a cryptographic signature and NOT a proof of authorship. DSSE / sigstore signing is a separate, out-of-band concern and is explicitly NOT claimed here. * Tensor fingerprints round to a fixed decimal precision so they reproduce across devices/dtypes for the same logical values. This is the same scheme szl_governed_norm already ships — we reuse it verbatim so a unified-chain tensor digest equals the per-kernel chain's digest for the same tensor. * Any Λ entry is recorded as ADVISORY metadata only. A recorded \"passed=True\" is a non-compensatory advisory signal, NEVER \"proven trust\" (Λ uniqueness = Conjecture 1, OPEN). * Any energy entry carries the kernel's honest label verbatim (MEASURED / SAMPLE / UNAVAILABLE_NO_NVML / ESTIMATE / UNKNOWN). The chain NEVER upgrades an UNAVAILABLE reading to a number — if joules is None it stays None. * Stdlib + torch only (Kernel Hub universal-kernel requirement). Nothing is written to disk or the network from inside the chain.\n\nFunction tensor_digest: Deterministic SHA3-256 over a tensor's rounded float32 contents.",
+      "title": "Document / 2"
+    },
+    {
+      "chunk_number": 2,
+      "chunk_sha256": "31b79c33ed888cfcdecf134296e0fe85d3bf75a9dfbcec65acedcc7d3b3ee3df",
+      "document_id": "bfcd7e814626850d39e29820",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_chain.py",
+      "source_sha256": "f4f22f0c7e9b2c40e27f8cc1bc49b2c9fd7bb033fd65e21750c6c1a63764d987",
+      "text": "Identical scheme to szl_governed_norm._receipt._tensor_digest: round to a fixed number of decimals, integerize, hash the raw little-endian bytes. This makes the digest stable across devices/dtypes for the same logical values (tiny FP noise won't change it). Integrity fingerprint, NOT a signature.\n\nFalls back to hashing the repr only if torch is unavailable (headless inspection); in a real kernel run torch is always present.\n\nClass UnifiedReceiptChain: Append-only, SHA3-256 hash-chained log spanning MANY kernel ops.\n\nEach receipt body is canonical JSON with a fixed, sorted schema: {seq, kernel, op, attrs, prev} where: seq -- 0-based position in the chain kernel -- which suite member emitted it ('governed_norm', 'lambda_gate', 'energy_core', or a composed block name) op -- the operation ('rms_norm', 'lambda_gate', 'measure_energy', ...) attrs -- an op-agnostic, JSON-able dict of honest, reproducible attributes (shapes, eps, out_digest, advisory Λ fields, energy label/joules, ...). NEVER fabricated. prev -- digest of the previous receipt (GENESIS for seq 0)\n\ndigest = SHA3-256 over the canonical JSON of {seq,kernel,op,attrs,prev} (ts is excluded so the digest is reproducible offline).",
+      "title": "Document / 3"
+    },
+    {
+      "chunk_number": 3,
+      "chunk_sha256": "3d978e85628e7b9ea09a4bfee554d62605d151a624b22c840016fc4cc9b0be72",
+      "document_id": "3d7353faf6f0069e467f412b",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_chain.py",
+      "source_sha256": "f4f22f0c7e9b2c40e27f8cc1bc49b2c9fd7bb033fd65e21750c6c1a63764d987",
+      "text": "verify() re-walks the chain and returns (ok, depth, first_break_seq): it recomputes every digest and checks every prev-link, so ANY insertion, deletion, reordering, or mutation of a recorded attribute is detected.\n\nFunction emit: Append one op-agnostic receipt and return it (with digest + ts).\n\n``attrs`` must be JSON-able and finite (no NaN/Inf) — a non-finite value would make the receipt un-attestable by a strict third-party verifier, so it is rejected at hash time by allow_nan=False. Callers screen non-finite numbers to None/UNKNOWN upstream (the energy kernel already does this).\n\nFunction emit_norm: Record a governed-norm op. out_digest matches szl_governed_norm.\n\nFunction emit_lambda: Record an ADVISORY Λ-gate evaluation.\n\n``advisory`` is hard-coded True and ``lambda_status`` is stamped on every entry so the chain itself is self-documenting: a recorded pass is NEVER proven trust (Λ uniqueness = Conjecture 1, open).\n\nFunction emit_energy: Record an energy reading VERBATIM (label + joules as-given).\n\n``joules`` may be None (UNAVAILABLE/UNKNOWN) — it is recorded as None, never upgraded to a fabricated number. ``label`` is the kernel's honest MEASURED/SAMPLE/UNAVAILABLE_NO_NVML/ESTIMATE/UNKNOWN string.\n\nFunction kernels_touched: Distinct kernels that appear in the chain, in first-seen order.",
+      "title": "Document / 4"
+    },
+    {
+      "chunk_number": 4,
+      "chunk_sha256": "32e993970ca5f0970bffe8b3ce5a4fb161ff346fd96eadd320a01f7bfafb7d8f",
+      "document_id": "1c88ca09cf74b9ce0bc7906f",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_chain.py",
+      "source_sha256": "f4f22f0c7e9b2c40e27f8cc1bc49b2c9fd7bb033fd65e21750c6c1a63764d987",
+      "text": "The cross-kernel provenance summary: proof that a single auditable chain actually spanned multiple suite members in one run.\n\nFunction verify: Re-walk the chain. Returns (ok: bool, depth: int, first_break: int).\n\nRecomputes every digest from {seq,kernel,op,attrs,prev} and checks each prev-link. Detects insertion, deletion, reorder, or any attribute mutation. first_break is the seq of the first bad record, or -1 if clean.\n\nFunction to_json: Export the full chain as canonical JSON for OFFLINE re-verification.\n\nA third party can load this, recompute each digest, and confirm the chain independently — no trust in the emitting process required.\n\nFunction verify_json: Verify an exported chain offline. Returns (ok, depth, first_break).",
+      "title": "Document / 5"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "c27ac75e8568cbff6f6d520f953053963e5a9d72d46dc046afe42917c4d856e5",
+      "document_id": "e3f0d3d8d2129e5c675ca8e7",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_ops.py",
+      "source_sha256": "b7a1bd3dfad95c748c1bfe5082ffaad8b1933189278202902d5564ecfc24d075",
+      "text": "Module: Governed ops + a composed GovernedBlock, all writing ONE unified chain.\n\nThis module is the thin \"suite\" layer. It does NOT reimplement the kernels' numerics — the canonical math lives in szl_governed_norm / szl_lambda_gate / szl_energy_core. Here we provide:\n\n* self-contained REFERENCE numerics (rms_norm, layer_norm, Λ aggregate) that are byte-faithful ports of the published kernels, so this reference package RUNS standalone with only torch installed (no Hub fetch needed for the self-test). In production the suite delegates to the installed kernels via get_kernel(); see NEXT_ARTIFACT_SPEC.md \"Delegation\". * governed wrappers that emit op-agnostic receipts into a shared UnifiedReceiptChain (cross-kernel provenance). * GovernedBlock: a pre-norm transformer sub-block that composes governed-norm + an ADVISORY Λ gate + an energy measurement into ONE auditable forward pass with an end-to-end receipt.\n\nHONESTY: Λ stays advisory (Conjecture 1, open). Energy stays MEASURED-only (None when no NVML — never fabricated). No benchmarks are claimed.\n\nFunction _lambda_aggregate: Weighted geometric mean Λ(x)=∏ xᵢ^{wᵢ} with non-compensatory zero-routing.\n\nFaithful to szl_lambda_gate: any zero or non-finite axis drives Λ to 0.\n\nFunction governed_lambda_gate: ADVISORY Λ gate that records an advisory receipt. NOT proven trust.",
+      "title": "Document / 1"
+    },
+    {
+      "chunk_number": 1,
+      "chunk_sha256": "94a12bc496e1c94bb783160fe1f1d8d85fa618730af8cb14e69a9b945bb31d6c",
+      "document_id": "48f298201b99a638779451b5",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_ops.py",
+      "source_sha256": "b7a1bd3dfad95c748c1bfe5082ffaad8b1933189278202902d5564ecfc24d075",
+      "text": "Returns a dict {score, passed, threshold, advisory=True}. ``passed`` is an advisory, non-compensatory signal only (Λ uniqueness = Conjecture 1, open).\n\nFunction governed_measure_energy: Record an energy reading. MEASURED-only honesty.\n\nIf ``measurement`` is None we DO NOT fabricate joules: we record the honest UNAVAILABLE_NO_NVML label with joules=None. (In production this delegates to szl_energy_core.measure_energy(), which reads a real NVML cumulative-energy delta when a GPU is present.)\n\nClass GovernedBlock: A pre-norm transformer sub-block with end-to-end cross-kernel provenance.\n\nForward pass, all into ONE shared chain, in order: 1. governed RMSNorm of the hidden state (governed_norm) 2. an ADVISORY Λ gate over caller-supplied governance axis scores (lambda_gate) — recorded as advisory, never gating the math 3. an energy measurement of the step (energy_core) 4. a final 'block_forward' receipt binding the block's input/output digests\n\nThe result is a single hash-chained sequence a third party can re-walk to confirm: norm ran, an advisory gate was evaluated, energy was accounted (honestly labeled), and the block output is the one that was produced — with nothing inserted or reordered between steps.",
+      "title": "Document / 2"
+    },
+    {
+      "chunk_number": 2,
+      "chunk_sha256": "b6898bf7cb718e6fd75141f08d05d19d627f801d364262a646bb900ffb2807bd",
+      "document_id": "2147d36fa8412aa2772bd814",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/_ops.py",
+      "source_sha256": "b7a1bd3dfad95c748c1bfe5082ffaad8b1933189278202902d5564ecfc24d075",
+      "text": "HONESTY: the Λ gate is ADVISORY; ``forward`` does NOT block, mask, or alter the numerics based on the gate. The gate result is recorded for audit only. Energy is MEASURED-only. No speed claims.",
+      "title": "Document / 3"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "83c32ca8799cbf9848b737643703a8330079d7133ba670a2e01882a11271de35",
+      "document_id": "cdf28d7a333813ddcf2ffba9",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/miniembed.py",
+      "source_sha256": "1a4bba8a629442d74b2240621092e18046e672fc7094a4799666af9efb16bd50",
+      "text": "Module: SZL-MiniEmbed — receipted distributional word-embedding TABLE.\n\nThis module loads the in-repo MiniEmbed artifact described by ``config.json``:\n\n* ``vocab.json`` — ``{\"vocab\": [term...], \"index\": {term: i}}`` * ``vectors.npz`` — key ``vectors``, float32 ``[V, dim]`` (PPMI + TruncatedSVD)\n\nIt is a lookup table over terms already in that vocabulary. It is NOT a transformer language model, NOT Chaski, and NOT Khipu. No throughput or energy figures are produced or claimed. Λ remains Conjecture 1 (advisory).\n\nLookup / nearest-neighbour behaviour matches ``scripts/forge.py`` (cosine via dot product on L2-normalized rows) and the file-hash contract in ``scripts/eval.py`` (SHA-256 of ``vectors.npz`` + ``vocab.json`` against ``TRAINING_RECEIPT.json``). Provenance receipts use the suite's existing ``UnifiedReceiptChain`` (SHA3-256) — this file does not invent a second chain.\n\nMirrored byte-for-byte at ``torch-ext/szl_kernels/miniembed.py`` (kernel-builder source). Do not fork a second implementation.\n\nFunction _is_lfs_pointer: True when ``path`` is a Git LFS pointer, not the real object bytes.\n\nFunction discover_artifact_root: Locate the repo-root MiniEmbed artifact directory.\n\nWalks up from this file (or ``start``) until ``vocab.json``, ``vectors.npz``, and ``config.json`` are all present — works from both ``build/torch-universal/szl_kernels/`` and ``torch-ext/szl_kernels/``.",
+      "title": "Document / 1"
+    },
+    {
+      "chunk_number": 1,
+      "chunk_sha256": "e739642254a518095c0c02377afb85bfb8071511fe2e2be6ca5d6c8f9c7b6951",
+      "document_id": "a05a21f123fe91fa5626534c",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/miniembed.py",
+      "source_sha256": "1a4bba8a629442d74b2240621092e18046e672fc7094a4799666af9efb16bd50",
+      "text": "Class MiniEmbed: In-vocab lookup over the receipted SZL MiniEmbed table.\n\nHONESTY (doctrine v11): this is a distributional co-occurrence embedding table, not a generative model. Λ is untouched and remains Conjecture 1 (advisory). Weights are the in-tree SZL MiniEmbed ``vectors.npz`` only — no third-party model weights are copied or loaded.\n\nFunction expected_sha256_from_tree: Union of published + in-tree TRAINING_RECEIPT / publication.json hashes.\n\nFunction lookup: Return the float32 row for an in-vocab term. Raises KeyError if absent.\n\nFunction encode: Encode in-vocab term(s). A string returns ``[dim]``; a sequence ``[N, dim]``.\n\nFunction neighbors: Cosine nearest neighbours, matching ``scripts/forge.py`` (None if OOV).\n\nFunction receipt_table: Emit a SHA3-256 UnifiedReceiptChain record of the loaded table (or its honest unavailability).\n\nFunction selfcheck: Verify artifact SHA-256 against in-tree receipts. Never raises.\n\nA Git LFS pointer is reported as ``UNAVAILABLE_LFS`` — that is NOT a pass (the pointer bytes are not the published object).",
+      "title": "Document / 2"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "a6f2555e2698b8d8739869eb74bee318bc5586e6a55b6f97c1a4a8426d6663ed",
+      "document_id": "bbcc81407715f1f5d9fb2a2f",
+      "license": "Apache-2.0",
+      "source_path": "torch-ext/szl_kernels/retrieval.py",
+      "source_sha256": "ba4a0a3e8d3e24300837e23bc8cf84d2194f445eb950e865d87015c4062428e5",
+      "text": "Module: Bounded float32 cosine retrieval with exact-byte input/output receipts.\n\nPure PyTorch reference implementation; no acceleration or retrieval-quality claim. Inputs must remain unchanged until this inference-only call returns. Hashes bind logical C-order raw tensor bytes, shape and dtype; they are not signatures. Zero document vectors receive similarity zero. Zero query vectors are rejected.\n\nFunction _update_raw_hash: Transfer/hash at most rows logical rows per chunk, not the whole table.\n\nFunction _unit_rows: Scale first so very small/large finite float32 rows normalize safely.\n\nFunction governed_cosine_topk: Return indices/scores of shape [B,k] and one UnifiedReceiptChain receipt.\n\nquery: dense float32 [D] or [B,D]; documents: dense float32 [N,D]. Both must use the same CPU or CUDA device. 1 <= k <= N, block_rows > 0. Ties use ascending document index, including ties across block boundaries.\n\nSimilarity matrices contain at most B*min(block_rows,N) elements. Normalized document storage is one [block_rows,D] chunk, and candidate merging uses at most [B,2*k]. This is not a bound on allocator, BLAS or sorting workspace. Exact hashes use raw logical row-major bytes without decimal rounding. No receipt is emitted unless all input chunks and output scores are finite.",
+      "title": "Document / 1"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "d07ad18ebca27f1105a1f715f5ef51ccf9a28d7bac5386076fd8eb9f7ce9d215",
+      "document_id": "75e3e84ae084e4d9901de534",
+      "license": "Apache-2.0",
+      "source_path": "frontier/offline_retrieval/README.md",
+      "source_sha256": "df756a9ae7846d6311a3563f3e92f4e5c6cbf592b8c0ccc73ac537d520a993bf",
+      "text": "Offline Source Navigator is a small retrieval model package for searching a trusted local document collection on ordinary hardware. Every returned chunk includes its source path and content hash. A calibrated low score produces an explicit `ABSTAIN_INSUFFICIENT_LOCAL_EVIDENCE` result.\n\nThe package trains two real classical retrieval models over an owned Apache-2.0 corpus:\n\n- `tfidf-v1`: learned unigram and bigram inverse-document-frequency weights; - `lsa-v1`: the same TF-IDF representation reduced by fitted truncated SVD.\n\nBoth models use `szl_kernels.governed_cosine_topk`, which searches the document matrix in bounded row blocks and writes the operation into the existing `UnifiedReceiptChain`. BM25 evaluation uses the separately maintained `szl-retrieval-bench` package.",
+      "title": "Offline Source Navigator / 1"
+    },
+    {
+      "chunk_number": 1,
+      "chunk_sha256": "96f82fe7aa502738945291295768dec7ccfa2ad0b5bc3c6d59ee606ef0e934dc",
+      "document_id": "9af95c56032f765acf6f3920",
+      "license": "Apache-2.0",
+      "source_path": "frontier/offline_retrieval/README.md",
+      "source_sha256": "df756a9ae7846d6311a3563f3e92f4e5c6cbf592b8c0ccc73ac537d520a993bf",
+      "text": "From the `szl-kernels` repository root:\n\n```powershell $python = \"python\" & $python -m pip install \".[frontier]\" & $python -I -B .\\frontier\\offline_retrieval\\train_retrieval.py & $python -I -B .\\frontier\\offline_retrieval\\evaluate_retrieval.py ` --bench-root ..\\szl-retrieval-bench & $python -I -B .\\frontier\\offline_retrieval\\navigator.py ` --model lsa-v1 ` --query \"How does the receipt chain detect tampering?\" ```\n\nThe build refuses missing sources, path escapes, duplicate query identifiers, non-finite arrays, hash mismatches, or unsafe NumPy object arrays. It records duplicate source bytes rather than silently training on them twice.\n\nUse Python 3.11 or newer with the `frontier` extra installed. Local validation used Python 3.11 and PyTorch 2.11.0; CUDA is optional. Queries outside the learned vocabulary return a receipted abstention with `kernel_called=false`.",
+      "title": "Reproduce locally / 1"
+    },
+    {
+      "chunk_number": 2,
+      "chunk_sha256": "d515ba0bbf969ef642d0fe40214b2c795b8f0dd2a959a7c843fbbd3c938ae274",
+      "document_id": "859820d56388aa00bd964c14",
+      "license": "Apache-2.0",
+      "source_path": "frontier/offline_retrieval/README.md",
+      "source_sha256": "df756a9ae7846d6311a3563f3e92f4e5c6cbf592b8c0ccc73ac537d520a993bf",
+      "text": "The models are fitted locally and their retrieval metrics are measured on the committed author-created evaluation queries. The judgments have no independent adjudication, so the measurements establish reproducibility on this small evaluation only. They do not establish general search quality, factual answer quality, clinical fitness, regulatory approval, deployment, or benefit in a population. The navigator retrieves cited source text; it does not diagnose, prescribe, execute actions, access the network, or generate an answer beyond the retrieved excerpts.\n\nThe intended next evaluation is a separately reviewed corpus in a concrete community domain such as disaster preparedness, public-service navigation, or offline education. Admission requires source licenses, relevance judgments, and subject-matter review before any domain claim.",
+      "title": "Evidence boundary / 1"
+    },
+    {
+      "chunk_number": 0,
+      "chunk_sha256": "588c84058dc9f184fc7d326f3b283e437493ae45edc78d9ed868e5421d780245",
+      "document_id": "1793e9bde011e38777c374aa",
+      "license": "Apache-2.0",
+      "source_path": "frontier/offline_retrieval/thread_lineage.md",
+      "source_sha256": "a2ac3b4b62e8c14c4acf6fcf58b641737404cdcaa2d629eeace108d06f93393c",
+      "text": "This record carries the user-visible intent of the September 2026 build thread into the model package without copying private prompts, credentials, local key material, or a raw conversation transcript.\n\nThe thread first produced Owned Agent Clinical Control `2.4.0-synthetic-safe.3`, an executable Markdown/Python control payload for offline synthetic fixtures. The source artifact was measured at 133,402 bytes with SHA-256 `a5dae41ddd3d45c15ddbf015447081f07f50ad3c15a720669f091eeb9a5b95b6`. It established durable state, exact schemas, bounded locks, encrypted Ed25519 keys, two-key authorization, immutable-content evidence checks, historical receipts, and explicit boundaries around clinical validity and production runtime claims.\n\nThe user then asked for a live audit of the SZL Holdings GitHub and Hugging Face estates and for useful kernel and model work. This package applies that request to a concrete public-interest problem: useful search over a small local collection when network access or large-model compute is unavailable.\n\nThe following controls are carried into this package:",
+      "title": "Thread lineage for the Offline Source Navigator / 1"
+    },
+    {
+      "chunk_number": 1,
+      "chunk_sha256": "5c41f7ed00aa23ab407f03c1dd5a2bf79327eb0d9fd8d58402c10c08d65247b7",
+      "document_id": "03c5dba92fb623e269cfd424",
+      "license": "Apache-2.0",
+      "source_path": "frontier/offline_retrieval/thread_lineage.md",
+      "source_sha256": "a2ac3b4b62e8c14c4acf6fcf58b641737404cdcaa2d629eeace108d06f93393c",
+      "text": "- refuse malformed, non-finite, empty, or unsupported input before recording a successful retrieval; - bind model outputs to exact source and artifact hashes; - emit a receipt that can be re-walked offline; - return an explicit abstention when the calibrated local evidence is too weak; - keep signatures, integrity, measured retrieval quality, clinical validity, and deployed runtime as separate claims; - allow a solo operator to run the package without describing two keys as two independent human reviewers.\n\nThis lineage record is an implementation decision record. It is not a clinical corpus, patient record, medical model, independent audit, or record of hidden assistant instructions.",
+      "title": "Thread lineage for the Offline Source Navigator / 2"
+    }
+  ],
+  "schema_version": "szl.offline-retrieval-documents/v1"
+}

@@ -14,4 +14,4 @@
 - [ ] UNKNOWN is not claimed as PASS anywhere in this PR
 - [ ] No new a11oy.com references — the forbidden domain must never appear (gate: `forbidden-domain.yml`)
 - [ ] Docs updated (README / CHANGELOG) if behavior or surfaces changed
-- [ ] Commits are conventional and signed off (`Signed-off-by:`)
+- [ ] Commits are conventional and cryptographically signed; DCO sign-off is not required for this solo build

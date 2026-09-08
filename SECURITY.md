@@ -25,7 +25,7 @@ We follow a **90-day responsible disclosure** policy.
 ## Supply-Chain Security
 
 - **SLSA Build Level 1** — build provenance generated per release (honest; not L2/L3)
-- **DCO required** — all commits carry `Signed-off-by:` trailers per [Linux Foundation DCO](https://developercertificate.org/)
+- **Verified commit signatures** — cryptographically sign commits and verify the exact head tested by CI; DCO sign-off trailers are not required for this solo-maintainer build
 - **Cosign keyless signing** — verify with `cosign verify ghcr.io/szl-holdings/szl-kernels:<tag>`
 - **SBOM** — CycloneDX SBOM attached to each release
 

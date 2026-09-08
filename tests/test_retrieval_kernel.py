@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Cosine reference parity, ordering, input binding, and fail-closed tests."""
 import hashlib
+import json
 import sys
 from pathlib import Path
 
@@ -153,11 +154,14 @@ def test_no_input_mutation_or_gradient_and_existing_chain_continuity():
 
 
 def test_source_mirror_and_export_wiring():
-    for name in ("retrieval.py", "__init__.py"):
+    for name in ("retrieval.py", "__init__.py", "metadata.json"):
         assert (ROOT / "torch-ext/szl_kernels" / name).read_bytes() == (ROOT / "build/torch-universal/szl_kernels" / name).read_bytes()
     import szl_kernels
     assert "governed_cosine_topk" in szl_kernels.__all__
     assert szl_kernels.__version__ == "0.2.0"
+    for package_path in ("torch-ext/szl_kernels", "build/torch-universal/szl_kernels"):
+        metadata = json.loads((ROOT / package_path / "metadata.json").read_text(encoding="utf-8"))
+        assert metadata["version"] == szl_kernels.__version__
 
 
 @pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA unavailable; no GPU performance claim")

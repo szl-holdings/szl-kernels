@@ -58,13 +58,25 @@ def _lambda_aggregate(axes: torch.Tensor, weights: Optional[torch.Tensor]) -> to
 
     Faithful to szl_lambda_gate: any zero or non-finite axis drives Λ to 0.
     """
+    if axes.ndim != 1 or axes.numel() == 0 or not axes.is_floating_point():
+        raise ValueError("axes must be a non-empty one-dimensional floating tensor")
     cdt = torch.float32 if axes.dtype in (torch.float16, torch.bfloat16) else axes.dtype
     xf = axes.to(cdt)
     k = xf.shape[-1]
     if weights is None:
         w = torch.full((k,), 1.0 / k, dtype=cdt, device=xf.device)
     else:
-        w = weights.to(cdt)
+        if weights.shape != axes.shape or not weights.is_floating_point():
+            raise ValueError("weights must be a floating tensor with the same shape as axes")
+        w = weights.to(device=xf.device, dtype=cdt)
+        if not bool(torch.isfinite(w).all()) or bool((w < 0).any()):
+            raise ValueError("weights must be finite and non-negative in the computation dtype")
+        scale = w.max()
+        if not bool(scale > 0):
+            raise ValueError("weights must include at least one positive value")
+        # Rescale first so a finite, positive weight vector cannot overflow its
+        # sum and turn an ordinary score into an all-zero-exponent score of 1.
+        w = w / scale
         w = w / w.sum()
     finite = torch.isfinite(xf)
     xc = xf.clamp(0.0, 1.0)
@@ -112,12 +124,15 @@ def governed_lambda_gate(
 
     Returns a dict {score, passed, threshold, advisory=True}. ``passed`` is an
     advisory, non-compensatory signal only (Λ uniqueness = Conjecture 1, open).
+    One call records one non-empty vector of floating axes. Batched input is
+    rejected rather than silently dropping rows. Optional weights must match
+    that vector, be finite and non-negative, and have a positive sum.
     """
     threshold_value = float(threshold)
     if not math.isfinite(threshold_value) or not 0.0 <= threshold_value <= 1.0:
         raise ValueError("threshold must be finite and within [0, 1]")
     score = _lambda_aggregate(axes, weights)
-    s = float(score.reshape(-1)[0]) if score.dim() else float(score)
+    s = float(score)
     passed = s >= threshold_value
     chain.emit_lambda(s, threshold_value, passed, int(axes.shape[-1]))
     return {"score": s, "passed": passed, "threshold": threshold_value, "advisory": True}

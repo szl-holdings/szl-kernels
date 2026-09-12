@@ -149,8 +149,8 @@ def selfcheck() -> Dict[str, Any]:
         )
         retrieval_chain = UnifiedReceiptChain()
         result = governed_cosine_topk(
-            retrieval_chain, torch.tensor([1.0, 0.0], device="cpu"),
-            torch.tensor([[0.0, 1.0], [1.0, 0.0]], device="cpu"), k=1, block_rows=1,
+            retrieval_chain, torch.tensor([1.0, 0.0], dtype=torch.float32, device="cpu"),
+            torch.tensor([[0.0, 1.0], [1.0, 0.0]], dtype=torch.float32, device="cpu"), k=1, block_rows=1,
         )
         checks["retrieval_correct"] = result["indices"].tolist() == [[1]]
         checks["retrieval_receipt"] = retrieval_chain.verify() == (True, 1, -1)

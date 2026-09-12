@@ -19,10 +19,16 @@ from ._chain import UnifiedReceiptChain
 
 def _update_raw_hash(digest: Any, tensor: torch.Tensor, rows: int) -> None:
     """Transfer/hash at most rows logical rows per chunk, not the whole table."""
+    # The uint8 view preserves every bit (including negative zero and int64
+    # indices) in native byte order without a NumPy bridge. Each Python
+    # list/bytes conversion contains at most 65,536 bytes; the contiguous
+    # tensor copy remains row-bounded. Keep the indexed API docstring stable.
     matrix = tensor.unsqueeze(0) if tensor.ndim == 1 else tensor
     for start in range(0, matrix.shape[0], rows):
         chunk = matrix[start:start + rows].detach().contiguous().cpu()
-        digest.update(chunk.numpy().tobytes(order="C"))
+        raw = chunk.view(torch.uint8).reshape(-1)
+        for byte_start in range(0, raw.numel(), 65536):
+            digest.update(bytes(raw[byte_start:byte_start + 65536].tolist()))
 
 
 def _raw_sha256(tensor: torch.Tensor, rows: int) -> str:

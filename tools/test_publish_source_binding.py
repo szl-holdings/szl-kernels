@@ -36,7 +36,8 @@ class PublishSourceBindingTests(unittest.TestCase):
         mirrors = ("build/torch-universal/szl_kernels", "torch-ext/szl_kernels")
         for package in mirrors:
             with self.subTest(package=package):
-                for module in ("estate.py", "retrieval.py"):
+                self.assertIn("KERNEL_HUB.md", declared)
+                for module in ("estate.py", "retrieval.py", "_kernel_api.py"):
                     self.assertIn(f"{package}/{module}", declared)
                 runtime_files = [path for path in declared
                                  if path.startswith(package + "/") and path.endswith(".py")]

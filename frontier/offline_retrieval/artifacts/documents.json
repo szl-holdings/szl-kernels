@@ -1026,28 +1026,28 @@
       "document_id": "e3f0d3d8d2129e5c675ca8e7",
       "license": "Apache-2.0",
       "source_path": "torch-ext/szl_kernels/_ops.py",
-      "source_sha256": "b7a1bd3dfad95c748c1bfe5082ffaad8b1933189278202902d5564ecfc24d075",
+      "source_sha256": "fb986c62f38361b30aa8e04f93772a31f06cceddf73c1ddc6a50a92afcc6cdb3",
       "text": "Module: Governed ops + a composed GovernedBlock, all writing ONE unified chain.\n\nThis module is the thin \"suite\" layer. It does NOT reimplement the kernels' numerics — the canonical math lives in szl_governed_norm / szl_lambda_gate / szl_energy_core. Here we provide:\n\n* self-contained REFERENCE numerics (rms_norm, layer_norm, Λ aggregate) that are byte-faithful ports of the published kernels, so this reference package RUNS standalone with only torch installed (no Hub fetch needed for the self-test). In production the suite delegates to the installed kernels via get_kernel(); see NEXT_ARTIFACT_SPEC.md \"Delegation\". * governed wrappers that emit op-agnostic receipts into a shared UnifiedReceiptChain (cross-kernel provenance). * GovernedBlock: a pre-norm transformer sub-block that composes governed-norm + an ADVISORY Λ gate + an energy measurement into ONE auditable forward pass with an end-to-end receipt.\n\nHONESTY: Λ stays advisory (Conjecture 1, open). Energy stays MEASURED-only (None when no NVML — never fabricated). No benchmarks are claimed.\n\nFunction _lambda_aggregate: Weighted geometric mean Λ(x)=∏ xᵢ^{wᵢ} with non-compensatory zero-routing.\n\nFaithful to szl_lambda_gate: any zero or non-finite axis drives Λ to 0.\n\nFunction governed_lambda_gate: ADVISORY Λ gate that records an advisory receipt. NOT proven trust.",
       "title": "Document / 1"
     },
     {
       "chunk_number": 1,
-      "chunk_sha256": "94a12bc496e1c94bb783160fe1f1d8d85fa618730af8cb14e69a9b945bb31d6c",
-      "document_id": "48f298201b99a638779451b5",
+      "chunk_sha256": "bcdee93e86f69c32de89ebbe5f476101367869c77e277b599dc5dfbd45753c8e",
+      "document_id": "75f4f5167404535c1b217c34",
       "license": "Apache-2.0",
       "source_path": "torch-ext/szl_kernels/_ops.py",
-      "source_sha256": "b7a1bd3dfad95c748c1bfe5082ffaad8b1933189278202902d5564ecfc24d075",
-      "text": "Returns a dict {score, passed, threshold, advisory=True}. ``passed`` is an advisory, non-compensatory signal only (Λ uniqueness = Conjecture 1, open).\n\nFunction governed_measure_energy: Record an energy reading. MEASURED-only honesty.\n\nIf ``measurement`` is None we DO NOT fabricate joules: we record the honest UNAVAILABLE_NO_NVML label with joules=None. (In production this delegates to szl_energy_core.measure_energy(), which reads a real NVML cumulative-energy delta when a GPU is present.)\n\nClass GovernedBlock: A pre-norm transformer sub-block with end-to-end cross-kernel provenance.\n\nForward pass, all into ONE shared chain, in order: 1. governed RMSNorm of the hidden state (governed_norm) 2. an ADVISORY Λ gate over caller-supplied governance axis scores (lambda_gate) — recorded as advisory, never gating the math 3. an energy measurement of the step (energy_core) 4. a final 'block_forward' receipt binding the block's input/output digests\n\nThe result is a single hash-chained sequence a third party can re-walk to confirm: norm ran, an advisory gate was evaluated, energy was accounted (honestly labeled), and the block output is the one that was produced — with nothing inserted or reordered between steps.",
+      "source_sha256": "fb986c62f38361b30aa8e04f93772a31f06cceddf73c1ddc6a50a92afcc6cdb3",
+      "text": "Returns a dict {score, passed, threshold, advisory=True}. ``passed`` is an advisory, non-compensatory signal only (Λ uniqueness = Conjecture 1, open). One call records one non-empty vector of floating axes. Batched input is rejected rather than silently dropping rows. Optional weights must match that vector, be finite and non-negative, and have a positive sum.\n\nFunction governed_measure_energy: Record an energy reading. MEASURED-only honesty.\n\nIf ``measurement`` is None we DO NOT fabricate joules: we record the honest UNAVAILABLE_NO_NVML label with joules=None. (In production this delegates to szl_energy_core.measure_energy(), which reads a real NVML cumulative-energy delta when a GPU is present.)\n\nClass GovernedBlock: A pre-norm transformer sub-block with end-to-end cross-kernel provenance.\n\nForward pass, all into ONE shared chain, in order: 1. governed RMSNorm of the hidden state (governed_norm) 2. an ADVISORY Λ gate over caller-supplied governance axis scores (lambda_gate) — recorded as advisory, never gating the math 3. an energy measurement of the step (energy_core) 4. a final 'block_forward' receipt binding the block's input/output digests",
       "title": "Document / 2"
     },
     {
       "chunk_number": 2,
-      "chunk_sha256": "b6898bf7cb718e6fd75141f08d05d19d627f801d364262a646bb900ffb2807bd",
-      "document_id": "2147d36fa8412aa2772bd814",
+      "chunk_sha256": "9ad6f09c0b0c4be787d08c0cbbd97aaea5788ae6ae6c74bdf774d66d53b36f04",
+      "document_id": "2280aa48c8b6d368f7997611",
       "license": "Apache-2.0",
       "source_path": "torch-ext/szl_kernels/_ops.py",
-      "source_sha256": "b7a1bd3dfad95c748c1bfe5082ffaad8b1933189278202902d5564ecfc24d075",
-      "text": "HONESTY: the Λ gate is ADVISORY; ``forward`` does NOT block, mask, or alter the numerics based on the gate. The gate result is recorded for audit only. Energy is MEASURED-only. No speed claims.",
+      "source_sha256": "fb986c62f38361b30aa8e04f93772a31f06cceddf73c1ddc6a50a92afcc6cdb3",
+      "text": "The result is a single hash-chained sequence a third party can re-walk to confirm: norm ran, an advisory gate was evaluated, energy was accounted (honestly labeled), and the block output is the one that was produced — with nothing inserted or reordered between steps.\n\nHONESTY: the Λ gate is ADVISORY; ``forward`` does NOT block, mask, or alter the numerics based on the gate. The gate result is recorded for audit only. Energy is MEASURED-only. No speed claims.",
       "title": "Document / 3"
     },
     {
@@ -1076,7 +1076,7 @@
       "document_id": "bbcc81407715f1f5d9fb2a2f",
       "license": "Apache-2.0",
       "source_path": "torch-ext/szl_kernels/retrieval.py",
-      "source_sha256": "ba4a0a3e8d3e24300837e23bc8cf84d2194f445eb950e865d87015c4062428e5",
+      "source_sha256": "93550e9431edbf20fa7b06aed78ed5e93a66797ebc2d1a3b3e5e86cc0a4c6ca2",
       "text": "Module: Bounded float32 cosine retrieval with exact-byte input/output receipts.\n\nPure PyTorch reference implementation; no acceleration or retrieval-quality claim. Inputs must remain unchanged until this inference-only call returns. Hashes bind logical C-order raw tensor bytes, shape and dtype; they are not signatures. Zero document vectors receive similarity zero. Zero query vectors are rejected.\n\nFunction _update_raw_hash: Transfer/hash at most rows logical rows per chunk, not the whole table.\n\nFunction _unit_rows: Scale first so very small/large finite float32 rows normalize safely.\n\nFunction governed_cosine_topk: Return indices/scores of shape [B,k] and one UnifiedReceiptChain receipt.\n\nquery: dense float32 [D] or [B,D]; documents: dense float32 [N,D]. Both must use the same CPU or CUDA device. 1 <= k <= N, block_rows > 0. Ties use ascending document index, including ties across block boundaries.\n\nSimilarity matrices contain at most B*min(block_rows,N) elements. Normalized document storage is one [block_rows,D] chunk, and candidate merging uses at most [B,2*k]. This is not a bound on allocator, BLAS or sorting workspace. Exact hashes use raw logical row-major bytes without decimal rounding. No receipt is emitted unless all input chunks and output scores are finite.",
       "title": "Document / 1"
     },

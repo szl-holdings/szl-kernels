@@ -1,10 +1,10 @@
 {
   "artifact_sha256": {
-    "documents.json": "17635e4016d1986b78008847ae3ca0391c64a97f8f9b05eabae9ddf27392fd95",
-    "lsa-components.npz": "a54ce9e740b319458b147a6f18ea730054ddee731750d022da0ac70a1e938512",
-    "lsa-documents.npz": "36272479874ac9d1fad99e6bc3a7740a0622d908799d7d7c466cbe139f162b06",
-    "tfidf-documents.npz": "f461a7d5afb5e2a9818b2e2dabd8a1f4683b77a6772a0a127e891fc93ad73c0e",
-    "vectorizer.json": "be6dd6b2b4718b699a3e8fb64437af0c1f241ab75c1a9f07a91bb4f3336c89ce"
+    "documents.json": "83815da4ba345da0e910d9adb584b43958df10253c17cb8be8786eb3bd4b65a1",
+    "lsa-components.npz": "f6a7c4e5fb65ed391ff285bffe845a7346fc376f6c5ddadbae4e28e3c3559a6d",
+    "lsa-documents.npz": "87cb85fc14e5286e985f9fee713f594aad41ce25e3fb07f03846d35addeb899f",
+    "tfidf-documents.npz": "a07576ebeffce515f19390201ca7a9c4cae85e828e853b296745a0242f566b72",
+    "vectorizer.json": "4c3510801136a21e49381f0780bca70910e1ea89975329c33ef9eef0afe3e70c"
   },
   "calibration_queries_sha256": "bdf2fed74ff2e0e2a22b0c6265024a151250821b8e8e4123dda99a9ea59fa9b4",
   "claim_boundary": {
@@ -21,49 +21,49 @@
   "models": {
     "lsa-v1": {
       "calibration": {
-        "answerable_recall": 0.5,
-        "balanced_accuracy": 0.625,
+        "answerable_recall": 1.0,
+        "balanced_accuracy": 0.75,
         "calibration_scores": [
           {
             "answerable": true,
-            "top_score": 0.5082838535308838
+            "top_score": 0.4906362295150757
           },
           {
             "answerable": true,
-            "top_score": 0.6496182680130005
+            "top_score": 0.6455618143081665
           },
           {
             "answerable": true,
-            "top_score": 0.6688850522041321
+            "top_score": 0.6667400598526001
           },
           {
             "answerable": true,
-            "top_score": 0.43094104528427124
+            "top_score": 0.4337911009788513
           },
           {
             "answerable": false,
-            "top_score": 0.4454338848590851
+            "top_score": 0.3948051929473877
           },
           {
             "answerable": false,
-            "top_score": 0.6715294718742371
+            "top_score": 0.6696653962135315
           },
           {
             "answerable": false,
-            "top_score": 0.41564810276031494
+            "top_score": 0.4126048684120178
           },
           {
             "answerable": false,
-            "top_score": 0.5425482988357544
+            "top_score": 0.5033729076385498
           }
         ],
-        "threshold": 0.6496182680130005,
-        "unanswerable_specificity": 0.75
+        "threshold": 0.4337911009788513,
+        "unanswerable_specificity": 0.5
       },
       "components": "lsa-components.npz",
       "dimension": 112,
       "document_vectors": "lsa-documents.npz",
-      "explained_variance_ratio_sum": 1.0000003576278687,
+      "explained_variance_ratio_sum": 1.0000001192092896,
       "kind": "classical_lsa_retrieval",
       "trained": true
     },
@@ -74,41 +74,41 @@
         "calibration_scores": [
           {
             "answerable": true,
-            "top_score": 0.11848391592502594
+            "top_score": 0.1172950491309166
           },
           {
             "answerable": true,
-            "top_score": 0.15159496665000916
+            "top_score": 0.1524806022644043
           },
           {
             "answerable": true,
-            "top_score": 0.12717507779598236
+            "top_score": 0.1266455352306366
           },
           {
             "answerable": true,
-            "top_score": 0.12133283168077469
+            "top_score": 0.12131663411855698
           },
           {
             "answerable": false,
-            "top_score": 0.08278025686740875
+            "top_score": 0.08007219433784485
           },
           {
             "answerable": false,
-            "top_score": 0.06179860606789589
+            "top_score": 0.061814647167921066
           },
           {
             "answerable": false,
-            "top_score": 0.05693778768181801
+            "top_score": 0.05651886761188507
           },
           {
             "answerable": false,
-            "top_score": 0.09527590870857239
+            "top_score": 0.09516241401433945
           }
         ],
-        "threshold": 0.11848391592502594,
+        "threshold": 0.1172950491309166,
         "unanswerable_specificity": 1.0
       },
-      "dimension": 7937,
+      "dimension": 7973,
       "document_vectors": "tfidf-documents.npz",
       "kind": "classical_tfidf_retrieval",
       "trained": true
@@ -166,7 +166,7 @@
     {
       "license": "Apache-2.0",
       "source_path": "torch-ext/szl_kernels/_ops.py",
-      "source_sha256": "b7a1bd3dfad95c748c1bfe5082ffaad8b1933189278202902d5564ecfc24d075"
+      "source_sha256": "fb986c62f38361b30aa8e04f93772a31f06cceddf73c1ddc6a50a92afcc6cdb3"
     },
     {
       "license": "Apache-2.0",
@@ -176,7 +176,7 @@
     {
       "license": "Apache-2.0",
       "source_path": "torch-ext/szl_kernels/retrieval.py",
-      "source_sha256": "ba4a0a3e8d3e24300837e23bc8cf84d2194f445eb950e865d87015c4062428e5"
+      "source_sha256": "93550e9431edbf20fa7b06aed78ed5e93a66797ebc2d1a3b3e5e86cc0a4c6ca2"
     }
   ],
   "thread_lineage_sha256": "a2ac3b4b62e8c14c4acf6fcf58b641737404cdcaa2d629eeace108d06f93393c",

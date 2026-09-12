@@ -51,6 +51,7 @@ jobs:
           tests/test_miniembed.py
           tests/test_estate.py
           tests/test_retrieval_kernel.py
+          tests/test_kernel_hub_contract.py
           tests/test_no_unsafe_serialization.py
 
   offline-retrieval:

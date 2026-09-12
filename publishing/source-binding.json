@@ -5,6 +5,7 @@
   "artifact_files": [
     ".gitattributes",
     "LICENSE",
+    "KERNEL_HUB.md",
     "MODEL_PROVENANCE.json",
     "README.md",
     "SECURITY.md",
@@ -13,6 +14,7 @@
     "build.toml",
     "build/torch-universal/szl_kernels/__init__.py",
     "build/torch-universal/szl_kernels/_chain.py",
+    "build/torch-universal/szl_kernels/_kernel_api.py",
     "build/torch-universal/szl_kernels/_ops.py",
     "build/torch-universal/szl_kernels/estate.py",
     "build/torch-universal/szl_kernels/metadata.json",
@@ -47,6 +49,7 @@
     "tests/test_suite.py",
     "torch-ext/szl_kernels/__init__.py",
     "torch-ext/szl_kernels/_chain.py",
+    "torch-ext/szl_kernels/_kernel_api.py",
     "torch-ext/szl_kernels/_ops.py",
     "torch-ext/szl_kernels/estate.py",
     "torch-ext/szl_kernels/metadata.json",

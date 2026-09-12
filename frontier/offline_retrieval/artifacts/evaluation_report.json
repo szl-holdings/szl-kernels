@@ -29,9 +29,9 @@
       "navigator.py": "43cd90677620a3607404c73fc5f5bb3ff62fa510f9fd481f70457f08275ac55b",
       "train_retrieval.py": "72aea6552c3b4df1a299d99727676266c3bea0ddca6de5196a3c8f6c81060edb"
     },
-    "model_manifest.json": "3c6f99e2028d52526e038d524d45cea79082eb9fc131b80724fb3d90a227ce66",
-    "retrieval_kernel.py": "ba4a0a3e8d3e24300837e23bc8cf84d2194f445eb950e865d87015c4062428e5",
-    "training_receipt.json": "53917a1d0eb316ed2f661f7c9afc8b77cf1bfa86e7ff44eb08b2a6c8e4fe4d10"
+    "model_manifest.json": "3fe886de224dda7af02d80d96b0a130034a99514d99d434de6de060acfb51c21",
+    "retrieval_kernel.py": "93550e9431edbf20fa7b06aed78ed5e93a66797ebc2d1a3b3e5e86cc0a4c6ca2",
+    "training_receipt.json": "ffc59513c2ffebdbaabf36a1c404300058a217bd9ce7544a785452095ef36be4"
   },
   "measurement": "MEASURED_LOCAL_AUTHOR_CREATED_QUERY_SET",
   "methods": {
@@ -52,38 +52,38 @@
         "calibration_scores": [
           {
             "answerable": true,
-            "top_score": 16.475548268425218
+            "top_score": 16.388604317005374
           },
           {
             "answerable": true,
-            "top_score": 19.246864377242783
+            "top_score": 19.244202086014717
           },
           {
             "answerable": true,
-            "top_score": 10.10915111742631
+            "top_score": 9.952670600633265
           },
           {
             "answerable": true,
-            "top_score": 11.865779628703454
+            "top_score": 11.8776170513401
           },
           {
             "answerable": false,
-            "top_score": 5.369603350532945
+            "top_score": 5.196501061006669
           },
           {
             "answerable": false,
-            "top_score": 5.143186797324247
+            "top_score": 5.121868967387844
           },
           {
             "answerable": false,
-            "top_score": 5.341664647358943
+            "top_score": 5.279064047660443
           },
           {
             "answerable": false,
-            "top_score": 6.411241601494065
+            "top_score": 6.39760841673613
           }
         ],
-        "threshold": 10.10915111742631,
+        "threshold": 9.952670600633265,
         "unanswerable_specificity": 1.0
       },
       "per_query": [
@@ -118,7 +118,7 @@
             "torch-ext/szl_kernels/miniembed.py"
           ],
           "retrieval_chain_head": null,
-          "top_score": 10.418348186996393
+          "top_score": 10.3917129864936
         },
         {
           "abstained": false,
@@ -131,8 +131,8 @@
             "frontier/offline_retrieval/README.md",
             "README.md",
             "frontier/offline_retrieval/thread_lineage.md",
-            "torch-ext/szl_kernels/_ops.py",
             "torch-ext/szl_kernels/retrieval.py",
+            "torch-ext/szl_kernels/_ops.py",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
             "corpus/kernels/README.md",
             "corpus/doctrine-v10-v11/README.md",
@@ -151,7 +151,7 @@
             "torch-ext/szl_kernels/miniembed.py"
           ],
           "retrieval_chain_head": null,
-          "top_score": 10.821248770495515
+          "top_score": 10.833178647866042
         },
         {
           "abstained": false,
@@ -184,7 +184,7 @@
             "torch-ext/szl_kernels/_chain.py"
           ],
           "retrieval_chain_head": null,
-          "top_score": 15.076096636735796
+          "top_score": 15.135809687207393
         },
         {
           "abstained": false,
@@ -198,8 +198,8 @@
             "torch-ext/szl_kernels/_ops.py",
             "frontier/offline_retrieval/thread_lineage.md",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
-            "torch-ext/szl_kernels/retrieval.py",
             "corpus/doctrine-v10-v11/README.md",
+            "torch-ext/szl_kernels/retrieval.py",
             "frontier/offline_retrieval/README.md",
             "torch-ext/szl_kernels/miniembed.py",
             "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
@@ -218,7 +218,7 @@
             "torch-ext/szl_kernels/_ops.py"
           ],
           "retrieval_chain_head": null,
-          "top_score": 13.677811484812077
+          "top_score": 13.623591118247962
         },
         {
           "abstained": false,
@@ -251,7 +251,7 @@
             "frontier/offline_retrieval/thread_lineage.md"
           ],
           "retrieval_chain_head": null,
-          "top_score": 10.269580543804649
+          "top_score": 14.125097492377707
         },
         {
           "abstained": false,
@@ -284,7 +284,7 @@
             "frontier/offline_retrieval/thread_lineage.md"
           ],
           "retrieval_chain_head": null,
-          "top_score": 21.01806268176944
+          "top_score": 21.051863013732774
         },
         {
           "abstained": false,
@@ -317,7 +317,7 @@
             "torch-ext/szl_kernels/retrieval.py"
           ],
           "retrieval_chain_head": null,
-          "top_score": 18.745512795255877
+          "top_score": 18.74255557826444
         },
         {
           "abstained": false,
@@ -350,7 +350,7 @@
             "frontier/offline_retrieval/thread_lineage.md"
           ],
           "retrieval_chain_head": null,
-          "top_score": 11.943364501203543
+          "top_score": 11.932551200911261
         },
         {
           "abstained": true,
@@ -365,15 +365,15 @@
             "torch-ext/szl_kernels/_chain.py",
             "frontier/offline_retrieval/README.md",
             "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
-            "torch-ext/szl_kernels/_ops.py",
             "torch-ext/szl_kernels/miniembed.py",
+            "torch-ext/szl_kernels/_ops.py",
             "frontier/offline_retrieval/thread_lineage.md",
             "torch-ext/szl_kernels/retrieval.py"
           ],
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
           "retrieval_chain_head": null,
-          "top_score": 4.735973702324067
+          "top_score": 4.698974989012395
         },
         {
           "abstained": true,
@@ -396,7 +396,7 @@
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
           "retrieval_chain_head": null,
-          "top_score": 4.148298446585629
+          "top_score": 4.152233438450284
         },
         {
           "abstained": true,
@@ -419,7 +419,7 @@
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
           "retrieval_chain_head": null,
-          "top_score": 5.834720176178459
+          "top_score": 5.818264175546967
         },
         {
           "abstained": true,
@@ -442,7 +442,7 @@
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
           "retrieval_chain_head": null,
-          "top_score": 5.373829846442275
+          "top_score": 5.332110119403679
         }
       ],
       "ranking_before_abstention": {
@@ -456,58 +456,58 @@
     },
     "lsa-v1": {
       "abstention": {
-        "answerable_abstained": 3,
-        "answerable_recall": 0.625,
-        "answerable_retrieved": 5,
-        "balanced_accuracy": 0.8125,
-        "coverage": 0.4166666666666667,
-        "unanswerable_abstained": 4,
-        "unanswerable_retrieved": 0,
-        "unanswerable_specificity": 1.0
+        "answerable_abstained": 0,
+        "answerable_recall": 1.0,
+        "answerable_retrieved": 8,
+        "balanced_accuracy": 0.75,
+        "coverage": 0.8333333333333334,
+        "unanswerable_abstained": 2,
+        "unanswerable_retrieved": 2,
+        "unanswerable_specificity": 0.5
       },
       "calibration": {
-        "answerable_recall": 0.5,
-        "balanced_accuracy": 0.625,
+        "answerable_recall": 1.0,
+        "balanced_accuracy": 0.75,
         "calibration_scores": [
           {
             "answerable": true,
-            "top_score": 0.5082838535308838
+            "top_score": 0.4906362295150757
           },
           {
             "answerable": true,
-            "top_score": 0.6496182680130005
+            "top_score": 0.6455618143081665
           },
           {
             "answerable": true,
-            "top_score": 0.6688850522041321
+            "top_score": 0.6667400598526001
           },
           {
             "answerable": true,
-            "top_score": 0.43094104528427124
+            "top_score": 0.4337911009788513
           },
           {
             "answerable": false,
-            "top_score": 0.4454338848590851
+            "top_score": 0.3948051929473877
           },
           {
             "answerable": false,
-            "top_score": 0.6715294718742371
+            "top_score": 0.6696653962135315
           },
           {
             "answerable": false,
-            "top_score": 0.41564810276031494
+            "top_score": 0.4126048684120178
           },
           {
             "answerable": false,
-            "top_score": 0.5425482988357544
+            "top_score": 0.5033729076385498
           }
         ],
-        "threshold": 0.6496182680130005,
-        "unanswerable_specificity": 0.75
+        "threshold": 0.4337911009788513,
+        "unanswerable_specificity": 0.5
       },
       "per_query": [
         {
-          "abstained": true,
+          "abstained": false,
           "answerable": true,
           "query_id": "eval-001",
           "query_sha256": "827473c0f048d274b6e88ae0bbdf34df7cb53ce8fd0eb63289b98deebaaff0ce",
@@ -517,8 +517,8 @@
             "corpus/doctrine-v10-v11/README.md",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
             "frontier/offline_retrieval/README.md",
-            "torch-ext/szl_kernels/_ops.py",
             "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py",
             "frontier/offline_retrieval/thread_lineage.md",
             "corpus/kernels/README.md",
             "torch-ext/szl_kernels/retrieval.py",
@@ -536,11 +536,11 @@
             "README.md",
             "torch-ext/szl_kernels/miniembed.py"
           ],
-          "retrieval_chain_head": "96c961cffbd2d1600f585a0507d1dcd849ad13a2a99f385eee233ad3b6096ead",
-          "top_score": 0.6012328863143921
+          "retrieval_chain_head": "ee329745852db4886866c978e34a06ea7d0fa0965d5a20cb88cae052c0cece1f",
+          "top_score": 0.6050457954406738
         },
         {
-          "abstained": true,
+          "abstained": false,
           "answerable": true,
           "query_id": "eval-002",
           "query_sha256": "9bbd177d5e463960c01824e6e1992e351595f4aeca8f3f800bdd8ed60e928e32",
@@ -569,8 +569,8 @@
             "README.md",
             "torch-ext/szl_kernels/miniembed.py"
           ],
-          "retrieval_chain_head": "0ffaa897e8636fa1a6b5dc1766f1ced5b0bae5deae40e371728fa997a7f21dfb",
-          "top_score": 0.432891845703125
+          "retrieval_chain_head": "ab8ad792f2602b961800a0aa9ecaa7e30e0a9f4e9b9cde76d5f53e841d00a095",
+          "top_score": 0.43406909704208374
         },
         {
           "abstained": false,
@@ -579,9 +579,9 @@
           "query_sha256": "da049dfde00af55b2b6cffe8ea5741e1dad694bdfc0093011f083f497eb89af3",
           "ranked_source_paths": [
             "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_ops.py",
             "torch-ext/szl_kernels/_chain.py",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
-            "torch-ext/szl_kernels/_ops.py",
             "corpus/kernels/README.md",
             "README.md",
             "torch-ext/szl_kernels/miniembed.py",
@@ -591,19 +591,19 @@
             "corpus/doctrine-v10-v11/README.md"
           ],
           "ranking_metrics_before_abstention": {
-            "MAP": 0.41666666666666663,
-            "MRR": 0.5,
+            "MAP": 0.3333333333333333,
+            "MRR": 0.3333333333333333,
             "P@5": 0.2,
-            "R_precision": 0.5,
-            "ndcg@5": 0.38685280723454163,
+            "R_precision": 0.0,
+            "ndcg@5": 0.3065735963827292,
             "recall@5": 0.5
           },
           "relevant_paths": [
             "README.md",
             "torch-ext/szl_kernels/_chain.py"
           ],
-          "retrieval_chain_head": "4070be3e63817c083fec2228c86cc78316a60ae1c185aa184f5dad88f11fe0df",
-          "top_score": 0.7882965803146362
+          "retrieval_chain_head": "cfaeece13124453267ff9f28942e96f064e0a8bfc7fc6c45b1a5e0a19c45813f",
+          "top_score": 0.7577965259552002
         },
         {
           "abstained": false,
@@ -636,8 +636,8 @@
             "torch-ext/szl_kernels/_chain.py",
             "torch-ext/szl_kernels/_ops.py"
           ],
-          "retrieval_chain_head": "24b19081765e1eb124a59ff9308bffadab99687643a0fe44d7157bb01e009a34",
-          "top_score": 0.7842916250228882
+          "retrieval_chain_head": "bb185dcfe2e2a2acf4a9c9a7b16dec28ac942d79cb62ef95dc5dc245b4cd7735",
+          "top_score": 0.7754099369049072
         },
         {
           "abstained": false,
@@ -647,8 +647,8 @@
           "ranked_source_paths": [
             "torch-ext/szl_kernels/_ops.py",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
-            "torch-ext/szl_kernels/_chain.py",
             "README.md",
+            "torch-ext/szl_kernels/_chain.py",
             "torch-ext/szl_kernels/miniembed.py",
             "frontier/offline_retrieval/thread_lineage.md",
             "corpus/kernels/README.md",
@@ -669,8 +669,8 @@
             "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
             "frontier/offline_retrieval/thread_lineage.md"
           ],
-          "retrieval_chain_head": "728f078835781232dd46558d7a0ccd158e0d1bb8c172030e29f92c38e109cb46",
-          "top_score": 0.7239105701446533
+          "retrieval_chain_head": "d76a935ea1c44eacf62d43cff5b5b1de691d6e43ff74047e3aa7dc6e6dd8d603",
+          "top_score": 0.7792503833770752
         },
         {
           "abstained": false,
@@ -702,8 +702,8 @@
             "frontier/offline_retrieval/README.md",
             "frontier/offline_retrieval/thread_lineage.md"
           ],
-          "retrieval_chain_head": "fd484d4b672fbe41616a682761d984762195acd29b36ef10af67494e9794a56a",
-          "top_score": 0.8449783325195312
+          "retrieval_chain_head": "8a0a5caa71a3af6e351decb7e3b9a4c90280a6af2add7839255ece0fa8d460ed",
+          "top_score": 0.8292557001113892
         },
         {
           "abstained": false,
@@ -716,8 +716,8 @@
             "frontier/offline_retrieval/thread_lineage.md",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
             "README.md",
-            "torch-ext/szl_kernels/_ops.py",
             "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_ops.py",
             "torch-ext/szl_kernels/_chain.py",
             "torch-ext/szl_kernels/miniembed.py",
             "corpus/doctrine-v10-v11/README.md",
@@ -735,11 +735,11 @@
             "frontier/offline_retrieval/README.md",
             "torch-ext/szl_kernels/retrieval.py"
           ],
-          "retrieval_chain_head": "3eb1627c8d737c73b06fcbc6e6021112e472661b869540cc23828b66b26132e6",
-          "top_score": 0.7251112461090088
+          "retrieval_chain_head": "214e98f9cdf054e9bbd6a9b9520d60addb0fdf0bd55bfb47fe6e5417a139a63b",
+          "top_score": 0.7015607357025146
         },
         {
-          "abstained": true,
+          "abstained": false,
           "answerable": true,
           "query_id": "eval-008",
           "query_sha256": "e2f7e1bf11635d3344adc7c950309e597710188c06a1a65917f32a37a0a824e3",
@@ -768,8 +768,8 @@
             "frontier/offline_retrieval/README.md",
             "frontier/offline_retrieval/thread_lineage.md"
           ],
-          "retrieval_chain_head": "13469ad076ac768e36d88d03813dabc610392a94590fa2bca8e0f78d41d2877d",
-          "top_score": 0.6419636607170105
+          "retrieval_chain_head": "492aa7b3944412703d68e585df7767c7c57cd214d9d229b93f48be7ec0cd49b1",
+          "top_score": 0.6219409704208374
         },
         {
           "abstained": true,
@@ -785,17 +785,17 @@
             "torch-ext/szl_kernels/_chain.py",
             "frontier/offline_retrieval/README.md",
             "torch-ext/szl_kernels/_ops.py",
-            "frontier/offline_retrieval/thread_lineage.md",
             "torch-ext/szl_kernels/miniembed.py",
+            "frontier/offline_retrieval/thread_lineage.md",
             "torch-ext/szl_kernels/retrieval.py"
           ],
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
-          "retrieval_chain_head": "7857d2868e0b367af2ecc810a77bdefb8966897843751a5a4e9becf4400177af",
-          "top_score": 0.4140714108943939
+          "retrieval_chain_head": "fe4468b21b35cf9dd562f039b821a847ab3d8164823b26947cd5f2b2e532e134",
+          "top_score": 0.405474454164505
         },
         {
-          "abstained": true,
+          "abstained": false,
           "answerable": false,
           "query_id": "eval-010",
           "query_sha256": "2098d3ef63fd231e67b9c961120d52ebc5771abd12f00a7344edad0f5b07803d",
@@ -803,22 +803,22 @@
             "corpus/doctrine-v10-v11/README.md",
             "torch-ext/szl_kernels/_chain.py",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
-            "README.md",
-            "frontier/offline_retrieval/thread_lineage.md",
-            "corpus/kernels/README.md",
-            "frontier/offline_retrieval/README.md",
-            "torch-ext/szl_kernels/_ops.py",
             "torch-ext/szl_kernels/miniembed.py",
-            "torch-ext/szl_kernels/retrieval.py",
-            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md"
+            "README.md",
+            "frontier/offline_retrieval/README.md",
+            "corpus/kernels/README.md",
+            "frontier/offline_retrieval/thread_lineage.md",
+            "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
+            "torch-ext/szl_kernels/_ops.py",
+            "torch-ext/szl_kernels/retrieval.py"
           ],
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
-          "retrieval_chain_head": "bb12a04b92f08f4999db8495e122826cc26fd56eed022686888fb9efea314783",
-          "top_score": 0.5844343304634094
+          "retrieval_chain_head": "c4d9bbc7ce241d737902d5b9e4be4c130c065026c2a6120d5ba64bffdec0529e",
+          "top_score": 0.57657390832901
         },
         {
-          "abstained": true,
+          "abstained": false,
           "answerable": false,
           "query_id": "eval-011",
           "query_sha256": "6773283f8a3e9647502a9f7e8cb713b39d643eafeedf16c37ccf2c4f9f5f721d",
@@ -837,8 +837,8 @@
           ],
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
-          "retrieval_chain_head": "704ffc9877fd67aeaf42f5c44f3b2f67156f4d3ba05c767d6c70ae39a9ffd597",
-          "top_score": 0.4590599536895752
+          "retrieval_chain_head": "028037b907cd39689722a011303a16e7126f51948230236feaa959731d303d24",
+          "top_score": 0.45710355043411255
         },
         {
           "abstained": true,
@@ -860,16 +860,16 @@
           ],
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
-          "retrieval_chain_head": "0ee166d48189f298dae409ea54c3ecca20648d0f741856e8276799286a4c6c5a",
-          "top_score": 0.3779333531856537
+          "retrieval_chain_head": "1232b5753ce189d98bc4fe92661bd2064a840bac845bcefc01627bbd8008b10b",
+          "top_score": 0.36903446912765503
         }
       ],
       "ranking_before_abstention": {
-        "MAP": 0.7798611111111111,
-        "MRR": 0.7708333333333333,
+        "MAP": 0.7694444444444445,
+        "MRR": 0.75,
         "P@5": 0.35,
-        "R_precision": 0.7708375000000001,
-        "ndcg@5": 0.7649601784640416,
+        "R_precision": 0.7083375000000001,
+        "ndcg@5": 0.754925277107565,
         "recall@5": 0.8125
       }
     },
@@ -890,38 +890,38 @@
         "calibration_scores": [
           {
             "answerable": true,
-            "top_score": 0.11848391592502594
+            "top_score": 0.1172950491309166
           },
           {
             "answerable": true,
-            "top_score": 0.15159496665000916
+            "top_score": 0.1524806022644043
           },
           {
             "answerable": true,
-            "top_score": 0.12717507779598236
+            "top_score": 0.1266455352306366
           },
           {
             "answerable": true,
-            "top_score": 0.12133283168077469
+            "top_score": 0.12131663411855698
           },
           {
             "answerable": false,
-            "top_score": 0.08278025686740875
+            "top_score": 0.08007219433784485
           },
           {
             "answerable": false,
-            "top_score": 0.06179860606789589
+            "top_score": 0.061814647167921066
           },
           {
             "answerable": false,
-            "top_score": 0.05693778768181801
+            "top_score": 0.05651886761188507
           },
           {
             "answerable": false,
-            "top_score": 0.09527590870857239
+            "top_score": 0.09516241401433945
           }
         ],
-        "threshold": 0.11848391592502594,
+        "threshold": 0.1172950491309166,
         "unanswerable_specificity": 1.0
       },
       "per_query": [
@@ -936,8 +936,8 @@
             "corpus/doctrine-v10-v11/README.md",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
             "frontier/offline_retrieval/README.md",
-            "torch-ext/szl_kernels/_ops.py",
             "torch-ext/szl_kernels/_chain.py",
+            "torch-ext/szl_kernels/_ops.py",
             "frontier/offline_retrieval/thread_lineage.md",
             "corpus/kernels/README.md",
             "torch-ext/szl_kernels/retrieval.py",
@@ -955,8 +955,8 @@
             "README.md",
             "torch-ext/szl_kernels/miniembed.py"
           ],
-          "retrieval_chain_head": "1b3bacbb2e1755d76715a102d99c53bfe269bebc545b9d6eb59e1f348bfa1106",
-          "top_score": 0.11656371504068375
+          "retrieval_chain_head": "10af2c4eef1a1f53108a82eb2fd4350f9bf29f5dade198c2d89a6238c5b2129e",
+          "top_score": 0.11658337712287903
         },
         {
           "abstained": true,
@@ -988,8 +988,8 @@
             "README.md",
             "torch-ext/szl_kernels/miniembed.py"
           ],
-          "retrieval_chain_head": "58187f4ccb4eb40cf828780b36ca79ee170298ee4b52a51dce65dd4f0b15156e",
-          "top_score": 0.0979461669921875
+          "retrieval_chain_head": "31ae3b3dff48e0bd6ddac4b99245655d8c0505a2b7e9e543fcd6832310f95404",
+          "top_score": 0.09801021218299866
         },
         {
           "abstained": false,
@@ -998,9 +998,9 @@
           "query_sha256": "da049dfde00af55b2b6cffe8ea5741e1dad694bdfc0093011f083f497eb89af3",
           "ranked_source_paths": [
             "frontier/offline_retrieval/README.md",
+            "torch-ext/szl_kernels/_ops.py",
             "torch-ext/szl_kernels/_chain.py",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
-            "torch-ext/szl_kernels/_ops.py",
             "corpus/kernels/README.md",
             "README.md",
             "torch-ext/szl_kernels/miniembed.py",
@@ -1010,19 +1010,19 @@
             "corpus/doctrine-v10-v11/README.md"
           ],
           "ranking_metrics_before_abstention": {
-            "MAP": 0.41666666666666663,
-            "MRR": 0.5,
+            "MAP": 0.3333333333333333,
+            "MRR": 0.3333333333333333,
             "P@5": 0.2,
-            "R_precision": 0.5,
-            "ndcg@5": 0.38685280723454163,
+            "R_precision": 0.0,
+            "ndcg@5": 0.3065735963827292,
             "recall@5": 0.5
           },
           "relevant_paths": [
             "README.md",
             "torch-ext/szl_kernels/_chain.py"
           ],
-          "retrieval_chain_head": "79002ee783537abb7e1aeb8c77c98d6d4e9a9e0b446068c2931c46cc64d028f0",
-          "top_score": 0.1688530296087265
+          "retrieval_chain_head": "82c4b9b44007243e1410c90f0ee3a0ea84de71322e6255da93b2939944a70c9a",
+          "top_score": 0.16946634650230408
         },
         {
           "abstained": false,
@@ -1055,8 +1055,8 @@
             "torch-ext/szl_kernels/_chain.py",
             "torch-ext/szl_kernels/_ops.py"
           ],
-          "retrieval_chain_head": "58f34f91a71463b33c688a6bb091f3d094ff443218f82110f11e1a2df080f67d",
-          "top_score": 0.1830615997314453
+          "retrieval_chain_head": "3013d3dcc8e818e127823964b5b878e7cb897a79ff7dd824697fc13e74499b89",
+          "top_score": 0.1835305392742157
         },
         {
           "abstained": false,
@@ -1066,8 +1066,8 @@
           "ranked_source_paths": [
             "torch-ext/szl_kernels/_ops.py",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
-            "torch-ext/szl_kernels/_chain.py",
             "README.md",
+            "torch-ext/szl_kernels/_chain.py",
             "torch-ext/szl_kernels/miniembed.py",
             "frontier/offline_retrieval/thread_lineage.md",
             "corpus/kernels/README.md",
@@ -1088,8 +1088,8 @@
             "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
             "frontier/offline_retrieval/thread_lineage.md"
           ],
-          "retrieval_chain_head": "fd6f04393eb7f134b1ed41c618d9ae69a2a6b1f4c17b242ea80fc79f4a669151",
-          "top_score": 0.1414615511894226
+          "retrieval_chain_head": "49a5825eae794e18146e3e26829247321392adf86e06a57e6beda6f44bd16fad",
+          "top_score": 0.15806078910827637
         },
         {
           "abstained": false,
@@ -1121,8 +1121,8 @@
             "frontier/offline_retrieval/README.md",
             "frontier/offline_retrieval/thread_lineage.md"
           ],
-          "retrieval_chain_head": "770abc112ea60d90d02deccd59290aeb6b0f05823efe6a1b3b03a650e0f2bf75",
-          "top_score": 0.17423692345619202
+          "retrieval_chain_head": "8d4154cfaa92f4b4bc348a403df7718cf9d607a7d6383bb33b079efc999a0958",
+          "top_score": 0.17424854636192322
         },
         {
           "abstained": false,
@@ -1135,8 +1135,8 @@
             "frontier/offline_retrieval/thread_lineage.md",
             "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
             "README.md",
-            "torch-ext/szl_kernels/_ops.py",
             "corpus/kernels/README.md",
+            "torch-ext/szl_kernels/_ops.py",
             "torch-ext/szl_kernels/_chain.py",
             "torch-ext/szl_kernels/miniembed.py",
             "corpus/doctrine-v10-v11/README.md",
@@ -1154,8 +1154,8 @@
             "frontier/offline_retrieval/README.md",
             "torch-ext/szl_kernels/retrieval.py"
           ],
-          "retrieval_chain_head": "eedf1ed9ad5ffe724c6386960173876ebb426176001d58a44b05edd847f5de8a",
-          "top_score": 0.13188296556472778
+          "retrieval_chain_head": "c016842822bf718970b6f44197a15bc2bce72061d20665c296a2bc115593de1b",
+          "top_score": 0.13188214600086212
         },
         {
           "abstained": false,
@@ -1187,8 +1187,8 @@
             "frontier/offline_retrieval/README.md",
             "frontier/offline_retrieval/thread_lineage.md"
           ],
-          "retrieval_chain_head": "26d3a6f0065208e89f86dbcfe80947dc3f18af8283ed31b242566be3f0efc2c1",
-          "top_score": 0.12320425361394882
+          "retrieval_chain_head": "074b454da96d881d250a8e26891123e475b3a3c5ad408ace29bfc89aef17a2c7",
+          "top_score": 0.12323623895645142
         },
         {
           "abstained": true,
@@ -1204,14 +1204,14 @@
             "torch-ext/szl_kernels/_chain.py",
             "frontier/offline_retrieval/README.md",
             "torch-ext/szl_kernels/_ops.py",
-            "frontier/offline_retrieval/thread_lineage.md",
             "torch-ext/szl_kernels/miniembed.py",
+            "frontier/offline_retrieval/thread_lineage.md",
             "torch-ext/szl_kernels/retrieval.py"
           ],
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
-          "retrieval_chain_head": "35bbfca363c64c10f7d928f3b187d65b2bfb32096e1b055a3e6364e2dadfae89",
-          "top_score": 0.09209031611680984
+          "retrieval_chain_head": "6cac6fe68444bfb8d4a1ec3e49cbd3dd21ed5cf52ae07299d43126fc1bdb9f94",
+          "top_score": 0.09164724498987198
         },
         {
           "abstained": true,
@@ -1233,7 +1233,7 @@
           ],
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
-          "retrieval_chain_head": "eecda168c7cf260f360f0c72aad1c937a22f9264123f00e57276fbc3e3a22bfc",
+          "retrieval_chain_head": "a0b549b954446f16f74054b60f3587366a2a4e7ed69d4f998a9c9c038a1e82f2",
           "top_score": 0.07048586010932922
         },
         {
@@ -1256,8 +1256,8 @@
           ],
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
-          "retrieval_chain_head": "550986720168830406ace1e4be3d8f2d92fb40fcadf448aff7f8288ddb078341",
-          "top_score": 0.07177837193012238
+          "retrieval_chain_head": "0ea7cfac2bf295b41399e51e65b47b51cb06bdc1d1b8757ce74e4c8ac3e3c43a",
+          "top_score": 0.07179451733827591
         },
         {
           "abstained": true,
@@ -1279,16 +1279,16 @@
           ],
           "ranking_metrics_before_abstention": null,
           "relevant_paths": [],
-          "retrieval_chain_head": "d0b752a320865918121b2c598e6968089311910caf4bd94a62a69462119c6df3",
-          "top_score": 0.09734117984771729
+          "retrieval_chain_head": "12915378af989ff2146e30b9e1fb2506f77d8dbe141e1f96cf8676cc5241a450",
+          "top_score": 0.09521979093551636
         }
       ],
       "ranking_before_abstention": {
-        "MAP": 0.7798611111111111,
-        "MRR": 0.7708333333333333,
+        "MAP": 0.7694444444444445,
+        "MRR": 0.75,
         "P@5": 0.35,
-        "R_precision": 0.7708375000000001,
-        "ndcg@5": 0.7649601784640416,
+        "R_precision": 0.7083375000000001,
+        "ndcg@5": 0.754925277107565,
         "recall@5": 0.8125
       }
     }
@@ -1297,7 +1297,7 @@
   "query_splits_disjoint_by_id_and_normalized_text": true,
   "ranking_scope": "answerable_queries_before_abstention",
   "ranking_unit": "unique_source_path_first_chunk_hit",
-  "report_content_sha256": "2d62b2f7a1cff524405483f2cd6d7b80018ab7aab025f392e012ca80e0e3e418",
+  "report_content_sha256": "2cb4890cfcc3162fb3919a3d515f4aebbe08c2123706e250d5c3e38ec244944f",
   "schema_version": "szl.offline-retrieval-evaluation/v1",
   "signature_status": "UNSIGNED_HONEST",
   "status": "HOLD_EXTERNAL_EVALUATION_REQUIRED",

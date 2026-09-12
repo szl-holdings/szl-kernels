@@ -127,7 +127,7 @@ def selfcheck() -> Dict[str, Any]:
         output = governed_rms_norm(chain, x, weight=weight, eps=1e-6)
         reference = (x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + 1e-6)) * weight
         checks["norm_correct"] = bool(torch.allclose(output, reference, rtol=1e-5, atol=1e-5))
-        gate = governed_lambda_gate(chain, torch.tensor([0.9, 0.8, 0.95], device="cpu"), threshold=0.5)
+        gate = governed_lambda_gate(chain, torch.tensor([0.9, 0.8, 0.95], dtype=torch.float32, device="cpu"), threshold=0.5)
         checks["lambda_advisory"] = gate["advisory"] is True
         energy = governed_measure_energy(chain)
         checks["energy_honest"] = energy["joules"] is None and energy["label"] == "UNAVAILABLE_NO_NVML"
@@ -142,7 +142,7 @@ def selfcheck() -> Dict[str, Any]:
         tampered_ok, _, first_break = UnifiedReceiptChain.verify_json(json.dumps(records))
         tamper_detected = not tampered_ok and first_break == 0
         checks["tamper_detected"] = tamper_detected
-        block = GovernedBlock().forward(x, weight=weight, gov_axes=torch.tensor([0.95, 0.9, 0.92], device="cpu"))
+        block = GovernedBlock().forward(x, weight=weight, gov_axes=torch.tensor([0.95, 0.9, 0.92], dtype=torch.float32, device="cpu"))
         checks["block_forward"] = bool(
             block["chain_ok"] and block["chain_depth"] == 4
             and block["kernels_touched"] == ["governed_norm", "lambda_gate", "energy_core", "governed_block"]

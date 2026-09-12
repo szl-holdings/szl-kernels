@@ -114,9 +114,13 @@ def test_hub_import_closure_is_complete_stdlib_and_torch_only():
 def test_hub_selfcheck_is_independent_of_caller_default_dtype(staged_kernel):
     previous = torch.get_default_dtype()
     try:
+        torch.set_default_dtype(torch.float32)
+        expected = staged_kernel.selfcheck()
+        assert expected["ok"], expected
         torch.set_default_dtype(torch.float64)
         report = staged_kernel.selfcheck()
         assert report["ok"], report
+        assert report == expected
         assert torch.get_default_dtype() == torch.float64
     finally:
         torch.set_default_dtype(previous)

@@ -179,11 +179,41 @@ class JsonTests(unittest.TestCase):
 
     def test_missing_or_extra_record_fields_rejected(self):
         rows = json.loads(example().to_json())
-        for key in rows[0]:
+        for key in set(rows[0]) - {'ts'}:
             sample = copy.deepcopy(rows); del sample[0][key]
             self.assertFalse(Chain.verify_json(json.dumps(sample))[0])
         rows[0]['approved'] = True
         self.assertFalse(Chain.verify_json(json.dumps(rows))[0])
+
+    def test_timestamp_free_application_exports_remain_verifiable(self):
+        # OfflineNavigator intentionally omits the unhashed timestamp. Keep the
+        # existing six-field projection valid, including anchored verification.
+        c = example(); rows = json.loads(c.to_json())
+        for row in rows:
+            row.pop('ts')
+        blob = json.dumps(rows)
+        self.assertEqual(Chain.verify_json(blob), (True, 3, -1))
+        self.assertEqual(Chain.verify_json(blob, **anchors(c)), (True, 3, -1))
+
+    def test_timestamp_free_prefix_still_requires_external_checkpoint(self):
+        c = example(); rows = json.loads(c.to_json())
+        for row in rows:
+            row.pop('ts')
+        blob = json.dumps(rows[:1])
+        self.assertEqual(Chain.verify_json(blob), (True, 1, -1))
+        self.assertEqual(Chain.verify_json(blob, **anchors(c)), (False, 1, 1))
+
+    def test_optional_timestamp_never_allows_other_extra_fields(self):
+        rows = json.loads(example().to_json())
+        rows[0].pop('ts')
+        rows[0]['approved'] = True
+        self.assertFalse(Chain.verify_json(json.dumps(rows))[0])
+
+    def test_present_timestamp_must_be_finite_numeric_metadata(self):
+        for value in (None, True, 'yesterday', {}, [], float('nan'), float('inf')):
+            with self.subTest(value=value):
+                rows = json.loads(example().to_json()); rows[0]['ts'] = value
+                self.assertFalse(Chain.verify_json(json.dumps(rows))[0])
 
     def test_nonfinite_values_rejected(self):
         for key in ('attrs', 'ts'):

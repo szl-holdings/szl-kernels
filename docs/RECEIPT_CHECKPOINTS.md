@@ -28,11 +28,13 @@ being made. These Python process controls do not defend against hostile code wit
 access to the process or private `_records`.
 
 `verify()` and `verify_json()` still return `(ok, observed_depth, first_break)`.
-They now check ordinal `seq`, strict record fields, field types, digest syntax and
-finite timestamp metadata. JSON parsing rejects duplicate keys and nonfinite
+They now check ordinal `seq`, strict record fields, field types and digest syntax.
+The existing six-field application projection without `ts` remains supported;
+when `ts` is present it must be finite numeric metadata, not a boolean. JSON parsing rejects duplicate keys and nonfinite
 constants. Malformed exports return a failed tuple; invalid checkpoint arguments
-raise `ValueError`. Extra/missing record fields are rejected instead of silently
-ignored. Applications accepting external JSON must still enforce their own input
+raise `ValueError`. Extra fields and missing required hashed/digest fields are
+rejected instead of silently ignored. No timestamp is invented for a timestamp-free
+application export. Applications accepting external JSON must still enforce their own input
 size and resource limits before this in-memory parser.
 
 `checkpoint()` atomically obtains a valid chain's head and depth. For concurrent

@@ -265,11 +265,14 @@ class UnifiedReceiptChain:
         if not isinstance(records, list):
             return (False, 0, 0)
         depth = len(records)
-        fields = {"seq", "kernel", "op", "attrs", "prev", "digest", "ts"}
+        # OfflineNavigator's existing deterministic projection omits ts.
+        # Only that unhashed metadata is optional; all hashed/digest fields
+        # remain required and unrelated extra fields are rejected.
+        fields = {"seq", "kernel", "op", "attrs", "prev", "digest"}
         prev = GENESIS
         for i, rec in enumerate(records):
             try:
-                if (not isinstance(rec, dict) or set(rec) != fields
+                if (not isinstance(rec, dict) or set(rec) not in (fields, fields | {"ts"})
                         or type(rec["seq"]) is not int or rec["seq"] != i
                         or not isinstance(rec["kernel"], str)
                         or not isinstance(rec["op"], str)
@@ -278,8 +281,8 @@ class UnifiedReceiptChain:
                         or re.fullmatch(r"[0-9a-f]{64}", rec["prev"]) is None
                         or not isinstance(rec["digest"], str)
                         or re.fullmatch(r"[0-9a-f]{64}", rec["digest"]) is None
-                        or type(rec["ts"]) not in (int, float)
-                        or not math.isfinite(rec["ts"])):
+                        or ("ts" in rec and (type(rec["ts"]) not in (int, float)
+                                            or not math.isfinite(rec["ts"])))):
                     return (False, depth, i)
                 body = {key: rec[key] for key in ("seq", "kernel", "op", "attrs", "prev")}
                 actual = UnifiedReceiptChain._digest_body(body)

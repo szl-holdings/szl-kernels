@@ -1,53 +1,33 @@
 # SPDX-License-Identifier: Apache-2.0
 # © 2026 SZL Holdings · Stephen P. Lutar · ORCID 0009-0001-0110-4173
-"""Unified, op-agnostic, SHA3-256 hash-chained provenance for the SZL kernel suite.
+"""SHA3-256 linked receipts shared by SZL kernel operations.
 
-THE FRONTIER GAP THIS CLOSES
-----------------------------
-Every governed SZL kernel today owns its OWN receipt log:
-  * szl_governed_norm  -> ReceiptChain over normalization calls
-  * szl_energy_core    -> CheapestWattLedger over placement decisions
-  * szl_lambda_gate    -> (no chain; advisory self-checks only)
-So a real forward pass that touches norm AND an advisory Λ gate AND the energy
-meter produces THREE disconnected logs. There is no single artifact a third
-party can re-walk to prove "these ops happened, in this order, on these
-tensors, and nothing was inserted or reordered between them". That cross-op
-provenance is the genuine gap the Kernel Hub leaders leave open: they optimize
-FLOPs per op, not auditable provenance ACROSS ops.
+Unanchored verification checks internal consistency, not complete history,
+authorship or execution. An independently retained head/depth checkpoint can
+bind the expected extent and recorded contents. The caller must authenticate
+that checkpoint separately and bind it to the relevant run/source/policy.
 
-``UnifiedReceiptChain`` is that missing artifact: one append-only,
-SHA3-256 hash-chained log whose entries are op-agnostic. A norm call, an
-advisory Λ-gate call, and an energy reading all hash-chain into the SAME chain,
-in call order, so the whole forward pass verifies as one tamper-evident
-sequence.
+Receipts preserve the legacy hashed fields and digest encoding. Timestamps
+remain outside the hashed body; finite timestamps are not authenticated time.
+Tensor fingerprints retain the existing rounded-float32 encoding; equal
+fingerprints are not evidence that the original tensor bytes were equal.
 
-HONESTY (SZL doctrine v11)
---------------------------
-* The digest is a real SHA3-256 over a canonical JSON body. It is an INTEGRITY
-  fingerprint (tamper-evidence + ordering), NOT a cryptographic signature and
-  NOT a proof of authorship. DSSE / sigstore signing is a separate, out-of-band
-  concern and is explicitly NOT claimed here.
-* Tensor fingerprints round to a fixed decimal precision so they reproduce
-  across devices/dtypes for the same logical values. This is the same scheme
-  szl_governed_norm already ships — we reuse it verbatim so a unified-chain
-  tensor digest equals the per-kernel chain's digest for the same tensor.
-* Any Λ entry is recorded as ADVISORY metadata only. A recorded "passed=True"
-  is a non-compensatory advisory signal, NEVER "proven trust" (Λ uniqueness =
-  Conjecture 1, OPEN).
-* Any energy entry carries the kernel's honest label verbatim (MEASURED /
-  SAMPLE / UNAVAILABLE_NO_NVML / ESTIMATE / UNKNOWN). The chain NEVER upgrades
-  an UNAVAILABLE reading to a number — if joules is None it stays None.
-* Stdlib + torch only (Kernel Hub universal-kernel requirement). Nothing is
-  written to disk or the network from inside the chain.
+Public methods return detached snapshots. This prevents ordinary aliasing from
+mutating stored records, but is not protection against a hostile Python process.
+No network, persistent storage, signing, training or publication is performed.
 """
 from __future__ import annotations
 
+import copy
 import hashlib
+import hmac
 import json
+import math
+import re
 import struct
 import threading
 import time
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional, Tuple
 
 try:  # torch is optional at import time so the chain stays inspectable headless
     import torch  # noqa: F401
@@ -107,8 +87,13 @@ class UnifiedReceiptChain:
     (ts is excluded so the digest is reproducible offline).
 
     verify() re-walks the chain and returns (ok, depth, first_break_seq):
-    it recomputes every digest and checks every prev-link, so ANY insertion,
-    deletion, reordering, or mutation of a recorded attribute is detected.
+    it checks every sequence number, digest and prev-link. Without a separately
+    retained checkpoint this establishes only internal consistency: a valid
+    prefix or a fully recomputed history can still pass. Use expected_head and
+    expected_depth from trusted external custody to detect such replacement.
+    Timestamps are finite metadata but remain outside the hashed body. This is
+    not a signature, a proof of execution, or protection from a hostile process.
+    Public read methods return detached snapshots, not references to storage.
     """
 
     def __init__(self) -> None:
@@ -139,13 +124,37 @@ class UnifiedReceiptChain:
                 "seq": seq,
                 "kernel": str(kernel),
                 "op": str(op),
-                "attrs": attrs,
+                # Normalize to a detached JSON value before hashing. Later caller
+                # mutation cannot invalidate stored history or future prev-links.
+                "attrs": self._snapshot_attrs(attrs),
                 "prev": prev,
             }
             digest = self._digest_body(body)
             rec = dict(body, digest=digest, ts=time.time())
             self._records.append(rec)
-            return rec
+            return copy.deepcopy(rec)
+
+    @staticmethod
+    def _snapshot_attrs(attrs: Dict[str, Any]) -> Dict[str, Any]:
+        if not isinstance(attrs, dict):
+            raise TypeError("receipt attrs must be a JSON object")
+        return json.loads(json.dumps(attrs, sort_keys=True, allow_nan=False))
+
+    def checkpoint(self) -> Dict[str, Any]:
+        """Atomically capture depth/head; preserve it OUTSIDE this chain.
+
+        This unsigned dictionary has no authentication by itself. The caller
+        must bind it to a separately trusted signed receipt or retained record.
+        Two separate calls to count() and head() are not an atomic checkpoint.
+        """
+        with self._lock:
+            if not self._verify_records(self._records)[0]:
+                raise ValueError("cannot checkpoint an inconsistent chain")
+            return {
+                "schema": "szl.receipt-checkpoint/v1",
+                "depth": len(self._records),
+                "head": self._records[-1]["digest"] if self._records else GENESIS,
+            }
 
     # -- convenience emitters that enforce the honesty schema per kernel ----
     def emit_norm(self, op: str, x: "Any", out: "Any", eps: float) -> Dict[str, Any]:
@@ -215,14 +224,16 @@ class UnifiedReceiptChain:
             return len(self._records)
 
     def tail(self, n: int = 10) -> List[Dict[str, Any]]:
+        if type(n) is not int or n < 0:
+            raise ValueError("tail length must be a nonnegative integer")
         with self._lock:
-            return list(self._records[-n:])
+            return copy.deepcopy(self._records[-n:]) if n else []
 
     def kernels_touched(self) -> List[str]:
         """Distinct kernels that appear in the chain, in first-seen order.
 
-        The cross-kernel provenance summary: proof that a single auditable chain
-        actually spanned multiple suite members in one run.
+        This summarizes the recorded kernel labels; it does not prove that
+        any named implementation actually executed.
         """
         with self._lock:
             seen: List[str] = []
@@ -231,39 +242,131 @@ class UnifiedReceiptChain:
                     seen.append(r["kernel"])
             return seen
 
-    def verify(self):
-        """Re-walk the chain. Returns (ok: bool, depth: int, first_break: int).
-
-        Recomputes every digest from {seq,kernel,op,attrs,prev} and checks each
-        prev-link. Detects insertion, deletion, reorder, or any attribute
-        mutation. first_break is the seq of the first bad record, or -1 if clean.
-        """
-        with self._lock:
-            prev = GENESIS
-            for i, rec in enumerate(self._records):
-                body = {k: rec[k] for k in ("seq", "kernel", "op", "attrs", "prev")}
-                if rec["prev"] != prev or rec["digest"] != self._digest_body(body):
-                    return (False, len(self._records), i)
-                prev = rec["digest"]
-            return (True, len(self._records), -1)
-
-    def to_json(self) -> str:
-        """Export the full chain as canonical JSON for OFFLINE re-verification.
-
-        A third party can load this, recompute each digest, and confirm the
-        chain independently — no trust in the emitting process required.
-        """
-        with self._lock:
-            return json.dumps(self._records, sort_keys=True, separators=(",", ":"))
+    @staticmethod
+    def _validate_checkpoint(expected_head: Optional[str], expected_depth: Optional[int]) -> None:
+        if expected_head is None and expected_depth is None:
+            return
+        if (not isinstance(expected_head, str)
+                or re.fullmatch(r"[0-9a-f]{64}", expected_head) is None
+                or type(expected_depth) is not int or expected_depth < 0):
+            raise ValueError("checkpoint requires a full lowercase head and nonnegative depth")
+        if (expected_depth == 0) != (expected_head == GENESIS):
+            raise ValueError("genesis checkpoint must have exactly zero depth")
 
     @staticmethod
-    def verify_json(blob: str):
-        """Verify an exported chain offline. Returns (ok, depth, first_break)."""
-        records = json.loads(blob)
+    def _verify_records(
+        records: Any,
+        *,
+        expected_head: Optional[str] = None,
+        expected_depth: Optional[int] = None,
+    ) -> Tuple[bool, int, int]:
+        # Checkpoint argument errors are programmer errors, not corrupt history.
+        UnifiedReceiptChain._validate_checkpoint(expected_head, expected_depth)
+        if not isinstance(records, list):
+            return (False, 0, 0)
+        depth = len(records)
+        # OfflineNavigator's existing deterministic projection omits ts.
+        # Only that unhashed metadata is optional; all hashed/digest fields
+        # remain required and unrelated extra fields are rejected.
+        fields = {"seq", "kernel", "op", "attrs", "prev", "digest"}
         prev = GENESIS
         for i, rec in enumerate(records):
-            body = {k: rec[k] for k in ("seq", "kernel", "op", "attrs", "prev")}
-            if rec["prev"] != prev or rec["digest"] != UnifiedReceiptChain._digest_body(body):
-                return (False, len(records), i)
-            prev = rec["digest"]
-        return (True, len(records), -1)
+            try:
+                if (not isinstance(rec, dict) or set(rec) not in (fields, fields | {"ts"})
+                        or type(rec["seq"]) is not int or rec["seq"] != i
+                        or not isinstance(rec["kernel"], str)
+                        or not isinstance(rec["op"], str)
+                        or not isinstance(rec["attrs"], dict)
+                        or not isinstance(rec["prev"], str)
+                        or re.fullmatch(r"[0-9a-f]{64}", rec["prev"]) is None
+                        or not isinstance(rec["digest"], str)
+                        or re.fullmatch(r"[0-9a-f]{64}", rec["digest"]) is None
+                        or ("ts" in rec and (type(rec["ts"]) not in (int, float)
+                                            or not math.isfinite(rec["ts"])))):
+                    return (False, depth, i)
+                body = {key: rec[key] for key in ("seq", "kernel", "op", "attrs", "prev")}
+                actual = UnifiedReceiptChain._digest_body(body)
+                if rec["prev"] != prev or not hmac.compare_digest(rec["digest"], actual):
+                    return (False, depth, i)
+                prev = rec["digest"]
+            except (ValueError, TypeError, KeyError, OverflowError, RecursionError):
+                return (False, depth, i)
+        if expected_head is not None:
+            if depth != expected_depth or not hmac.compare_digest(prev, expected_head):
+                # The observed chain is internally consistent but not the
+                # expected extent/history. Report the boundary, not a fake row.
+                return (False, depth, min(depth, expected_depth))
+        return (True, depth, -1)
+
+    def verify(
+        self,
+        *,
+        expected_head: Optional[str] = None,
+        expected_depth: Optional[int] = None,
+    ) -> Tuple[bool, int, int]:
+        """Verify consistency, optionally against a separately retained checkpoint.
+
+        Returns (ok, observed_depth, first_break). For checkpoint mismatch,
+        first_break is min(observed_depth, expected_depth), an extent boundary.
+        Unanchored success cannot detect valid-prefix truncation or rehashing.
+        """
+        with self._lock:
+            return self._verify_records(
+                self._records, expected_head=expected_head, expected_depth=expected_depth
+            )
+
+    def export_with_checkpoint(self) -> Tuple[str, Dict[str, Any]]:
+        """Capture one export and matching checkpoint under the same lock.
+
+        The checkpoint still needs separate authenticated custody. Keeping
+        it only beside the export cannot prevent replacement of both.
+        """
+        with self._lock:
+            checkpoint = self.checkpoint()
+            return self.to_json(), checkpoint
+
+    def to_json(self) -> str:
+        """Serialize stored records, not evidence of authorship or execution.
+
+        Preserve an independently trusted checkpoint to verify this export's
+        expected head and length. A checkpoint bundled only with the export
+        cannot protect against coordinated replacement of both.
+        """
+        with self._lock:
+            return json.dumps(self._records, sort_keys=True, separators=(",", ":"), allow_nan=False)
+
+    @staticmethod
+    def verify_json(
+        blob: str,
+        *,
+        expected_head: Optional[str] = None,
+        expected_depth: Optional[int] = None,
+    ) -> Tuple[bool, int, int]:
+        """Verify strict JSON, then consistency and an optional external checkpoint.
+
+        Duplicate object keys, nonfinite numbers, malformed records and wrong
+        sequence ordinals are rejected. Invalid JSON returns (False, 0, 0).
+        No signature, origin, timestamp authenticity or execution claim follows.
+        """
+        UnifiedReceiptChain._validate_checkpoint(expected_head, expected_depth)
+
+        def unique_object(pairs):
+            result = {}
+            for key, value in pairs:
+                if key in result:
+                    raise ValueError("duplicate JSON key")
+                result[key] = value
+            return result
+
+        def reject_constant(value):
+            raise ValueError("nonfinite JSON constant")
+
+        if not isinstance(blob, str):
+            return (False, 0, 0)
+        try:
+            records = json.loads(blob, object_pairs_hook=unique_object, parse_constant=reject_constant)
+        except (ValueError, TypeError, OverflowError, RecursionError):
+            return (False, 0, 0)
+        return UnifiedReceiptChain._verify_records(
+            records, expected_head=expected_head, expected_depth=expected_depth
+        )

@@ -22,6 +22,8 @@ jobs:
     name: CodeQL (${{ matrix.language }})
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      EXPECTED_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     strategy:
       fail-fast: false
       matrix:
@@ -32,11 +34,18 @@ jobs:
         with:
           egress-policy: audit
 
-      - name: Checkout
+      - name: Checkout exact event source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 1
           persist-credentials: false
+          ref: ${{ env.EXPECTED_SOURCE_SHA }}
+
+      - name: Prove exact event source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${EXPECTED_SOURCE_SHA}"
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9

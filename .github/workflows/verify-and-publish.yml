@@ -53,6 +53,7 @@ jobs:
           tests/test_retrieval_kernel.py
           tests/test_kernel_hub_contract.py
           tests/test_no_unsafe_serialization.py
+          tests/test_checked_norm_contract.py
 
   offline-retrieval:
     name: Offline source navigator (CPU, no promotion)

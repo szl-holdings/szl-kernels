@@ -25,6 +25,13 @@ def test_historical_gpu_evidence_is_bound_to_exact_candidate_source():
     assert len(report["benchmarks"]) == 3
 
 
+def test_receipted_source_has_checkout_stable_line_endings():
+    # Windows autocrlf must not change the bytes bound into the GPU receipt.
+    attributes = (ROOT / ".gitattributes").read_text(encoding="utf-8").splitlines()
+    assert "/frontier/checked_norm/*.py text eol=lf" in attributes
+    assert b"\r" not in (HERE / "checked_rms_norm.py").read_bytes()
+
+
 def test_checked_norm_cuda_contract():
     torch = pytest.importorskip("torch")
     if not torch.cuda.is_available() or importlib.util.find_spec("triton") is None:

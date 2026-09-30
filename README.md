@@ -15,7 +15,7 @@ license: apache-2.0
 szl-governance:
   verdict: ADVISORY
   lambda: "Conjecture 1 (open) — uniqueness unproven; advisory only"
-  energy: MEASURED-only (real NVML delta; None when unavailable)
+  energy: "Caller-supplied readings; None when not supplied; MEASURED claims require reviewed meter evidence"
   provenance: UnifiedReceiptChain (SHA3-256, op-agnostic, cross-kernel)
   honest_blocked: "a failed check stays failed — never faked green"
 ---
@@ -90,9 +90,25 @@ and `MODEL_PROVENANCE.json`. Run `suite.selfcheck()` for the software path and
 `python scripts/eval.py` for the MiniEmbed replay. Treat returned results as
 observations from that run; do not infer a green status from this card.
 
-> **Kernel Hub migration (verified 2026-08-01):** `get_kernel(...)` now resolves
+## Dated published observations
+
+The [model-mirror card at `f67a26a8141b1436ee2d1de64fb202c493981a2d`](https://huggingface.co/SZLHOLDINGS/szl-kernels/blob/f67a26a8141b1436ee2d1de64fb202c493981a2d/README.md)
+retains the following observations. They describe their named dates, hosts and
+provider revision; they do not qualify the current source or a new publication.
+
+| Observation reported by that card | Exact scope | Limit |
+|---|---|---|
+| Kernel import, 2026-08-28 at 1:57 p.m. ET | Client `kernels==0.16.1`; first-class kernel commit `8f714f4ffdeddcd852b233ec95d475656a56fc16`; default universal and CPU loader paths; eight `selfcheck()` checks reported successful | Historical card assertion; the import host is unspecified. This review did not rerun it or establish a cryptographic run binding. No current runtime qualification, tokens/s or measured joules follow. |
+| GPU availability, 2026-08-28 at 7:01 p.m. ET | Reported host `cursor`, Linux `6.12.94+`, x86_64 Intel Xeon 8-core; Torch `2.13.0+cu130` compiled for CUDA 13.0; `torch.cuda.is_available()=false`, device count 0, `nvidia-smi` unavailable; Triton `3.7.1` present | CUDA/GPU execution and NVML measurement were unavailable in that reported session. This does not establish the state of another host or a later revision. |
+
+Current runtime readiness, downstream quality and physical energy are **UNKNOWN**
+for this documentation correction. No fresh import, inference, NVML reading or
+performance run was performed. The reference suite's default unavailable receipt
+is preserved; it is not evidence of a hardware probe.
+
+> **Kernel Hub migration (historical 2026-08-01 observation):** `get_kernel(...)` was reported to resolve
 > the matching first-class [Kernel Hub repository](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels).
-> Its live refs resolve independently: [`main`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/tree/5c71b9d76dc7bd0bc29dfc82b4db803652f7f20f)
+> Its refs were reported independently at that observation: [`main`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/tree/5c71b9d76dc7bd0bc29dfc82b4db803652f7f20f)
 > pins `5c71b9d76dc7bd0bc29dfc82b4db803652f7f20f`, while stable
 > [`v1`](https://huggingface.co/kernels/SZLHOLDINGS/szl-kernels/tree/1a3c1bdcd1656483333b3edf1e3b1991c90200be)
 > pins `1a3c1bdcd1656483333b3edf1e3b1991c90200be`. These are public ref
@@ -149,7 +165,7 @@ chain = suite.UnifiedReceiptChain()
 x = torch.randn(4, 64)
 y    = suite.governed_rms_norm(chain, x, eps=1e-6)                      # governed_norm
 gate = suite.governed_lambda_gate(chain, torch.tensor([0.9,0.8,0.95]))  # lambda_gate (advisory)
-e    = suite.governed_measure_energy(chain)                            # energy_core (MEASURED-only)
+e    = suite.governed_measure_energy(chain)                            # no reading supplied: unavailable
 
 ok, depth, brk = chain.verify()       # the WHOLE pass verifies as ONE chain
 print(ok, depth, chain.kernels_touched())   # True 3 ['governed_norm','lambda_gate','energy_core']
@@ -212,7 +228,7 @@ chain = suite.UnifiedReceiptChain()
 x = torch.randn(4, 64)
 suite.governed_rms_norm(chain, x, eps=1e-6)                        # op 1: governed_norm
 suite.governed_lambda_gate(chain, torch.tensor([0.9, 0.8, 0.95]))  # op 2: lambda_gate (ADVISORY)
-suite.governed_measure_energy(chain)                              # op 3: energy_core (MEASURED-only)
+suite.governed_measure_energy(chain)                              # op 3: unavailable energy receipt
 
 ok, depth, first_break = chain.verify()
 print(ok, depth, chain.kernels_touched())
@@ -220,7 +236,7 @@ print(ok, depth, chain.kernels_touched())
 #   True 3 ['governed_norm', 'lambda_gate', 'energy_core']
 #   -> one hash-chain, three ops, verifies as ONE ordered sequence.
 #   The Λ gate receipt is ADVISORY (Conjecture 1, OPEN): recorded, never proven trust.
-#   energy_core reports joules=None + UNAVAILABLE_NO_NVML on CPU — never a fabricated joule.
+#   With no reading supplied: joules=None + UNAVAILABLE_NO_NVML; no sensor is probed.
 ```
 
 ### 2 — honest-BLOCKED, not fake-green (szl-blocked)
@@ -258,8 +274,9 @@ print(blocked.blocked, blocked.output)
 
 ### 3 - Require a measured energy receipt before a governance attestation (szl-govsign)
 
-The signing API accepts an `EnergyLabel` only for a finite, nonnegative measured
-joule value. The former `12.5` literal was an illustrative value, not a measurement
+The signing API accepts an `EnergyLabel` only with the `MEASURED` label and a
+finite, nonnegative numeric value. Those field checks do not establish that the
+value was physically measured. The former `12.5` literal was an illustrative value, not a measurement
 of this workload, and has been removed. Supply the actual meter receipt for the
 workload being attested; review its sensor, source, and measurement interval.
 
@@ -336,7 +353,7 @@ The standalone SZL kernels keep separate receipt state. A single forward pass th
 | `governed_rms_norm(chain, x, weight=None, eps=1e-6)` | RMSNorm + a receipt into the shared chain. Numerics match `szl-governed-norm`. |
 | `governed_layer_norm(chain, x, ...)` | LayerNorm + receipt. |
 | `governed_lambda_gate(chain, axes, weights=None, threshold=0.5)` | **Advisory** Λ gate; rejects non-finite or out-of-range thresholds before emitting a receipt, then records an advisory result (`advisory=True`, never proven trust). |
-| `governed_measure_energy(chain, measurement=None)` | Records an energy reading **verbatim** — `joules=None` + `UNAVAILABLE_NO_NVML` when no GPU. Never fabricated. |
+| `governed_measure_energy(chain, measurement=None)` | Records supplied energy fields; no reading supplied produces `joules=None` + `UNAVAILABLE_NO_NVML`, regardless of device availability. This reference wrapper does not probe NVML or authenticate a sensor. |
 | `GovernedBlock` | Pre-norm sub-block composing all three + a binding receipt into one auditable pass. |
 | `MiniEmbed` | Load repo-root `vocab.json` + `vectors.npz` and look up / encode in-vocab terms. Table and lookup receipts use `UnifiedReceiptChain`. Distributional word-embedding table — not a transformer LM. |
 | `list_kernels()`, `list_series()`, `get_member()`, `selfcheck()` | Numeric registry + governance-layer series + one-shot CPU health check. |
@@ -344,7 +361,7 @@ The standalone SZL kernels keep separate receipt state. A single forward pass th
 ## Honesty (SZL doctrine)
 
 - **Λ is advisory.** Its uniqueness is **Conjecture 1 — OPEN**. A recorded gate "pass" is a non-compensatory advisory signal, **never proven trust**.
-- **Energy is MEASURED-only.** Real NVML cumulative-energy delta when a GPU is present; otherwise `joules=None`, labeled `UNAVAILABLE_NO_NVML`. **No joule is ever fabricated.**
+- **Energy measurement claims require reviewed meter evidence.** The reference suite records caller-supplied readings; it does not sense NVML energy. With no reading supplied, it records `joules=None` and `UNAVAILABLE_NO_NVML`. A `MEASURED` label requires separately reviewed sensor, source and interval evidence; field checks, a receipt hash or a signature do not prove the physical measurement.
 - **The digest is an integrity fingerprint, not a signature.** SHA3-256 over a canonical receipt body proves tamper-evidence + ordering — not authorship. Signing is a separate, out-of-band layer — see [`szl-govsign`](https://huggingface.co/SZLHOLDINGS/szl-govsign) for DSSE / in-toto attestation.
 - **Honest BLOCKED beats fake green.** A failed verification stays failed — see [`szl-blocked`](https://huggingface.co/SZLHOLDINGS/szl-blocked) for refusal as a first-class, provenanced state.
 - **Universal (pure-Python) suite: a correctness and provenance reference, not a CUDA speed record. No performance result or current test status is asserted by this card.**
@@ -446,7 +463,7 @@ print(emb.selfcheck()["label"])     # MATCHES / LOADED, or UNAVAILABLE_LFS
 
 ---
 
-<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href="https://a-11-oy.com">a-11-oy.com</a> · <a href="https://github.com/szl-holdings">github.com/szl-holdings</a> · <a href="https://huggingface.co/SZLHOLDINGS">huggingface.co/SZLHOLDINGS</a></sub>
+<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy supplied or unavailable; measurement claims require evidence · <a href="https://a-11-oy.com">a-11-oy.com</a> · <a href="https://github.com/szl-holdings">github.com/szl-holdings</a> · <a href="https://huggingface.co/SZLHOLDINGS">huggingface.co/SZLHOLDINGS</a></sub>
 
 ---
 

@@ -93,3 +93,18 @@ def test_largest_finite_uniform_rows(dtype):
 def test_extreme_positive_epsilon_zero_rows(eps):
     x = torch.zeros((2, 3))
     torch.testing.assert_close(_rms_norm(x, None, eps), x)
+
+
+@pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float32, torch.float64])
+@pytest.mark.parametrize("weighted", [False, True])
+def test_empty_feature_axis_preserves_autograd(dtype, weighted):
+    x = torch.empty((2, 0), dtype=dtype, requires_grad=True)
+    weight = torch.empty((0,), dtype=dtype, requires_grad=True) if weighted else None
+    actual = _rms_norm(x, weight, 1e-6)
+    assert actual.shape == x.shape and actual.dtype == dtype
+    actual.sum().backward()
+    assert x.grad is not None and x.grad.shape == x.shape
+    if weighted:
+        assert weight.grad is not None and weight.grad.shape == weight.shape
+    with pytest.raises(ValueError, match="eps must be finite and non-negative"):
+        _rms_norm(x, weight, -1.)

@@ -50,6 +50,13 @@ def _rms_norm(x: torch.Tensor, weight: Optional[torch.Tensor], eps: float) -> to
     )
     dtype = torch.float64 if use_double else torch.float32
     xf = x.to(dtype)
+    # Empty feature axes have an empty result; amax cannot reduce them.
+    # Keep a fresh tensor and the input/weight autograd connections.
+    if xf.shape[-1] == 0:
+        out = xf.clone()
+        if weight is not None:
+            out = out * weight.to(dtype)
+        return out.to(x.dtype)
     # Algebraically cancel a per-row scale before squaring. Detaching it avoids
     # overflow in the backward of x / scale; the exact result and its input
     # derivatives do not depend on which positive scale is chosen.

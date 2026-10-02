@@ -217,3 +217,23 @@ def test_metadata_name_is_legal_dashed_kernel_id() -> None:
     )
     assert meta["name"] == "szl-kernels"
     assert meta["miniembed"]["kind"] == "distributional_word_embedding_table"
+
+
+def test_model_card_does_not_advertise_unsupported_feature_extraction() -> None:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    lines = readme.splitlines()
+    assert lines[0] == "---"
+    front = lines[1 : lines.index("---", 1)]
+    tag_start = front.index("tags:") + 1
+    tags = set()
+    for line in front[tag_start:]:
+        if not line.startswith("- "):
+            break
+        tags.add(line[2:])
+
+    assert {"embedding-table", "not-a-transformers-config"} <= tags
+    assert not tags.intersection(
+        {"feature-extraction", "embeddings", "word-embeddings", "sklearn"}
+    )
+    config = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
+    assert "model_type" not in config and "auto_map" not in config

@@ -7,7 +7,7 @@ numerics — the canonical math lives in szl_governed_norm / szl_lambda_gate /
 szl_energy_core. Here we provide:
 
   * self-contained REFERENCE numerics (rms_norm, layer_norm, Λ aggregate) that
-    are byte-faithful ports of the published kernels, so this reference package
+    preserve the published mathematics, so this reference package
     RUNS standalone with only torch installed (no Hub fetch needed for the
     self-test). In production the suite delegates to the installed kernels via
     get_kernel(); see NEXT_ARTIFACT_SPEC.md "Delegation".
@@ -32,13 +32,44 @@ from ._chain import UnifiedReceiptChain
 # ---------------------------------------------------------------------------
 # Reference numerics — faithful ports of the published kernel math.
 # (rms_norm / layer_norm mirror szl_governed_norm._norm; lambda_aggregate
-#  mirrors szl_lambda_gate._lambda. Kept minimal but numerically identical.)
+#  mirrors szl_lambda_gate._lambda. RMSNorm uses scaled accumulation to avoid
+#  intermediate overflow and preserves float64 input precision.)
 # ---------------------------------------------------------------------------
 def _rms_norm(x: torch.Tensor, weight: Optional[torch.Tensor], eps: float) -> torch.Tensor:
-    xf = x.to(torch.float32)
-    out = xf * torch.rsqrt(xf.pow(2).mean(-1, keepdim=True) + eps)
+    """Stable RMSNorm with non-negative finite epsilon and autograd support."""
+    # Preserve double precision, and retain epsilon even when it lies outside
+    # the float32 range used for low-precision accumulation.
+    epsilon = float(eps)
+    if not math.isfinite(epsilon) or epsilon < 0:
+        raise ValueError("eps must be finite and non-negative")
+    limits = torch.finfo(torch.float32)
+    use_double = (
+        x.dtype == torch.float64
+        or 0 < epsilon < limits.tiny
+        or epsilon > limits.max
+    )
+    dtype = torch.float64 if use_double else torch.float32
+    xf = x.to(dtype)
+    # Empty feature axes have an empty result; amax cannot reduce them.
+    # Keep a fresh tensor and the input/weight autograd connections.
+    if xf.shape[-1] == 0:
+        out = xf.clone()
+        if weight is not None:
+            out = out * weight.to(dtype)
+        return out.to(x.dtype)
+    # Algebraically cancel a per-row scale before squaring. Detaching it avoids
+    # overflow in the backward of x / scale; the exact result and its input
+    # derivatives do not depend on which positive scale is chosen.
+    scale = xf.detach().abs().amax(-1, keepdim=True).clamp_min(
+        math.sqrt(epsilon) if epsilon > 0 else torch.finfo(dtype).tiny
+    )
+    normalized = xf / scale
+    epsilon_scaled = (math.sqrt(epsilon) / scale).square()
+    out = normalized * torch.rsqrt(
+        normalized.square().mean(-1, keepdim=True) + epsilon_scaled
+    )
     if weight is not None:
-        out = out * weight.to(torch.float32)
+        out = out * weight.to(dtype)
     return out.to(x.dtype)
 
 

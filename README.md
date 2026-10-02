@@ -5,10 +5,8 @@ tags:
 - governance
 - provenance
 - suite
-- sklearn
-- embeddings
-- word-embeddings
-- feature-extraction
+- embedding-table
+- not-a-transformers-config
 - doi:10.5281/zenodo.19944926
 library_name: kernels
 license: apache-2.0
@@ -68,6 +66,12 @@ The exact Git source revision is written to `publication.json`.
 This is a governed kernel suite with a receipted word-embedding companion. It is
 not a general-purpose language model, and its intrinsic nearest-neighbor replay
 is not a downstream quality benchmark.
+
+The legacy model-type mirror intentionally has no hosted `feature-extraction`
+task tag. Its `config.json` describes the PPMI/SVD MiniEmbed table, not a
+Transformers configuration; `AutoConfig`/`AutoModel` and the standard inference
+widget cannot load it. Use the documented `MiniEmbed` loader at a reviewed,
+immutable revision instead.
 
 ## Artifact truth card
 

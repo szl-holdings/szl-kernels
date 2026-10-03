@@ -183,13 +183,31 @@ def _summarize(result: Any) -> Any:
         return {"ok": ok, "violated": list(violated) if violated is not None else []}
     if isinstance(result, dict):
         out = {}
-        for key in ("ok", "version", "label", "path", "lambda", "note", "checks"):
+        for key in ("ok", "passed", "version", "label", "path", "lambda", "note", "checks"):
             if key in result:
                 out[key] = result[key]
         if "ok" not in out and "arithmetic_ok" in result:
-            out["ok"] = bool(result["arithmetic_ok"])
+            out["ok"] = result["arithmetic_ok"]
         return out or {"keys": sorted(result.keys())[:12]}
     return type(result).__name__
+
+
+def _probe_status(result: Any) -> str:
+    """A completed call needs an explicit boolean verdict to count as LIVE."""
+    if type(result) is bool:
+        return "LIVE" if result else "FAILED"
+    if isinstance(result, tuple) and len(result) == 2 and type(result[0]) is bool:
+        return "LIVE" if result[0] else "FAILED"
+    if isinstance(result, dict):
+        verdicts = [result[key] for key in ("ok", "passed", "arithmetic_ok") if key in result]
+        if any(value is False for value in verdicts):
+            return "FAILED"
+        checks = result.get("checks")
+        if isinstance(checks, dict) and any(value is False for value in checks.values()):
+            return "FAILED"
+        if verdicts and all(value is True for value in verdicts):
+            return "LIVE"
+    return "UNVERIFIED"
 
 
 def _call_probe(mod: Any, probe: str) -> Any:
@@ -223,23 +241,25 @@ def _probe_in_suite(entry: Dict[str, str]) -> Optional[Dict[str, Any]]:
         governed_rms_norm(chain, x, eps=1e-6)
         ok, depth, brk = chain.verify()
         return {
-            "status": "LIVE",
+            "status": "LIVE" if ok and depth == 1 and brk == -1 else "FAILED",
             "via": "szl_kernels.governed_rms_norm",
             "called": True,
             "chain_ok": bool(ok and depth == 1 and brk == -1),
         }
     if key == "governed_lambda_gate":
         gate = governed_lambda_gate(chain, torch.tensor([0.9, 0.8, 0.95]), threshold=0.5)
+        ok, depth, brk = chain.verify()
         return {
-            "status": "LIVE",
+            "status": "LIVE" if gate.get("advisory") is True and ok and depth == 1 and brk == -1 else "FAILED",
             "via": "szl_kernels.governed_lambda_gate",
             "called": True,
             "advisory": bool(gate.get("advisory") is True),
         }
     if key == "governed_measure_energy":
         energy = governed_measure_energy(chain)
+        ok, depth, brk = chain.verify()
         return {
-            "status": "LIVE",
+            "status": "LIVE" if ok and depth == 1 and brk == -1 else "FAILED",
             "via": "szl_kernels.governed_measure_energy",
             "called": True,
             "joules": energy.get("joules"),
@@ -273,7 +293,7 @@ def probe_member(entry: Dict[str, str]) -> Dict[str, Any]:
         result = _call_probe(mod, entry["probe"])
         rec.update(
             {
-                "status": "LIVE",
+                "status": _probe_status(result),
                 "via": f"{entry['module']}.{entry['probe']}",
                 "called": True,
                 "probe_result": _summarize(result),
@@ -292,13 +312,22 @@ def probe_member(entry: Dict[str, str]) -> Dict[str, Any]:
 
 
 def probe_estate() -> Dict[str, Any]:
-    """Import+call every estate member. Missing stays UNAVAILABLE."""
+    """Check every member; aggregate ok requires explicit success from all."""
     _extend_sys_path()
     kernels = [probe_member(dict(e)) for e in ESTATE]
     live = sum(1 for k in kernels if k.get("status") == "LIVE")
+    failed = sum(1 for k in kernels if k.get("status") == "FAILED")
+    unverified = sum(1 for k in kernels if k.get("status") == "UNVERIFIED")
+    unavailable = sum(1 for k in kernels if k.get("status") == "UNAVAILABLE")
+    complete = bool(kernels) and live == len(kernels)
     return {
-        "ok": live >= 1,
+        "ok": complete,
+        "status": "FAILED" if failed else "VERIFIED" if complete else "INCOMPLETE",
+        "some_members_available": live > 0,
         "live": live,
+        "failed": failed,
+        "unverified": unverified,
+        "unavailable": unavailable,
         "enumerated": len(kernels),
         "cuda": cuda_status(),
         "joblib": "QUARANTINED",

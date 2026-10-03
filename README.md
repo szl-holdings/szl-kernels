@@ -361,6 +361,22 @@ The standalone SZL kernels keep separate receipt state. A single forward pass th
 | `GovernedBlock` | Pre-norm sub-block composing all three + a binding receipt into one auditable pass. |
 | `MiniEmbed` | Load repo-root `vocab.json` + `vectors.npz` and look up / encode in-vocab terms. Table and lookup receipts use `UnifiedReceiptChain`. Distributional word-embedding table — not a transformer LM. |
 | `list_kernels()`, `list_series()`, `get_member()`, `selfcheck()` | Numeric registry + governance-layer series + one-shot CPU health check. |
+| `probe_member(entry)`, `probe_estate()` | Installed-package estate checks with explicit probe verdicts and complete-estate aggregation. |
+
+The installed package's estate probes report `LIVE` only when the probe returns
+an explicit successful boolean verdict (`ok`, `passed`, `arithmetic_ok`, a
+boolean, or a `(boolean, violations)` pair). An explicit false verdict or failed
+check stays `FAILED`; a completed call with no interpretable verdict is
+`UNVERIFIED`; missing packages and exceptions stay `UNAVAILABLE`. In-suite
+fallbacks also verify their emitted receipt chains. These statuses describe the
+bounded software probe, while an energy reading can remain unavailable.
+
+`probe_estate()["ok"]` requires every catalog member to be `LIVE`. A partial
+catalog reports `INCOMPLETE`, and any failed member makes the aggregate
+`FAILED`. Callers that only need to know whether some software is available can
+inspect `some_members_available` and the separate status counts. This catalog
+does not establish current Hub publication, downstream quality, GPU performance
+or production deployment.
 
 ## Honesty (SZL doctrine)
 

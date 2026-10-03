@@ -33,6 +33,7 @@ class PublishSourceBindingTests(unittest.TestCase):
     def test_declared_runtime_files_cover_relative_imports(self) -> None:
         payload = binding.load_contract(binding.DEFAULT_CONTRACT)
         declared = set(payload["artifact_files"])
+        self.assertIn("tests/test_estate.py", declared)
         mirrors = ("build/torch-universal/szl_kernels", "torch-ext/szl_kernels")
         for package in mirrors:
             with self.subTest(package=package):

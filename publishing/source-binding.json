@@ -44,6 +44,7 @@
     "og-card.png",
     "scripts/eval.py",
     "scripts/forge.py",
+    "tests/test_estate.py",
     "tests/test_miniembed.py",
     "tests/test_replay_portability.py",
     "tests/test_suite.py",

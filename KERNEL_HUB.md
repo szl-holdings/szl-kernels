@@ -1,3 +1,26 @@
+
+<p><a href="https://huggingface.co/spaces/SZLHOLDINGS/szl-command-lab"><img src="https://raw.githubusercontent.com/szl-holdings/.github/main/profile/assets/szl/logos/szl_mark_holographic.svg" alt="SZL Holdings" width="112" /></a></p>
+
+# SZL Kernels · Native Kernel Hub
+
+Inspect the closed Torch kernel API for receipted operations and cosine retrieval, with an immutable publication and loading contract.
+
+**Artifact:** Native software kernel · Torch CPU API · **Stage:** Reference implementation · publication requires verified source
+
+[Explore in Command Lab](https://huggingface.co/spaces/SZLHOLDINGS/szl-command-lab) · [Build](https://github.com/szl-holdings/szl-kernels) · [Evidence](https://github.com/szl-holdings/szl-kernels/blob/331b259cf6b6dde17c4bdacc245e61c7addff506/KERNEL_HUB.md)
+
+## Before you use it
+
+- Review the exact immutable provider revision and source binding before executing remote kernel code.
+- Receipts are unsigned integrity records; they do not prove authorship, retrieval quality or a measured performance advantage.
+- Existing build, runtime, signature and compatible v1 publication requirements remain unchanged; this card does not claim a new release.
+
+<details>
+<summary>Technical details and original evidence</summary>
+
+The retained source below is exact and may contain historical observations. Its dates, use restrictions, licenses and evidence boundaries continue to apply.
+
+<!-- SZL-PRESERVED-TECHNICAL-BODY:START -->
 # Kernel Hub API and publication boundary
 
 The first-class Hugging Face kernel and the Python distribution have different
@@ -88,3 +111,7 @@ The test suite checks legacy exports, closed imports, CPU numerical results,
 known raw-byte hashes, byte-buffer bounds, and operation with
 `Tensor.numpy` disabled. No model-promotion, independent evaluation, clinical
 fitness, or general-world usefulness claim follows from these tests.
+
+<!-- SZL-PRESERVED-TECHNICAL-BODY:END -->
+
+</details>

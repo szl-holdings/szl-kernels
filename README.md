@@ -18,6 +18,29 @@ szl-governance:
   honest_blocked: "a failed check stays failed — never faked green"
 ---
 
+<p><a href="https://huggingface.co/spaces/SZLHOLDINGS/szl-command-lab"><img src="https://raw.githubusercontent.com/szl-holdings/.github/main/profile/assets/szl/logos/szl_mark_holographic.svg" alt="SZL Holdings" width="112" /></a></p>
+
+# SZL Kernels · Governed Compute
+
+Explore the governed kernel suite and its receipted MiniEmbed word embeddings, with separate software and artifact evidence.
+
+**Artifact:** Kernel suite and MiniEmbed embedding table · **Stage:** Reference software · intrinsic sanity evidence
+
+[Explore in Command Lab](https://huggingface.co/spaces/SZLHOLDINGS/szl-command-lab) · [Build](https://github.com/szl-holdings/szl-kernels) · [Evidence](https://github.com/szl-holdings/szl-kernels/blob/331b259cf6b6dde17c4bdacc245e61c7addff506/README.md)
+
+## Before you use it
+
+- MiniEmbed is a PPMI/SVD word-embedding table; it is not a Transformers or general-purpose language model.
+- Λ remains Conjecture 1 and advisory. Physical energy claims require real measurements and reviewed meter evidence.
+- Existing tests and replay are bounded checks; they do not establish independent retrieval quality, clinical fitness, production readiness or a new publication.
+
+<details>
+<summary>Technical details and original evidence</summary>
+
+The retained source below is exact and may contain historical observations. Its dates, use restrictions, licenses and evidence boundaries continue to apply.
+
+<!-- SZL-PRESERVED-TECHNICAL-BODY:START -->
+
 <!-- SZL-ESTATE-CARD:v2:START -->
 <p align="center"><a href="https://a-11-oy.com/"><img src="https://huggingface.co/spaces/SZLHOLDINGS/README/resolve/main/assets/estate-banner-v2.svg" alt="SZL Holdings — governed, receipted, verifiable" width="100%"></a></p>
 <p align="center">
@@ -537,3 +560,7 @@ Honesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine
 </p>
 
 <p align="center"><sub>SLSA: L1 honest · L2 attested · L3 roadmap. Λ = Conjecture 1. Trust ceiling 0.97.</sub></p>
+
+<!-- SZL-PRESERVED-TECHNICAL-BODY:END -->
+
+</details>

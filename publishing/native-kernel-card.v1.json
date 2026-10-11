@@ -1,0 +1,48 @@
+{
+  "schema": "szl.native-kernel-card-projection/v1",
+  "evidence_class": "UNSIGNED_SOURCE_PRESENTATION",
+  "source_repository": "szl-holdings/szl-kernels",
+  "base_revision": "8ce5449e2d0a3ba196dc24108f34ab424001aa99",
+  "source_path": "KERNEL_HUB.md",
+  "repo_type": "kernel",
+  "repo_id": "SZLHOLDINGS/szl-kernels",
+  "before_sha256": "197aee0c7efdd3f3b9ad0fd88388da15befaaf94556f0d27e4e7604791bcffd8",
+  "after_sha256": "097995c92246b25a73247dd20b91c0fcfb4d5c82720c96588e9aff5eb511dc88",
+  "frontmatter_sha256": "a07b5d4c2dfa1b4a34c3e5394c785d180dd51669089822dfd464150e4eacb835",
+  "preserved_technical_body_sha256": "1ff687e034cfcc810962fe9cdf364951e745fafaf399c8d74d67f6d2823634b9",
+  "original_bytes_reconstructable": true,
+  "native_art": {
+    "repository": "szl-holdings/szl-brand",
+    "revision": "27d12e77fc0f9f1a0e5fae8b34adf2380d51d070",
+    "path": "kit/logos/orbit-v2/suite/szl-icon-32.svg",
+    "sha256": "6e2b7d72a3af3d9602b79de41df0194ede6496a9661f057108ec224c0efc92e6",
+    "render_width": 40,
+    "render_height": 40,
+    "license": "CC-BY-4.0",
+    "license_scope": "SZL artwork"
+  },
+  "publisher_changed": false,
+  "technical_body_changed": false,
+  "metadata_changed": false,
+  "kernel_api_changed": false,
+  "contract_files_changed": false,
+  "code_or_build_pin_changed": false,
+  "kernel_runtime_qualification": "NOT_PERFORMED_BY_THIS_PRESENTATION_CHANGE",
+  "provider_publication": "NOT_ESTABLISHED_BY_THIS_SOURCE_RECORD",
+  "prior_native_card_readback": {
+    "revision": "3fe5baef9a237863c505bfb3a18c13de1a3b2a06",
+    "readme_sha256": "197aee0c7efdd3f3b9ad0fd88388da15befaaf94556f0d27e4e7604791bcffd8",
+    "observed_at": "2026-10-11T13:33:23.368314+00:00",
+    "matches_base_source_card": true
+  },
+  "retained_loading_contract": "Existing environment-supplied reviewed native revision; no placeholder, mutable default or API-version change introduced",
+  "canonical_publisher": {
+    "repository": "szl-holdings/szl-forge",
+    "observed_revision": "a41356937a6c52180e569b9066c6e291ae607ed1",
+    "workflow": ".github/workflows/publish-szl-kernels.yml",
+    "script": "tools/publish_szl_kernels.py",
+    "mapping": "KERNEL_HUB.md -> native README.md",
+    "scope": "Existing manual exact protected-main source release gateway"
+  },
+  "publication_hold": "The existing gateway must authorize the exact protected source, stage and sign its metadata without provider credentials, exchange scoped grants, preserve compatible native v1 builds, and verify immutable provider readback. A card refinement is not a new kernel release; it does not establish that a release can currently pass those gates."
+}

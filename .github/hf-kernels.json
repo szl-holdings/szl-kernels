@@ -1,0 +1,31 @@
+{
+  "schema": "szl.hf-kernels/v1",
+  "$comment": "Consumed by .github/workflows/hf-kernel-publish.yml via scripts/szl_kernel_publish.py. This repository is the single source of the Hub kernel repo SZLHOLDINGS/szl-kernels. The Kernel Hub API is torch-ext/szl_kernels/_kernel_api.py, staged as szl_kernels/__init__.py with its closed import set; the pip entrypoint (MiniEmbed, estate) is not published to the kernel repo. The model repo SZLHOLDINGS/szl-kernels also hosts the SZL-MiniEmbed table and stays with tools/publish_source_binding.py, so no model_twin is configured here.",
+  "kernels": [
+    {
+      "repo_id": "SZLHOLDINGS/szl-kernels",
+      "name": "szl-kernels",
+      "version": 1,
+      "license": "Apache-2.0",
+      "source_repository": "szl-holdings/szl-kernels",
+      "packages": [
+        {
+          "src": "torch-ext/szl_kernels",
+          "name": "szl_kernels",
+          "entrypoint": "_kernel_api.py",
+          "include": ["_chain.py", "_ops.py", "retrieval.py"]
+        }
+      ],
+      "card": "KERNEL_HUB.md",
+      "license_file": "LICENSE",
+      "extra_files": {},
+      "prune_paths": [
+        "OPERATIONAL.json",
+        "BENCH.laptop-blackwell.json",
+        "torch-ext/"
+      ],
+      "python_depends": [],
+      "smoke": "hf/kernel_smoke.py"
+    }
+  ]
+}

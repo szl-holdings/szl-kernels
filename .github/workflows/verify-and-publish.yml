@@ -1,4 +1,5 @@
-# Verification only. Exact publication remains owned by the protected szl-forge gateway.
+# Verification only. The Hub kernel repo (what get_kernel loads) is published by
+# hf-kernel-publish.yml on release; the model repo by tools/publish_source_binding.py.
 name: Verify SZL kernels (non-promotional dry run)
 
 on:

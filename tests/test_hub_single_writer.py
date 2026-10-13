@@ -24,8 +24,14 @@ ROOT = Path(__file__).resolve().parents[1]
 # explicit CLI mode. The duplicate Khipu model-publish-gate (a second writer of
 # SZLHOLDINGS/SZL-Khipu-1.5B, owned by szl-holdings/szl-khipu) was removed. The
 # shared reusable-hf-mirror.yml caller joins this list when it lands (plan P7/D9).
+# The Hub *kernel* repo (repo_type kernel, the surface get_kernel reads) has one
+# writer: the hf-kernel-publish workflow and its helper script, which binds
+# secrets.HF_TOKEN only in its two writing steps. tools/publish_source_binding.py
+# writes the *model* repo of the same name (SZL-MiniEmbed table + provenance).
 WRITERS = frozenset({
     "tools/publish_source_binding.py",
+    ".github/workflows/hf-kernel-publish.yml",
+    "scripts/szl_kernel_publish.py",
 })
 
 # Executable sources only. Tests, docs and data corpora are not writers.

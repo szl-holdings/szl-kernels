@@ -28,7 +28,7 @@ Companion table (NOT a numeric kernel, NOT a transformer LM, NOT Chaski/Khipu):
 Discover + use the suite:
 
     from kernels import get_kernel
-    suite = get_kernel("SZLHOLDINGS/szl-kernels", revision="main", trust_remote_code=True)
+    suite = get_kernel("SZLHOLDINGS/szl-kernels", version=1, trust_remote_code=True)
     print(suite.list_kernels())            # {'governed_norm':..., 'lambda_gate':..., 'energy_core':...}
     print(suite.list_series())             # {'govsign':..., 'blocked':..., 'provctl':...}
     print(suite.selfcheck())               # one-shot suite health (CPU only)

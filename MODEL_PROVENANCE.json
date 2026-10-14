@@ -33,7 +33,8 @@
     "url": "https://github.com/szl-holdings/szl-kernels",
     "exact_revision_evidence": "publication.json in the Hugging Face artifact",
     "publication_contract": "publishing/source-binding.json",
-    "publication_workflow": "https://github.com/szl-holdings/szl-forge/blob/main/.github/workflows/publish-szl-kernels.yml"
+    "model_publisher": "https://github.com/szl-holdings/szl-kernels/blob/main/tools/publish_source_binding.py",
+    "kernel_publication_workflow": "https://github.com/szl-holdings/szl-kernels/blob/main/.github/workflows/hf-kernel-publish.yml"
   },
   "artifact_history": {
     "imported_from": "https://huggingface.co/SZLHOLDINGS/szl-kernels",

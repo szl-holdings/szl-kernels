@@ -80,12 +80,16 @@ Proof: [a11oy.net](https://a11oy.net)
 **Canonical source:** [`szl-holdings/szl-kernels`](https://github.com/szl-holdings/szl-kernels).
 The protected `main` workflow verifies the kernel suite, replays the MiniEmbed
 artifact within its declared tolerance, and checks the source-binding contract
-against the public Hugging Face artifact. Exact publication is performed by the
-authorized release gateway in
-[`szl-holdings/szl-forge`](https://github.com/szl-holdings/szl-forge/blob/main/.github/workflows/publish-szl-kernels.yml).
-That gateway checks out an exact protected Git revision, publishes the declared
-file set, and reads every byte back at the resulting immutable Hub revision.
-The exact Git source revision is written to `publication.json`.
+against the public Hugging Face artifact. Publication runs from this repository
+only. The Hub kernel repo (what `get_kernel` loads) is published on each GitHub
+release by [`hf-kernel-publish.yml`](.github/workflows/hf-kernel-publish.yml),
+which builds from the exact release commit, verifies the result through
+`get_kernel` in a fresh job, and binds the Hub tree to that commit in
+`SZL_KERNEL_SOURCE.json`. The model repo of the same name (the SZL-MiniEmbed
+table and its provenance) is written by
+[`tools/publish_source_binding.py`](tools/publish_source_binding.py): CI runs it
+in dry-run mode only, and publication is an explicit CLI mode. The exact Git
+source revision of the model artifact is written to `publication.json`.
 
 This is a governed kernel suite with a receipted word-embedding companion. It is
 not a general-purpose language model, and its intrinsic nearest-neighbor replay

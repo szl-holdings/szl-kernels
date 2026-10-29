@@ -9,8 +9,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
-import unittest
-from unittest import mock
+from unittest import TestCase, main, mock, SkipTest
 import venv
 import zipfile
 
@@ -26,10 +25,17 @@ def load(name, path):
     return module
 
 
+if sys.version_info < (3, 11):
+    raise SkipTest(
+        "Release-gate regression requires Python 3.11+ stdlib tomllib; "
+        "the canonical release workflow runs Python 3.12. "
+        "Package compatibility tests are unchanged."
+    )
+
 gate = load("pypi_wheel_isolation_gate", GATE)
 
 
-class InstalledWheelIsolationTests(unittest.TestCase):
+class InstalledWheelIsolationTests(TestCase):
     def run_gate(self, root, *, wheel_broken, checkout_broken):
         """Stub build/network steps; execute the actual venv metadata/import probes."""
         checkout = root / "checkout"
@@ -78,8 +84,9 @@ class InstalledWheelIsolationTests(unittest.TestCase):
                 with zipfile.ZipFile(command[-1]) as archive:
                     archive.extractall(site)
                 return
-            return subprocess.run(command, check=True, text=True, capture_output=True,
-                                  cwd=checkout, timeout=20, **kwargs)
+            subprocess.run(command, check=True, text=True, capture_output=True,
+                           cwd=checkout, timeout=20, **kwargs)
+            return None
 
         package = {"name": "shadow-probe", "dir": str(checkout), "environment": "pypi"}
         with mock.patch.object(gate, "sh", side_effect=sh), \
@@ -108,4 +115,4 @@ class InstalledWheelIsolationTests(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    main()

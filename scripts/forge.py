@@ -16,11 +16,27 @@ No downstream benchmark is claimed. Seeded, receipted, reproducible.
 
 Self-contained: resolves corpora from the repo's own dir when shipped in-repo
 (corpus/ subdir), else from /tmp/corpus + /tmp/kernel-probe (forge-dev run)."""
-import json, os, re, time, hashlib, platform, glob
+import argparse, glob, json, os, re, time, hashlib, platform
 from collections import Counter, defaultdict
+from pathlib import Path
 import numpy as np
 from scipy.sparse import csr_matrix
 from sklearn.decomposition import TruncatedSVD
+
+from corpus_inputs import CorpusInput, InputGroup, collect_corpus_inputs
+
+
+parser = argparse.ArgumentParser(description="Forge SZL-MiniEmbed")
+parser.add_argument(
+    "--input-contract",
+    choices=("canonical-v2", "legacy-v1-replay"),
+    default="canonical-v2",
+    help=(
+        "canonical-v2 deduplicates and emits stable logical identifiers; "
+        "legacy-v1-replay exists only to reproduce the frozen v1 artifact"
+    ),
+)
+args = parser.parse_args()
 
 SEED = 20260721
 np.random.seed(SEED)
@@ -51,54 +67,119 @@ assert DOCTRINE_DIR and RAG_DIR, "doctrine + rag corpora required — refuse"
 # 1. Load raw text from every source. Record byte sha256 of each source file.
 # ---------------------------------------------------------------------------
 docs = []            # list of raw text strings
-source_files = []    # (path, sha256, n_chars)
+source_files = []    # (stable logical source id, sha256, n_chars)
 
 
-def add_text(path, text):
+def add_text(source_id, text):
     if not text or not text.strip():
         return
     docs.append(text)
-    source_files.append((os.path.relpath(path, "/tmp"),
+    source_files.append((source_id,
                          hashlib.sha256(text.encode("utf-8", "ignore")).hexdigest(),
                          len(text)))
 
-
-# doctrine markdown
-for p in sorted(glob.glob(os.path.join(DOCTRINE_DIR, "*.md")) +
-                glob.glob(os.path.join(DOCTRINE_DIR, "**", "*.md"), recursive=True)):
-    try:
-        add_text(p, open(p, encoding="utf-8", errors="ignore").read())
-    except Exception:
-        pass
-# rag corpus.jsonl -> text field
-rag_jsonl = os.path.join(RAG_DIR, "corpus.jsonl")
-if os.path.isfile(rag_jsonl):
-    parts = []
-    for line in open(rag_jsonl, encoding="utf-8", errors="ignore"):
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            parts.append(json.loads(line).get("text", ""))
-        except Exception:
-            pass
-    add_text(rag_jsonl, "\n".join(parts))
-# thesis .tex chapters
+input_groups = [
+    # The first two doctrine patterns overlap on top-level Markdown by design.
+    # collect_corpus_inputs includes each resolved file once.
+    InputGroup("doctrine-v10-v11", Path(DOCTRINE_DIR), ("*.md", "**/*.md")),
+    InputGroup("rag-corpus-v1", Path(RAG_DIR), ("corpus.jsonl",)),
+]
 if THESIS_DIR:
-    for p in sorted(glob.glob(os.path.join(THESIS_DIR, "**", "*.tex"), recursive=True)):
-        try:
-            add_text(p, open(p, encoding="utf-8", errors="ignore").read())
-        except Exception:
-            pass
-# kernel-family READMEs (this repo + its build metadata)
+    input_groups.append(
+        InputGroup("thesis-corpus-v18", Path(THESIS_DIR), ("**/*.tex",))
+    )
 if KERNEL_DIR:
-    for p in (sorted(glob.glob(os.path.join(KERNEL_DIR, "README.md"))) +
-              sorted(glob.glob(os.path.join(KERNEL_DIR, "**", "*.md"), recursive=True)) +
-              sorted(glob.glob(os.path.join(KERNEL_DIR, "**", "*.py"), recursive=True))):
-        try:
-            add_text(p, open(p, encoding="utf-8", errors="ignore").read())
-        except Exception:
-            pass
+    input_groups.append(
+        InputGroup("kernels", Path(KERNEL_DIR), ("README.md", "**/*.md", "**/*.py"))
+    )
+
+if args.input_contract == "canonical-v2":
+    corpus_inputs = collect_corpus_inputs(input_groups)
+    source_id_scheme = "logical-root-relative/v1"
+else:
+    # Historical replay only.  The frozen v1 receipt was produced before an
+    # input contract existed: overlapping top-level/recursive globs double
+    # weighted six files and identifiers included the runner path.  Preserve
+    # those exact semantics only when eval.py explicitly requests v1 replay;
+    # never use them for a new default run.
+    legacy_paths = [
+        ("doctrine-v10-v11", path)
+        for path in (
+            sorted(glob.glob(os.path.join(DOCTRINE_DIR, "*.md")))
+            + sorted(
+                glob.glob(
+                    os.path.join(DOCTRINE_DIR, "**", "*.md"), recursive=True
+                )
+            )
+        )
+    ]
+    legacy_paths.append(("rag-corpus-v1", os.path.join(RAG_DIR, "corpus.jsonl")))
+    if THESIS_DIR:
+        legacy_paths.extend(
+            ("thesis-corpus-v18", path)
+            for path in sorted(
+                glob.glob(os.path.join(THESIS_DIR, "**", "*.tex"), recursive=True)
+            )
+        )
+    if KERNEL_DIR:
+        legacy_paths.extend(
+            ("kernels", path)
+            for path in (
+                sorted(glob.glob(os.path.join(KERNEL_DIR, "README.md")))
+                + sorted(
+                    glob.glob(
+                        os.path.join(KERNEL_DIR, "**", "*.md"), recursive=True
+                    )
+                )
+                + sorted(
+                    glob.glob(
+                        os.path.join(KERNEL_DIR, "**", "*.py"), recursive=True
+                    )
+                )
+            )
+        )
+    corpus_inputs = [
+        CorpusInput(
+            group,
+            os.path.relpath(path, "/tmp"),
+            Path(path).resolve(strict=True),
+        )
+        for group, path in legacy_paths
+        if os.path.isfile(path)
+    ]
+    source_id_scheme = "legacy-v1-runner-paths"
+
+group_counts = Counter(item.group for item in corpus_inputs)
+for group in input_groups:
+    assert group_counts[group.name] > 0, f"no inputs for {group.name} - refuse"
+
+for item in corpus_inputs:
+    if item.group == "rag-corpus-v1":
+        parts = []
+        for line_number, line in enumerate(
+            item.path.read_text(encoding="utf-8", errors="ignore").splitlines(),
+            start=1,
+        ):
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError as exc:
+                raise ValueError(
+                    f"invalid JSON in {item.source_id} line {line_number}"
+                ) from exc
+            text = row.get("text") if isinstance(row, dict) else None
+            if not isinstance(text, str):
+                raise ValueError(
+                    f"missing string text in {item.source_id} line {line_number}"
+                )
+            parts.append(text)
+        add_text(item.source_id, "\n".join(parts))
+    else:
+        add_text(
+            item.source_id,
+            item.path.read_text(encoding="utf-8", errors="ignore"),
+        )
 
 assert len(docs) >= 5, f"insufficient corpus ({len(docs)} docs) — refuse"
 
@@ -245,6 +326,7 @@ receipt = {
                     "SZLHOLDINGS/thesis-corpus-v18", "szl-kernels family READMEs + build/*.py"],
         "n_documents": len(docs),
         "n_source_files": len(source_files),
+        "source_id_scheme": source_id_scheme,
         "total_tokens_in_window": int(tok_total),
         "vocab_size": V, "min_count": MIN_COUNT,
         "source_file_sha256": [{"path": p, "sha256": s, "n_chars": n} for p, s, n in source_files],

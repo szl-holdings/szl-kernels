@@ -24,10 +24,22 @@ if not ok:
 with tempfile.TemporaryDirectory() as td:
     os.makedirs(f"{td}/scripts", exist_ok=True)
     shutil.copy(f"{root}/scripts/forge.py", f"{td}/scripts/forge.py")
+    shutil.copy(f"{root}/scripts/corpus_inputs.py", f"{td}/scripts/corpus_inputs.py")
     # ship an in-repo corpus/ copy if present so eval works from a fresh clone
     if os.path.isdir(f"{root}/corpus"):
         shutil.copytree(f"{root}/corpus", f"{td}/corpus")
-    out = subprocess.run([sys.executable, f"{td}/scripts/forge.py"],
+    source_id_scheme = receipt.get("data", {}).get("source_id_scheme")
+    if source_id_scheme is None:
+        # The frozen v1 receipt predates the input contract and contains the
+        # six historical duplicate rows.  Replay that artifact explicitly;
+        # forge.py defaults to the corrected canonical selector for new runs.
+        input_contract = "legacy-v1-replay"
+    elif source_id_scheme == "logical-root-relative/v1":
+        input_contract = "canonical-v2"
+    else:
+        raise SystemExit(f"unsupported source_id_scheme: {source_id_scheme!r}")
+    out = subprocess.run([sys.executable, f"{td}/scripts/forge.py",
+                          "--input-contract", input_contract],
                          capture_output=True, text=True, cwd=td)
     print(out.stdout[-400:] if out.returncode == 0 else out.stderr[-800:])
     if out.returncode:

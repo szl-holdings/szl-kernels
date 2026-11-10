@@ -84,6 +84,9 @@ class InstalledWheelIsolationTests(TestCase):
                 with zipfile.ZipFile(command[-1]) as archive:
                     archive.extractall(site)
                 return
+            if command[1:] == ["-I", "-m", "pip", "check"]:
+                # The fixture has no dependencies or pip; keep its check offline.
+                return
             subprocess.run(command, check=True, text=True, capture_output=True,
                            cwd=checkout, timeout=20, **kwargs)
             return None
@@ -109,7 +112,7 @@ class InstalledWheelIsolationTests(TestCase):
             self.assertEqual(receipt["package"], "shadow-probe")
             self.assertEqual(receipt["version"], "1.2.3")
             venv_commands = [command for command in commands if "venv-shadow-probe" in command[0]]
-            self.assertEqual(len(venv_commands), 3)
+            self.assertEqual(len(venv_commands), 4)
             self.assertTrue(all(command[1] == "-I" for command in venv_commands))
 
 

@@ -173,13 +173,13 @@ the canonical seven DOIs, all verified HTTP~200:
 \begin{tabular}{ll}
 \textbf{DOI} & \textbf{Record} \\
 \hline
-\texttt{10.5281/zenodo.19944926} & Concept DOI (rolling latest $\to$ v18.0) \\
+\texttt{10.5281/zenodo.24239896} & Concept DOI (rolling latest $\to$ v18.0) \\
 \texttt{10.5281/zenodo.20424992} & Ouroboros Thesis v14 \\
 \texttt{10.5281/zenodo.20424995} & Ouroboros Thesis v15 \\
 \texttt{10.5281/zenodo.20424996} & Ouroboros Thesis v16 \\
 \texttt{10.5281/zenodo.20431181} & Ouroboros Thesis v17 \\
 \texttt{10.5281/zenodo.20434276} & Ouroboros Thesis v18.0 \\
-\texttt{10.5281/zenodo.20434308} & Lutar v18.0.0 (software) \\
+\texttt{10.5281/zenodo.24239654} & Lutar v18.0.0 (software) \\
 \end{tabular}
 \end{center}
 
@@ -475,7 +475,7 @@ class Receipt:
     """Single link in the Ouroboros receipt chain.
     
     Implements the Wheeler primitive as a SHA-256 linked node.
-    Concept DOI: 10.5281/zenodo.19944926
+    Concept DOI: 10.5281/zenodo.24239896
     """
     receipt_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     timestamp: float = field(default_factory=time.time)
@@ -500,7 +500,7 @@ class ReceiptChain:
     
     Lean correspondence: Lutar.Transduction.ReceiptInvariant
     """
-    GENESIS_DOI = "10.5281/zenodo.19944926"
+    GENESIS_DOI = "10.5281/zenodo.24239896"
     
     def __init__(self) -> None:
         self.chain: list[Receipt] = []
@@ -885,7 +885,7 @@ PR~\#198 was filed to resolve the mismatch~\cite{szl_zoom_out_v18}.
 The Ouroboros provenance system uses Zenodo's two-tier DOI model:
 
 \begin{enumerate}
-  \item \textbf{Concept DOI} (\texttt{10.5281/zenodo.19944926}): A
+  \item \textbf{Concept DOI} (\texttt{10.5281/zenodo.24239896}): A
     ``rolling'' DOI that always resolves to the latest version.  Cited in
     module headers as the universal anchor.
   \item \textbf{Version DOIs}: Seven frozen per-version DOIs, each
@@ -913,18 +913,18 @@ DOIs live at the time of audit (2026-05-28 20:40~EDT):
 \begin{tabular}{lll}
   \textbf{DOI} & \textbf{Version} & \textbf{HTTP} \\
   \hline
-  \texttt{10.5281/zenodo.19944926} & Concept (rolling) & 200 PASS \\
+  \texttt{10.5281/zenodo.24239896} & Concept (rolling) & 200 PASS \\
   \texttt{10.5281/zenodo.20424992} & v14 & 200 PASS \\
   \texttt{10.5281/zenodo.20424995} & v15 & 200 PASS \\
   \texttt{10.5281/zenodo.20424996} & v16 & 200 PASS \\
   \texttt{10.5281/zenodo.20431181} & v17 & 200 PASS \\
   \texttt{10.5281/zenodo.20434276} & v18.0 thesis & 200 PASS \\
-  \texttt{10.5281/zenodo.20434308} & Lutar v18.0.0 (software) & 200 PASS \\
+  \texttt{10.5281/zenodo.24239654} & Lutar v18.0.0 (software) & 200 PASS \\
 \end{tabular}
 \end{center}
 
 The v18.0 thesis DOI (\texttt{10.5281/zenodo.20434276}) and the Lutar
-software DOI (\texttt{10.5281/zenodo.20434308}) were minted during the
+software DOI (\texttt{10.5281/zenodo.24239654}) were minted during the
 v18 session, resolving the single PENDING placeholder that remained in the
 v18 Master Report~\cite{szl_master_v18}.
 
@@ -942,7 +942,7 @@ The three key repositories updated by the phase-5 scan were:
     updated to \texttt{10.5281/zenodo.20434276};
   \item \texttt{ouroboros}: updated to same;
   \item \texttt{lutar-lean}: \texttt{CITATION.cff} updated to software
-    DOI \texttt{10.5281/zenodo.20434308}.
+    DOI \texttt{10.5281/zenodo.24239654}.
 \end{itemize}
 
 The five verified GitHub SHAs associated with DOI drift PRs are:
@@ -1260,7 +1260,7 @@ is covered by one of the five frozen DOIs
 (10.5281/zenodo.20424992 through 10.5281/zenodo.20431181).
 Modules v18.0--v18.23 are covered by the v18.0 thesis DOI
 (10.5281/zenodo.20434276) and the Lutar v18.0.0 software DOI
-(10.5281/zenodo.20434308).  No module is uncovered.
+(10.5281/zenodo.24239654).  No module is uncovered.
 
 \subsection{Lean Proof Mass per Version}
 \label{ssec:lean-proof-mass}

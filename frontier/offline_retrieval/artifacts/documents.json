@@ -7,7 +7,7 @@
       "license": "Apache-2.0",
       "source_path": "README.md",
       "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
-      "text": "--- thumbnail: https://huggingface.co/SZLHOLDINGS/szl-kernels/resolve/main/og-card.png tags: - kernel - governance - provenance - suite - sklearn - embeddings - word-embeddings - feature-extraction - doi:10.5281/zenodo.19944926 library_name: kernels license: apache-2.0 szl-governance: verdict: ADVISORY lambda: \"Conjecture 1 (open) — uniqueness unproven; advisory only\" energy: MEASURED-only (real NVML delta; None when unavailable) provenance: UnifiedReceiptChain (SHA3-256, op-agnostic, cross-kernel) honest_blocked: \"a failed check stays failed — never faked green\" ---",
+      "text": "--- thumbnail: https://huggingface.co/SZLHOLDINGS/szl-kernels/resolve/main/og-card.png tags: - kernel - governance - provenance - suite - sklearn - embeddings - word-embeddings - feature-extraction - doi:10.5281/zenodo.24239896 library_name: kernels license: apache-2.0 szl-governance: verdict: ADVISORY lambda: \"Conjecture 1 (open) — uniqueness unproven; advisory only\" energy: MEASURED-only (real NVML delta; None when unavailable) provenance: UnifiedReceiptChain (SHA3-256, op-agnostic, cross-kernel) honest_blocked: \"a failed check stays failed — never faked green\" ---",
       "title": "Document / 1"
     },
     {
@@ -257,7 +257,7 @@
       "license": "Apache-2.0",
       "source_path": "README.md",
       "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
-      "text": "Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/szl-holdings/lutar-lean) (749 declarations / 14 axioms / 163 tracked sorries), DOI [10.5281/zenodo.20434308](https://doi.org/10.5281/zenodo.20434308). Λ uniqueness = Conjecture 1 (open).",
+      "text": "Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/szl-holdings/lutar-lean) (749 declarations / 14 axioms / 163 tracked sorries), DOI [10.5281/zenodo.24239654](https://doi.org/10.5281/zenodo.24239654). Λ uniqueness = Conjecture 1 (open).",
       "title": "Provenance / 1"
     },
     {
@@ -327,7 +327,7 @@
       "license": "Apache-2.0",
       "source_path": "README.md",
       "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
-      "text": "`szl_kernels.MiniEmbed` is a **distributional word-embedding table** (PPMI + TruncatedSVD, dim 128, vocab 3290) loaded from the in-repo `vectors.npz` / `vocab.json` artifact. It is **not** a transformer language model, **not** Chaski, and **not** Khipu. Lookup and encode cover terms already in the vocabulary. Integrity receipts use the existing `UnifiedReceiptChain` (SHA3-256). File-hash replay remains `python scripts/eval.py`.\n\n```python from szl_kernels import MiniEmbed emb = MiniEmbed() # loads repo-root vocab.json + vectors.npz print(emb.lookup(\"receipt\").shape) # (128,) print(emb.neighbors(\"receipt\", k=6)) print(emb.selfcheck()[\"label\"]) # MATCHES / LOADED, or UNAVAILABLE_LFS ```\n\n---\n\n<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href=\"https://a-11-oy.com\">a-11-oy.com</a> · <a href=\"https://github.com/szl-holdings\">github.com/szl-holdings</a> · <a href=\"https://huggingface.co/SZLHOLDINGS\">huggingface.co/SZLHOLDINGS</a></sub>\n\n---\n\n[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19944926.svg)](https://doi.org/10.5281/zenodo.19944926)",
+      "text": "`szl_kernels.MiniEmbed` is a **distributional word-embedding table** (PPMI + TruncatedSVD, dim 128, vocab 3290) loaded from the in-repo `vectors.npz` / `vocab.json` artifact. It is **not** a transformer language model, **not** Chaski, and **not** Khipu. Lookup and encode cover terms already in the vocabulary. Integrity receipts use the existing `UnifiedReceiptChain` (SHA3-256). File-hash replay remains `python scripts/eval.py`.\n\n```python from szl_kernels import MiniEmbed emb = MiniEmbed() # loads repo-root vocab.json + vectors.npz print(emb.lookup(\"receipt\").shape) # (128,) print(emb.neighbors(\"receipt\", k=6)) print(emb.selfcheck()[\"label\"]) # MATCHES / LOADED, or UNAVAILABLE_LFS ```\n\n---\n\n<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href=\"https://a-11-oy.com\">a-11-oy.com</a> · <a href=\"https://github.com/szl-holdings\">github.com/szl-holdings</a> · <a href=\"https://huggingface.co/SZLHOLDINGS\">huggingface.co/SZLHOLDINGS</a></sub>\n\n---\n\n[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24239896.svg)](https://doi.org/10.5281/zenodo.24239896)",
       "title": "SOURCE / 1"
     },
     {
@@ -337,7 +337,7 @@
       "license": "Apache-2.0",
       "source_path": "README.md",
       "source_sha256": "dddf9569fbd2e3fdff4fa43c822979a81e7c7925db74263a28936dbbae3ac28d",
-      "text": "**Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism). Concept DOI (always-latest): [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926). Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · License CC-BY-4.0. Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md). No artifact-specific DOI is minted for this model; the concept DOI above covers the program.\n\nHonesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine-checked FALSE as stated) — never a theorem; conditional uniqueness is **Theorem U** (axiom-free). Locked-proven formulas = **exactly 8** {F1,F4,F7,F11,F12,F18,F19,F22}; ~185 experimental theorems are a separate CI-green tier; Khipu BFT safety = Conjecture 2. Trust never 100%.\n\n```bibtex @misc{lutar_szl_ouroboros, author = {Lutar, Stephen P., Jr.}, title = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.19944926}, url = {https://doi.org/10.5281/zenodo.19944926}, note = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.} } ```\n\n*Signed-off-by: Stephen Lutar <stephenlutar2@gmail.com>*",
+      "text": "**Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism). Concept DOI (always-latest): [10.5281/zenodo.24239896](https://doi.org/10.5281/zenodo.24239896). Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · License CC-BY-4.0. Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md). No artifact-specific DOI is minted for this model; the concept DOI above covers the program.\n\nHonesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine-checked FALSE as stated) — never a theorem; conditional uniqueness is **Theorem U** (axiom-free). Locked-proven formulas = **exactly 8** {F1,F4,F7,F11,F12,F18,F19,F22}; ~185 experimental theorems are a separate CI-green tier; Khipu BFT safety = Conjecture 2. Trust never 100%.\n\n```bibtex @misc{lutar_szl_ouroboros, author = {Lutar, Stephen P., Jr.}, title = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.24239896}, url = {https://doi.org/10.5281/zenodo.24239896}, note = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.} } ```\n\n*Signed-off-by: Stephen Lutar <stephenlutar2@gmail.com>*",
       "title": "Citation / 1"
     },
     {
@@ -357,7 +357,7 @@
       "license": "Apache-2.0",
       "source_path": "corpus/doctrine-v10-v11/CANONICAL_WEDGE.md",
       "source_sha256": "8167627f6d8f98241c34a38b87d1b1b853fe99b9fbe5c7fb07433c18095cce4e",
-      "text": "> **SZL Holdings builds a formally-verified 13-axis governance gate for agentic AI** — a > conjunctive (no-compensation) heart (`yuyay_v3`, replay-hash > `bacf54434f1a3bf2d758b27a62d5fd580ca4c8d3b180693573eeebcaea631fc5`) wired behind a > 660-SLOC immune deadman (HUKLLA, 10 tripwires), a 20-line ceremonial receipt ledger > (YAWAR, one authorized writer `RUWAY`), an 18-SLOC inline white-blood-cell screen > (SENTRA, 6 signatures + 1 MB DoS guard), and a 9-position Maxwell-rigid (M = 0 > isostatic) agent pipeline with a Butler–Volmer halt budget and a 6-observer read-only > overwatch. The math is in Lean (749 declarations, 14 axioms, 163 tracked sorries, > honestly disclosed) and mirrored as four public HF Datasets; Λ uniqueness is an open > Conjecture. The 9-axis legacy still runs; the 13-axis migration is the next ratchet.\n\nORCID: 0009-0001-0110-4173 · Concept DOI 10.5281/zenodo.19944926",
+      "text": "> **SZL Holdings builds a formally-verified 13-axis governance gate for agentic AI** — a > conjunctive (no-compensation) heart (`yuyay_v3`, replay-hash > `bacf54434f1a3bf2d758b27a62d5fd580ca4c8d3b180693573eeebcaea631fc5`) wired behind a > 660-SLOC immune deadman (HUKLLA, 10 tripwires), a 20-line ceremonial receipt ledger > (YAWAR, one authorized writer `RUWAY`), an 18-SLOC inline white-blood-cell screen > (SENTRA, 6 signatures + 1 MB DoS guard), and a 9-position Maxwell-rigid (M = 0 > isostatic) agent pipeline with a Butler–Volmer halt budget and a 6-observer read-only > overwatch. The math is in Lean (749 declarations, 14 axioms, 163 tracked sorries, > honestly disclosed) and mirrored as four public HF Datasets; Λ uniqueness is an open > Conjecture. The 9-axis legacy still runs; the 13-axis migration is the next ratchet.\n\nORCID: 0009-0001-0110-4173 · Concept DOI 10.5281/zenodo.24239896",
       "title": "Canonical Wedge — SZL Holdings (Doctrine v11) / 1"
     },
     {
@@ -487,7 +487,7 @@
       "license": "Apache-2.0",
       "source_path": "corpus/doctrine-v10-v11/DOCTRINE_V11_LOCKED_2026-06-01_0145.md",
       "source_sha256": "56f1086ca4fec97237b9b605f20cd17f36f429003ef4e2ed42db1834036278cd",
-      "text": "| Item | Value | Note | |------|-------|------| | **Ouroboros runtime** | v6.2.0 — **172/172 tests passing**, Apache-2.0 | newer release reports 218/218; both real per the ladder. | | **Lutar Invariant** | **11 peer-track papers (v1–v10)** + Concept DOI **10.5281/zenodo.19944926** + CC-BY-4.0 | | | **A11oy fabric** | **7-layer governed agentic execution fabric** | Sense → Structure → Correlate → Explain → Recommend → Approve → Execute | | **Libraries / packages** | **52 internal libraries, 100 packages** | | | **PR #108** | rate limiting · ReDoS · CORS · XSS · origin checks · **26 files** · **30+ code-scan alerts cleared** | |\n\n---",
+      "text": "| Item | Value | Note | |------|-------|------| | **Ouroboros runtime** | v6.2.0 — **172/172 tests passing**, Apache-2.0 | newer release reports 218/218; both real per the ladder. | | **Lutar Invariant** | **11 peer-track papers (v1–v10)** + Concept DOI **10.5281/zenodo.24239896** + CC-BY-4.0 | | | **A11oy fabric** | **7-layer governed agentic execution fabric** | Sense → Structure → Correlate → Explain → Recommend → Approve → Execute | | **Libraries / packages** | **52 internal libraries, 100 packages** | | | **PR #108** | rate limiting · ReDoS · CORS · XSS · origin checks · **26 files** · **30+ code-scan alerts cleared** | |\n\n---",
       "title": "§8 — PUBLIC STACK NUMBERS (LinkedIn-stated, locked) / 1"
     },
     {
@@ -597,7 +597,7 @@
       "license": "Apache-2.0",
       "source_path": "corpus/doctrine-v10-v11/README.md",
       "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
-      "text": "--- license: apache-2.0 tags: - governance - ai-safety - doctrine - szl-holdings - ouroboros-invariant - doi:10.5281/zenodo.19944926 task_categories: - other pretty_name: SZL Holdings Doctrine v10 → v11 size_categories: - n<1K language: - en ---",
+      "text": "--- license: apache-2.0 tags: - governance - ai-safety - doctrine - szl-holdings - ouroboros-invariant - doi:10.5281/zenodo.24239896 task_categories: - other pretty_name: SZL Holdings Doctrine v10 → v11 size_categories: - n<1K language: - en ---",
       "title": "Document / 1"
     },
     {
@@ -667,7 +667,7 @@
       "license": "Apache-2.0",
       "source_path": "corpus/doctrine-v10-v11/README.md",
       "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
-      "text": "**Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism). Concept DOI (always-latest): [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926). Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · Dataset license: Apache-2.0; the cited program publication is CC-BY-4.0. Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md). No artifact-specific DOI is minted for this dataset; the concept DOI above covers the program.\n\nHonesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine-checked FALSE as stated) — never a theorem; conditional uniqueness is **Theorem U** (axiom-free). Locked-proven formulas = **exactly 8** {F1,F4,F7,F11,F12,F18,F19,F22}; ~185 experimental theorems are a separate CI-green tier; Khipu BFT safety = Conjecture 2. Trust never 100%.\n\n```bibtex @misc{lutar_szl_ouroboros, author = {Lutar, Stephen P., Jr.}, title = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.19944926}, url = {https://doi.org/10.5281/zenodo.19944926}, note = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.} } ```",
+      "text": "**Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism). Concept DOI (always-latest): [10.5281/zenodo.24239896](https://doi.org/10.5281/zenodo.24239896). Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · Dataset license: Apache-2.0; the cited program publication is CC-BY-4.0. Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md). No artifact-specific DOI is minted for this dataset; the concept DOI above covers the program.\n\nHonesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine-checked FALSE as stated) — never a theorem; conditional uniqueness is **Theorem U** (axiom-free). Locked-proven formulas = **exactly 8** {F1,F4,F7,F11,F12,F18,F19,F22}; ~185 experimental theorems are a separate CI-green tier; Khipu BFT safety = Conjecture 2. Trust never 100%.\n\n```bibtex @misc{lutar_szl_ouroboros, author = {Lutar, Stephen P., Jr.}, title = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.24239896}, url = {https://doi.org/10.5281/zenodo.24239896}, note = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.} } ```",
       "title": "Citation / 1"
     },
     {
@@ -677,7 +677,7 @@
       "license": "Apache-2.0",
       "source_path": "corpus/doctrine-v10-v11/README.md",
       "source_sha256": "c1558f59593a062e506ae30a0d7a1bc357b821b58106ffb02e63858d3f968173",
-      "text": "Concept DOI: [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926) · ORCID `0009-0001-0110-4173`\n\n---",
+      "text": "Concept DOI: [10.5281/zenodo.24239896](https://doi.org/10.5281/zenodo.24239896) · ORCID `0009-0001-0110-4173`\n\n---",
       "title": "Citation / 2"
     },
     {
@@ -707,7 +707,7 @@
       "license": "Apache-2.0",
       "source_path": "corpus/kernels/README.md",
       "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
-      "text": "--- thumbnail: https://huggingface.co/SZLHOLDINGS/szl-kernels/resolve/main/og-card.png tags: - kernel - governance - provenance - suite - doi:10.5281/zenodo.19944926 library_name: kernels license: apache-2.0 szl-governance: verdict: ADVISORY lambda: \"Conjecture 1 (open) — uniqueness unproven; advisory only\" energy: MEASURED-only (real NVML delta; None when unavailable) provenance: UnifiedReceiptChain (SHA3-256, op-agnostic, cross-kernel) honest_blocked: \"a failed check stays failed — never faked green\" ---",
+      "text": "--- thumbnail: https://huggingface.co/SZLHOLDINGS/szl-kernels/resolve/main/og-card.png tags: - kernel - governance - provenance - suite - doi:10.5281/zenodo.24239896 library_name: kernels license: apache-2.0 szl-governance: verdict: ADVISORY lambda: \"Conjecture 1 (open) — uniqueness unproven; advisory only\" energy: MEASURED-only (real NVML delta; None when unavailable) provenance: UnifiedReceiptChain (SHA3-256, op-agnostic, cross-kernel) honest_blocked: \"a failed check stays failed — never faked green\" ---",
       "title": "Document / 1"
     },
     {
@@ -907,7 +907,7 @@
       "license": "Apache-2.0",
       "source_path": "corpus/kernels/README.md",
       "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
-      "text": "Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/szl-holdings/lutar-lean) (749 declarations / 14 axioms / 163 tracked sorries), DOI [10.5281/zenodo.20434308](https://doi.org/10.5281/zenodo.20434308). Λ uniqueness = Conjecture 1 (open).",
+      "text": "Backed by the Lean 4 formalization [szl-holdings/lutar-lean](https://github.com/szl-holdings/lutar-lean) (749 declarations / 14 axioms / 163 tracked sorries), DOI [10.5281/zenodo.24239654](https://doi.org/10.5281/zenodo.24239654). Λ uniqueness = Conjecture 1 (open).",
       "title": "Provenance / 1"
     },
     {
@@ -947,7 +947,7 @@
       "license": "Apache-2.0",
       "source_path": "corpus/kernels/README.md",
       "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
-      "text": "Apache-2.0. Copyright 2026 SZL Holdings.\n\n---\n\n<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href=\"https://a-11-oy.com\">a-11-oy.com</a> · <a href=\"https://github.com/szl-holdings\">github.com/szl-holdings</a> · <a href=\"https://huggingface.co/SZLHOLDINGS\">huggingface.co/SZLHOLDINGS</a></sub>\n\n---\n\n[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19944926.svg)](https://doi.org/10.5281/zenodo.19944926)",
+      "text": "Apache-2.0. Copyright 2026 SZL Holdings.\n\n---\n\n<sub><b>SZL Holdings</b> · unified governed-kernel suite · cross-kernel provenance · Λ advisory (Conjecture 1) · energy MEASURED-only · <a href=\"https://a-11-oy.com\">a-11-oy.com</a> · <a href=\"https://github.com/szl-holdings\">github.com/szl-holdings</a> · <a href=\"https://huggingface.co/SZLHOLDINGS\">huggingface.co/SZLHOLDINGS</a></sub>\n\n---\n\n[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24239896.svg)](https://doi.org/10.5281/zenodo.24239896)",
       "title": "License / 1"
     },
     {
@@ -957,7 +957,7 @@
       "license": "Apache-2.0",
       "source_path": "corpus/kernels/README.md",
       "source_sha256": "2cff347b0d9e2b7e779637810b5e36c7c62dbb6226718927eb5762bc54e3eec0",
-      "text": "**Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism). Concept DOI (always-latest): [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926). Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · License CC-BY-4.0. Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md). No artifact-specific DOI is minted for this model; the concept DOI above covers the program.\n\nHonesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine-checked FALSE as stated) — never a theorem; conditional uniqueness is **Theorem U** (axiom-free). Locked-proven formulas = **exactly 8** {F1,F4,F7,F11,F12,F18,F19,F22}; ~185 experimental theorems are a separate CI-green tier; Khipu BFT safety = Conjecture 2. Trust never 100%.\n\n```bibtex @misc{lutar_szl_ouroboros, author = {Lutar, Stephen P., Jr.}, title = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.19944926}, url = {https://doi.org/10.5281/zenodo.19944926}, note = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.} } ```\n\n*Signed-off-by: Stephen Lutar <stephenlutar2@gmail.com>*",
+      "text": "**Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism). Concept DOI (always-latest): [10.5281/zenodo.24239896](https://doi.org/10.5281/zenodo.24239896). Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · License CC-BY-4.0. Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md). No artifact-specific DOI is minted for this model; the concept DOI above covers the program.\n\nHonesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine-checked FALSE as stated) — never a theorem; conditional uniqueness is **Theorem U** (axiom-free). Locked-proven formulas = **exactly 8** {F1,F4,F7,F11,F12,F18,F19,F22}; ~185 experimental theorems are a separate CI-green tier; Khipu BFT safety = Conjecture 2. Trust never 100%.\n\n```bibtex @misc{lutar_szl_ouroboros, author = {Lutar, Stephen P., Jr.}, title = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.24239896}, url = {https://doi.org/10.5281/zenodo.24239896}, note = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.} } ```\n\n*Signed-off-by: Stephen Lutar <stephenlutar2@gmail.com>*",
       "title": "Citation / 1"
     },
     {

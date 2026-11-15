@@ -88,14 +88,15 @@ Phase 3 - Blackwell readiness (owner-gated):
 - Salad battery v2 manifest: SZLHOLDINGS/frontier-54-runs,
   receipts/estate-battery-v2-run-manifest.json (sha c66d0904...)
 
-
 ## 5. Phase 1 baseline receipts (measured 2026-11-15)
 
 Receipt: `receipts/fa4-phase1-baselines-20261115.json` (schema
 `szl.fa4-phase1/baseline-receipt`), harness `scripts/fa4_phase1_baselines.py`.
 96 cells = 2 battery-v2 model families x {512,1024,2048,4096} x {1,2,4} x
 4 SDPA backends, causal prefill, bf16, GQA, 5 warmup + 25 timed calls,
-NVML-sampled watts (measured-or-null).
+NVML-sampled watts (measured-or-null). The receipt in this PR was produced by
+the committed harness (re-run after the lint fixes; both runs: 96 cells,
+60 supported, identical support profile).
 
 ### Hardware deviation (recorded, not papered over)
 
@@ -111,17 +112,17 @@ architecture class, albeit laptop-class.
 
 | family (battery shapes) | backend | cells | best TFLOP/s | best shape |
 |---|---|---|---|---|
-| nemotron-mini-4b (H24 KVH8 d128) | sdpa-cudnn | 12/12 | 13.28 | B4 S4096, 31.0 ms |
-| nemotron-mini-4b | sdpa-efficient | 12/12 | 4.75 | B4 S4096, 86.9 ms |
-| nemotron-mini-4b | sdpa-math | 12/12 | 1.80 | B1 S4096, 57.1 ms |
+| nemotron-mini-4b (H24 KVH8 d128) | sdpa-cudnn | 12/12 | 13.20 | B2 S4096, 15.6 ms |
+| nemotron-mini-4b | sdpa-efficient | 12/12 | 4.74 | B2 S4096, 43.5 ms |
+| nemotron-mini-4b | sdpa-math | 12/12 | 1.80 | B1 S4096, 57.3 ms |
 | qwen35-0.8b full-attn (H8 KVH2 d256) | sdpa-efficient | 12/12 | 3.17 | B1 S4096, 21.7 ms |
-| qwen35-0.8b full-attn | sdpa-math | 12/12 | 2.08 | B1 S4096, 33.1 ms |
+| qwen35-0.8b full-attn | sdpa-math | 12/12 | 2.07 | B1 S4096, 33.2 ms |
 
-- B1 S4096 head-to-head (nemotron): cuDNN 7.92 ms / 0.0816 J/call vs math
-  57.13 ms / 0.5836 J/call -> cuDNN is ~7.2x faster and ~7.2x lower energy
+- B1 S4096 head-to-head (nemotron): cuDNN 7.97 ms / 0.082 J/call vs math
+  57.30 ms / 0.5992 J/call -> cuDNN is ~7.2x faster and ~7.3x lower energy
   per call on this hardware. This is the baseline Phase 2 must beat or null.
 - Joules per call were measured (NVML, ~50 ms sampling), not estimated:
-  e.g. cuDNN B1 S4096 = 0.0816 J at 10.3 W.
+  e.g. cuDNN B1 S4096 = 0.082 J at 10.3 W.
 
 ### Nulls (honest)
 

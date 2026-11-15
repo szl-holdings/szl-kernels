@@ -15,6 +15,7 @@ Receipts: kernel id, shapes, dtype, achieved TFLOP/s, IO bytes, joules per call
 from __future__ import annotations
 
 import datetime as _dt
+from functools import partial
 import json
 import os
 import statistics
@@ -62,7 +63,6 @@ class PowerSampler:
             import pynvml
             pynvml.nvmlInit()
             self._h = pynvml.nvmlDeviceGetHandleByIndex(0)
-            self._pynvml = pynvml
             self._get = lambda: float(pynvml.nvmlDeviceGetPowerUsage(self._h)) / 1000.0
             self._get()  # probe
             self.ok = True
@@ -102,7 +102,6 @@ def bench_cell(fn, warmup, iters):
     sampler.start()
     t0 = torch.cuda.Event(enable_timing=True)
     t1 = torch.cuda.Event(enable_timing=True)
-    times = []
     t0.record()
     for _ in range(iters):
         fn()
@@ -162,12 +161,11 @@ def main():
                                "backend": bk, "H": H, "KVH": KVH, "d": d,
                                "layers_per_model": fam["full_attn_layers"]}
                         try:
+                            fn = partial(F.scaled_dot_product_attention, q, k, v, is_causal=True, enable_gqa=True)
                             with sdpa_kernel(bs):
-                                out = F.scaled_dot_product_attention(q, k, v, is_causal=True, enable_gqa=True)
+                                F.scaled_dot_product_attention(q, k, v, is_causal=True, enable_gqa=True)
                                 torch.cuda.synchronize()
-                                mean_ms, watts, peak = bench_cell(
-                                    lambda: F.scaled_dot_product_attention(q, k, v, is_causal=True, enable_gqa=True),
-                                    WARMUP, ITERS)
+                                mean_ms, watts, peak = bench_cell(fn, WARMUP, ITERS)
                             fl = flops_causal(B, S, H, d)
                             row.update({
                                 "supported": True,

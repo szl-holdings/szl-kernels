@@ -140,3 +140,99 @@ architecture class, albeit laptop-class.
 2. The battery's inference hosts should be receipt-audited for which SDPA
    backend actually serves each model family; this receipt measures the
    kernels, not the serving-path selection.
+
+### v2 correction (2026-11-15, later the same day)
+
+The v1 Phase 1 receipt (PR #78) benched a scrambled workload: tensors were
+created as (B, S, H, d) and handed to torch SDPA, whose 4D convention is
+(N, H, L, E) - so the benched op had heads=S, q_len=H, kv_len=KVH, while
+the receipt's tflops/io_gbps were computed from the intended causal-prefill
+formula. All v1 TFLOP/s and IO GB/s numbers above are superseded by the
+regenerated v2 receipt (same filename, git history preserves v1; see the
+receipt's correction_20261115 field). v1 timings/energy measured the
+scrambled op. v2 numbers below, same hardware, same harness discipline:
+
+v2: 96 cells, 36 supported. Best per family/backend:
+
+| family | backend | supported cells | best TFLOP/s | best shape (B, S) | mean_ms @ best |
+|---|---|---|---|---|---|
+| nemotron-mini-4b | sdpa-cudnn | 12/12 | 21.00 | (4, 512) | 0.3068 |
+| nemotron-mini-4b | sdpa-efficient | 0/12 | - | - | -|
+| nemotron-mini-4b | sdpa-flash | 0/12 | - | - | -|
+| nemotron-mini-4b | sdpa-math | 12/12 | 0.78 | (1, 512) | 2.0614 |
+| qwen35-0.8b-full-attn | sdpa-cudnn | 0/12 | - | - | -|
+| qwen35-0.8b-full-attn | sdpa-efficient | 0/12 | - | - | -|
+| qwen35-0.8b-full-attn | sdpa-flash | 0/12 | - | - | -|
+| qwen35-0.8b-full-attn | sdpa-math | 12/12 | 1.06 | (1, 512) | 1.011 |
+
+Null cells in v2 are recorded with reasons in the receipt (an 8 GB laptop
+GPU cannot materialize math-backend scores at the largest battery shapes;
+these are honest nulls, not skips).
+
+## 6. Phase 2 - conditional softmax rescaling (measured 2026-11-15)
+
+Technique: the ONE transferable FA4 idea selected by the study plan (S3):
+skip the online-softmax accumulator rescale when a tile's max delta stays
+within delta_max = 5e-4, keeping the old exp-frame (frame-invariant output,
+bounded by exp(delta_max) - exact up to fp32 rounding, no compounding).
+Harness: scripts/fa4_phase2_conditional_rescale.py; receipt:
+receipts/fa4-phase2-conditional-rescale-20261115.json (schema
+szl.fa4-phase2/technique-receipt). The flag lives on the reference
+tiled-attention op; the estate kernel suite has no attention op yet, so
+Kernel Hub integration remains follow-up work (issue #76).
+
+Arms: rescale-always vs conditional-rescale, identical code path and
+identical per-tile branch test in BOTH arms (host sync included equally),
+2 warmup + 5 timed calls per arm per cell, 24 cells, 24 supported.
+
+| family | B | S | skip fraction (flag on) | delta ms | delta % | TFLOP/s off | TFLOP/s on |
+|---|---|---|---|---|---|---|---|
+| qwen35-0.8b-full-attn | 1 | 512 | 0.0 | -1.0116 | -5.53 | 0.0587 | 0.0621 |
+| qwen35-0.8b-full-attn | 1 | 1024 | 0.0 | -5.1822 | -10.61 | 0.088 | 0.0984 |
+| qwen35-0.8b-full-attn | 1 | 2048 | 0.0 | 41.9609 | 23.72 | 0.0971 | 0.0785 |
+| qwen35-0.8b-full-attn | 1 | 4096 | 0.0 | 145.0975 | 18.63 | 0.0882 | 0.0744 |
+| qwen35-0.8b-full-attn | 2 | 512 | 0.0 | 1.432 | 9.76 | 0.1463 | 0.1333 |
+| qwen35-0.8b-full-attn | 2 | 1024 | 0.0 | 2.5399 | 4.94 | 0.167 | 0.1591 |
+| qwen35-0.8b-full-attn | 2 | 2048 | 0.0 | -16.5775 | -7.68 | 0.1592 | 0.1725 |
+| qwen35-0.8b-full-attn | 2 | 4096 | 0.0 | 14.8616 | 2.03 | 0.1873 | 0.1836 |
+| qwen35-0.8b-full-attn | 4 | 512 | 0.0 | -0.9213 | -5.78 | 0.2695 | 0.286 |
+| qwen35-0.8b-full-attn | 4 | 1024 | 0.0 | -6.7312 | -11.29 | 0.2882 | 0.3249 |
+| qwen35-0.8b-full-attn | 4 | 2048 | 0.0 | -69.2569 | -29.13 | 0.289 | 0.4078 |
+| qwen35-0.8b-full-attn | 4 | 4096 | 0.0 | -5.0913 | -0.72 | 0.3868 | 0.3896 |
+| nemotron-mini-4b | 1 | 512 | 0.0 | 4.6 | 41.28 | 0.1446 | 0.1023 |
+| nemotron-mini-4b | 1 | 1024 | 0.0 | 4.6621 | 10.33 | 0.1428 | 0.1294 |
+| nemotron-mini-4b | 1 | 2048 | 0.0 | 4.033 | 3.04 | 0.1939 | 0.1882 |
+| nemotron-mini-4b | 1 | 4096 | 0.0 | 55.1286 | 8.14 | 0.1523 | 0.1408 |
+| nemotron-mini-4b | 2 | 512 | 0.0 | -0.7825 | -5.9 | 0.2427 | 0.2579 |
+| nemotron-mini-4b | 2 | 1024 | 0.0 | -15.159 | -23.35 | 0.1985 | 0.2589 |
+| nemotron-mini-4b | 2 | 2048 | 0.0 | 27.0819 | 16.36 | 0.3113 | 0.2676 |
+| nemotron-mini-4b | 2 | 4096 | 0.0 | 116.3319 | 16.62 | 0.2945 | 0.2525 |
+| nemotron-mini-4b | 4 | 512 | 0.0 | 3.3939 | 29.93 | 0.5681 | 0.4372 |
+| nemotron-mini-4b | 4 | 1024 | 0.0 | -7.682 | -13.13 | 0.4406 | 0.5072 |
+| nemotron-mini-4b | 4 | 2048 | 0.0 | 5.758 | 2.9 | 0.519 | 0.5044 |
+| nemotron-mini-4b | 4 | 4096 | 0.0 | 1.5854 | 0.21 | 0.5351 | 0.534 |
+
+**Verdict (measured, fail-closed):** skip fraction is 0.0 in every supported
+cell - the tile-level (all-rows) branch NEVER fires at battery shapes
+with random inputs (some row's max delta always exceeds 5e-4), so both
+arms executed identical code; the per-cell deltas (mean +3.12%) are
+timing noise of the sync-heavy reference loop, not a technique effect.
+Null result at the torch reference level, recorded as such. The technique
+is only meaningful at per-CTA kernel granularity, which a host-synced
+reference loop cannot express: the real evaluation is CuTe-DSL lane work
+(smoke below, full kernel under issue #76).
+
+### CuTe-DSL authoring-lane smoke (measured-or-null)
+
+Receipt: receipts/fa4-phase2-cute-dsl-smoke-20261115.json (schema
+szl.fa4-phase2/cute-dsl-smoke-receipt). nvidia-cutlass 4.2.0.0 installed on
+the device lane. Stages:
+
+- toolchain: OK (cutlass_version=4.8.1, cute_module=cutlass.cute, gpu=NVIDIA GeForce RTX 5050 Laptop GPU, compute_capability=12.0, torch=2.10.0+cu130)
+- jit-smoke: OK (kernel=scale_one, result=6.0)
+- cr-op: OK (acc=2.963273048400879, p=0.951229453086853, acc_ref=2.9632728827268715, p_ref=0.951229424500714)
+
+Cross-links: szl-kernels issue #76 (FA-4-class kernels on the Kernel Hub,
+Python-native CuTe-DSL authoring lane); yarqa issue #110 (adopt FA4 numbers
+as the comparison target for yarqa attention kernels - this section and the
+receipts above are the measured 5050-class data points for that table).

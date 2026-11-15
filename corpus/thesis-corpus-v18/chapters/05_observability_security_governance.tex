@@ -180,7 +180,7 @@ def emit_lambda_span(action_name: str, lambda_score: float,
     
     Upstream: opentelemetry-sdk-python (Apache-2.0)
     SZL innovation: szl.* namespace as proposed SEMCONV extension
-    DOI: 10.5281/zenodo.19944926
+    DOI: 10.5281/zenodo.24239896
     """
     with tracer.start_as_current_span(action_name) as span:
         span.set_attribute("szl.lambda_score",    lambda_score)
@@ -420,7 +420,7 @@ a collection of documents, not a verifiable receipt chain.
 
 \textbf{With SZL}: The \texttt{IQTLabsFedAudit} class (v18.19) assembles
 all four evidence types into a single SHA-256-linked receipt chain, anchored
-to the Concept DOI (\texttt{10.5281/zenodo.19944926}).  A FedRAMP assessor
+to the Concept DOI (\texttt{10.5281/zenodo.24239896}).  A FedRAMP assessor
 or IL5 authorising official can traverse the chain from the current deployment
 back to the published Zenodo record, verifying at each link that the
 $\Lambda$-score met the required threshold.  This is the first sovereignty-grade
@@ -447,7 +447,7 @@ class IQTLabsFedAudit:
     into a single SHA-256-linked receipt chain.
     
     Lean correspondent: Lutar.SBOMProvenance
-    DOI: 10.5281/zenodo.19944926
+    DOI: 10.5281/zenodo.24239896
     """
     chain: "ReceiptChain"
     
@@ -1130,7 +1130,7 @@ def governed_action(task: str) -> dict:
         span.set_attribute("szl.lambda_score", result["lambda_score"])
         span.set_attribute("szl.receipt_id",   result["receipt_id"])
         span.set_attribute("szl.doctrine_version", "v6")
-        span.set_attribute("szl.doi", "10.5281/zenodo.19944926")
+        span.set_attribute("szl.doi", "10.5281/zenodo.24239896")
         
         if result["lambda_score"] < 0.65:
             # Layer 3 ?security halt

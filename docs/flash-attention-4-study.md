@@ -87,3 +87,55 @@ Phase 3 - Blackwell readiness (owner-gated):
 - FA3 (context, Hopper): Shah et al., arXiv:2407.08608
 - Salad battery v2 manifest: SZLHOLDINGS/frontier-54-runs,
   receipts/estate-battery-v2-run-manifest.json (sha c66d0904...)
+
+
+## 5. Phase 1 baseline receipts (measured 2026-11-15)
+
+Receipt: `receipts/fa4-phase1-baselines-20261115.json` (schema
+`szl.fa4-phase1/baseline-receipt`), harness `scripts/fa4_phase1_baselines.py`.
+96 cells = 2 battery-v2 model families x {512,1024,2048,4096} x {1,2,4} x
+4 SDPA backends, causal prefill, bf16, GQA, 5 warmup + 25 timed calls,
+NVML-sampled watts (measured-or-null).
+
+### Hardware deviation (recorded, not papered over)
+
+The battery v2 receipts report an NVIDIA RTX 3090, which is **not attached
+to the CTO-lane device**. The only attached GPU is the **RTX 5050 Laptop
+GPU (8 GB, compute capability 12.0, Blackwell)**, and every number below is
+measured on it. These are NOT 3090 numbers; the 3090 pass stays open until
+that GPU is attached to a lane (owner/parallel-lane action). The 5050 point
+is independently interesting: it is Blackwell, the FA4-generation
+architecture class, albeit laptop-class.
+
+### Measured facts (RTX 5050, torch 2.10.0+cu130)
+
+| family (battery shapes) | backend | cells | best TFLOP/s | best shape |
+|---|---|---|---|---|
+| nemotron-mini-4b (H24 KVH8 d128) | sdpa-cudnn | 12/12 | 13.28 | B4 S4096, 31.0 ms |
+| nemotron-mini-4b | sdpa-efficient | 12/12 | 4.75 | B4 S4096, 86.9 ms |
+| nemotron-mini-4b | sdpa-math | 12/12 | 1.80 | B1 S4096, 57.1 ms |
+| qwen35-0.8b full-attn (H8 KVH2 d256) | sdpa-efficient | 12/12 | 3.17 | B1 S4096, 21.7 ms |
+| qwen35-0.8b full-attn | sdpa-math | 12/12 | 2.08 | B1 S4096, 33.1 ms |
+
+- B1 S4096 head-to-head (nemotron): cuDNN 7.92 ms / 0.0816 J/call vs math
+  57.13 ms / 0.5836 J/call -> cuDNN is ~7.2x faster and ~7.2x lower energy
+  per call on this hardware. This is the baseline Phase 2 must beat or null.
+- Joules per call were measured (NVML, ~50 ms sampling), not estimated:
+  e.g. cuDNN B1 S4096 = 0.0816 J at 10.3 W.
+
+### Nulls (honest)
+
+- `sdpa-flash`: 0/24 cells - this torch build is **not compiled with flash
+  attention** ("No available kernel"); recorded as null, not skipped.
+- `flash_attn` package: absent on this device; FA2-via-package cells are
+  therefore null. SDPA-native kernels only.
+- RTX 3090 pass: null this run (hardware not attached) - see deviation above.
+
+### Standing next steps
+
+1. Phase 2 (conditional softmax rescaling, single technique, null-result-if-
+   null) should target the cuDNN baseline measured here when run on Blackwell,
+   and re-baseline on the 3090 when attached (Ampere) before comparison.
+2. The battery's inference hosts should be receipt-audited for which SDPA
+   backend actually serves each model family; this receipt measures the
+   kernels, not the serving-path selection.

@@ -170,7 +170,7 @@ PROVENANCE = {
         "receipt_chain": "UnifiedReceiptChain",
     },
     "lean_repo": "szl-holdings/lutar-lean",
-    "doi_lutar_lean": "10.5281/zenodo.20434308",
+    "doi_lutar_lean": "10.5281/zenodo.24239654",
     "lambda_status": "Conjecture 1 (open) — uniqueness unproven; advisory only",
     "shared_chain": "UnifiedReceiptChain — op-agnostic SHA3-256 cross-kernel provenance",
 }

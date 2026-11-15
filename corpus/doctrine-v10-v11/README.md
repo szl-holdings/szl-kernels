@@ -6,7 +6,7 @@ tags:
 - doctrine
 - szl-holdings
 - ouroboros-invariant
-- doi:10.5281/zenodo.19944926
+- doi:10.5281/zenodo.24239896
 task_categories:
 - other
 pretty_name: SZL Holdings Doctrine v10 → v11
@@ -67,7 +67,7 @@ ratchet. Canonical Lean numbers: **749 / 14 / 163**.
 
 
 **Cite this.** Part of the SZL Holdings *Ouroboros Thesis* (Governed Post-Determinism).  
-Concept DOI (always-latest): [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926).  
+Concept DOI (always-latest): [10.5281/zenodo.24239896](https://doi.org/10.5281/zenodo.24239896).  
 Author: Stephen P. Lutar Jr. · [ORCID 0009-0001-0110-4173](https://orcid.org/0009-0001-0110-4173) · Dataset license: Apache-2.0; the cited program publication is CC-BY-4.0.  
 Full DOI-pinned lineage (v1→v26) + the 8 papers: [szl-papers PAPERS_INDEX](https://github.com/szl-holdings/szl-papers/blob/main/PAPERS_INDEX.md).  
 No artifact-specific DOI is minted for this dataset; the concept DOI above covers the program.
@@ -80,13 +80,13 @@ Honesty (Doctrine v11): Λ unconditional uniqueness is **Conjecture 1** (machine
   title     = {SZL Holdings --- The Ouroboros Thesis (Governed Post-Determinism)},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.19944926},
-  url       = {https://doi.org/10.5281/zenodo.19944926},
+  doi       = {10.5281/zenodo.24239896},
+  url       = {https://doi.org/10.5281/zenodo.24239896},
   note      = {Concept DOI --- always resolves to the latest version. ORCID 0009-0001-0110-4173. CC-BY-4.0.}
 }
 ```
 
-Concept DOI: [10.5281/zenodo.19944926](https://doi.org/10.5281/zenodo.19944926) · ORCID `0009-0001-0110-4173`
+Concept DOI: [10.5281/zenodo.24239896](https://doi.org/10.5281/zenodo.24239896) · ORCID `0009-0001-0110-4173`
 
 ---
 

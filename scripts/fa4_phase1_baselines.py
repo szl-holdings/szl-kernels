@@ -119,6 +119,7 @@ def main():
     prop = torch.cuda.get_device_properties(0)
     receipt = {
         "kind": "szl.fa4-phase1/baseline-receipt",
+        "correction_20261115": ("v2 regenerated receipt: tensor layout fixed to the torch sdpa 4D convention (N,H,L,E); the v1 receipt from PR #78 benched a scrambled workload (heads=S, q_len=H, kv_len=KVH) while computing tflops/io_gbps from the intended causal-prefill formula, so v1 tflops/io_gbps fields did not describe the benched op. v1 timings/energy measured the scrambled workload. This file supersedes v1 (git history preserves it)."),
         "run": "fa4-phase1-baselines-20261115",
         "ts": _dt.datetime.now(_dt.timezone.utc).isoformat(),
         "gpu": {
@@ -153,9 +154,9 @@ def main():
             for B in BATCHES:
                 for S in SEQ_LENS:
                     torch.manual_seed(20261115)
-                    q = torch.randn(B, S, H, d, dtype=dt, device=dev)
-                    k = torch.randn(B, S, KVH, d, dtype=dt, device=dev)
-                    v = torch.randn(B, S, KVH, d, dtype=dt, device=dev)
+                    q = torch.randn(B, H, S, d, dtype=dt, device=dev)  # torch sdpa 4D is (N,H,L,E); v2 layout fix
+                    k = torch.randn(B, KVH, S, d, dtype=dt, device=dev)
+                    v = torch.randn(B, KVH, S, d, dtype=dt, device=dev)
                     for bk, bs in BACKENDS.items():
                         row = {"family": fam_name, "dtype": dtype_name, "B": B, "S": S,
                                "backend": bk, "H": H, "KVH": KVH, "d": d,

@@ -1,0 +1,28 @@
+{
+  "kind": "szl.fa4-phase2/cute-dsl-smoke-receipt",
+  "run": "fa4-phase2-cute-dsl-smoke-20261115",
+  "ts": "2026-11-15T14:56:58.572489+00:00",
+  "stages": {
+    "toolchain": {
+      "ok": true,
+      "cutlass_version": "4.8.1",
+      "cute_module": "cutlass.cute",
+      "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU",
+      "compute_capability": "12.0",
+      "torch": "2.10.0+cu130"
+    },
+    "jit-smoke": {
+      "ok": true,
+      "kernel": "scale_one",
+      "result": 6.0
+    },
+    "cr-op": {
+      "ok": true,
+      "acc": 2.963273048400879,
+      "p": 0.951229453086853,
+      "acc_ref": 2.9632728827268715,
+      "p_ref": 0.951229424500714
+    }
+  },
+  "nulls": []
+}

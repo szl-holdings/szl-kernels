@@ -1,0 +1,865 @@
+{
+  "kind": "szl.fa4-phase2/technique-receipt",
+  "run": "fa4-phase2-conditional-rescale-20261115",
+  "ts": "2026-11-16T03:58:07.100304+00:00",
+  "technique": "conditional softmax rescaling (FA4-inspired, arXiv:2603.05451)",
+  "scope_note": "reference torch-level tiled attention in this harness; the estate kernel suite (torch-ext/szl_kernels) has no attention op yet - Kernel Hub integration is follow-up work (issue #76), not a claim",
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 4090",
+    "compute_capability": "8.9",
+    "mem_gb": 24.0,
+    "driver_cuda": "12.9",
+    "hardware_deviation": "battery v2 receipts report NVIDIA GeForce RTX 3090, which is NOT attached to this device; numbers below are for the recorded GPU only"
+  },
+  "torch": "2.8.0+cu129",
+  "params": {
+    "seq_lens": [
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "batch_sizes": [
+      1,
+      2,
+      4
+    ],
+    "dtypes": [
+      "bf16"
+    ],
+    "warmup": 2,
+    "iters": 5,
+    "causal": true,
+    "gqa_enabled": true,
+    "tile": 128,
+    "delta_max": 0.0005,
+    "input_layout": "torch sdpa 4D convention (B, H, S, d)",
+    "warmup_iters_note": "reference arms use 2/5 instead of Phase 1's 5/25: the tiled loop has a host sync per tile in BOTH arms; fewer iterations do not change the within-arm comparison",
+    "arms": [
+      "rescale-always (flag off)",
+      "conditional-rescale (flag on)"
+    ],
+    "same_branch_test_both_arms": true,
+    "correctness_gate": "fp32 math reference, B=1/S<=1024 slice, max_abs_diff <= 0.05; skip stats at full shape"
+  },
+  "mfu_note": "UNKNOWN: bf16 tensor-core peak TFLOPs for this laptop GPU class is not spec-pinned in this receipt; utilization is reported only as achieved TFLOP/s and ratios to MEASURED Phase 1 cells, never to an assumed silicon peak",
+  "results": [
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 1,
+      "S": 512,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.013862,
+        "flag_on": 0.013862
+      },
+      "flag_off": {
+        "mean_ms": 8.7669,
+        "tflops": 0.1225,
+        "io_gbps": 0.6,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 29.2
+      },
+      "flag_on": {
+        "mean_ms": 4.5345,
+        "tflops": 0.2368,
+        "io_gbps": 1.16,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 29.2
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -4.2324,
+      "delta_pct": -48.28
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 1,
+      "S": 1024,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.01233,
+        "flag_on": 0.01233
+      },
+      "flag_off": {
+        "mean_ms": 30.2215,
+        "tflops": 0.1421,
+        "io_gbps": 0.35,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 48.2
+      },
+      "flag_on": {
+        "mean_ms": 32.1328,
+        "tflops": 0.1337,
+        "io_gbps": 0.33,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 48.2
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 1.9113,
+      "delta_pct": 6.32
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 1,
+      "S": 2048,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.013425,
+        "flag_on": 0.013425
+      },
+      "flag_off": {
+        "mean_ms": 99.4464,
+        "tflops": 0.1728,
+        "io_gbps": 0.21,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 86.3
+      },
+      "flag_on": {
+        "mean_ms": 106.8368,
+        "tflops": 0.1608,
+        "io_gbps": 0.2,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 86.3
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 7.3904,
+      "delta_pct": 7.43
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 1,
+      "S": 4096,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.012618,
+        "flag_on": 0.012618
+      },
+      "flag_off": {
+        "mean_ms": 222.6328,
+        "tflops": 0.3087,
+        "io_gbps": 0.19,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 162.4
+      },
+      "flag_on": {
+        "mean_ms": 336.7375,
+        "tflops": 0.2041,
+        "io_gbps": 0.12,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 162.4
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 114.1047,
+      "delta_pct": 51.25
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 2,
+      "S": 512,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.01233,
+        "flag_on": 0.01233
+      },
+      "flag_off": {
+        "mean_ms": 4.5064,
+        "tflops": 0.4765,
+        "io_gbps": 2.33,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 50.2
+      },
+      "flag_on": {
+        "mean_ms": 4.3319,
+        "tflops": 0.4957,
+        "io_gbps": 2.42,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 50.2
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -0.1745,
+      "delta_pct": -3.87
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 2,
+      "S": 1024,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.01288,
+        "flag_on": 0.01288
+      },
+      "flag_off": {
+        "mean_ms": 16.2085,
+        "tflops": 0.53,
+        "io_gbps": 1.29,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 88.3
+      },
+      "flag_on": {
+        "mean_ms": 15.8853,
+        "tflops": 0.5407,
+        "io_gbps": 1.32,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 88.3
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -0.3232,
+      "delta_pct": -1.99
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 2,
+      "S": 2048,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.015572,
+        "flag_on": 0.015572
+      },
+      "flag_off": {
+        "mean_ms": 57.0583,
+        "tflops": 0.6022,
+        "io_gbps": 0.74,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 164.4
+      },
+      "flag_on": {
+        "mean_ms": 67.4909,
+        "tflops": 0.5091,
+        "io_gbps": 0.62,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 164.4
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 10.4326,
+      "delta_pct": 18.28
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 2,
+      "S": 4096,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.012611,
+        "flag_on": 0.012611
+      },
+      "flag_off": {
+        "mean_ms": 394.5392,
+        "tflops": 0.3484,
+        "io_gbps": 0.21,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 316.7
+      },
+      "flag_on": {
+        "mean_ms": 392.0724,
+        "tflops": 0.3505,
+        "io_gbps": 0.21,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 316.7
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -2.4668,
+      "delta_pct": -0.63
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 4,
+      "S": 512,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.012888,
+        "flag_on": 0.012888
+      },
+      "flag_off": {
+        "mean_ms": 6.5442,
+        "tflops": 0.6563,
+        "io_gbps": 3.2,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 92.3
+      },
+      "flag_on": {
+        "mean_ms": 9.3551,
+        "tflops": 0.4591,
+        "io_gbps": 2.24,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 92.3
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 2.8109,
+      "delta_pct": 42.95
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 4,
+      "S": 1024,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.0153,
+        "flag_on": 0.0153
+      },
+      "flag_off": {
+        "mean_ms": 25.0536,
+        "tflops": 0.6857,
+        "io_gbps": 1.67,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 168.4
+      },
+      "flag_on": {
+        "mean_ms": 31.1251,
+        "tflops": 0.552,
+        "io_gbps": 1.35,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 168.4
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 6.0715,
+      "delta_pct": 24.23
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 4,
+      "S": 2048,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.014647,
+        "flag_on": 0.014647
+      },
+      "flag_off": {
+        "mean_ms": 66.956,
+        "tflops": 1.0263,
+        "io_gbps": 1.25,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 320.7
+      },
+      "flag_on": {
+        "mean_ms": 76.6798,
+        "tflops": 0.8962,
+        "io_gbps": 1.09,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 320.7
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 9.7238,
+      "delta_pct": 14.52
+    },
+    {
+      "family": "qwen35-0.8b-full-attn",
+      "dtype": "bf16",
+      "B": 4,
+      "S": 4096,
+      "H": 8,
+      "KVH": 2,
+      "d": 256,
+      "layers_per_model": 6,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.011512,
+        "flag_on": 0.011512
+      },
+      "flag_off": {
+        "mean_ms": 305.1781,
+        "tflops": 0.9007,
+        "io_gbps": 0.55,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 625.2
+      },
+      "flag_on": {
+        "mean_ms": 321.2579,
+        "tflops": 0.8556,
+        "io_gbps": 0.52,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 625.2
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 16.0797,
+      "delta_pct": 5.27
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 1,
+      "S": 512,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.016065,
+        "flag_on": 0.016065
+      },
+      "flag_off": {
+        "mean_ms": 9.3831,
+        "tflops": 0.1716,
+        "io_gbps": 0.89,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 41.8
+      },
+      "flag_on": {
+        "mean_ms": 4.9463,
+        "tflops": 0.3256,
+        "io_gbps": 1.7,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 41.8
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -4.4368,
+      "delta_pct": -47.28
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 1,
+      "S": 1024,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.015974,
+        "flag_on": 0.015974
+      },
+      "flag_off": {
+        "mean_ms": 20.9428,
+        "tflops": 0.3076,
+        "io_gbps": 0.8,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 71.9
+      },
+      "flag_on": {
+        "mean_ms": 20.43,
+        "tflops": 0.3153,
+        "io_gbps": 0.82,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 71.9
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -0.5128,
+      "delta_pct": -2.45
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 1,
+      "S": 2048,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.017751,
+        "flag_on": 0.017751
+      },
+      "flag_off": {
+        "mean_ms": 87.2677,
+        "tflops": 0.2953,
+        "io_gbps": 0.38,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 129.0
+      },
+      "flag_on": {
+        "mean_ms": 87.2493,
+        "tflops": 0.2954,
+        "io_gbps": 0.38,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 129.0
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -0.0184,
+      "delta_pct": -0.02
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 1,
+      "S": 4096,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.019219,
+        "flag_on": 0.019219
+      },
+      "flag_off": {
+        "mean_ms": 356.7849,
+        "tflops": 0.2889,
+        "io_gbps": 0.19,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 245.4
+      },
+      "flag_on": {
+        "mean_ms": 329.1992,
+        "tflops": 0.3131,
+        "io_gbps": 0.2,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 245.4
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -27.5857,
+      "delta_pct": -7.73
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 2,
+      "S": 512,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.019902,
+        "flag_on": 0.019902
+      },
+      "flag_off": {
+        "mean_ms": 5.129,
+        "tflops": 0.628,
+        "io_gbps": 3.27,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 75.4
+      },
+      "flag_on": {
+        "mean_ms": 4.8243,
+        "tflops": 0.6677,
+        "io_gbps": 3.48,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 75.4
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -0.3048,
+      "delta_pct": -5.94
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 2,
+      "S": 1024,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.017751,
+        "flag_on": 0.017751
+      },
+      "flag_off": {
+        "mean_ms": 15.5693,
+        "tflops": 0.8276,
+        "io_gbps": 2.16,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 134.6
+      },
+      "flag_on": {
+        "mean_ms": 15.5691,
+        "tflops": 0.8276,
+        "io_gbps": 2.16,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 134.6
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": -0.0002,
+      "delta_pct": -0.0
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 2,
+      "S": 2048,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.019851,
+        "flag_on": 0.019851
+      },
+      "flag_off": {
+        "mean_ms": 75.561,
+        "tflops": 0.6821,
+        "io_gbps": 0.89,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 250.0
+      },
+      "flag_on": {
+        "mean_ms": 81.9546,
+        "tflops": 0.6289,
+        "io_gbps": 0.82,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 250.0
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 6.3936,
+      "delta_pct": 8.46
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 2,
+      "S": 4096,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.016198,
+        "flag_on": 0.016198
+      },
+      "flag_off": {
+        "mean_ms": 278.9159,
+        "tflops": 0.7391,
+        "io_gbps": 0.48,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 482.7
+      },
+      "flag_on": {
+        "mean_ms": 279.978,
+        "tflops": 0.7363,
+        "io_gbps": 0.48,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 482.7
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 1.0621,
+      "delta_pct": 0.38
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 4,
+      "S": 512,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.015261,
+        "flag_on": 0.015261
+      },
+      "flag_off": {
+        "mean_ms": 4.3616,
+        "tflops": 1.4771,
+        "io_gbps": 7.69,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 142.7
+      },
+      "flag_on": {
+        "mean_ms": 5.6267,
+        "tflops": 1.145,
+        "io_gbps": 5.96,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 142.7
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 1.2651,
+      "delta_pct": 29.01
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 4,
+      "S": 1024,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.019851,
+        "flag_on": 0.019851
+      },
+      "flag_off": {
+        "mean_ms": 17.5751,
+        "tflops": 1.4663,
+        "io_gbps": 3.82,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 259.1
+      },
+      "flag_on": {
+        "mean_ms": 21.6771,
+        "tflops": 1.1888,
+        "io_gbps": 3.1,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 259.1
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 4.102,
+      "delta_pct": 23.34
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 4,
+      "S": 2048,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.016198,
+        "flag_on": 0.016198
+      },
+      "flag_off": {
+        "mean_ms": 68.9498,
+        "tflops": 1.495,
+        "io_gbps": 1.95,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 491.8
+      },
+      "flag_on": {
+        "mean_ms": 70.1356,
+        "tflops": 1.4697,
+        "io_gbps": 1.91,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 491.8
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 1.1858,
+      "delta_pct": 1.72
+    },
+    {
+      "family": "nemotron-mini-4b",
+      "dtype": "bf16",
+      "B": 4,
+      "S": 4096,
+      "H": 24,
+      "KVH": 8,
+      "d": 128,
+      "layers_per_model": 32,
+      "supported": true,
+      "correctness_max_abs_diff": {
+        "flag_off": 0.02038,
+        "flag_on": 0.02038
+      },
+      "flag_off": {
+        "mean_ms": 269.1053,
+        "tflops": 1.5322,
+        "io_gbps": 1.0,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 957.3
+      },
+      "flag_on": {
+        "mean_ms": 271.8179,
+        "tflops": 1.5169,
+        "io_gbps": 0.99,
+        "avg_watts": null,
+        "joules_per_call": null,
+        "peak_mem_mb": 957.3
+      },
+      "skipped_rescale_fraction_on": 0.0,
+      "delta_ms_on_minus_off": 2.7125,
+      "delta_pct": 1.01
+    }
+  ],
+  "nulls": []
+}

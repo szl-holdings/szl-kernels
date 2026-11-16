@@ -1,0 +1,20 @@
+BOOT6 2026-11-16T00:42:00Z
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+STEP pip_done
+uploaded /root/mesh/boot.log
+downloaded fa4_phase1_baselines.py 8885
+downloaded fa4_phase2_conditional_rescale.py 14855
+total 36
+drwxr-xr-x 2 root root  4096 Nov 16 00:42 .
+drwxr-xr-x 4 root root  4096 Nov 16 00:42 ..
+-rw-r--r-- 1 root root  8885 Nov 16 00:42 fa4_phase1_baselines.py
+-rw-r--r-- 1 root root 14855 Nov 16 00:42 fa4_phase2_conditional_rescale.py
+STEP scripts_downloaded
+uploaded /root/mesh/boot.log
+STEP phase1_rc=0
+uploaded /root/mesh/phase1.log
+uploaded /root/mesh/phase2.log
+No files have been modified since last commit. Skipping to prevent empty commit.
+uploaded /root/mesh/rc.txt
+No files have been modified since last commit. Skipping to prevent empty commit.
+uploaded /root/mesh/gpu.txt

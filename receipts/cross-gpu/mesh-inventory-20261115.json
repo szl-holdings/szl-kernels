@@ -1,0 +1,326 @@
+{
+  "kind": "szl.mesh/gpu-inventory-receipt",
+  "run": "mesh-inventory-20261115",
+  "ts": "2026-11-15T22:12:46.485073+00:00",
+  "local": {
+    "ok": true,
+    "host": "BETTERWITHAGE",
+    "gpus": "NVIDIA GeForce RTX 5050 Laptop GPU, 0 MiB, 8151 MiB, 610.47, 0 %",
+    "compute_apps": ""
+  },
+  "ssh": {
+    "szl-massed-vm2-20261025": {
+      "ok": false,
+      "error": "RuntimeError: ssh: connect to host 209.137.198.191 port 22: Connection timed out"
+    },
+    "szl-massed-vm1": {
+      "ok": true,
+      "probe": "0004-kci-sma6-prxmx10144\n 22:13:25 up 13 days,  1:57,  0 users,  load average: 0.20, 0.11, 0.10\n0, NVIDIA RTX A6000, 25838 MiB, 49140 MiB, 580.126.20, 0 %\n---APPS---\n/home/Ubuntu/bonsai-demo/bin/cuda/llama-server, 1530 MiB\n./bin/cuda/llama-server, 24260 MiB"
+    },
+    "szl-gate-1": {
+      "ok": true,
+      "probe": "0055-kci-sma6-prxmx10196\n 22:13:27 up 39 min,  1 user,  load average: 0.06, 0.04, 0.00\n0, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 595.99.02, 0 %\n---APPS---"
+    },
+    "szl-hatun-v7": {
+      "ok": true,
+      "probe": "0135-ict-prxmx50073\n 22:13:27 up 38 min,  2 users,  load average: 0.02, 0.02, 0.00\n0, NVIDIA RTX A6000, 9682 MiB, 49140 MiB, 595.99.02, 0 %\n---APPS---\n/opt/szl/llama/prism/llama-prism-b10777-e3de715/llama-server, 9672 MiB"
+    },
+    "szl-2xa6000": {
+      "ok": true,
+      "probe": "0135-ict-prxmx50125\n 22:13:28 up 23:56,  0 users,  load average: 0.06, 0.02, 0.00\n0, NVIDIA RTX A6000, 48152 MiB, 49140 MiB, 595.99.02, 0 %\n1, NVIDIA RTX A6000, 47899 MiB, 49140 MiB, 595.99.02, 0 %\n---APPS---\n/home/Ubuntu/project-maya/build/maya, 31356 MiB\n/home/Ubuntu/research/bonsai-secondary-20261115/bin/cuda/llama-server, 16696 MiB\n/home/Ubuntu/project-maya/build/maya, 47824 MiB"
+    },
+    "alloyscape-hq": {
+      "ok": false,
+      "error": "RuntimeError: steph@5.161.126.99: Permission denied (publickey,password)."
+    }
+  },
+  "salad": {
+    "ok": true,
+    "groups": [
+      {
+        "name": "alloyscape-bonsai-4090",
+        "status": "running",
+        "instances": "run=1 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "alloyscape-wave4-train",
+        "status": "running",
+        "instances": "run=1 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-a11oy-code-train",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-a11oy-code-train-v2",
+        "status": "running",
+        "instances": "run=1 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-bench-frontier-v4-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-brain-v35",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-brain-v35-v2",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=1 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-cross-lab-battery",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-cross-lab-battery-v2",
+        "status": "running",
+        "instances": "run=1 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-estate-battery-v1",
+        "status": "running",
+        "instances": "run=1 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-estate-battery-v2r2",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-frontier54-v2",
+        "status": "running",
+        "instances": "run=0 cre=1 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-hatun24-train",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-hatun24-train-v2",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=1 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-inference-v3",
+        "status": "running",
+        "instances": "run=1 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-mesh-bench-4090",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-mesh-bench-4090-v2",
+        "status": "running",
+        "instances": "run=0 cre=1 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-mesh-bench-5090",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-mesh-bench-5090-v2",
+        "status": "running",
+        "instances": "run=1 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-a11oy-mini-r1",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-anatomy-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-brain-navigator-r2-r1",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-chaski-5050-r1",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-chaski-r1",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "False"
+      },
+      {
+        "name": "szl-train-chaski-r2-r1",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-chaski-r4-r1",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-flagship54-v1",
+        "status": "running",
+        "instances": "run=1 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-formula-proving-ground-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-frontier-qwen-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-frontier-v4-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-frontier-v5-r2",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-kamachikuna-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-khipu-r2-r1",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-lean-invariants-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-lean-math-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-leanmath-r1",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-papers-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-prime-principle-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-puzzles-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-secondbrain-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-verticals-r1",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-train-willay-r1",
+        "status": "stopped",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-x402-frontier-v2",
+        "status": "running",
+        "instances": "run=0 cre=0 allo=0 fail=",
+        "worker": "True"
+      },
+      {
+        "name": "szl-x402-frontier-v3",
+        "status": "running",
+        "instances": "run=1 cre=0 allo=0 fail=",
+        "worker": "True"
+      }
+    ],
+    "count": 44,
+    "by_status": {
+      "running": 27,
+      "stopped": 17
+    },
+    "live_instances": [
+      "alloyscape-bonsai-4090",
+      "alloyscape-wave4-train",
+      "szl-a11oy-code-train-v2",
+      "szl-cross-lab-battery-v2",
+      "szl-estate-battery-v1",
+      "szl-inference-v3",
+      "szl-mesh-bench-5090-v2",
+      "szl-train-flagship54-v1",
+      "szl-x402-frontier-v3"
+    ]
+  },
+  "nulls": [
+    "ssh:szl-massed-vm2-20261025",
+    "ssh:alloyscape-hq"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "repo_name": "szl-kernels",
+    "last_audit_date": "2026-11-22",
+    "loop_level": 1
+  },
+  "estate_context": {
+    "purpose_domain": "Governed GPU kernel suite with UnifiedReceiptChain provenance, benchmark/publish workflows, and advisory governance for kernel and energy claims",
+    "baseline_commit": "1ccbc1d970797049a01769ea1590180719988773",
+    "leader_profiles": [
+      {
+        "name": "huggingface/kernels",
+        "url": "https://github.com/huggingface/kernels",
+        "checked_date": "2026-11-22"
+      },
+      {
+        "name": "NVIDIA/cutlass",
+        "url": "https://github.com/NVIDIA/cutlass",
+        "checked_date": "2026-11-22"
+      }
+    ]
+  },
+  "evidence_index": {
+    "publications": [
+      {
+        "id": "DOI:10.5281/zenodo.19944926",
+        "link": "https://doi.org/10.5281/zenodo.19944926",
+        "applicability": "Zenodo DOI declared in README front-matter tags and .zenodo.json; CITATION.cff declares 10.5281/zenodo.24239679, a different release identifier (pairing unreviewed at L1)"
+      }
+    ],
+    "gap_register": [
+      "Conjecture 1 remains open and is framed as a governance advisory, not a settled mathematical claim or externally validated result.",
+      "5090 receipt has 60 supported cells with measured timings/TFLOPs; only energy fields are null. Link reviewed meter evidence for those fields without discarding existing measurements.",
+      "Root pyproject.toml is tracked with setuptools backend; residue is unreviewed L1 pairing of README/.zenodo.json DOI 10.5281/zenodo.19944926 with CITATION.cff DOI 10.5281/zenodo.24239679.",
+      "Tracked tests/ is exercised by CI; residue is unmeasured L1 coverage breadth, not absent tests."
+    ],
+    "prioritized_changes": [
+      "Keep Conjecture 1 open: require proof or counterexample and explicit governance treatment before any stronger claim.",
+      "Link reviewed meter evidence to null 5090 energy fields; preserve measured timings/TFLOPs and README provenance for earlier all-null and re-measured runs.",
+      "Next loop: review publication-chain DOI pairing and test coverage breadth using tracked pyproject.toml and CI-exercised tests/."
+    ]
+  },
+  "execution_trace": {}
+}

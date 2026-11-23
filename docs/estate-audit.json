@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "repo_name": "szl-kernels",
+    "last_audit_date": "2026-11-22",
+    "loop_level": 1
+  },
+  "estate_context": {
+    "purpose_domain": "Governed GPU kernel suite with UnifiedReceiptChain provenance, benchmark/publish workflows, and advisory governance for kernel and energy claims",
+    "baseline_commit": "1ccbc1d970797049a01769ea1590180719988773",
+    "leader_profiles": [
+      {
+        "name": "huggingface/kernels",
+        "url": "https://github.com/huggingface/kernels",
+        "checked_date": "2026-11-22"
+      },
+      {
+        "name": "NVIDIA/cutlass",
+        "url": "https://github.com/NVIDIA/cutlass",
+        "checked_date": "2026-11-22"
+      }
+    ]
+  },
+  "evidence_index": {
+    "publications": [
+      {
+        "id": "DOI:10.5281/zenodo.19944926",
+        "link": "https://doi.org/10.5281/zenodo.19944926",
+        "applicability": "Zenodo DOI declared in the README front-matter tags for this kernel suite; anchors the citable release referenced by .zenodo.json and CITATION.cff"
+      }
+    ],
+    "gap_register": [
+      "README front-matter declares szl-governance verdict ADVISORY with lambda 'Conjecture 1 (open) \u2014 uniqueness unproven; advisory only', so the governance claim at baseline 1ccbc1d9 is explicitly advisory with an open conjecture",
+      "Head commit #81 'Cross-GPU FA4 battery receipts (A6000, Salad RTX 3090, 5090-null evidence)' records a null-evidence 5090 entry, and the README states energy readings are caller-supplied/None when not supplied and MEASURED claims require reviewed meter evidence, so the current receipt inventory contains incomplete evidence",
+      "The supplied top-level listing contains build.toml and build/ but no pyproject.toml, while workflows include publish-pypi.yml and verify-and-publish.yml, so the packaging metadata behind PyPI publication is not visible in this L1 inventory",
+      "The supplied top-level listing shows no tests/ directory even though base-python-ci.yml, chain-drift-guard.yml, and frontier-kernel-benchmark-contract.yml workflows are present, so test locations are not established by this L1 inventory"
+    ],
+    "prioritized_changes": [
+      "Gap 1: keep all governance output at ADVISORY and record explicit resolution criteria for Conjecture 1 (uniqueness) alongside PROVENANCE.md/KERNEL_HUB.md before any stronger verdict is asserted",
+      "Gap 2: complete the FA4 battery by replacing the 5090-null evidence entry with a reviewed receipt and attach reviewed meter evidence wherever MEASURED energy claims are made, consistent with the honest_blocked rule that failed checks stay failed",
+      "Gaps 3 and 4: in the next loop, enumerate the build backend configuration used by build.toml/publish-pypi.yml and the test paths exercised by base-python-ci.yml, since neither pyproject.toml nor a tests/ directory appears in the supplied top-level listing"
+    ]
+  },
+  "execution_trace": {}
+}

@@ -1,0 +1,15 @@
+{
+ "artifacts": [
+  ".gitattributes",
+  "README.md",
+  "RESURRECTION_RECEIPT.json",
+  "vectors.npz",
+  "vocab.json"
+ ],
+ "generated_utc": "2026-11-26T03:37:42Z",
+ "head": "e642110b080396daa588dbb568b55579fe83cecc",
+ "model": "SZLHOLDINGS/szl-kernels",
+ "renderer": "device stdlib fibonacci-axon v11",
+ "schema": "szl-holo-card/v1.1",
+ "sig_namespace": "file"
+}

@@ -1,0 +1,32 @@
+{
+ "schema": "szl.kernel-witness/v1",
+ "example_status": "SYNTHETIC_EXAMPLE_NOT_A_CLAIM",
+ "kernel": "szl-receipt-attn",
+ "operator_spec": {
+  "tile_shape": [
+   64,
+   64
+  ],
+  "dtype": "float16",
+  "tolerance": {
+   "max_abs_error": 1e-05
+  }
+ },
+ "backends": [
+  {
+   "backend": "torch-cuda",
+   "compile_mode": "eager",
+   "max_abs_error": 0.0,
+   "correctness_parity_pass": true,
+   "hardware_fingerprint": "EXAMPLE:rtx-a6000-torch2.14.1-cu126"
+  },
+  {
+   "backend": "torch-cpu",
+   "compile_mode": "eager",
+   "max_abs_error": 1e-09,
+   "correctness_parity_pass": true,
+   "hardware_fingerprint": "EXAMPLE:x86-cpu-torch2.14.1"
+  }
+ ],
+ "note": "Shows the one-kernel-two-backend receipt shape required by docs/PORTABILITY_REFERENCE.md. All values here are illustrative placeholders; real witnesses land in receipts/cross-gpu/<hardware-dir>/ only after measured runs."
+}

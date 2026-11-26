@@ -22,6 +22,15 @@ szl-governance:
 <p><a href="https://github.com/szl-holdings"><img src="https://raw.githubusercontent.com/szl-holdings/szl-brand/4309f6fce89179331b0b3ed8c99494e76c5be256/kit/logos/orbit-v2/suite/szl-icon-32.svg" alt="SZL Holdings — Orbit v2" width="32" height="32" /></a></p>
 
 # SZL Kernels · Governed Compute
+<!-- HOLO3D:v1 -->
+## SZL Holo-Stats 3D
+
+![SZL Holo-Stats 3D](assets/holo_stats_3d.svg)
+
+*Live hub metrics, isometric holo render, geometrically non-overlapping, 2026-11-26T03:37Z. Receipts: SZLHOLDINGS/wave-logs mesh/2026-11-26/ouroboros/holo3d-cards/*
+
+<p align="center"><img src="https://huggingface.co/SZLHOLDINGS/szl-kernels/resolve/main/holo/banner.svg" alt="SZL Holo Banner"></p>
+
 
 Explore the governed kernel suite and its receipted MiniEmbed word embeddings, with separate software and artifact evidence.
 

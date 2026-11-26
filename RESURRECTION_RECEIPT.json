@@ -1,0 +1,23 @@
+{
+ "claims": "NONE - binding target restored for the dry-run contract only; NOT a release publication; kernel suite publication remains hf-kernel-publish.yml on release",
+ "critical_uploads": {
+  "vectors.npz": "053d839490ea95ed03dd1059f68474ef77cfcf04b2e727b29da9bc617abe4020",
+  "vocab.json": "7862ebac9193d010606d89fb5aa6c046cbd638590d7a40c068c7bb60b3ed665e"
+ },
+ "no_stomp_probe": {
+  "kernel_named": [],
+  "model_exists_before": "ABSENT: RepositoryNotFoundError('404 Client Error. (Request ID: Root=1-6b07a411-6932d5b120aead9c5a8ca80e;62485b5a-77b2-4bef-b868-f6da5fb40534)\\n\\nRepository N",
+  "org_models": 70
+ },
+ "owner_tap_verbatim": "dont rotate shit just get it green and go go go go dc in",
+ "repo_id": "SZLHOLDINGS/szl-kernels",
+ "schema": "szl.resurrection-receipt/v1",
+ "source": "https://github.com/szl-holdings/szl-kernels @main byte-exact (vectors.npz via LFS media endpoint, sha-verified; vocab.json sha-verified; README.md source card)",
+ "stamp": "2026-11-26T03:14:47.250310+00:00",
+ "uploads_sha256": {
+  "README.md": "98c721da7012eebead51999365da12b69bf9c7556fe4da64a816f70fda3b20aa",
+  "vectors.npz": "053d839490ea95ed03dd1059f68474ef77cfcf04b2e727b29da9bc617abe4020",
+  "vocab.json": "7862ebac9193d010606d89fb5aa6c046cbd638590d7a40c068c7bb60b3ed665e"
+ },
+ "why": "CI source-binding dry run (anonymous HfApi; the workflow carries no token env) 401s since the original public repo vanished in the HF gone-repos incident; authenticated probe = 404 absent; minimal W28T9-class resurrection so the standing contract check can run green again"
+}
